@@ -167,7 +167,7 @@
 
 <div class="wrap">
 <header class="hero">
-  <div class="eyebrow"><span>s00 · project plan</span><span class="tag">draft · 2026-09-17</span><span class="tag acc">repo: nmp-dsci/value-invest-agent</span></div>
+  <div class="eyebrow"><span>s00 · project plan</span><span class="tag">rev 2 · 2026-09-17</span><span class="tag acc">repo: nmp-dsci/value-invest-agent</span></div>
   <h1>Can an agent learn to make the <em>calls</em> a value investor makes on YouTube?</h1>
   <p class="lede">Four years of <b>Value Investing with Sven Carlin, Ph.D.</b> (@Value-Investing) turned into a golden set of dated stock calls; an analyst agent that sees only the prices and financial statements available on the video date and tries to reproduce each call; and a validator that scores both the channel and the agent against what the stock actually did 6, 12 and 24 months later.</p>
   <div class="facts">
@@ -175,6 +175,8 @@
     <span><b>≈1,000</b> published in the 4-year window</span>
     <span><b>270k</b> subscribers</span>
     <span><b>9 / 40</b> recent titles contain an explicit ticker</span>
+    <span><b>40</b> base sample: 10 single-stock videos per year × 4</span>
+    <span><b>Claude Agent SDK</b> on subscription · DABStep-style agent</span>
     <span><b>transcript·lab</b> reused for ingestion + chunks</span>
   </div>
 </header>
@@ -243,7 +245,8 @@
       <tr><td>Easy ETF Index Funds Set And Forget Investing Strategy…</td><td><span class="tag bad">general / excluded</span></td><td>no</td><td>—</td></tr>
     </tbody>
   </table></div>
-  <p style="font-size:13.5px;color:var(--caption)">Sample of 40: ≈20 single-stock, ≈10 multi-stock, ≈10 macro/general. Full 40-title sample is in the scratchpad and will be committed as <span class="k">data/samples/titles_2026-09.json</span> so the classifier has a labelled seed.</p>
+  <div class="note good"><b>Decision (rev 2): single-stock videos only, 10 per year for 4 years = 40 videos as the base sample.</b> The point is a good sample <em>over time</em>, not volume: 10 per year gives every year the same weight in the scoreboard, keeps Supadata/agent spend tiny, and the number is a knob (<span class="k">vi sample --per-year 10</span>) that is raised later without changing anything downstream. Multi-stock videos stay classified but out of the sample.</div>
+  <p style="font-size:13.5px;color:var(--caption)">Sample of 40 titles: ≈20 single-stock, ≈10 multi-stock, ≈10 macro/general. Full 40-title sample is in the scratchpad and will be committed as <span class="k">data/samples/titles_2026-09.json</span> so the classifier has a labelled seed.</p>
 
   <h3>The funnel</h3>
   <figure>
@@ -252,12 +255,12 @@
     <path class="edge" d="M220 120 H258"/>
     <g id="fn-2"><rect class="box" x="260" y="60" width="200" height="120" rx="10"/><text class="ttl" x="360" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">≈1,000</text><text class="lbl" x="360" y="124" text-anchor="middle">published ≥ 2022-09-17</text><text class="sm" x="360" y="142" text-anchor="middle">metadata per video · createdAt</text><text class="sm" x="360" y="158" text-anchor="middle">≈1,050 calls, stop at first &lt; cutoff</text></g>
     <path class="edge" d="M460 120 H498"/>
-    <g id="fn-3"><rect class="box acc" x="500" y="60" width="200" height="120" rx="10"/><text class="ttl" x="600" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">≈750</text><text class="lbl" x="600" y="124" text-anchor="middle">stock-analysis videos</text><text class="sm" x="600" y="142" text-anchor="middle">≈500 single · ≈250 multi</text><text class="sm" x="600" y="158" text-anchor="middle">title classifier (LLM) + human spot-check</text></g>
+    <g id="fn-3"><rect class="box" x="500" y="60" width="200" height="120" rx="10"/><text class="ttl" x="600" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">≈500</text><text class="lbl" x="600" y="124" text-anchor="middle">single-stock videos</text><text class="sm" x="600" y="142" text-anchor="middle">title classifier (Agent SDK) + spot-check</text><text class="sm" x="600" y="158" text-anchor="middle">multi/macro classified, not sampled</text></g>
     <path class="edge" d="M700 120 H738"/>
-    <g id="fn-4"><rect class="box good" x="740" y="60" width="240" height="120" rx="10"/><text class="ttl" x="860" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">≈900</text><text class="lbl" x="860" y="124" text-anchor="middle">golden calls (ticker, T0, stance)</text><text class="sm" x="860" y="142" text-anchor="middle">1 per single-stock video</text><text class="sm" x="860" y="158" text-anchor="middle">n per multi-stock video, from transcript</text></g>
-    <text class="sm" x="500" y="215" text-anchor="middle">Estimates extrapolated from the 40-title sample (50% / 25% / 25%). The catalog step (§4·S1) replaces them with real counts before any transcript is fetched.</text>
+    <g id="fn-4"><rect class="box good" x="740" y="60" width="240" height="120" rx="10"/><text class="ttl" x="860" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">40</text><text class="lbl" x="860" y="124" text-anchor="middle">base sample · 10 per year × 4</text><text class="sm" x="860" y="142" text-anchor="middle">seeded, spread across quarters</text><text class="sm" x="860" y="158" text-anchor="middle">1 golden call each · --per-year raises it</text></g>
+    <text class="sm" x="500" y="215" text-anchor="middle">Stage counts are estimates from the 40-title sample (50 % single); S1 replaces them with real counts. The 40-video base sample is a decision, not an estimate.</text>
   </svg>
-  <figcaption>Supadata budget: ≈1,050 metadata calls to date the list, then ≈750 transcript fetches. Both are cached on disk by transcript·lab's discovery client so a re-run costs nothing.</figcaption>
+  <figcaption>Supadata budget: ≈1,050 metadata calls to date the whole list (needed to stratify by year), then only <b>40 transcript fetches</b>. Both are cached on disk by transcript·lab's discovery client so a re-run costs nothing. Expanding the sample later costs one transcript fetch per added video.</figcaption>
   </figure>
 </section>
 
@@ -271,7 +274,7 @@
     <g id="ext-supadata"><rect class="box" x="20" y="30" width="150" height="54" rx="9"/><text class="ttl" x="95" y="53" text-anchor="middle">Supadata API</text><text class="sm" x="95" y="71" text-anchor="middle">channel · metadata · transcript</text></g>
     <g id="ext-yahoo"><rect class="box" x="20" y="300" width="150" height="54" rx="9"/><text class="ttl" x="95" y="323" text-anchor="middle">Yahoo Finance</text><text class="sm" x="95" y="341" text-anchor="middle">yfinance · prices · statements</text></g>
     <g id="ext-edgar"><rect class="box" x="20" y="370" width="150" height="54" rx="9"/><text class="ttl" x="95" y="393" text-anchor="middle">SEC EDGAR (opt.)</text><text class="sm" x="95" y="411" text-anchor="middle">XBRL companyfacts · US only</text></g>
-    <g id="ext-llm"><rect class="box" x="20" y="470" width="150" height="54" rx="9"/><text class="ttl" x="95" y="493" text-anchor="middle">LLM provider</text><text class="sm" x="95" y="511" text-anchor="middle">Claude / DeepSeek via one chokepoint</text></g>
+    <g id="ext-llm"><rect class="box acc" x="20" y="470" width="150" height="54" rx="9"/><text class="ttl" x="95" y="493" text-anchor="middle">Claude Agent SDK</text><text class="sm" x="95" y="511" text-anchor="middle">subscription billing · llm.py guard</text></g>
 
     <!-- transcript-lab region -->
     <rect class="region" x="210" y="14" width="330" height="250" rx="12"/>
@@ -292,11 +295,11 @@
     <g id="vi-golden"><rect class="box good" x="786" y="52" width="180" height="48" rx="8"/><text class="lbl" x="876" y="72" text-anchor="middle">golden extraction</text><text class="sm" x="876" y="88" text-anchor="middle">transcript → structured call</text></g>
     <g id="vi-market"><rect class="box" x="586" y="122" width="180" height="48" rx="8"/><text class="lbl" x="676" y="142" text-anchor="middle">market data loader</text><text class="sm" x="676" y="158" text-anchor="middle">prices · statements · benchmarks</text></g>
     <g id="vi-pit"><rect class="box warn" x="786" y="122" width="180" height="48" rx="8"/><text class="lbl" x="876" y="142" text-anchor="middle">as_of(T0) view</text><text class="sm" x="876" y="158" text-anchor="middle">the point-in-time guard</text></g>
-    <g id="vi-agent"><rect class="box acc" x="586" y="192" width="180" height="48" rx="8"/><text class="lbl" x="676" y="212" text-anchor="middle">analyst agent</text><text class="sm" x="676" y="228" text-anchor="middle">tools over as_of view → call</text></g>
+    <g id="vi-agent"><rect class="box acc" x="586" y="192" width="180" height="48" rx="8"/><text class="lbl" x="676" y="212" text-anchor="middle">analyst agent (Agent SDK)</text><text class="sm" x="676" y="228" text-anchor="middle">python sandbox + helper.py → call</text></g>
     <g id="vi-score"><rect class="box" x="786" y="192" width="180" height="48" rx="8"/><text class="lbl" x="876" y="212" text-anchor="middle">scorer + judge</text><text class="sm" x="876" y="228" text-anchor="middle">agent call vs golden call</text></g>
     <g id="vi-valid"><rect class="box good" x="586" y="262" width="380" height="48" rx="8"/><text class="lbl" x="776" y="282" text-anchor="middle">forward-return validator  (6 / 12 / 24 m vs benchmark)</text><text class="sm" x="776" y="298" text-anchor="middle">verdict for the channel's call and for the agent's call</text></g>
     <g id="vi-duck"><rect class="box acc" x="586" y="334" width="380" height="76" rx="8"/><text class="lbl" x="776" y="356" text-anchor="middle" style="font-weight:600">DuckDB  data/value_invest.duckdb · schema vi</text><text class="sm" x="776" y="374" text-anchor="middle">videos · calls · prices · statements · agent_runs · predictions · validations</text><text class="sm" x="776" y="392" text-anchor="middle">references transcript·lab by video_id / chunk id · rebuildable from caches</text></g>
-    <g id="vi-loop"><rect class="box" x="586" y="432" width="180" height="48" rx="8"/><text class="lbl" x="676" y="452" text-anchor="middle">improvement loop</text><text class="sm" x="676" y="468" text-anchor="middle">prompt versions · gate · MLflow</text></g>
+    <g id="vi-loop"><rect class="box" x="586" y="432" width="180" height="48" rx="8"/><text class="lbl" x="676" y="452" text-anchor="middle">improvement loop</text><text class="sm" x="676" y="468" text-anchor="middle">agents/vN/{system.md,helper.py} · gate</text></g>
     <g id="vi-app"><rect class="box" x="786" y="432" width="180" height="48" rx="8"/><text class="lbl" x="876" y="452" text-anchor="middle">app  FastAPI + React</text><text class="sm" x="876" y="468" text-anchor="middle">walk every video → call → verdict</text></g>
     <text class="sm" x="776" y="520" text-anchor="middle">CLI: uv run vi &lt;catalog|ingest|extract|market|run-agent|validate|serve&gt;</text>
 
@@ -322,8 +325,8 @@
 
   <div class="cards">
     <div class="card"><h4><span class="num">reuse</span> transcript·lab</h4><p>Discovery + cache, Supadata fetcher with polling and retries, chunking, embeddings, Chroma stores, bulk-index CLI, corpus API, RAG retrieval for "what did he say about X before?" few-shot context.</p><ul><li><span class="k">src/transcripts/discovery.py</span></li><li><span class="k">src/rag/storage.py</span> RawTranscriptStore / TranscriptChunkStore</li><li><span class="k">src/cli.py bulk-index channel</span></li></ul></div>
-    <div class="card"><h4><span class="num">reuse</span> ConvFinQA-agent patterns</h4><p>The single LLM chokepoint (<span class="k">llm.py</span>: demo gate, retry/timeout, no model at import), Pydantic AI per-stage agents with structured outputs, MLflow tracking + a champion/challenger gate, a keyless demo mode.</p></div>
-    <div class="card"><h4><span class="num">reuse</span> DABStep / tau2 loop</h4><p>The scored, self-improving prompt loop: a teacher diagnoses first-wrong cases and proposes one prompt version; a gate promotes only on a significant, net-positive delta. Same shape for "make the agent match the golden calls".</p></div>
+    <div class="card rec"><h4><span class="num">reuse</span> Claude Agent SDK on subscription <span class="tag acc">rev 2</span></h4><p>Every model call — classifier, extractor, analyst agent, optimiser, judge — runs on the Claude Agent SDK billed to the subscription, the way ConvFinQA's <span class="k">evalloop/sdk.py</span> and DABStep's <span class="k">agent/llm.py</span> do: <span class="k">BILLING=subscription</span>, <span class="k">CLAUDE_CODE_OAUTH_TOKEN</span>, the guard blanks <span class="k">ANTHROPIC_API_KEY</span> and refuses if both are set. <span class="k">llm.py</span> is still the single chokepoint (demo gate, effort, model ids); nothing else constructs a <span class="k">ClaudeSDKClient</span>. No Pydantic AI, no DeepSeek.</p></div>
+    <div class="card rec"><h4><span class="num">reuse</span> DABStep agent shape <span class="tag acc">rev 2</span></h4><p>The analyst agent is set up exactly like DABStep's: <b>one stateful Python tool</b> (<span class="k">execute_python</span>, an in-process SDK MCP server) whose namespace preloads <span class="k">pd</span> and <span class="k">helper</span>; a version folder <span class="k">agents/vN/</span> with <span class="k">system.md</span>, <span class="k">helper.py</span> and a frozen <span class="k">agent.yaml</span>. The optimiser may edit only <span class="k">system.md</span> and <span class="k">helper.py</span> — the Python functions the agent uses to pull and work the data — and a McNemar gate promotes.</p></div>
     <div class="card"><h4><span class="num">new</span> finance layer</h4><p>Title classifier + ticker resolution, golden extraction schema, yfinance/EDGAR loaders, the <span class="k">as_of</span> point-in-time view, forward-return validator, DuckDB schema, and the walkthrough app.</p></div>
   </div>
 </section>
@@ -413,11 +416,11 @@ CREATE VIEW vi.as_of AS SELECT * FROM vi.statements WHERE filed_at &lt;= current
     <path class="edge" d="M845 75 H860"/>
     <g id="st-7"><rect class="box" x="862" y="40" width="125" height="70" rx="9"/><text class="ttl" x="924" y="64" text-anchor="middle">S7 app</text><text class="sm" x="924" y="82" text-anchor="middle">walk the data</text><text class="sm" x="924" y="97" text-anchor="middle">FastAPI + React</text></g>
     <text class="sm" x="72" y="150" text-anchor="middle">Supadata ×1,050</text>
-    <text class="sm" x="214" y="150" text-anchor="middle">LLM ×1,000 (cheap)</text>
-    <text class="sm" x="356" y="150" text-anchor="middle">Supadata ×750</text>
-    <text class="sm" x="498" y="150" text-anchor="middle">LLM ×750 (long ctx)</text>
-    <text class="sm" x="640" y="150" text-anchor="middle">yfinance ×~400 tickers</text>
-    <text class="sm" x="782" y="150" text-anchor="middle">LLM ×900 per run</text>
+    <text class="sm" x="214" y="150" text-anchor="middle">Agent SDK ×1,000 (cheap)</text>
+    <text class="sm" x="356" y="150" text-anchor="middle">Supadata ×40</text>
+    <text class="sm" x="498" y="150" text-anchor="middle">Agent SDK ×40 (long ctx)</text>
+    <text class="sm" x="640" y="150" text-anchor="middle">yfinance ×≤40 tickers</text>
+    <text class="sm" x="782" y="150" text-anchor="middle">Agent SDK ×40 per run</text>
     <text class="sm" x="924" y="150" text-anchor="middle">reads DuckDB + corpus API</text>
   </svg>
   </figure>
@@ -428,22 +431,22 @@ CREATE VIEW vi.as_of AS SELECT * FROM vi.statements WHERE filed_at &lt;= current
       <p>Pull all ids, then metadata newest→oldest until <span class="k">createdAt &lt; 2022-09-17</span>. Uses transcript·lab's <span class="k">SupadataDiscoveryClient</span> (imported as a path dependency, or simply its on-disk cache format) so the cache is shared.</p>
       <pre>uv run vi catalog --channel @Value-Investing --since 2022-09-17
 <span class="c">→ vi.videos: 1,0xx rows · cache .vi/discovery_cache/</span></pre>
-      <h3>S2 · classify titles</h3>
-      <p>One structured LLM call per title (+ description): <span class="k">kind</span>, <span class="k">tickers[]</span> with exchange, <span class="k">confidence</span>. The 40 hand-labelled titles are the eval; target ≥ 95% agreement on <span class="k">kind</span> before running the batch. Low-confidence rows go to a review list in the app.</p>
+      <h3>S2 · classify titles, then sample</h3>
+      <p>One structured Agent SDK call per title (+ description): <span class="k">kind</span>, <span class="k">tickers[]</span> with exchange, <span class="k">confidence</span>. The 40 hand-labelled titles are the eval; target ≥ 95% agreement on <span class="k">kind</span> before running the batch. Then <span class="k">vi sample --per-year 10 --seed 42</span> picks 10 <span class="k">single</span> videos per year, spread across quarters, and sets <span class="k">vi.videos.in_sample</span>. Raising <span class="k">--per-year</span> later only adds rows; existing picks are stable under the seed.</p>
       <h3>S3 · ingest (in transcript·lab)</h3>
-      <p>Only <span class="k">single</span> and <span class="k">multi</span> videos are fetched — roughly 750 transcripts instead of 2,072. Two ways to trigger it; both leave the corpus browsable in the workbench:</p>
+      <p>Only sampled videos are fetched — 40 transcripts, not 2,072. Two ways to trigger it; both leave the corpus browsable in the workbench:</p>
       <pre><span class="c"># a) one-shot from the transcript-rag-agent checkout</span>
 uv run python -m src.cli bulk-index channel --channel @Value-Investing \
    --since 2022-09-17 --label value-investing
 <span class="c"># b) per-video, driven by vi so only classified videos are fetched</span>
-uv run vi ingest --kinds single,multi   <span class="c"># POST /api/index/queue per url</span></pre>
-      <div class="note warn">Option a) fetches macro videos too (≈250 wasted Supadata calls) but needs no new code. Option b) is the plan; a) is the fallback if the queue API is awkward to drive.</div>
+uv run vi ingest --sample               <span class="c"># POST /api/index/queue per sampled url</span></pre>
+      <div class="note warn">Option a) fetches everything in the window (≈1,000 Supadata calls, 25× the sample) but needs no new code. Option b) is the plan; a) is the fallback only if the queue API is awkward to drive.</div>
     </div>
     <div>
       <h3>S4 · extract golden calls</h3>
       <p>Full raw transcript (from <span class="k">raw_transcripts</span>, with timestamps) → one structured <span class="k">GoldenCall</span> per ticker discussed. Cached by <span class="k">(video_id, transcript hash, extractor_version)</span>. See §5.</p>
       <h3>S5 · market data</h3>
-      <p>For every distinct ticker: daily OHLCV back to 2018 (so the agent has 4 years of history at the earliest T0) and quarterly + annual statements. Benchmarks: SPY, plus a local index per exchange. Parquet cache under <span class="k">.vi/market/</span>, then loaded into DuckDB. See §6.</p>
+      <p>For every sampled ticker (≤ 40): daily OHLCV back to 2018 (so the agent has 4 years of history at the earliest T0) and quarterly + annual statements. Benchmarks: SPY, plus a local index per exchange. Parquet cache under <span class="k">.vi/market/</span>, then loaded into DuckDB. See §6.</p>
       <h3>S6 · agent + validate</h3>
       <p><span class="k">vi run-agent --split test --prompt v1</span> writes one <span class="k">vi.predictions</span> row per call; <span class="k">vi validate</span> writes <span class="k">vi.validations</span> for every call whose horizon has elapsed. Both are pure functions of DuckDB state, so a run is reproducible from the committed prompt version + the cached market data.</p>
       <h3>Point-in-time timeline</h3>
@@ -490,14 +493,14 @@ class GoldenCall(BaseModel):
     <div>
       <h3>How it is built and kept honest</h3>
       <ul>
-        <li><b>Extractor</b>: one long-context call per transcript with the schema above as a tool. Multi-stock videos emit several calls; passing mentions are kept but flagged <span class="k">is_primary=false</span> and excluded from scoring by default.</li>
+        <li><b>Extractor</b>: one Agent SDK session per transcript (ConvFinQA's <span class="k">run_structured</span> pattern) emitting the schema above. Each sampled video is single-stock, so it yields one primary call; other names mentioned in passing are kept with <span class="k">is_primary=false</span> and excluded from scoring.</li>
         <li><b>Cross-check</b>: <span class="k">price_mentioned</span> vs actual close at T0 (±10 %) catches wrong ticker resolution and wrong dates for free.</li>
-        <li><b>Curation</b>: same discipline as transcript·lab's <span class="k">docs/golden-set-curation.md</span> — a hand-reviewed core (target 100 calls, stratified by stance and year) with <span class="k">curation_status=reviewed</span>; the rest stay <span class="k">auto</span> and are reported separately.</li>
+        <li><b>Curation</b>: same discipline as transcript·lab's <span class="k">docs/golden-set-curation.md</span> — at 40 calls <em>every</em> one is hand-reviewed (<span class="k">curation_status=reviewed</span>); when the sample grows, new rows arrive as <span class="k">auto</span> and are reported separately until reviewed.</li>
         <li><b>Inter-extractor agreement</b>: run two extractor versions/models on the reviewed core and report κ on stance. If κ &lt; 0.7 the stance taxonomy is wrong, not the models.</li>
         <li><b>Fact-check</b>: <span class="k">verifiable_claims</span> ("dividend yield is 7 %") are checked against <span class="k">vi.as_of</span> — a second, cheap accuracy signal about the channel itself.</li>
       </ul>
       <h3>Splits</h3>
-      <p>By <em>video date</em>, not random: train ≤ 2024-06, test 2024-07 → 2025-06, holdout ≥ 2025-07 (sealed until the end). Time-based splits stop the prompt loop from learning 2025 market context and applying it to 2023 videos.</p>
+      <p>By <em>video date</em>, not random: train = years 1–2 (2022-09 → 2024-08, 20 calls), test = year 3 (10 calls), holdout = year 4 (10 calls, sealed until the end). Time-based splits stop the optimiser from learning 2025 market context and applying it to 2023 videos. With n this small the gate is a McNemar test on paired calls, as in DABStep; the app shows the paired flips, not just the rate.</p>
     </div>
   </div>
 </section>
@@ -529,16 +532,18 @@ class GoldenCall(BaseModel):
   <div class="section-head"><span class="num">07</span><h2>The analyst agent</h2></div>
   <div class="two">
     <div>
-      <p>Input is a ticker and a T0. The agent gets <b>tools, not a data dump</b>, so its trace shows what it looked at — which is what the app walks through and what the teacher in the improvement loop diagnoses.</p>
+      <p>Input is a ticker and a T0. The agent is a <b>Claude Agent SDK session with one tool</b> — a stateful Python sandbox — set up exactly like DABStep's. Its trace is the Python it ran, which is what the app walks through and what the optimiser diagnoses.</p>
       <dl class="kv">
-        <dt>tools</dt><dd><span class="k">price_history(ticker, window)</span> · <span class="k">statement(kind, freq, n)</span> · <span class="k">ratios()</span> (P/E, EV/EBITDA, FCF yield, net debt) · <span class="k">peer_snapshot()</span> · <span class="k">prior_calls(ticker)</span> (his own earlier calls on the same name, via transcript·lab RAG — opt-in, ablated)</dd>
-        <dt>guard</dt><dd>every tool reads through <span class="k">vi.as_of</span> with <span class="k">t0</span> bound once per run; a test asserts no row with <span class="k">date &gt; t0</span> can leak</dd>
-        <dt>output</dt><dd><span class="k">AnalystReport</span>: same fields as <span class="k">GoldenCall</span> minus evidence, plus <span class="k">confidence</span> and a markdown report</dd>
-        <dt>runtime</dt><dd>Pydantic AI agent through a single <span class="k">llm.py</span> chokepoint (ConvFinQA pattern); DeepSeek for volume, Claude for the reviewed core; demo mode refuses model calls</dd>
+        <dt>tool</dt><dd><span class="k">execute_python</span>: in-process SDK MCP server, one namespace per call, preloaded with <span class="k">pd</span> and <span class="k">helper</span> (the version's <span class="k">helper.py</span>)</dd>
+        <dt>helper.py</dt><dd>the Python functions the agent uses to pull and work the data: <span class="k">price_history(window)</span> · <span class="k">statement(kind, freq, n)</span> · <span class="k">ratios()</span> · <span class="k">peer_snapshot()</span> · <span class="k">prior_calls()</span> (his earlier calls on the name via transcript·lab RAG, opt-in). v0 is thin loaders; later versions are distilled from failures by the optimiser</dd>
+        <dt>guard</dt><dd>the sandbox opens DuckDB read-only with <span class="k">vi.t0</span> bound, so every helper — and any raw SQL the agent writes — reads through <span class="k">vi.as_of</span>; a test asserts no row with <span class="k">date &gt; t0</span> can leak</dd>
+        <dt>version</dt><dd><span class="k">agents/vN/</span>: <span class="k">system.md</span> · <span class="k">helper.py</span> · <span class="k">agent.yaml</span> (model, effort, turn budget — frozen so a comparison is between prompts and helpers, not budgets)</dd>
+        <dt>output</dt><dd><span class="k">AnalystReport</span>: same fields as <span class="k">GoldenCall</span> minus evidence, plus <span class="k">confidence</span> and a markdown report; the final turn must return it as JSON</dd>
+        <dt>runtime</dt><dd>Claude Agent SDK on subscription through <span class="k">llm.py</span> (billing guard, demo gate, effort); model under test <span class="k">claude-sonnet-5</span>, optimiser <span class="k">claude-opus-5</span>; demo mode cannot call a model</dd>
       </dl>
       <h3>How it "learns"</h3>
       <div class="cards" style="grid-template-columns:1fr">
-        <div class="card rec"><h4>a · Prompt-optimisation loop <span class="tag acc">first</span></h4><p>DABStep/ConvFinQA loop: run train split → teacher reads first-wrong cases → proposes one prompt version → gate on test split (net-positive, McNemar-significant). Cheap, auditable, versioned in <span class="k">agents/vN/system.md</span>.</p></div>
+        <div class="card rec"><h4>a · DABStep error loop <span class="tag acc">decided</span></h4><p>Run train split → one optimiser session (Opus) reads every wrong trace and the ledger → writes <span class="k">agents/v(N+1)/{system.md, helper.py}</span> → challenger run on test → McNemar gate on paired calls → ledger entry. Updates are either the system prompt or Python functions the sandbox exposes; nothing else changes between versions.</p></div>
         <div class="card"><h4>b · Retrieval few-shot</h4><p>Retrieve the k most similar <em>earlier</em> golden calls (by sector, stance, ratios) as worked examples. Strictly earlier than T0. Measured as an ablation of (a).</p></div>
         <div class="card"><h4>c · Fine-tune</h4><p>900 examples is thin; only if (a)+(b) plateau, and then a small open model on the reviewed core. Explicit non-goal for the first milestone.</p></div>
       </div>
@@ -627,7 +632,7 @@ verdict    = correct     if (stance ∈ {buy}  and excess &gt; +5 pp)
             <p><span class="chip bad">channel: wrong @6m</span> <span class="chip good">agent: correct @6m</span> <span class="chip">excess vs SPY −31 pp</span></p></div>
         </div>
         <div class="cols" style="margin-top:10px">
-          <div class="pane"><div class="ph">agent tool trace</div><p>price_history(NKE, 3y) → statement(income, q, 8) → ratios() → peer_snapshot(ADS.DE, PUM.DE, LULU) → prior_calls(NKE) ×2</p></div>
+          <div class="pane"><div class="ph">agent sandbox trace · v3 · 6 turns</div><p>helper.price_history("3y") → helper.statement("income","q",8) → helper.ratios() → helper.peer_snapshot(["ADS.DE","PUM.DE","LULU"]) → helper.prior_calls() → return AnalystReport</p></div>
           <div class="pane"><div class="ph">transcript (synced to evidence)</div><p>…the conclusion first: at 75 I think the risk-reward is finally on the buyer's side, but this is a 3-to-5-year story, not a trade…</p></div>
         </div>
       </div>
@@ -648,12 +653,12 @@ verdict    = correct     if (stance ∈ {buy}  and excess &gt; +5 pp)
   <div class="section-head"><span class="num">10</span><h2>Delivery plan</h2></div>
   <p>Each slice ends with something reviewable in the app or a committed artifact. S0 is done as part of this page.</p>
   <div class="slice"><div class="v">S0</div><div><h4>Repo + scaffold <span class="tag good">done today</span></h4><p>Folder renamed to <span class="k">value-invest-agent</span>, public repo <span class="k">nmp-dsci/value-invest-agent</span>, <span class="k">pyproject</span> (uv, ruff, mypy, pytest), <span class="k">README</span> / <span class="k">CLAUDE.md</span> / <span class="k">AGENTS.md</span>, <span class="k">ai_specs/s00_project_plan.md</span> mirroring this page, <span class="k">.env.example</span>, MIT licence, this artifact under <span class="k">.lavish/</span>.</p></div></div>
-  <div class="slice"><div class="v">S1</div><div><h4>Catalog + classifier</h4><p><span class="k">vi catalog</span>, <span class="k">vi classify</span>, DuckDB init, the 40-title seed as the classifier eval. Output: real funnel counts replacing the estimates in §1.</p><div class="ship">ship: vi.videos + vi.title_labels · classifier ≥ 95 % on seed · Supadata spend report</div></div></div>
-  <div class="slice"><div class="v">S2</div><div><h4>Ingest via transcript·lab</h4><p>Drive <span class="k">/api/index/queue</span> (or bulk-index) for classified videos; verify the corpus in the workbench; write <span class="k">transcript_status</span> back.</p><div class="ship">ship: ≈750 transcripts in Chroma, channel-scoped · corpus browsable in transcript·lab</div></div></div>
-  <div class="slice"><div class="v">S3</div><div><h4>Golden extraction + curation core</h4><p>Extractor with cache, price-mention cross-check, 100-call reviewed core, κ report, time-based splits.</p><div class="ship">ship: vi.calls · docs/golden-set.md · κ ≥ 0.7 on stance</div></div></div>
+  <div class="slice"><div class="v">S1</div><div><h4>Catalog + classifier + sample</h4><p><span class="k">llm.py</span> (Agent SDK, subscription guard), <span class="k">vi catalog</span>, <span class="k">vi classify</span>, <span class="k">vi sample --per-year 10</span>, DuckDB init, the 40-title seed as the classifier eval. Output: real funnel counts and the 40 sampled videos listed in the app.</p><div class="ship">ship: vi.videos (+in_sample) + vi.title_labels · classifier ≥ 95 % on seed · Supadata spend report</div></div></div>
+  <div class="slice"><div class="v">S2</div><div><h4>Ingest via transcript·lab</h4><p>Drive <span class="k">/api/index/queue</span> for the 40 sampled videos; verify the corpus in the workbench; write <span class="k">transcript_status</span> back.</p><div class="ship">ship: 40 transcripts in Chroma, channel-scoped · corpus browsable in transcript·lab</div></div></div>
+  <div class="slice"><div class="v">S3</div><div><h4>Golden extraction + full review</h4><p>Agent SDK extractor with cache, price-mention cross-check, all 40 calls hand-reviewed, κ report, time-based splits (20 / 10 / 10).</p><div class="ship">ship: vi.calls · docs/golden-set.md · κ ≥ 0.7 on stance</div></div></div>
   <div class="slice"><div class="v">S4</div><div><h4>Market data + as-of view</h4><p>yfinance loader → parquet → DuckDB; EDGAR companyfacts for US names; <span class="k">vi.as_of</span> with a leakage test; benchmark mapping per exchange.</p><div class="ship">ship: coverage report per ticker (prices ✓, fundamentals depth) · leakage test green</div></div></div>
   <div class="slice"><div class="v">S5</div><div><h4>Validator + scoreboard</h4><p>Forward returns, verdict rules, IV hit rate, fact-check of verifiable claims. First real answer to "was the channel right?"</p><div class="ship">ship: vi.validations · scoreboard page · per-year/region breakdown</div></div></div>
-  <div class="slice"><div class="v">S6</div><div><h4>Analyst agent v1 + baselines</h4><p>Tool agent through <span class="k">llm.py</span>, three baselines, scoring + judge, MLflow tracking. Then the prompt loop (teacher + gate) as S6b.</p><div class="ship">ship: agent beats ratio rule and majority on test · leakage floor reported</div></div></div>
+  <div class="slice"><div class="v">S6</div><div><h4>Analyst agent v0 + baselines, then the loop</h4><p><span class="k">agents/v0/</span> (thin helper, plain system.md), the Python-sandbox MCP tool, three baselines, scoring + judge, MLflow tracking. S6b: the DABStep error loop — optimiser session, challenger run, McNemar gate, ledger — producing v1, v2…</p><div class="ship">ship: agent beats ratio rule and majority on test · leakage floor reported · one gated promotion</div></div></div>
   <div class="slice"><div class="v">S7</div><div><h4>App + demo deploy</h4><p>React walkthrough over DuckDB + corpus API; demo mode with a committed snapshot; CI (ruff, mypy, pytest, frontend, eval gate) and the App Runner deploy from the siblings.</p><div class="ship">ship: public read-only demo · README results table</div></div></div>
 </section>
 
@@ -664,7 +669,8 @@ verdict    = correct     if (stance ∈ {buy}  and excess &gt; +5 pp)
     <div class="card"><h4><span class="tag bad">high</span> Model leakage of future knowledge</h4><p>Controlled by the no-tools baseline, date splits and the sealed holdout; cannot be eliminated. Report it, don't hide it.</p></div>
     <div class="card"><h4><span class="tag bad">high</span> Fundamentals depth for 2022–24 videos</h4><p>yfinance alone leaves the agent blind for older US videos and all non-US ones. EDGAR fixes US; non-US stays shallow unless paid data is added.</p></div>
     <div class="card"><h4><span class="tag warn">med</span> Stance is hedged, not binary</h4><p>κ between extractors on the reviewed core decides whether the taxonomy holds. A 3-way collapse is the fallback headline metric.</p></div>
-    <div class="card"><h4><span class="tag warn">med</span> Supadata budget</h4><p>≈1,050 metadata + ≈750 transcript calls. All cached; the catalog stage reports spend before ingest starts.</p></div>
+    <div class="card"><h4><span class="tag">low</span> Supadata budget</h4><p>≈1,050 metadata + 40 transcript calls. All cached; the catalog stage reports spend before ingest starts.</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Small n</h4><p>40 calls → 10 per split-year; the 24 m verdict exists for ≈20 of them. Every number carries its n; the gate is paired (McNemar); the sample size is a knob to raise once the pipeline runs end to end.</p></div>
     <div class="card"><h4><span class="tag warn">med</span> Two stores drift</h4><p><span class="k">vi.videos</span> is always rebuilt from transcript·lab's corpus API; a CI check compares counts.</p></div>
     <div class="card"><h4><span class="tag">low</span> Ticker resolution errors</h4><p>Caught by the price-mention cross-check and the review queue.</p></div>
   </div>
@@ -685,22 +691,8 @@ verdict    = correct     if (stance ∈ {buy}  and excess &gt; +5 pp)
     </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
   </form>
 
-  <form class="decision" data-lavish-question="scope" onsubmit="event.preventDefault(); const f=new FormData(this); const c=f.get('scope'); const note=f.get('note'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Video scope decision: '+c+(note?'. Note: '+note:'')+'. Update the funnel and S1/S2.', {tag:'choice', text:'Scope: '+c, element:this, data:{question:'scope', answer:c, note}});">
-    <fieldset><legend>D3 · Which videos go in the golden set</legend>
-      <label><input type="radio" name="scope" value="single-stock AND multi-stock videos (one call per ticker discussed), last 4 years" checked> <span>Single- and multi-stock videos, last 4 years <span class="why">Recommended. ≈750 transcripts, ≈900 calls.</span></span></label>
-      <label><input type="radio" name="scope" value="single-stock videos only, last 4 years"> <span>Single-stock only <span class="why">Cleaner labels, ≈500 calls, half the Supadata spend.</span></span></label>
-      <label><input type="radio" name="scope" value="entire channel history (all 2,072 videos), no date cut"> <span>Whole channel, no date cut <span class="why">More 24 m verdicts; ~2× cost; older videos have weaker fundamentals coverage.</span></span></label>
-      <textarea name="note" rows="2" placeholder="Anything to add — e.g. a Supadata credit ceiling, or a start date other than 2022-09-17"></textarea>
-    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
-  </form>
-
-  <form class="decision" data-lavish-question="learning" onsubmit="event.preventDefault(); const c=new FormData(this).get('learn'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Agent learning strategy decision: '+c+'. Update §7 and S6.', {tag:'choice', text:'Learning: '+c, element:this, data:{question:'learning', answer:c}});">
-    <fieldset><legend>D4 · How the agent learns from the golden set</legend>
-      <label><input type="radio" name="learn" value="prompt-optimisation loop first (teacher + gate), retrieval few-shot as an ablation, no fine-tune (recommended)" checked> <span>Prompt loop first, few-shot as ablation <span class="why">Recommended. Reuses the DABStep/ConvFinQA loop; every version gated.</span></span></label>
-      <label><input type="radio" name="learn" value="retrieval few-shot from earlier golden calls as the primary mechanism"> <span>Retrieval few-shot primary <span class="why">Leans on transcript·lab RAG; harder to attribute improvements.</span></span></label>
-      <label><input type="radio" name="learn" value="plan a fine-tune of a small open model on the reviewed core from the start"> <span>Fine-tune from the start <span class="why">900 examples is thin; expensive to iterate.</span></span></label>
-    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
-  </form>
+    <div class="note good"><b>D3 · Scope — decided (rev 2):</b> single-stock videos only; 10 per year for 4 years = a 40-video base sample, spread across quarters, seeded; raise <span class="k">--per-year</span> to expand later. Multi-stock videos are classified but not sampled.</div>
+  <div class="note good"><b>D4 · Learning — decided (rev 2):</b> Claude Agent SDK on subscription (ConvFinQA billing pattern); agent set up like DABStep — one Python-sandbox tool, <span class="k">agents/vN/{system.md, helper.py, agent.yaml}</span>; the optimiser updates only the system prompt and the helper functions the sandbox exposes; McNemar gate promotes.</div>
 </section>
 
 <footer>

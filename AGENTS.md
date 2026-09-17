@@ -19,13 +19,27 @@ years):
   `data/value_invest.duckdb`, schema `vi`. Foreign keys are transcript·lab's own
   ids. Two stores, one-directional dependency, `vi.videos` rebuilt from the
   corpus API.
-- **Video filter:** a title classifier (LLM, structured output) that resolves
-  company → ticker, not a ticker regex — only ~1 in 4 titles carry a ticker.
-  Seed eval: `data/samples/titles_2026-09.json` (40 hand-labelled titles).
+- **Video filter:** a title classifier (Agent SDK, structured output) that
+  resolves company → ticker, not a ticker regex — only ~1 in 4 titles carry a
+  ticker. Seed eval: `data/samples/titles_2026-09.json` (40 hand-labelled titles).
+- **Sample:** single-stock videos only, 10 per year × 4 years = 40 as the base
+  (`vi sample --per-year 10 --seed 42`, spread across quarters). Expand later by
+  raising `--per-year`; existing picks are stable under the seed.
+- **Runtime:** every model call is a Claude Agent SDK session billed to the
+  subscription (`BILLING=subscription`, `CLAUDE_CODE_OAUTH_TOKEN`), through the
+  single chokepoint `llm.py` — ConvFinQA's `evalloop/sdk.py` / DABStep's
+  `agent/llm.py` pattern. No Pydantic AI, no DeepSeek, no `ANTHROPIC_API_KEY`.
+- **Agent shape:** DABStep's — one stateful Python tool (`execute_python`, an
+  in-process SDK MCP server whose namespace preloads `pd` and `helper`), a
+  version folder `agents/vN/{system.md, helper.py, agent.yaml}`; `agent.yaml`
+  frozen. The sandbox opens DuckDB read-only with `vi.t0` bound.
 - **Fundamentals:** yfinance for prices everywhere; yfinance + SEC EDGAR
   `companyfacts` (filing dates) for US names; non-US flagged `shallow`.
-- **Agent learning:** prompt-optimisation loop (teacher + gate) first, retrieval
-  few-shot as an ablation, no fine-tune in the first milestone.
+- **Agent learning:** the DABStep error loop — one optimiser session reads the
+  wrong traces and the ledger, writes `agents/v(N+1)/{system.md, helper.py}`
+  (system prompt or Python functions the sandbox exposes — nothing else), a
+  challenger run on test, a McNemar gate on paired calls, a ledger entry.
+  Retrieval few-shot is an ablation; no fine-tune in the first milestone.
 - **Leakage controls:** date-based splits, a no-tools baseline as the leakage
   floor, sealed holdout ≥ 2025-07.
 
@@ -41,10 +55,11 @@ src/value_invest/
   ingest/          drives transcript-lab ingestion, reads corpus back
   golden/          GoldenCall schema, extractor, cache, curation, splits
   market/          yfinance + EDGAR loaders → parquet → DuckDB
-  agent/           tools over vi.as_of, AnalystReport, baselines
+  agent/           session.py (ClaudeSDKClient), tools/python_executor.py, versions.py, AnalystReport, baselines
   scoring/         stance/IV/thesis metrics, judge
   validate/        forward returns, verdicts, scoreboard
-  loop/            teacher, gate, prompt versions (agents/vN/system.md)
+  loop/            optimiser session, McNemar gate, ledger
+agents/vN/         system.md · helper.py · agent.yaml (frozen) · diagnosis.json
   serving/         FastAPI app, demo mode
   cli.py           `vi` Typer app
 frontend/          Vite + React walkthrough (transcript-lab design tokens)
