@@ -7,7 +7,13 @@ def test_health_and_funnel(monkeypatch, tmp_path):
 
     p = tmp_path / "t.duckdb"
     db.connect(p).close()
-    monkeypatch.setattr(db, "connect", lambda path=None, read_only=False: __import__("duckdb").connect(str(p), read_only=read_only))
+    monkeypatch.setattr(
+        db,
+        "connect",
+        lambda path=None, read_only=False: __import__("duckdb").connect(
+            str(p), read_only=read_only
+        ),
+    )
     client = TestClient(appmod.create_app())
     h = client.get("/api/health").json()
     assert h["ok"] and "videos" in h["tables"]

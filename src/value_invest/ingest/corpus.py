@@ -26,7 +26,9 @@ class Corpus:
         return bool(self.raw_col.get(ids=[f"raw_transcript:{video_id}"]).get("ids"))
 
     def raw(self, video_id: str) -> dict[str, Any] | None:
-        res = self.raw_col.get(ids=[f"raw_transcript:{video_id}"], include=["documents", "metadatas"])
+        res = self.raw_col.get(
+            ids=[f"raw_transcript:{video_id}"], include=["documents", "metadatas"]
+        )
         if not res.get("ids"):
             return None
         body = json.loads((res.get("documents") or ["{}"])[0])
@@ -45,9 +47,19 @@ class Corpus:
     def chunks(self, video_id: str) -> list[dict[str, Any]]:
         res = self.chunk_col.get(where={"video_id": video_id}, include=["documents", "metadatas"])
         out = []
-        for cid, doc, meta in zip(res.get("ids", []), res.get("documents") or [], res.get("metadatas") or []):
+        for cid, doc, meta in zip(
+            res.get("ids", []), res.get("documents") or [], res.get("metadatas") or []
+        ):
             m = meta or {}
-            out.append({"chunk_id": cid, "index": m.get("chunk_index"), "start_seconds": m.get("start_seconds"), "end_seconds": m.get("end_seconds"), "text": doc})
+            out.append(
+                {
+                    "chunk_id": cid,
+                    "index": m.get("chunk_index"),
+                    "start_seconds": m.get("start_seconds"),
+                    "end_seconds": m.get("end_seconds"),
+                    "text": doc,
+                }
+            )
         out.sort(key=lambda c: (c["index"] is None, c["index"]))
         return out
 

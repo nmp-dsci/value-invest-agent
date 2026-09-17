@@ -73,7 +73,9 @@ def draw_sample(
         "UPDATE vi.videos SET in_sample = TRUE, sample_rank = ? WHERE video_id = ?",
         [(rank, vid) for vid, rank in picks],
     )
-    approx_singles = con.execute("SELECT count(*) FROM vi.videos WHERE kind = 'single' AND date_source = 'approx' AND year_bucket IS NOT NULL").fetchone()[0]
+    approx_singles = con.execute(
+        "SELECT count(*) FROM vi.videos WHERE kind = 'single' AND date_source = 'approx' AND year_bucket IS NOT NULL"
+    ).fetchone()[0]
     return {
         "approx_dated_singles_excluded": approx_singles,
         "per_year": per_year,

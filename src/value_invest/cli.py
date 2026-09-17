@@ -59,7 +59,9 @@ def classify(
         rprint(evaluate_seed())
         return
     con = db.connect()
-    rprint(classify_catalog(con, batch=batch, limit=limit, only_missing=only_missing, workers=workers))
+    rprint(
+        classify_catalog(con, batch=batch, limit=limit, only_missing=only_missing, workers=workers)
+    )
 
 
 @app.command()
@@ -104,7 +106,9 @@ def serve(host: str = "127.0.0.1", port: int = 8791, reload: bool = False) -> No
     """S3: the walkthrough app (FastAPI + built React bundle)."""
     import uvicorn
 
-    uvicorn.run("value_invest.serving.app:create_app", factory=True, host=host, port=port, reload=reload)
+    uvicorn.run(
+        "value_invest.serving.app:create_app", factory=True, host=host, port=port, reload=reload
+    )
 
 
 if __name__ == "__main__":

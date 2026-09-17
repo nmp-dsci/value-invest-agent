@@ -30,7 +30,9 @@ def _index_one(video_id: str, refresh: bool) -> tuple[str, int, str]:
     return video_id, proc.returncode, " | ".join(tail)[:400]
 
 
-def ingest_sample(con: duckdb.DuckDBPyConnection, concurrency: int = 2, refresh: bool = False) -> dict:
+def ingest_sample(
+    con: duckdb.DuckDBPyConnection, concurrency: int = 2, refresh: bool = False
+) -> dict:
     corpus = Corpus()
     todo = [
         r[0]

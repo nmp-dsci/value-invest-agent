@@ -73,7 +73,10 @@ class YtDlpMeta:
         import yt_dlp
 
         opts = {
-            "quiet": True, "no_warnings": True, "skip_download": True, "noprogress": True,
+            "quiet": True,
+            "no_warnings": True,
+            "skip_download": True,
+            "noprogress": True,
             "extract_flat": True,
             "extractor_args": {"youtubetab": {"approximate_date": ["1"]}},
         }
@@ -92,7 +95,9 @@ class YtDlpMeta:
             for e in (info.get("entries") or [])
             if e and e.get("id")
         ]
-        cache.write_text(json.dumps({"fetched_at": datetime.now(timezone.utc).isoformat(), "entries": entries}))
+        cache.write_text(
+            json.dumps({"fetched_at": datetime.now(timezone.utc).isoformat(), "entries": entries})
+        )
         return entries
 
 

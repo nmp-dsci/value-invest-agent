@@ -78,9 +78,11 @@ def _extract_json(text: str) -> Any:
     fenced = text.split("```")
     for chunk in [text, *fenced] if len(fenced) > 1 else [text]:
         candidate = chunk.strip().removeprefix("json").strip()
-        start = min(i for i in (candidate.find("{"), candidate.find("[")) if i != -1) if (
-            "{" in candidate or "[" in candidate
-        ) else -1
+        start = (
+            min(i for i in (candidate.find("{"), candidate.find("[")) if i != -1)
+            if ("{" in candidate or "[" in candidate)
+            else -1
+        )
         if start == -1:
             continue
         end = max(candidate.rfind("}"), candidate.rfind("]"))

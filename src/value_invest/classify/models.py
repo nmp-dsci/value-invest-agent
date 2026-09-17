@@ -9,7 +9,9 @@ Kind = Literal["single", "multi", "macro", "other"]
 
 class TickerRef(BaseModel):
     company: str
-    yahoo_ticker: str = Field(description="Yahoo Finance symbol incl. exchange suffix, e.g. MC.PA, 0700.HK, BRK-B")
+    yahoo_ticker: str = Field(
+        description="Yahoo Finance symbol incl. exchange suffix, e.g. MC.PA, 0700.HK, BRK-B"
+    )
     exchange: str | None = None
     is_primary: bool = True
 

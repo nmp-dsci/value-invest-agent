@@ -35,7 +35,9 @@ def year_bucket(d: date, since: date, until: date) -> str | None:
     if d < since or d > until:
         return None
     years = d.year - since.year - (1 if (d.month, d.day) < (since.month, since.day) else 0)
-    years = min(years, (until.year - since.year) - 1)  # the last day of the window closes the last year
+    years = min(
+        years, (until.year - since.year) - 1
+    )  # the last day of the window closes the last year
     start = since.year + years
     return f"{start}/{str(start + 1)[-2:]}"
 
@@ -49,16 +51,36 @@ def _exact(vid: str, supa: Supadata, ytd: YtDlpMeta) -> tuple[dict[str, Any], da
             pub = _published_supadata(m)
             if pub:
                 media, stats = m.get("media") or {}, m.get("stats") or {}
-                return ({"title": m.get("title") or "", "description": m.get("description") or "", "duration": media.get("duration"), "views": stats.get("views")}, pub, "supadata")
+                return (
+                    {
+                        "title": m.get("title") or "",
+                        "description": m.get("description") or "",
+                        "duration": media.get("duration"),
+                        "views": stats.get("views"),
+                    },
+                    pub,
+                    "supadata",
+                )
         except (KeyError, json.JSONDecodeError):
             pass
     m = ytd.cached(vid)
     if m and (pub := published_from_ytdlp(m)):
-        return ({"title": m.get("title") or "", "description": m.get("description") or "", "duration": m.get("duration"), "views": m.get("view_count")}, pub, "yt-dlp")
+        return (
+            {
+                "title": m.get("title") or "",
+                "description": m.get("description") or "",
+                "duration": m.get("duration"),
+                "views": m.get("view_count"),
+            },
+            pub,
+            "yt-dlp",
+        )
     return None
 
 
-def build_catalog(con: duckdb.DuckDBPyConnection, refresh_listing: bool = False, progress: bool = True) -> dict:
+def build_catalog(
+    con: duckdb.DuckDBPyConnection, refresh_listing: bool = False, progress: bool = True
+) -> dict:
     s = settings()
     supa, ytd = Supadata(), YtDlpMeta()
     listing = ytd.channel_listing(s.channel, refresh=refresh_listing)
@@ -74,9 +96,26 @@ def build_catalog(con: duckdb.DuckDBPyConnection, refresh_listing: bool = False,
         else:
             pub = published_from_ytdlp(e)
             src = "approx" if pub else "undated"
-            meta = {"title": e.get("title") or "", "description": e.get("description") or "", "duration": e.get("duration"), "views": e.get("view_count")}
+            meta = {
+                "title": e.get("title") or "",
+                "description": e.get("description") or "",
+                "duration": e.get("duration"),
+                "views": e.get("view_count"),
+            }
         sources[src] += 1
-        rows.append((vid, meta["title"], meta["description"], pub, meta["duration"], meta["views"], year_bucket(pub, s.since, s.until) if pub else None, src, now))
+        rows.append(
+            (
+                vid,
+                meta["title"],
+                meta["description"],
+                pub,
+                meta["duration"],
+                meta["views"],
+                year_bucket(pub, s.since, s.until) if pub else None,
+                src,
+                now,
+            )
+        )
     con.executemany(
         """INSERT INTO vi.videos (video_id, title, description, published_at, duration_s, view_count, year_bucket, date_source, catalogued_at)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -96,7 +135,12 @@ def build_catalog(con: duckdb.DuckDBPyConnection, refresh_listing: bool = False,
     }
 
 
-def refine_dates(con: duckdb.DuckDBPyConnection, scope: str = "singles", limit: int | None = None, pace_s: float = 1.2) -> dict:
+def refine_dates(
+    con: duckdb.DuckDBPyConnection,
+    scope: str = "singles",
+    limit: int | None = None,
+    pace_s: float = 1.2,
+) -> dict:
     """Upgrade approximate dates to exact ones with per-video yt-dlp.
 
     ``scope``: ``sample`` (sampled videos only) or ``singles`` (every video the
@@ -111,9 +155,17 @@ def refine_dates(con: duckdb.DuckDBPyConnection, scope: str = "singles", limit: 
     if scope == "sample":
         where = "in_sample"
     else:
-        lo, hi = date(s.since.year - 1, s.since.month, s.since.day), date(s.until.year + 1, s.until.month, s.until.day)
+        lo, hi = (
+            date(s.since.year - 1, s.since.month, s.since.day),
+            date(s.until.year + 1, s.until.month, s.until.day),
+        )
         where = f"kind = 'single' AND published_at BETWEEN DATE '{lo}' AND DATE '{hi}'"
-    todo = [r[0] for r in con.execute(f"SELECT video_id FROM vi.videos WHERE date_source = 'approx' AND {where} ORDER BY published_at DESC").fetchall()]
+    todo = [
+        r[0]
+        for r in con.execute(
+            f"SELECT video_id FROM vi.videos WHERE date_source = 'approx' AND {where} ORDER BY published_at DESC"
+        ).fetchall()
+    ]
     if limit:
         todo = todo[:limit]
     done, failed, stopped = 0, [], None
@@ -133,10 +185,24 @@ def refine_dates(con: duckdb.DuckDBPyConnection, scope: str = "singles", limit: 
             continue
         con.execute(
             "UPDATE vi.videos SET published_at = ?, year_bucket = ?, date_source = 'yt-dlp', duration_s = coalesce(?, duration_s), description = CASE WHEN ? <> '' THEN ? ELSE description END WHERE video_id = ?",
-            [pub, year_bucket(pub, s.since, s.until), m.get("duration"), m.get("description") or "", m.get("description") or "", vid],
+            [
+                pub,
+                year_bucket(pub, s.since, s.until),
+                m.get("duration"),
+                m.get("description") or "",
+                m.get("description") or "",
+                vid,
+            ],
         )
         done += 1
         if (i + 1) % 25 == 0:
             print(f"  refined {i + 1}/{len(todo)}", flush=True)
         time.sleep(pace_s)
-    return {"scope": scope, "todo": len(todo), "refined": done, "failed": failed, "stopped": stopped, "ytdlp_calls": ytd.calls}
+    return {
+        "scope": scope,
+        "todo": len(todo),
+        "refined": done,
+        "failed": failed,
+        "stopped": stopped,
+        "ytdlp_calls": ytd.calls,
+    }

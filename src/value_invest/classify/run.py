@@ -44,13 +44,20 @@ def _prompt(items: list[dict[str, Any]]) -> str:
         desc = (it.get("description") or "").strip().replace("\n", " ")[:160]
         lines.append(
             json.dumps(
-                {"video_id": it["video_id"], "title": it["title"], "published": str(it.get("published_at") or ""), "description_head": desc}
+                {
+                    "video_id": it["video_id"],
+                    "title": it["title"],
+                    "published": str(it.get("published_at") or ""),
+                    "description_head": desc,
+                }
             )
         )
     return "Label these videos:\n" + "\n".join(lines)
 
 
-def classify_items(items: list[dict[str, Any]], model: str | None = None) -> tuple[list[TitleLabel], dict]:
+def classify_items(
+    items: list[dict[str, Any]], model: str | None = None
+) -> tuple[list[TitleLabel], dict]:
     batch, usage = run_structured_sync(
         _prompt(items), schema=TitleLabelBatch, system_prompt=SYSTEM, model=model, max_turns=2
     )
@@ -92,7 +99,11 @@ def _upsert(con: duckdb.DuckDBPyConnection, labels: list[TitleLabel], source: st
 
 
 def classify_catalog(
-    con: duckdb.DuckDBPyConnection, batch: int = 40, limit: int | None = None, only_missing: bool = True, workers: int = 3
+    con: duckdb.DuckDBPyConnection,
+    batch: int = 40,
+    limit: int | None = None,
+    only_missing: bool = True,
+    workers: int = 3,
 ) -> dict:
     where = "WHERE v.year_bucket IS NOT NULL"
     if only_missing:
@@ -102,7 +113,10 @@ def classify_catalog(
             ORDER BY v.published_at DESC"""
     if limit:
         q += f" LIMIT {int(limit)}"
-    rows = [dict(zip(["video_id", "title", "description", "published_at"], r)) for r in con.execute(q).fetchall()]
+    rows = [
+        dict(zip(["video_id", "title", "description", "published_at"], r))
+        for r in con.execute(q).fetchall()
+    ]
     done, calls, tokens = 0, 0, 0
     batches = [rows[i : i + batch] for i in range(0, len(rows), batch)]
     from concurrent.futures import ThreadPoolExecutor
@@ -122,16 +136,32 @@ def classify_catalog(
             done += len(labels)
             calls += 1
             tokens += int(usage.get("input_tokens", 0)) + int(usage.get("output_tokens", 0))
-            print(f"  labelled {done}/{len(rows)}  sdk_calls={calls}  errors={len(errors)}", flush=True)
-    kinds = dict(con.execute("SELECT kind, count(*) FROM vi.videos WHERE year_bucket IS NOT NULL GROUP BY 1 ORDER BY 2 DESC").fetchall())
-    return {"labelled": done, "sdk_calls": calls, "tokens": tokens, "errors": errors, "kinds_in_window": kinds}
+            print(
+                f"  labelled {done}/{len(rows)}  sdk_calls={calls}  errors={len(errors)}",
+                flush=True,
+            )
+    kinds = dict(
+        con.execute(
+            "SELECT kind, count(*) FROM vi.videos WHERE year_bucket IS NOT NULL GROUP BY 1 ORDER BY 2 DESC"
+        ).fetchall()
+    )
+    return {
+        "labelled": done,
+        "sdk_calls": calls,
+        "tokens": tokens,
+        "errors": errors,
+        "kinds_in_window": kinds,
+    }
 
 
 def evaluate_seed(model: str | None = None) -> dict:
     """Classifier vs the 40 hand labels: agreement on kind, and on primary ticker for singles."""
     seed = json.loads((ROOT / "data/samples/titles_2026-09_labels.json").read_text())
     meta = {m["id"]: m for m in json.loads((ROOT / "data/samples/titles_2026-09.json").read_text())}
-    items = [{"video_id": s["id"], "title": s["title"], "description": meta[s["id"]].get("desc", "")} for s in seed]
+    items = [
+        {"video_id": s["id"], "title": s["title"], "description": meta[s["id"]].get("desc", "")}
+        for s in seed
+    ]
     labels, usage = classify_items(items, model=model)
     by_id = {lab.video_id: lab for lab in labels}
     kind_ok = 0
@@ -152,7 +182,9 @@ def evaluate_seed(model: str | None = None) -> dict:
             if primary and primary.upper() == s["tickers"][0].upper():
                 ticker_ok += 1
             else:
-                disagreements.append({"title": s["title"], "human_ticker": s["tickers"][0], "llm_ticker": primary})
+                disagreements.append(
+                    {"title": s["title"], "human_ticker": s["tickers"][0], "llm_ticker": primary}
+                )
     result = {
         "n": len(seed),
         "kind_agreement": round(kind_ok / len(seed), 3),
@@ -160,5 +192,7 @@ def evaluate_seed(model: str | None = None) -> dict:
         "disagreements": disagreements,
         "usage": usage,
     }
-    (ROOT / "data/samples/classifier_seed_eval.json").write_text(json.dumps(result, indent=1, default=str))
+    (ROOT / "data/samples/classifier_seed_eval.json").write_text(
+        json.dumps(result, indent=1, default=str)
+    )
     return result
