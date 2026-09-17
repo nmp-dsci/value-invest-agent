@@ -19,6 +19,7 @@ export type VideoDetail = {
   forward?: Record<string, { date: string; close: number } | null>;
   statements: Record<string, { headline: string[]; items: Record<string, Record<string, number>> }>;
   statement_periods: string[];
+  statement_period_info?: { period_end: string; n_items: number | null; complete: boolean }[];
   statements_hidden_after_t0?: { period_end: string; available_from: string }[];
   transcript: { segments: Segment[]; description?: string; title?: string } | null;
   transcript_error?: string;
@@ -27,7 +28,7 @@ export type VideoDetail = {
 };
 export type CoverageRow = {
   video_id: string; title: string; t0: string; ticker: string; year_bucket: string; sample_rank: number;
-  price_at_t0: number | null; price_date: string | null; fys_visible: number | null; latest_fy_visible: string | null;
+  price_at_t0: number | null; price_date: string | null; fys_visible: number | null; stub_fys_visible?: number | null; latest_fy_visible: string | null;
   fys_total: number | null; earliest_fy: string | null; yahoo_ok: boolean | null; currency: string | null; benchmark: string | null; coverage: string;
 };
 export type Coverage = { rows: CoverageRow[]; summary: Record<string, number>; tickers: Record<string, unknown>[] };

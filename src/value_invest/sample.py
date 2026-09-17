@@ -4,7 +4,10 @@
 is stratified by quarter so the picks spread over time instead of clumping,
 and the order is fixed by the seed so raising ``--per-year`` only *adds*
 videos: every earlier pick keeps its ``sample_rank``. Videos are eligible when
-the classifier says ``single`` with a primary ticker and confidence ≥ 0.6."""
+the classifier says ``single`` with a primary ticker and confidence ≥ 0.6 **and
+the date is exact** (`refine-dates` first): the channel tab's approximate
+dates are off by up to a year, which put a third of a first draw outside the
+window."""
 
 from __future__ import annotations
 
@@ -28,6 +31,7 @@ def draw_sample(
         """SELECT v.video_id, v.year_bucket, v.published_at, v.primary_ticker
            FROM vi.videos v JOIN vi.title_labels l USING (video_id)
            WHERE v.year_bucket IS NOT NULL AND l.kind = 'single'
+             AND v.date_source IN ('supadata', 'yt-dlp')   -- exact dates only: approx is ±12 months
              AND v.primary_ticker IS NOT NULL AND coalesce(l.confidence, 0) >= ?
            ORDER BY v.published_at""",
         [MIN_CONFIDENCE],
@@ -69,7 +73,9 @@ def draw_sample(
         "UPDATE vi.videos SET in_sample = TRUE, sample_rank = ? WHERE video_id = ?",
         [(rank, vid) for vid, rank in picks],
     )
+    approx_singles = con.execute("SELECT count(*) FROM vi.videos WHERE kind = 'single' AND date_source = 'approx' AND year_bucket IS NOT NULL").fetchone()[0]
     return {
+        "approx_dated_singles_excluded": approx_singles,
         "per_year": per_year,
         "seed": seed,
         "eligible_single": len(rows),

@@ -1,5 +1,6 @@
-"""S2 — per-video coverage: is there a price at T0, and which fiscal years are
-visible at T0 under the annual-only rule?"""
+"""S2 — per-video coverage: is there a price at T0, and how many *complete*
+fiscal years are visible at T0 under the annual-only rule? (yfinance's oldest
+column is a stub without revenue or net income — see vi.fiscal_years.)"""
 
 from __future__ import annotations
 
@@ -18,16 +19,17 @@ px AS (
 ),
 st AS (
   SELECT v.video_id,
-         count(DISTINCT s.period_end) FILTER (WHERE s.available_from <= v.t0) AS fys_visible,
-         max(s.period_end) FILTER (WHERE s.available_from <= v.t0) AS latest_fy_visible,
-         count(DISTINCT s.period_end) AS fys_total,
-         min(s.period_end) AS earliest_fy
-  FROM v LEFT JOIN vi.statements s ON s.ticker = v.ticker AND s.freq = 'annual'
+         count(*) FILTER (WHERE f.complete AND f.available_from <= v.t0) AS fys_visible,
+         count(*) FILTER (WHERE NOT f.complete AND f.available_from <= v.t0) AS stub_fys_visible,
+         max(f.period_end) FILTER (WHERE f.complete AND f.available_from <= v.t0) AS latest_fy_visible,
+         count(*) FILTER (WHERE f.complete) AS fys_total,
+         min(f.period_end) FILTER (WHERE f.complete) AS earliest_fy
+  FROM v LEFT JOIN vi.fiscal_years f ON f.ticker = v.ticker
   GROUP BY v.video_id
 )
 SELECT v.video_id, v.title, v.t0, v.ticker, v.year_bucket, v.sample_rank,
        px.price_at_t0, px.price_date,
-       st.fys_visible, st.latest_fy_visible, st.fys_total, st.earliest_fy,
+       st.fys_visible, st.stub_fys_visible, st.latest_fy_visible, st.fys_total, st.earliest_fy,
        t.yahoo_ok, t.currency, t.benchmark,
        CASE WHEN px.price_at_t0 IS NULL THEN 'no_prices'
             WHEN coalesce(st.fys_visible, 0) = 0 THEN 'prices_only'

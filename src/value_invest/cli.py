@@ -36,12 +36,12 @@ def catalog(refresh_listing: bool = False) -> None:
 
 
 @app.command("refine-dates")
-def refine_dates(limit: int | None = None) -> None:
-    """S1a′: exact dates for sampled videos that only have an approximate one."""
-    from value_invest.catalog.build import refine_sample_dates
+def refine_dates(scope: str = "singles", limit: int | None = None, pace: float = 1.2) -> None:
+    """S1a′: exact dates (per-video yt-dlp) for single-stock candidates near the window, or the sample."""
+    from value_invest.catalog.build import refine_dates as _refine
 
     con = db.connect()
-    rprint(refine_sample_dates(con, limit=limit))
+    rprint(_refine(con, scope=scope, limit=limit, pace_s=pace))
 
 
 @app.command()
@@ -100,7 +100,7 @@ def coverage() -> None:
 
 
 @app.command()
-def serve(host: str = "127.0.0.1", port: int = 8765, reload: bool = False) -> None:
+def serve(host: str = "127.0.0.1", port: int = 8791, reload: bool = False) -> None:
     """S3: the walkthrough app (FastAPI + built React bundle)."""
     import uvicorn
 

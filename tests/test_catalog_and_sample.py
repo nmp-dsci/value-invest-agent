@@ -15,7 +15,7 @@ def test_year_bucket_is_twelve_month_windows():
 
 def _video(con, vid, d, kind="single", ticker="NKE", conf=0.9):
     yb = year_bucket(d, date(2022, 9, 17), date(2026, 9, 17))
-    con.execute("INSERT INTO vi.videos (video_id, title, published_at, kind, primary_ticker, year_bucket, catalogued_at) VALUES (?, ?, ?, ?, ?, ?, ?)", [vid, vid, d, kind, ticker, yb, datetime.now(timezone.utc)])
+    con.execute("INSERT INTO vi.videos (video_id, title, published_at, kind, primary_ticker, year_bucket, date_source, catalogued_at) VALUES (?, ?, ?, ?, ?, ?, 'yt-dlp', ?)", [vid, vid, d, kind, ticker, yb, datetime.now(timezone.utc)])
     con.execute("INSERT INTO vi.title_labels VALUES (?, ?, '[]', ?, '', 'llm', 'test', ?)", [vid, kind, conf, datetime.now(timezone.utc)])
 
 

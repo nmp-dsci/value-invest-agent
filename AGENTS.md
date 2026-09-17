@@ -43,30 +43,31 @@ years):
 - **Leakage controls:** date-based splits, a no-tools baseline as the leakage
   floor, sealed holdout ≥ 2025-07.
 
-## Layout (target)
+## Layout
 
 ```text
 src/value_invest/
-  config.py        settings + dotenv
-  llm.py           the single LLM chokepoint
-  db.py            DuckDB connection, schema init, as_of binding
-  catalog/         Supadata listing + dating (shares transcript-lab's cache format)
-  classify/        title → kind + tickers (structured LLM), seed eval
-  ingest/          drives transcript-lab ingestion, reads corpus back
-  golden/          GoldenCall schema, extractor, cache, curation, splits
-  market/          yfinance + EDGAR loaders → parquet → DuckDB
+  config.py        Settings; reads ./.env then ~/.env with dotenv_values, never exports secrets
+  llm.py           the Agent SDK chokepoint: billing guard, subscription_env, run_structured
+  db.py            DuckDB connection + data/schema.sql (vi.*_as_of macros)
+  cli.py           `vi` (typer): db · catalog · classify · sample · refine-dates · ingest · market · coverage · serve
+  catalog/         supadata.py (paced, cached client) · ytdlp.py (channel tab + per-video) · build.py
+  classify/        models.py (TitleLabel) · run.py (batched SDK calls, seed eval)
+  sample.py        seeded, quarter-stratified draw that extends without reshuffling
+  ingest/          run.py (index-rag in ../transcript-rag-agent per video) · corpus.py (read-only Chroma)
+  golden/          M2: GoldenCall schema, extractor, curation, splits
+  market/          yahoo.py (prices + annual statements → parquet) · load.py · coverage.py
   agent/           session.py (ClaudeSDKClient), tools/python_executor.py, versions.py, AnalystReport, baselines
   scoring/         stance/IV/thesis metrics, judge
   validate/        forward returns, verdicts, scoreboard
   loop/            optimiser session, McNemar gate, ledger
 agents/vN/         system.md · helper.py · agent.yaml (frozen) · diagnosis.json
-  serving/         FastAPI app, demo mode
-  cli.py           `vi` Typer app
-frontend/          Vite + React walkthrough (transcript-lab design tokens)
+  serving/         app.py — FastAPI: /api/health /funnel /videos /videos/{id} /market/coverage; serves frontend/dist
+frontend/          Vite + React 19; src/tokens.css copied from transcript-lab; views Corpus · Video · Market (+ M2 stubs)
 data/
   schema.sql       the vi schema
-  samples/         committed seeds (titles)
-  snapshot/        small demo DuckDB snapshot
+  samples/         titles_2026-09.json (40 titles) · titles_2026-09_labels.json (hand labels) · classifier_seed_eval.json
+.vi/               caches (gitignored): supadata/ ytdlp/ market/<ticker>/*.parquet
 ai_specs/          dated specs; s00 is the plan of record
 .lavish/           review artifacts (sNN_*.html) — never gitignored
 tests/

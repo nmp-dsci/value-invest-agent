@@ -72,6 +72,14 @@ CREATE OR REPLACE MACRO vi.prices_as_of(tk, t0) AS TABLE
 CREATE OR REPLACE MACRO vi.statements_as_of(tk, t0) AS TABLE
   SELECT * FROM vi.statements WHERE ticker = tk AND available_from <= t0;
 
+-- One row per (ticker, fiscal year). yfinance's oldest column is usually a stub
+-- of ~20 line items with no revenue or net income; a year counts as complete
+-- only when the headline items are present.
+CREATE OR REPLACE VIEW vi.fiscal_years AS
+  SELECT ticker, period_end, min(available_from) AS available_from, count(*) AS n_items,
+         bool_or(line_item = 'Total Revenue') AND bool_or(line_item = 'Total Assets') AS complete
+  FROM vi.statements WHERE freq = 'annual' GROUP BY ticker, period_end;
+
 -- Milestone 2 tables, created now so the app's stub tabs have something to query.
 CREATE TABLE IF NOT EXISTS vi.calls (
   call_id TEXT PRIMARY KEY,

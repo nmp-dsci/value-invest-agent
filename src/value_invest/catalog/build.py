@@ -96,25 +96,47 @@ def build_catalog(con: duckdb.DuckDBPyConnection, refresh_listing: bool = False,
     }
 
 
-def refine_sample_dates(con: duckdb.DuckDBPyConnection, limit: int | None = None) -> dict:
-    """Upgrade sampled videos with an approximate date to an exact one (per-video yt-dlp)."""
+def refine_dates(con: duckdb.DuckDBPyConnection, scope: str = "singles", limit: int | None = None, pace_s: float = 1.2) -> dict:
+    """Upgrade approximate dates to exact ones with per-video yt-dlp.
+
+    ``scope``: ``sample`` (sampled videos only) or ``singles`` (every video the
+    classifier called single whose approximate date lies within a year of the
+    window — the channel tab's "N years ago" can be off by up to twelve months,
+    so a sample drawn on approximate dates lands outside the window). Paced,
+    single-threaded, and stops at the first bot-check so a re-run picks up."""
+    import time
+
+    s = settings()
     ytd = YtDlpMeta()
-    todo = [r[0] for r in con.execute("SELECT video_id FROM vi.videos WHERE in_sample AND date_source = 'approx' ORDER BY published_at").fetchall()]
+    if scope == "sample":
+        where = "in_sample"
+    else:
+        lo, hi = date(s.since.year - 1, s.since.month, s.since.day), date(s.until.year + 1, s.until.month, s.until.day)
+        where = f"kind = 'single' AND published_at BETWEEN DATE '{lo}' AND DATE '{hi}'"
+    todo = [r[0] for r in con.execute(f"SELECT video_id FROM vi.videos WHERE date_source = 'approx' AND {where} ORDER BY published_at DESC").fetchall()]
     if limit:
         todo = todo[:limit]
-    done, failed = 0, []
-    s = settings()
-    for vid in todo:
+    done, failed, stopped = 0, [], None
+    for i, vid in enumerate(todo):
         try:
             m = ytd.video_meta(vid)
-            pub = published_from_ytdlp(m)
-            if not pub:
-                failed.append(vid); continue
-            con.execute(
-                "UPDATE vi.videos SET published_at = ?, year_bucket = ?, date_source = 'yt-dlp', duration_s = coalesce(?, duration_s), description = CASE WHEN ? <> '' THEN ? ELSE description END WHERE video_id = ?",
-                [pub, year_bucket(pub, s.since, s.until), m.get("duration"), m.get("description") or "", m.get("description") or "", vid],
-            )
-            done += 1
-        except Exception as e:  # bot-check or removed video: leave approx, report
-            failed.append(f"{vid}: {str(e)[:80]}")
-    return {"refined": done, "failed": failed, "remaining_approx": len(todo) - done}
+        except Exception as e:
+            msg = str(e)
+            if "not a bot" in msg or "Sign in" in msg:
+                stopped = f"bot-check at {i}/{len(todo)}; re-run later"
+                break
+            failed.append(f"{vid}: {msg[:80]}")
+            continue
+        pub = published_from_ytdlp(m)
+        if not pub:
+            failed.append(vid)
+            continue
+        con.execute(
+            "UPDATE vi.videos SET published_at = ?, year_bucket = ?, date_source = 'yt-dlp', duration_s = coalesce(?, duration_s), description = CASE WHEN ? <> '' THEN ? ELSE description END WHERE video_id = ?",
+            [pub, year_bucket(pub, s.since, s.until), m.get("duration"), m.get("description") or "", m.get("description") or "", vid],
+        )
+        done += 1
+        if (i + 1) % 25 == 0:
+            print(f"  refined {i + 1}/{len(todo)}", flush=True)
+        time.sleep(pace_s)
+    return {"scope": scope, "todo": len(todo), "refined": done, "failed": failed, "stopped": stopped, "ytdlp_calls": ytd.calls}

@@ -113,6 +113,8 @@ def create_app() -> FastAPI:
             st = _rows(c, "SELECT period_end, kind, line_item, value, available_from FROM vi.statements_as_of(?, ?) ORDER BY period_end DESC", [ticker, t0])
             periods = sorted({r["period_end"] for r in st}, reverse=True)
             out["statement_periods"] = periods
+            fy = {r["period_end"]: r for r in _rows(c, "SELECT period_end, n_items, complete FROM vi.fiscal_years WHERE ticker = ?", [ticker])}
+            out["statement_period_info"] = [{"period_end": p, "n_items": fy.get(p, {}).get("n_items"), "complete": bool(fy.get(p, {}).get("complete"))} for p in periods]
             by_kind: dict[str, dict[str, dict[str, float]]] = {}
             for r in st:
                 by_kind.setdefault(r["kind"], {}).setdefault(r["line_item"], {})[str(r["period_end"])] = r["value"]
@@ -136,7 +138,10 @@ def create_app() -> FastAPI:
     def coverage() -> dict:
         c = con()
         rows = coverage_table(c)
-        tickers = _rows(c, "SELECT * FROM vi.tickers ORDER BY benchmark IS NULL, ticker")
+        tickers = _rows(c, """SELECT t.* FROM vi.tickers t
+                                WHERE t.ticker IN (SELECT primary_ticker FROM vi.videos WHERE in_sample)
+                                   OR t.ticker IN (SELECT benchmark FROM vi.tickers WHERE ticker IN (SELECT primary_ticker FROM vi.videos WHERE in_sample))
+                                ORDER BY t.benchmark IS NULL, t.ticker""")
         return {"rows": rows, "summary": coverage_summary(rows), "tickers": tickers}
 
     @app.get("/api/calls")

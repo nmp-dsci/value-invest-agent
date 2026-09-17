@@ -61,11 +61,12 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
                 </div>
                 <div className="panel"><h3>Annual statements visible at T0 <span className="microlabel">vi.statements_as_of(ticker, T0) · yfinance annual · period_end + 90 d</span></h3>
                   {!d.statement_periods.length && <div className="empty">no fiscal year is visible at T0 for this ticker {d.statements_hidden_after_t0?.length ? `— the earliest yfinance still returns becomes visible on ${d.statements_hidden_after_t0[0].available_from}` : ''}</div>}
+                  {!!d.statement_period_info?.some((p) => !p.complete) && <p className="note warn">yfinance's oldest column is a stub: FY {d.statement_period_info.filter((p) => !p.complete).map((p) => `${p.period_end.slice(0, 4)} (${p.n_items} items, no revenue / total assets)`).join(', ')}. Complete fiscal years visible at T0: {d.coverage?.fys_visible ?? 0}.</p>}
                   {(['income', 'balance', 'cashflow'] as const).map((k) => d.statements[k] && (
                     <div key={k} style={{ marginBottom: 12 }}>
                       <div className="microlabel" style={{ marginBottom: 4 }}>{k} · {showAll[k] ? Object.keys(d.statements[k].items).length : d.statements[k].headline.length} items <button className="pill" style={{ marginLeft: 8 }} onClick={() => setShowAll({ ...showAll, [k]: !showAll[k] })}>{showAll[k] ? 'headline only' : 'all line items'}</button></div>
                       <div className="tablewrap" style={{ maxHeight: showAll[k] ? 420 : 'none' }}>
-                        <table><thead><tr><th>line item</th>{d.statement_periods.map((p) => <th key={p} className="num">FY {p.slice(0, 4)}</th>)}</tr></thead>
+                        <table><thead><tr><th>line item</th>{d.statement_periods.map((p) => <th key={p} className="num">FY {p.slice(0, 4)}{d.statement_period_info?.find((i) => i.period_end === p)?.complete === false ? ' (stub)' : ''}</th>)}</tr></thead>
                           <tbody>{(showAll[k] ? Object.keys(d.statements[k].items) : d.statements[k].headline).map((li) => (
                             <tr key={li}><td>{li}</td>{d.statement_periods.map((p) => <td key={p} className="num">{fmt(d.statements[k].items[li]?.[p])}</td>)}</tr>
                           ))}</tbody></table>
@@ -80,7 +81,7 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
                   {cov ? (
                     <dl className="kv">
                       <dt>price at T0</dt><dd>{cov.price_at_t0 != null ? `${cov.price_at_t0.toFixed(2)} ${cov.currency ?? ''} (${cov.price_date})` : 'none'}</dd>
-                      <dt>fiscal years at T0</dt><dd>{cov.fys_visible ?? 0} of {cov.fys_total ?? 0} yfinance returns{cov.latest_fy_visible ? ` · latest FY ${String(cov.latest_fy_visible).slice(0, 4)}` : ''}</dd>
+                      <dt>complete FYs at T0</dt><dd>{cov.fys_visible ?? 0} of {cov.fys_total ?? 0} yfinance returns{cov.latest_fy_visible ? ` · latest FY ${String(cov.latest_fy_visible).slice(0, 4)}` : ''}{cov.stub_fys_visible ? ` · +${cov.stub_fys_visible} stub` : ''}</dd>
                       <dt>earliest FY known</dt><dd>{cov.earliest_fy ? String(cov.earliest_fy).slice(0, 4) : '—'}</dd>
                       <dt>benchmark</dt><dd className="mono">{cov.benchmark}</dd>
                     </dl>

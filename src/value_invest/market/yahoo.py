@@ -74,11 +74,19 @@ def fetch_statements(ticker: str, refresh: bool = False) -> pd.DataFrame:
         wide = getattr(tk, attr)
         if wide is None or wide.empty:
             continue
-        long = wide.reset_index().melt(id_vars="index", var_name="period_end", value_name="value")
-        long = long.rename(columns={"index": "line_item"}).dropna(subset=["value"])
-        long["period_end"] = pd.to_datetime(long["period_end"]).dt.date
-        long["kind"] = kind
-        frames.append(long)
+        # Plain loop instead of DataFrame.melt: yfinance frames carry a
+        # DatetimeIndex on the columns and occasionally duplicate line-item
+        # names, both of which trip pandas' melt/concat path.
+        records = []
+        for col in wide.columns:
+            pe = pd.Timestamp(col).date()
+            series = wide[col]
+            for li, val in zip(wide.index, series.values):
+                if val is None or pd.isna(val):
+                    continue
+                records.append({"line_item": str(li), "period_end": pe, "value": float(val), "kind": kind})
+        if records:
+            frames.append(pd.DataFrame(records))
     if frames:
         df = pd.concat(frames, ignore_index=True)
         df.insert(0, "ticker", ticker)

@@ -10,14 +10,14 @@ export default function Market({ onOpen }: { onOpen: (id: string) => void }) {
   return (
     <div className="scroll"><div className="pagewrap">
       <h1 className="h1">Market data — what the agent would be allowed to see at each T0</h1>
-      <p className="sub">yfinance daily prices from 2018 and <b>annual</b> statements (income · balance · cash flow). A fiscal year is visible at T0 once period_end + 90 days ≤ T0. <span className="mono">full</span> = 3+ fiscal years visible, <span className="mono">shallow</span> = 1–2, <span className="mono">prices_only</span> = 0.</p>
+      <p className="sub">yfinance daily prices from 2018 and <b>annual</b> statements (income · balance · cash flow). A fiscal year is visible at T0 once period_end + 90 days ≤ T0, and counts only when <em>complete</em> (yfinance's oldest column is a ~20-item stub with no revenue). <span className="mono">full</span> = 3+ fiscal years visible, <span className="mono">shallow</span> = 1–2, <span className="mono">prices_only</span> = 0.</p>
       <div className="stats">
         {Object.entries(c.summary).map(([k, n]) => (<div className="stat" key={k}><div className="v">{n}</div><div className="l">{k}</div></div>))}
         <div className="stat"><div className="v">{c.tickers.filter((t) => t.benchmark).length}</div><div className="l">tickers</div><div className="d">{c.tickers.filter((t) => !t.benchmark).map((t) => String(t.ticker)).join(', ')} as benchmarks</div></div>
       </div>
       <div className="panel tablewrap">
         <table>
-          <thead><tr><th>T0</th><th>ticker</th><th>title</th><th>year</th><th className="num">price at T0</th><th className="num">FYs visible</th><th>latest FY</th><th>earliest FY known</th><th>coverage</th></tr></thead>
+          <thead><tr><th>T0</th><th>ticker</th><th>title</th><th>year</th><th className="num">price at T0</th><th className="num">complete FYs visible</th><th>latest FY</th><th>earliest FY known</th><th>coverage</th></tr></thead>
           <tbody>{c.rows.map((r) => (
             <tr key={r.video_id} className="click" onClick={() => onOpen(r.video_id)}>
               <td className="mono">{r.t0}</td><td className="mono">{r.ticker}</td><td>{r.title}</td><td className="mono">{r.year_bucket}</td>

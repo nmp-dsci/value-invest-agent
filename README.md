@@ -39,27 +39,42 @@ resolution, the golden-call schema and extractor, yfinance / SEC EDGAR loaders,
 the point-in-time `vi.as_of` view, the forward-return validator, the DuckDB
 schema `vi`, and the walkthrough app.
 
-## Pipeline
+## Pipeline (milestone 1, built)
 
-| Stage | Command | Writes |
-|---|---|---|
-| S1 catalog | `uv run vi catalog --channel @Value-Investing --since 2022-09-17` | `vi.videos` |
-| S2 classify + sample | `uv run vi classify` · `uv run vi sample --per-year 10` | `vi.title_labels`, `vi.videos.in_sample` |
-| S3 ingest | `uv run vi ingest --sample` → transcript·lab `/api/index/queue` | Chroma (transcript·lab) |
-| S4 extract | `uv run vi extract` | `vi.calls` (the golden set) |
-| S5 market | `uv run vi market` | `vi.prices`, `vi.statements`, benchmarks |
-| S6 agent + validate | `uv run vi run-agent --split test --prompt v1` · `uv run vi validate` | `vi.predictions`, `vi.validations` |
-| S7 app | `uv run vi serve` | — |
+| Stage | Command | Writes | Source |
+|---|---|---|---|
+| S1a catalog | `uv run vi catalog` | `vi.videos` (2,071 videos, 1,032 in the 4-year window) | Supadata id list (cached) + yt-dlp channel tab for dates; exact dates merged from the Supadata / yt-dlp per-video caches (`date_source`) |
+| S1b classify | `uv run vi classify` · `--eval-seed` | `vi.title_labels` → `vi.videos.kind / primary_ticker` | Claude Agent SDK, 40 titles per call; 95 % kind / 95 % ticker agreement on the 40-title seed |
+| S1c sample | `uv run vi sample --per-year 10` | `vi.videos.in_sample / sample_rank` | seeded, quarter-stratified, extends without reshuffling |
+| S1a′ refine | `uv run vi refine-dates` | exact `published_at` for sampled videos | per-video yt-dlp |
+| S1d ingest | `uv run vi ingest` | transcript·lab's Chroma; `vi.videos.transcript_status` | runs `index-rag` in `../transcript-rag-agent` per sampled video (**Supadata credits**) |
+| S2 market | `uv run vi market` · `uv run vi coverage` | `vi.tickers`, `vi.prices`, `vi.statements` (annual) | yfinance; benchmark per exchange |
+| S3 app | `uv run vi serve` → http://127.0.0.1:8791 | — | FastAPI over DuckDB + transcript·lab corpus; React in transcript·lab's tokens |
 
-**Point-in-time rule.** The agent never sees anything dated after the video:
-prices are cut at T0, statements are filtered on *filing date* ≤ T0. One view
-(`vi.as_of`) enforces it and one test asserts nothing leaks.
+**Point-in-time rule.** `vi.prices_as_of(ticker, t0)` and
+`vi.statements_as_of(ticker, t0)` are the only reads the app (and later the
+agent) makes for a video; a fiscal year becomes visible at `period_end + 90 d`.
+`tests/test_as_of.py` asserts nothing dated after `t0` can come back.
+
+### Data-source notes learned building M1
+
+- **Supadata's plan limit** was exhausted after 144 metadata calls
+  (`limit-exceeded`). Dating the channel therefore uses yt-dlp: the channel tab
+  gives every video an *approximate* date in one call; per-video extraction
+  gives exact dates but YouTube bot-checks it after a few hundred calls, so it
+  is reserved for the 40 sampled videos. Transcripts still go through
+  transcript·lab → Supadata and need credits.
+- **yfinance annual statements** cover ≈ 4–5 fiscal years (today FY2021/22 →
+  FY2025/26), so the annual-only as-of rule covers most sampled videos;
+  first-window-year videos may see 0–1 fiscal years. The Market tab reports
+  this per video.
 
 ## Setup
 
 ```bash
 uv sync
-cp .env.example ~/.env          # SUPADATA_API_KEY; BILLING=subscription + `claude setup-token`
+cp .env.example .env            # SUPADATA_API_KEY; BILLING=subscription (the Claude CLI login is the credential)
+cd frontend && npm install && npm run build && cd ..
 uv run vi --help
 uv run pytest -q
 ```
