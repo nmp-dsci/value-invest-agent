@@ -18,6 +18,10 @@ dependencies = [
   "typer>=0.15",
   "rich>=13.9",
   "yfinance>=0.2.50",
+  "yt-dlp>=2026.1",
+  "chromadb>=1.5.9",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.32",
 ]
 
 [project.scripts]

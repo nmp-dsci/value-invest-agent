@@ -1,0 +1,30 @@
+{
+ "n": 40,
+ "kind_agreement": 0.95,
+ "ticker_agreement_on_singles": 0.95,
+ "disagreements": [
+  {
+   "title": "above 5%... means, much more work for me...",
+   "human": "macro",
+   "llm": "other"
+  },
+  {
+   "title": "Alibaba - Adjusting My Intrinsic Value Calculation",
+   "human_ticker": "BABA",
+   "llm_ticker": "9988.HK"
+  },
+  {
+   "title": "Burry's Flutter Stocks is a BUY! + Burry's Bets & Shorts",
+   "human": "single",
+   "llm": "multi"
+  }
+ ],
+ "usage": {
+  "model": "claude-sonnet-5",
+  "turns": 2,
+  "cost_usd": 0.2724084,
+  "session_id": "8658e3f8-b8f1-4c87-8844-5d2ac5ab7e56",
+  "input_tokens": 94951,
+  "output_tokens": 6339
+ }
+}
