@@ -126,8 +126,14 @@ assume period_end + 45 (quarterly) / 90 (annual) days.
 |---|---|---|
 | daily OHLCV, any exchange | yes (`history(period="max")`, suffixes `.PA`, `.DE`, `.HK`) | — |
 | quarterly statements | ≈ last 5 quarters only | EDGAR `companyfacts` (US) / paid API |
-| annual statements | ≈ last 4 years | EDGAR back to 2009 (US) |
+| annual statements | ≈ last 4 years (today FY2022–25) | EDGAR back to 2009 (US) |
+| **annual only** — last FY with year-end + 90 d ≤ T0 | covers sampled videos from 2023-04 on (≈30 / 40); first-year videos need FY2021, which Yahoo no longer returns | EDGAR for first-year US names; non-US flagged shallow |
 | filing dates | not exposed | EDGAR `filed`; else period_end + 45/90 d |
+
+Option 1b, annual-only: drop quarterlies and give the agent the last annual
+report published before T0 — the simplest as-of rule, and a value investor
+reasons in fiscal years anyway. Viable first milestone alone; EDGAR fills the
+first-year gap for US names.
 
 Recommended: yfinance + EDGAR for US names; non-US flagged
 `fundamentals_depth=shallow`. Paid API (FMP/EOD/Polygon) only if non-US names
