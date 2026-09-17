@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Derived state: Supadata/LLM/market caches and the DuckDB file are rebuilt by
+# the pipeline. Only the small demo snapshot under data/snapshot/ is committed.
+.vi/
+data/value_invest.duckdb
+data/market/
+
+# Local MLflow store
+.mlflow/
+mlruns/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store

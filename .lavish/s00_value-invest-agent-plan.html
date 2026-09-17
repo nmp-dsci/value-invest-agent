@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>value·invest agent — project plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #FAF9F5; --panel: #FFFFFF; --panel-2: #F3F1EA;
+    --ink: #16181D; --body: rgba(22,24,29,.87); --caption: rgba(22,24,29,.60); --muted: #5C6270;
+    --line: #E5E2D8; --line-strong: #C9C5B8;
+    --accent: #2434C9; --accent-soft: rgba(36,52,201,.10);
+    --good: #1a7f37; --good-soft: rgba(26,127,55,.10);
+    --warn: #9a6700; --warn-soft: rgba(154,103,0,.12);
+    --bad: #cf222e; --bad-soft: rgba(207,34,46,.10);
+    --console: #14161B; --console-text: #E9E8E2; --console-label: #9BA1AE;
+    --nav-bg: rgba(250,249,245,.85);
+    --shadow: 0 1px 2px rgba(22,24,29,.05), 0 8px 28px rgba(22,24,29,.07);
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", "SF Mono", Menlo, Consolas, monospace;
+    /* workbench mock tokens (transcript-rag-agent frontend/src/theme.css, dark) */
+    --wb-bg:#0d1017; --wb-panel:#12151e; --wb-panel2:#1b2130; --wb-border:#242936; --wb-text:#e7ebf3; --wb-text2:#c7ccd9;
+    --wb-muted:#8a90a0; --wb-dim:#6d7383; --wb-accent:#5b7cf0; --wb-accent-dim:#171d33; --wb-accent-border:#33437e;
+    --wb-good:#3fb950; --wb-warn:#d29922; --wb-bad:#f85149; --wb-on-accent:#0b1020;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --paper:#101216; --panel:#171A20; --panel-2:#1C2027; --ink:#EDEBE4; --body:rgba(237,235,228,.87); --caption:rgba(237,235,228,.60);
+    --muted:#9BA1AE; --line:#262B34; --line-strong:#3A4150; --accent:#96A4FF; --accent-soft:rgba(150,164,255,.12);
+    --good:#57c86b; --good-soft:rgba(87,200,107,.14); --warn:#e0b04a; --warn-soft:rgba(224,176,74,.14); --bad:#ff7b72; --bad-soft:rgba(255,123,114,.14);
+    --console:#0B0D11; --nav-bg:rgba(16,18,22,.85); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  } }
+  :root[data-theme="dark"] {
+    --paper:#101216; --panel:#171A20; --panel-2:#1C2027; --ink:#EDEBE4; --body:rgba(237,235,228,.87); --caption:rgba(237,235,228,.60);
+    --muted:#9BA1AE; --line:#262B34; --line-strong:#3A4150; --accent:#96A4FF; --accent-soft:rgba(150,164,255,.12);
+    --good:#57c86b; --good-soft:rgba(87,200,107,.14); --warn:#e0b04a; --warn-soft:rgba(224,176,74,.14); --bad:#ff7b72; --bad-soft:rgba(255,123,114,.14);
+    --console:#0B0D11; --nav-bg:rgba(16,18,22,.85); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  }
+  *, *::before, *::after { box-sizing: border-box; min-width: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin:0; background:var(--paper); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased; padding-inline:16px; }
+  .wrap { max-width: 1060px; margin: 0 auto; }
+  nav.top { position: sticky; top:0; z-index:10; background:var(--nav-bg); backdrop-filter: blur(10px); border-bottom:1px solid var(--line); margin-inline:-16px; padding-inline:16px; }
+  nav.top .wrap { display:flex; gap:16px; align-items:center; min-height:52px; flex-wrap:wrap; padding-block:6px; }
+  nav.top .brand { font-family:var(--serif); font-size:20px; color:var(--ink); display:flex; align-items:center; gap:8px; margin-right:6px; }
+  .diamond { width:9px; height:9px; background:var(--accent); transform:rotate(45deg); display:inline-block; }
+  nav.top a { color:var(--muted); text-decoration:none; font-size:13px; font-weight:500; }
+  nav.top a:hover { color:var(--ink); }
+  header.hero { padding: 52px 0 28px; border-bottom:1px solid var(--line); }
+  .eyebrow { font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  h1 { font-family:var(--serif); font-weight:400; font-size: clamp(36px, 6vw, 58px); line-height:1.05; color:var(--ink); margin: 14px 0 12px; letter-spacing:-.01em; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { font-size:19px; color:var(--body); max-width: 780px; margin:0; }
+  .facts { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:22px; font-family:var(--mono); font-size:12.5px; color:var(--caption); }
+  .facts b { color:var(--ink); font-weight:500; }
+  section { padding: 44px 0 8px; }
+  .section-head { display:flex; align-items:baseline; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+  .section-head .num { font-size:13px; }
+  h2 { font-family:var(--serif); font-weight:400; font-size:34px; color:var(--ink); margin:0; line-height:1.1; }
+  h3 { font-family:var(--sans); font-weight:600; font-size:17px; color:var(--ink); margin:26px 0 8px; }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); }
+  .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap:14px; margin: 14px 0 6px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow); }
+  .card h4 { margin:0 0 8px; font-size:15px; color:var(--ink); font-weight:600; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .card p { font-size:14.5px; color:var(--body); margin:0 0 6px; }
+  .card ul { font-size:14px; margin:6px 0 0; }
+  .card.rec { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+  .num { font-family:var(--mono); font-size:12px; color:var(--accent); }
+  .k { font-family:var(--mono); font-size:12.5px; background:var(--panel-2); border:1px solid var(--line); border-radius:5px; padding:1px 6px; color:var(--ink); white-space:nowrap; }
+  code { font-family:var(--mono); font-size:.9em; }
+  pre { background:var(--console); color:var(--console-text); border-radius:10px; padding:14px 16px; overflow-x:auto; font-family:var(--mono); font-size:12.5px; line-height:1.55; margin: 10px 0 16px; }
+  pre .c { color:var(--console-label); }
+  pre .h { color:#9db0ff; }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin: 8px 0 18px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--caption); font-weight:500; }
+  .tablewrap { overflow-x:auto; }
+  td.mono, .mono { font-family:var(--mono); font-size:12.5px; }
+  .tag { display:inline-block; font-family:var(--mono); font-size:11px; padding:2px 7px; border-radius:99px; border:1px solid var(--line-strong); color:var(--muted); white-space:nowrap; }
+  .tag.good { color:var(--good); border-color:var(--good); background:var(--good-soft); }
+  .tag.warn { color:var(--warn); border-color:var(--warn); background:var(--warn-soft); }
+  .tag.bad { color:var(--bad); border-color:var(--bad); background:var(--bad-soft); }
+  .tag.acc { color:var(--accent); border-color:var(--accent); background:var(--accent-soft); }
+  .note { border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; border-radius:0 8px 8px 0; font-size:14.5px; margin:12px 0 18px; }
+  .note.warn { border-color:var(--warn); background:var(--warn-soft); }
+  .note.good { border-color:var(--good); background:var(--good-soft); }
+  ul, ol { padding-left: 20px; margin: 0 0 12px; } li { margin: 4px 0; }
+  .slice { display:grid; grid-template-columns: 64px minmax(0,1fr); gap: 14px; padding: 16px 0; border-top:1px solid var(--line); }
+  .slice .v { font-family:var(--serif); font-size:30px; color:var(--accent); line-height:1; }
+  .slice h4 { margin:2px 0 6px; font-size:16px; color:var(--ink); }
+  .slice p, .slice li { font-size:14.5px; }
+  .slice .ship { font-family:var(--mono); font-size:12px; color:var(--caption); margin-top:6px; }
+  figure { margin: 10px 0 22px; }
+  figure svg { width:100%; height:auto; display:block; font-family: var(--sans); }
+  figcaption { font-size:13.5px; color:var(--caption); margin-top:8px; }
+  svg text { fill: var(--ink); }
+  svg .lbl { font-size:12px; }
+  svg .sm { font-size:10.5px; fill: var(--caption); font-family: var(--mono); }
+  svg .ttl { font-size:13px; font-weight:600; }
+  svg .box { fill: var(--panel); stroke: var(--line-strong); stroke-width:1; }
+  svg .box.acc { fill: var(--accent-soft); stroke: var(--accent); }
+  svg .box.good { fill: var(--good-soft); stroke: var(--good); }
+  svg .box.warn { fill: var(--warn-soft); stroke: var(--warn); }
+  svg .box.bad { fill: var(--bad-soft); stroke: var(--bad); }
+  svg .region { fill: var(--panel-2); stroke: var(--line); stroke-dasharray: 4 3; }
+  svg .edge { stroke: var(--muted); stroke-width:1.4; fill:none; marker-end: url(#arr); }
+  svg .edge.acc { stroke: var(--accent); }
+  svg .edge.dash { stroke-dasharray: 5 4; }
+  svg .grid { stroke: var(--line); stroke-width:1; }
+  .two { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap:18px; align-items:start; }
+  /* decision forms (input playbook) */
+  form.decision { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin: 12px 0 18px; box-shadow:var(--shadow); }
+  form.decision legend { font-weight:600; color:var(--ink); font-size:15px; padding:0; margin-bottom:6px; }
+  form.decision fieldset { border:0; padding:0; margin:0; }
+  form.decision label { display:flex; gap:10px; align-items:flex-start; padding:8px 10px; border-radius:8px; font-size:14.5px; cursor:pointer; }
+  form.decision label:hover { background:var(--panel-2); }
+  form.decision label input { margin-top:4px; flex: 0 0 auto; }
+  form.decision .why { color:var(--caption); font-size:13px; display:block; }
+  form.decision textarea { width:100%; border:1px solid var(--line); border-radius:8px; padding:8px 10px; font:inherit; font-size:14px; background:var(--paper); color:var(--ink); margin-top:8px; resize:vertical; }
+  form.decision button { margin-top:10px; background:var(--accent); color:#fff; border:0; border-radius:8px; padding:8px 14px; font:inherit; font-size:14px; font-weight:600; cursor:pointer; }
+  form.decision .queued { font-family:var(--mono); font-size:12px; color:var(--good); margin-left:10px; display:none; }
+  form.decision.sent .queued { display:inline; }
+  /* workbench mock */
+  .mock { background:var(--wb-bg); color:var(--wb-text); border-radius:12px; border:1px solid var(--wb-border); overflow:hidden; font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size:12.5px; box-shadow:var(--shadow); margin: 14px 0 8px; }
+  .mock .bar { display:flex; gap:4px; align-items:center; padding:8px 12px; border-bottom:1px solid var(--wb-border); background:var(--wb-panel); flex-wrap:wrap; }
+  .mock .bar .b { font-family:"Instrument Sans", system-ui, sans-serif; font-size:14px; margin-right:12px; color:var(--wb-text); }
+  .mock .bar .b i { font-family:var(--serif); font-style:italic; }
+  .mock .tab { padding:4px 9px; border-radius:6px; color:var(--wb-muted); }
+  .mock .tab.on { background:var(--wb-accent-dim); color:var(--wb-text); border:1px solid var(--wb-accent-border); }
+  .mock .body { display:grid; grid-template-columns: 240px minmax(0,1fr) 260px; min-height:380px; }
+  @media (max-width: 860px) { .mock .body { grid-template-columns: 1fr; } .mock .rail { border-right:0; border-bottom:1px solid var(--wb-border);} .mock .rail.right { border-left:0; } }
+  .mock .rail { background:var(--wb-panel); border-right:1px solid var(--wb-border); padding:10px; }
+  .mock .rail.right { border-right:0; border-left:1px solid var(--wb-border); }
+  .mock .rh { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--wb-dim); margin: 6px 4px 8px; }
+  .mock .g { padding:8px 9px; border-radius:7px; border:1px solid transparent; margin-bottom:4px; }
+  .mock .g.on { background:var(--wb-panel2); border-color:var(--wb-border); }
+  .mock .g .t { color:var(--wb-text); font-weight:500; }
+  .mock .g .m { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; color:var(--wb-muted); margin-top:2px; }
+  .mock .main { padding:14px 16px; }
+  .mock .main h5 { margin:0 0 4px; font-family:"Instrument Sans", system-ui, sans-serif; font-weight:600; font-size:16px; color:var(--wb-text); }
+  .mock .main .sub { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; color:var(--wb-muted); margin-bottom:12px; }
+  .mock .cols { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:10px; }
+  .mock .pane { background:var(--wb-panel); border:1px solid var(--wb-border); border-radius:8px; padding:10px 11px; }
+  .mock .pane .ph { font-family:ui-monospace, Menlo, monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--wb-dim); margin-bottom:6px; }
+  .mock .pane .big { font-size:20px; font-weight:600; color:var(--wb-text); }
+  .mock .pane .big.good { color:var(--wb-good);} .mock .pane .big.warn { color:var(--wb-warn);} .mock .pane .big.bad { color:var(--wb-bad);}
+  .mock .pane p { margin:4px 0 0; color:var(--wb-text2); font-size:11.5px; line-height:1.5; }
+  .mock .spark { display:block; width:100%; height:auto; margin-top:6px; }
+  .mock .chip { display:inline-block; font-family:ui-monospace, Menlo, monospace; font-size:10px; padding:1px 6px; border-radius:99px; border:1px solid var(--wb-border); color:var(--wb-muted); margin-right:4px; }
+  .mock .chip.good { color:var(--wb-good); border-color:var(--wb-good);} .mock .chip.warn { color:var(--wb-warn); border-color:var(--wb-warn);} .mock .chip.bad { color:var(--wb-bad); border-color:var(--wb-bad);}
+  .mock .cm { background:var(--wb-panel2); border:1px solid var(--wb-border); border-radius:7px; padding:8px 9px; margin-bottom:6px; }
+  .mock .cm .q { color:var(--wb-muted); font-size:11px; }
+  .mock .cm .x { color:var(--wb-text2); margin-top:3px; font-size:11.5px; }
+  .kv { display:grid; grid-template-columns: max-content minmax(0,1fr); gap:4px 14px; font-size:14px; }
+  .kv dt { font-family:var(--mono); font-size:12.5px; color:var(--caption); } .kv dd { margin:0; }
+  footer { padding: 40px 0 60px; border-top:1px solid var(--line); margin-top:40px; font-size:13.5px; color:var(--caption); }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <span class="brand"><span class="diamond"></span>value·invest agent</span>
+  <a href="#idea">Idea</a><a href="#channel">Channel</a><a href="#arch">Architecture</a><a href="#storage">Storage</a><a href="#pipeline">Pipeline</a><a href="#golden">Golden set</a><a href="#market">Market data</a><a href="#agent">Agent</a><a href="#validate">Validation</a><a href="#app">App</a><a href="#plan">Plan</a><a href="#decisions">Decisions</a>
+</div></nav>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow"><span>s00 · project plan</span><span class="tag">draft · 2026-09-17</span><span class="tag acc">repo: nmp-dsci/value-invest-agent</span></div>
+  <h1>Can an agent learn to make the <em>calls</em> a value investor makes on YouTube?</h1>
+  <p class="lede">Four years of <b>Value Investing with Sven Carlin, Ph.D.</b> (@Value-Investing) turned into a golden set of dated stock calls; an analyst agent that sees only the prices and financial statements available on the video date and tries to reproduce each call; and a validator that scores both the channel and the agent against what the stock actually did 6, 12 and 24 months later.</p>
+  <div class="facts">
+    <span><b>2,072</b> video ids listed by Supadata (channel reports 2,400)</span>
+    <span><b>≈1,000</b> published in the 4-year window</span>
+    <span><b>270k</b> subscribers</span>
+    <span><b>9 / 40</b> recent titles contain an explicit ticker</span>
+    <span><b>transcript·lab</b> reused for ingestion + chunks</span>
+  </div>
+</header>
+
+<!-- ───────────────────────── 0. THE IDEA ───────────────────────── -->
+<section id="idea">
+  <div class="section-head"><span class="num">00</span><h2>The idea, in one figure</h2></div>
+  <p>Every stock-analysis video is a labelled example: a <em>date</em>, a <em>ticker</em>, and a <em>stance</em> (buy / hold / sell / watch) plus the reasoning behind it. Two things can be learned from that at once — whether an agent can reproduce the human's call from the same public data, and whether the human's calls were any good.</p>
+  <figure>
+  <svg viewBox="0 0 1000 330" role="img" aria-labelledby="f0t"><title id="f0t">Two loops: the reproduction loop compares the agent's call to the transcript's call; the validation loop compares both to the forward price.</title>
+    <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke" style="fill:var(--muted)"/></marker></defs>
+    <!-- video -->
+    <g id="f0-video"><rect class="box acc" x="20" y="40" width="190" height="78" rx="10"/><text class="ttl" x="115" y="70" text-anchor="middle">YouTube video</text><text class="sm" x="115" y="90" text-anchor="middle">transcript via Supadata</text><text class="sm" x="115" y="105" text-anchor="middle">date T0 · title · description</text></g>
+    <!-- golden -->
+    <g id="f0-golden"><rect class="box good" x="300" y="40" width="190" height="78" rx="10"/><text class="ttl" x="395" y="70" text-anchor="middle">Golden call</text><text class="sm" x="395" y="90" text-anchor="middle">ticker · stance · intrinsic value</text><text class="sm" x="395" y="105" text-anchor="middle">thesis · risks (LLM-extracted)</text></g>
+    <path class="edge acc" d="M210 79 H298"/>
+    <!-- market data -->
+    <g id="f0-market"><rect class="box" x="20" y="200" width="190" height="78" rx="10"/><text class="ttl" x="115" y="230" text-anchor="middle">Market data as of T0</text><text class="sm" x="115" y="250" text-anchor="middle">daily prices ≤ T0</text><text class="sm" x="115" y="265" text-anchor="middle">income · balance · cash flow ≤ T0</text></g>
+    <!-- agent -->
+    <g id="f0-agent"><rect class="box acc" x="300" y="200" width="190" height="78" rx="10"/><text class="ttl" x="395" y="230" text-anchor="middle">Analyst agent</text><text class="sm" x="395" y="250" text-anchor="middle">same inputs, no transcript</text><text class="sm" x="395" y="265" text-anchor="middle">→ predicted call + report</text></g>
+    <path class="edge" d="M210 239 H298"/>
+    <!-- compare -->
+    <g id="f0-compare"><rect class="box warn" x="580" y="120" width="170" height="78" rx="10"/><text class="ttl" x="665" y="150" text-anchor="middle">Match?</text><text class="sm" x="665" y="170" text-anchor="middle">stance · IV band · thesis judge</text><text class="sm" x="665" y="185" text-anchor="middle">the agent's training signal</text></g>
+    <path class="edge" d="M490 79 C540 79 540 159 578 159"/>
+    <path class="edge" d="M490 239 C540 239 540 159 578 159"/>
+    <!-- future -->
+    <g id="f0-future"><rect class="box" x="580" y="230" width="170" height="78" rx="10"/><text class="ttl" x="665" y="260" text-anchor="middle">Price at T0 + 6 / 12 / 24m</text><text class="sm" x="665" y="280" text-anchor="middle">vs benchmark index</text><text class="sm" x="665" y="295" text-anchor="middle">(only known after the fact)</text></g>
+    <!-- verdicts -->
+    <g id="f0-verdict"><rect class="box good" x="820" y="120" width="160" height="78" rx="10"/><text class="ttl" x="900" y="150" text-anchor="middle">Verdict</text><text class="sm" x="900" y="170" text-anchor="middle">was the channel right?</text><text class="sm" x="900" y="185" text-anchor="middle">was the agent right?</text></g>
+    <path class="edge" d="M750 159 H818"/>
+    <path class="edge dash" d="M750 269 C790 269 790 175 818 175"/>
+    <!-- loop labels -->
+    <text class="sm" x="395" y="150" text-anchor="middle" style="fill:var(--accent)">reproduction loop ↑</text>
+    <text class="sm" x="665" y="222" text-anchor="middle" style="fill:var(--good)">validation loop ↓</text>
+  </svg>
+  <figcaption>Two independent loops share one golden set. The reproduction loop needs no future data and can run the day a video is published; the validation loop needs 6–24 months of hindsight, which is why the corpus is limited to the last four years and the 24-month verdict only exists for videos before Sept 2024.</figcaption>
+  </figure>
+  <div class="note"><b>Point-in-time rule.</b> The agent must never see anything dated after the video. Prices are cut at T0; financial statements are filtered on <em>filing/report date</em> ≤ T0, not fiscal period end. This is the invariant that makes the comparison honest and it is enforced in one place (§4).</div>
+</section>
+
+<!-- ───────────────────────── 1. THE CHANNEL ───────────────────────── -->
+<section id="channel">
+  <div class="section-head"><span class="num">01</span><h2>The channel, as Supadata sees it</h2></div>
+  <p>I queried Supadata directly (the same client <span class="k">src/transcripts/discovery.py</span> in transcript·lab wraps). Channel id <span class="k">UCrTTBSUr0zhPU56UQljag5A</span>. The listing endpoint returns <b>ids only, no dates</b> — dates come from one <span class="k">/v1/metadata</span> call per video (<span class="k">createdAt</span>, day precision). The list is newest-first: id #1000 is a 2022 video, so ≈1,000 videos fall inside the 4-year window.</p>
+
+  <h3>What titles actually look like (40 most recent, sampled)</h3>
+  <p>The user's filter idea was "videos with a ticker symbol in the name". The sample says that is too narrow: only 9 of 40 titles carry an explicit ticker; most name the company instead. The filter must be a <b>title classifier that resolves company → ticker</b>, not a regex.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Title (verbatim)</th><th>Kind</th><th>Ticker in title?</th><th>Resolves to</th></tr></thead>
+    <tbody>
+      <tr><td>LVMH Stock Investing Analysis + Intrinsic Value</td><td><span class="tag good">single-stock</span></td><td>no</td><td class="mono">MC.PA</td></tr>
+      <tr><td>MCD Stock Intrinsic Value</td><td><span class="tag good">single-stock</span></td><td>yes</td><td class="mono">MCD</td></tr>
+      <tr><td>VICI Stock Looks Good With The 7% Yield!</td><td><span class="tag good">single-stock</span></td><td>yes</td><td class="mono">VICI</td></tr>
+      <tr><td>Vonovia Stock Explained! Is it for you? ETR: VNA</td><td><span class="tag good">single-stock</span></td><td>yes (exchange-qualified)</td><td class="mono">VNA.DE</td></tr>
+      <tr><td>Lululemon Stock Must be a BUY TODAY!!!</td><td><span class="tag good">single-stock</span></td><td>no · stance in title</td><td class="mono">LULU</td></tr>
+      <tr><td>BERKSHIRE A SELL, VALUE INVESTING BLASPHEMY!</td><td><span class="tag good">single-stock</span></td><td>no · stance in title</td><td class="mono">BRK-B</td></tr>
+      <tr><td>Alibaba - Adjusting My Intrinsic Value Calculation</td><td><span class="tag good">single-stock</span></td><td>no</td><td class="mono">BABA / 9988.HK</td></tr>
+      <tr><td>Xiaomi Stock Analysis Tells Many Interesting Stories!</td><td><span class="tag good">single-stock</span></td><td>no</td><td class="mono">1810.HK</td></tr>
+      <tr><td>Nike Stock Smells More Like a Buy Than Old Shoes...</td><td><span class="tag good">single-stock</span></td><td>no</td><td class="mono">NKE</td></tr>
+      <tr><td>Oracle Stock Can Give You A 5X!</td><td><span class="tag good">single-stock</span></td><td>no</td><td class="mono">ORCL</td></tr>
+      <tr><td>ONON, LULU, NIKE, DECK, BIRK, ANTA Sector Analysis</td><td><span class="tag warn">multi-stock</span></td><td>yes (6)</td><td class="mono">6 rows</td></tr>
+      <tr><td>GOOG, MSFT, AMZN, NVDA – INVESTING RISK AND REWARD!!!</td><td><span class="tag warn">multi-stock</span></td><td>yes (4)</td><td class="mono">4 rows</td></tr>
+      <tr><td>I looked at the top 12 Car Stocks! Which is the BEST BUY?</td><td><span class="tag warn">multi-stock</span></td><td>no</td><td class="mono">from transcript</td></tr>
+      <tr><td>10 Stocks to Buy! Value Investing Quadrant Update 2H 2026</td><td><span class="tag warn">multi-stock</span></td><td>no</td><td class="mono">from transcript</td></tr>
+      <tr><td>Where are we with Investing Today! 15% UP Per Year Next? or 80% Crash?</td><td><span class="tag bad">macro / excluded</span></td><td>no</td><td>—</td></tr>
+      <tr><td>Easy ETF Index Funds Set And Forget Investing Strategy…</td><td><span class="tag bad">general / excluded</span></td><td>no</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13.5px;color:var(--caption)">Sample of 40: ≈20 single-stock, ≈10 multi-stock, ≈10 macro/general. Full 40-title sample is in the scratchpad and will be committed as <span class="k">data/samples/titles_2026-09.json</span> so the classifier has a labelled seed.</p>
+
+  <h3>The funnel</h3>
+  <figure>
+  <svg viewBox="0 0 1000 250" role="img" aria-labelledby="f1t"><title id="f1t">Funnel from 2,072 listed videos to an estimated 900 golden calls.</title>
+    <g id="fn-1"><rect class="box" x="20" y="60" width="200" height="120" rx="10"/><text class="ttl" x="120" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">2,072</text><text class="lbl" x="120" y="124" text-anchor="middle">video ids listed</text><text class="sm" x="120" y="142" text-anchor="middle">channel/videos · no dates</text><text class="sm" x="120" y="158" text-anchor="middle">1 call</text></g>
+    <path class="edge" d="M220 120 H258"/>
+    <g id="fn-2"><rect class="box" x="260" y="60" width="200" height="120" rx="10"/><text class="ttl" x="360" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">≈1,000</text><text class="lbl" x="360" y="124" text-anchor="middle">published ≥ 2022-09-17</text><text class="sm" x="360" y="142" text-anchor="middle">metadata per video · createdAt</text><text class="sm" x="360" y="158" text-anchor="middle">≈1,050 calls, stop at first &lt; cutoff</text></g>
+    <path class="edge" d="M460 120 H498"/>
+    <g id="fn-3"><rect class="box acc" x="500" y="60" width="200" height="120" rx="10"/><text class="ttl" x="600" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">≈750</text><text class="lbl" x="600" y="124" text-anchor="middle">stock-analysis videos</text><text class="sm" x="600" y="142" text-anchor="middle">≈500 single · ≈250 multi</text><text class="sm" x="600" y="158" text-anchor="middle">title classifier (LLM) + human spot-check</text></g>
+    <path class="edge" d="M700 120 H738"/>
+    <g id="fn-4"><rect class="box good" x="740" y="60" width="240" height="120" rx="10"/><text class="ttl" x="860" y="100" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">≈900</text><text class="lbl" x="860" y="124" text-anchor="middle">golden calls (ticker, T0, stance)</text><text class="sm" x="860" y="142" text-anchor="middle">1 per single-stock video</text><text class="sm" x="860" y="158" text-anchor="middle">n per multi-stock video, from transcript</text></g>
+    <text class="sm" x="500" y="215" text-anchor="middle">Estimates extrapolated from the 40-title sample (50% / 25% / 25%). The catalog step (§4·S1) replaces them with real counts before any transcript is fetched.</text>
+  </svg>
+  <figcaption>Supadata budget: ≈1,050 metadata calls to date the list, then ≈750 transcript fetches. Both are cached on disk by transcript·lab's discovery client so a re-run costs nothing.</figcaption>
+  </figure>
+</section>
+
+<!-- ───────────────────────── 2. ARCHITECTURE ───────────────────────── -->
+<section id="arch">
+  <div class="section-head"><span class="num">02</span><h2>Architecture: two repos, one corpus</h2></div>
+  <p>transcript·lab (<span class="k">transcript-rag-agent</span>) already does everything transcript-shaped: Supadata discovery with a disk cache, transcript fetch + normalisation, segment-aware chunking, MiniLM embeddings, a Chroma store with <span class="k">raw_transcripts</span> / <span class="k">transcript_chunks</span> collections, a <span class="k">bulk-index channel --since --until</span> CLI, and an API (<span class="k">/api/corpus</span>, <span class="k">/api/corpus/{video_id}/chunks</span>, <span class="k">/api/index/queue</span>). Every chunk already carries <span class="k">channel_id</span>, <span class="k">title</span>, <span class="k">upload_date</span>, so channel-scoped retrieval is native. <b>value-invest-agent owns everything that is finance-shaped</b> and points at transcript·lab's corpus by <span class="k">video_id</span> and <span class="k">chunk:&lt;video_id&gt;:&lt;index&gt;</span>.</p>
+  <figure>
+  <svg viewBox="0 0 1000 560" role="img" aria-labelledby="f2t"><title id="f2t">System overview: transcript-lab provides ingestion, Chroma corpus and API; value-invest-agent provides catalog, golden extraction, market data, agent, validator, DuckDB and the app.</title>
+    <!-- external -->
+    <g id="ext-supadata"><rect class="box" x="20" y="30" width="150" height="54" rx="9"/><text class="ttl" x="95" y="53" text-anchor="middle">Supadata API</text><text class="sm" x="95" y="71" text-anchor="middle">channel · metadata · transcript</text></g>
+    <g id="ext-yahoo"><rect class="box" x="20" y="300" width="150" height="54" rx="9"/><text class="ttl" x="95" y="323" text-anchor="middle">Yahoo Finance</text><text class="sm" x="95" y="341" text-anchor="middle">yfinance · prices · statements</text></g>
+    <g id="ext-edgar"><rect class="box" x="20" y="370" width="150" height="54" rx="9"/><text class="ttl" x="95" y="393" text-anchor="middle">SEC EDGAR (opt.)</text><text class="sm" x="95" y="411" text-anchor="middle">XBRL companyfacts · US only</text></g>
+    <g id="ext-llm"><rect class="box" x="20" y="470" width="150" height="54" rx="9"/><text class="ttl" x="95" y="493" text-anchor="middle">LLM provider</text><text class="sm" x="95" y="511" text-anchor="middle">Claude / DeepSeek via one chokepoint</text></g>
+
+    <!-- transcript-lab region -->
+    <rect class="region" x="210" y="14" width="330" height="250" rx="12"/>
+    <text class="ttl" x="226" y="36" style="fill:var(--accent)">transcript·lab  (existing repo, reused as-is)</text>
+    <g id="tl-discovery"><rect class="box" x="226" y="52" width="140" height="48" rx="8"/><text class="lbl" x="296" y="72" text-anchor="middle">discovery.py</text><text class="sm" x="296" y="88" text-anchor="middle">cached channel + metadata</text></g>
+    <g id="tl-bulk"><rect class="box" x="386" y="52" width="140" height="48" rx="8"/><text class="lbl" x="456" y="72" text-anchor="middle">bulk-index / index-rag</text><text class="sm" x="456" y="88" text-anchor="middle">fetch · chunk · embed</text></g>
+    <g id="tl-chroma"><rect class="box acc" x="226" y="122" width="300" height="70" rx="8"/><text class="lbl" x="376" y="144" text-anchor="middle" style="font-weight:600">Chroma  .yt-agent/chroma</text><text class="sm" x="376" y="162" text-anchor="middle">raw_transcripts · transcript_chunks · transcript_summaries</text><text class="sm" x="376" y="178" text-anchor="middle">filter: channel_id = UCrTTBSUr0…</text></g>
+    <g id="tl-api"><rect class="box" x="226" y="206" width="300" height="42" rx="8"/><text class="lbl" x="376" y="224" text-anchor="middle">FastAPI  /api/corpus · /chunks · /index/queue · /ask</text><text class="sm" x="376" y="240" text-anchor="middle">workbench UI browses the same corpus</text></g>
+    <path class="edge" d="M170 57 H224"/>
+    <path class="edge" d="M366 76 H384"/>
+    <path class="edge" d="M456 100 V120"/>
+    <path class="edge" d="M376 192 V204"/>
+
+    <!-- value-invest region -->
+    <rect class="region" x="570" y="14" width="410" height="530" rx="12"/>
+    <text class="ttl" x="586" y="36" style="fill:var(--good)">value-invest-agent  (this repo)</text>
+    <g id="vi-catalog"><rect class="box" x="586" y="52" width="180" height="48" rx="8"/><text class="lbl" x="676" y="72" text-anchor="middle">catalog + title classifier</text><text class="sm" x="676" y="88" text-anchor="middle">which videos · which tickers</text></g>
+    <g id="vi-golden"><rect class="box good" x="786" y="52" width="180" height="48" rx="8"/><text class="lbl" x="876" y="72" text-anchor="middle">golden extraction</text><text class="sm" x="876" y="88" text-anchor="middle">transcript → structured call</text></g>
+    <g id="vi-market"><rect class="box" x="586" y="122" width="180" height="48" rx="8"/><text class="lbl" x="676" y="142" text-anchor="middle">market data loader</text><text class="sm" x="676" y="158" text-anchor="middle">prices · statements · benchmarks</text></g>
+    <g id="vi-pit"><rect class="box warn" x="786" y="122" width="180" height="48" rx="8"/><text class="lbl" x="876" y="142" text-anchor="middle">as_of(T0) view</text><text class="sm" x="876" y="158" text-anchor="middle">the point-in-time guard</text></g>
+    <g id="vi-agent"><rect class="box acc" x="586" y="192" width="180" height="48" rx="8"/><text class="lbl" x="676" y="212" text-anchor="middle">analyst agent</text><text class="sm" x="676" y="228" text-anchor="middle">tools over as_of view → call</text></g>
+    <g id="vi-score"><rect class="box" x="786" y="192" width="180" height="48" rx="8"/><text class="lbl" x="876" y="212" text-anchor="middle">scorer + judge</text><text class="sm" x="876" y="228" text-anchor="middle">agent call vs golden call</text></g>
+    <g id="vi-valid"><rect class="box good" x="586" y="262" width="380" height="48" rx="8"/><text class="lbl" x="776" y="282" text-anchor="middle">forward-return validator  (6 / 12 / 24 m vs benchmark)</text><text class="sm" x="776" y="298" text-anchor="middle">verdict for the channel's call and for the agent's call</text></g>
+    <g id="vi-duck"><rect class="box acc" x="586" y="334" width="380" height="76" rx="8"/><text class="lbl" x="776" y="356" text-anchor="middle" style="font-weight:600">DuckDB  data/value_invest.duckdb · schema vi</text><text class="sm" x="776" y="374" text-anchor="middle">videos · calls · prices · statements · agent_runs · predictions · validations</text><text class="sm" x="776" y="392" text-anchor="middle">references transcript·lab by video_id / chunk id · rebuildable from caches</text></g>
+    <g id="vi-loop"><rect class="box" x="586" y="432" width="180" height="48" rx="8"/><text class="lbl" x="676" y="452" text-anchor="middle">improvement loop</text><text class="sm" x="676" y="468" text-anchor="middle">prompt versions · gate · MLflow</text></g>
+    <g id="vi-app"><rect class="box" x="786" y="432" width="180" height="48" rx="8"/><text class="lbl" x="876" y="452" text-anchor="middle">app  FastAPI + React</text><text class="sm" x="876" y="468" text-anchor="middle">walk every video → call → verdict</text></g>
+    <text class="sm" x="776" y="520" text-anchor="middle">CLI: uv run vi &lt;catalog|ingest|extract|market|run-agent|validate|serve&gt;</text>
+
+    <!-- cross edges -->
+    <path class="edge dash" d="M296 100 C296 110 500 110 586 76" style="marker-end:url(#arr)"/>
+    <text class="sm" x="470" y="108" text-anchor="middle">reads the discovery cache</text>
+    <path class="edge acc" d="M676 100 C676 118 400 118 456 100" style="marker-end:none"/>
+    <path class="edge acc" d="M526 157 C556 157 560 76 784 76"/>
+    <text class="sm" x="560" y="196" text-anchor="middle" style="fill:var(--accent)">raw transcript</text>
+    <path class="edge" d="M170 327 C400 327 440 146 584 146"/>
+    <path class="edge dash" d="M170 397 C400 397 440 160 584 160"/>
+    <path class="edge" d="M170 497 C400 497 440 216 584 216"/>
+    <path class="edge" d="M766 146 H784"/>
+    <path class="edge" d="M876 170 C876 185 676 180 676 190"/>
+    <path class="edge" d="M766 216 H784"/>
+    <path class="edge" d="M876 240 V260"/>
+    <path class="edge" d="M776 310 V332"/>
+    <path class="edge" d="M676 410 V430"/>
+    <path class="edge" d="M876 410 V430"/>
+  </svg>
+  <figcaption>Solid arrows are data at build time; dashed are optional/cached. value-invest-agent never writes to transcript·lab's Chroma — it asks transcript·lab to ingest (CLI or <span class="k">/api/index/queue</span>) and reads the result back by id, so the workbench and this project always agree on what the corpus contains.</figcaption>
+  </figure>
+
+  <div class="cards">
+    <div class="card"><h4><span class="num">reuse</span> transcript·lab</h4><p>Discovery + cache, Supadata fetcher with polling and retries, chunking, embeddings, Chroma stores, bulk-index CLI, corpus API, RAG retrieval for "what did he say about X before?" few-shot context.</p><ul><li><span class="k">src/transcripts/discovery.py</span></li><li><span class="k">src/rag/storage.py</span> RawTranscriptStore / TranscriptChunkStore</li><li><span class="k">src/cli.py bulk-index channel</span></li></ul></div>
+    <div class="card"><h4><span class="num">reuse</span> ConvFinQA-agent patterns</h4><p>The single LLM chokepoint (<span class="k">llm.py</span>: demo gate, retry/timeout, no model at import), Pydantic AI per-stage agents with structured outputs, MLflow tracking + a champion/challenger gate, a keyless demo mode.</p></div>
+    <div class="card"><h4><span class="num">reuse</span> DABStep / tau2 loop</h4><p>The scored, self-improving prompt loop: a teacher diagnoses first-wrong cases and proposes one prompt version; a gate promotes only on a significant, net-positive delta. Same shape for "make the agent match the golden calls".</p></div>
+    <div class="card"><h4><span class="num">new</span> finance layer</h4><p>Title classifier + ticker resolution, golden extraction schema, yfinance/EDGAR loaders, the <span class="k">as_of</span> point-in-time view, forward-return validator, DuckDB schema, and the walkthrough app.</p></div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 3. STORAGE ───────────────────────── -->
+<section id="storage">
+  <div class="section-head"><span class="num">03</span><h2>Storage: where does each thing live?</h2></div>
+  <p><b>The question raised:</b> can this project use transcript·lab's database with its own schema? transcript·lab's "database" is Chroma — a vector store with per-document metadata, no relational schema, no joins, no dates as dates. It is the right home for transcripts and chunks and the wrong home for prices, statements and scored predictions. So the answer is <b>yes for transcripts, no for the rest</b>:</p>
+  <div class="cards">
+    <div class="card"><h4>A · Everything in Chroma</h4><p>Store calls/prices as metadata on chunk-like documents.</p><p><span class="tag bad">no joins</span> <span class="tag bad">no time-series</span> <span class="tag warn">one repo owns all state</span></p><p style="color:var(--caption)">Forward-return maths and as-of filtering become Python loops over metadata dicts. Rejected.</p></div>
+    <div class="card rec"><h4>B · Chroma for text, DuckDB for facts <span class="tag acc">recommended</span></h4><p>Transcripts + chunks stay in transcript·lab's Chroma (channel-scoped). Structured data lives in <span class="k">data/value_invest.duckdb</span>, schema <span class="k">vi</span>, in this repo. Foreign keys are transcript·lab's own ids.</p><p><span class="tag good">SQL joins + window fns</span> <span class="tag good">one file, no server</span> <span class="tag good">pandas/parquet native</span> <span class="tag warn">two stores to keep consistent</span></p><p style="color:var(--caption)">Consistency is one-directional and cheap: <span class="k">vi.videos</span> is rebuilt from transcript·lab's corpus API; nothing in Chroma depends on DuckDB.</p></div>
+    <div class="card"><h4>C · Shared Postgres, schema <span class="k">vi</span></h4><p>A Postgres schema both repos could read; transcript·lab would gain a relational catalog.</p><p><span class="tag good">true shared schema</span> <span class="tag bad">new service to run + deploy</span> <span class="tag bad">touches transcript·lab</span></p><p style="color:var(--caption)">Right answer if a third project needs the same tables. Not yet.</p></div>
+  </div>
+
+  <h3>The <span class="k">vi</span> schema</h3>
+  <figure>
+  <svg viewBox="0 0 1000 470" role="img" aria-labelledby="f3t"><title id="f3t">Entity diagram of the vi schema: videos, calls, prices, statements, agent_runs, predictions, validations, and the external Chroma corpus.</title>
+    <!-- external corpus -->
+    <g id="er-chroma"><rect class="box acc" x="20" y="40" width="200" height="86" rx="8"/><text class="ttl" x="120" y="62" text-anchor="middle">Chroma (transcript·lab)</text><text class="sm" x="30" y="82">raw_transcripts  transcript:&lt;video_id&gt;</text><text class="sm" x="30" y="98">transcript_chunks  chunk:&lt;video_id&gt;:&lt;i&gt;</text><text class="sm" x="30" y="114">metadata: channel_id · title · upload_date</text></g>
+    <!-- videos -->
+    <g id="er-videos"><rect class="box" x="280" y="20" width="220" height="126" rx="8"/><text class="ttl" x="390" y="42" text-anchor="middle">vi.videos</text><line class="grid" x1="280" y1="50" x2="500" y2="50"/><text class="sm" x="290" y="68">video_id  PK  (= Chroma id)</text><text class="sm" x="290" y="84">title · published_at · duration_s</text><text class="sm" x="290" y="100">kind  single|multi|macro|other</text><text class="sm" x="290" y="116">classifier_version · reviewed_by</text><text class="sm" x="290" y="132">transcript_status  none|indexed|failed</text></g>
+    <path class="edge dash" d="M220 83 H278"/>
+    <!-- calls -->
+    <g id="er-calls"><rect class="box good" x="560" y="20" width="220" height="156" rx="8"/><text class="ttl" x="670" y="42" text-anchor="middle">vi.calls  (golden set)</text><line class="grid" x1="560" y1="50" x2="780" y2="50"/><text class="sm" x="570" y="68">call_id  PK</text><text class="sm" x="570" y="84">video_id  FK · ticker · exchange</text><text class="sm" x="570" y="100">t0  (= published_at)</text><text class="sm" x="570" y="116">stance  buy|hold|sell|watch|avoid</text><text class="sm" x="570" y="132">intrinsic_value · price_at_t0 · horizon</text><text class="sm" x="570" y="148">thesis[] · risks[] · evidence chunk ids</text><text class="sm" x="570" y="164">extractor_version · curation_status</text></g>
+    <path class="edge" d="M500 83 H558"/>
+    <!-- tickers -->
+    <g id="er-tickers"><rect class="box" x="840" y="20" width="140" height="86" rx="8"/><text class="ttl" x="910" y="42" text-anchor="middle">vi.tickers</text><line class="grid" x1="840" y1="50" x2="980" y2="50"/><text class="sm" x="850" y="68">ticker  PK · name</text><text class="sm" x="850" y="84">exchange · currency</text><text class="sm" x="850" y="100">benchmark · cik (US)</text></g>
+    <path class="edge" d="M780 84 H838"/>
+    <!-- prices -->
+    <g id="er-prices"><rect class="box" x="840" y="140" width="140" height="86" rx="8"/><text class="ttl" x="910" y="162" text-anchor="middle">vi.prices</text><line class="grid" x1="840" y1="170" x2="980" y2="170"/><text class="sm" x="850" y="188">ticker · date  PK</text><text class="sm" x="850" y="204">open high low close</text><text class="sm" x="850" y="220">adj_close · volume</text></g>
+    <path class="edge" d="M910 106 V138"/>
+    <!-- statements -->
+    <g id="er-stmts"><rect class="box warn" x="840" y="260" width="140" height="102" rx="8"/><text class="ttl" x="910" y="282" text-anchor="middle">vi.statements</text><line class="grid" x1="840" y1="290" x2="980" y2="290"/><text class="sm" x="850" y="308">ticker · period_end</text><text class="sm" x="850" y="324">filed_at  ← as-of key</text><text class="sm" x="850" y="340">kind  income|balance|cashflow</text><text class="sm" x="850" y="356">freq · line_item · value · source</text></g>
+    <path class="edge" d="M910 226 V258"/>
+    <!-- agent runs -->
+    <g id="er-runs"><rect class="box acc" x="280" y="220" width="220" height="102" rx="8"/><text class="ttl" x="390" y="242" text-anchor="middle">vi.agent_runs</text><line class="grid" x1="280" y1="250" x2="500" y2="250"/><text class="sm" x="290" y="268">run_id  PK · started_at</text><text class="sm" x="290" y="284">prompt_version · model · split</text><text class="sm" x="290" y="300">mlflow_run_id · n_calls · cost</text><text class="sm" x="290" y="316">gate_verdict</text></g>
+    <!-- predictions -->
+    <g id="er-preds"><rect class="box acc" x="560" y="220" width="220" height="118" rx="8"/><text class="ttl" x="670" y="242" text-anchor="middle">vi.predictions</text><line class="grid" x1="560" y1="250" x2="780" y2="250"/><text class="sm" x="570" y="268">run_id FK · call_id FK  PK</text><text class="sm" x="570" y="284">stance · intrinsic_value · confidence</text><text class="sm" x="570" y="300">report_md · tool_trace_json</text><text class="sm" x="570" y="316">stance_match · iv_within_band</text><text class="sm" x="570" y="332">thesis_overlap (judge)</text></g>
+    <path class="edge" d="M500 271 H558"/>
+    <path class="edge" d="M670 176 V218"/>
+    <!-- validations -->
+    <g id="er-vals"><rect class="box good" x="560" y="372" width="220" height="86" rx="8"/><text class="ttl" x="670" y="394" text-anchor="middle">vi.validations</text><line class="grid" x1="560" y1="402" x2="780" y2="402"/><text class="sm" x="570" y="420">call_id FK · horizon_m  6|12|24  PK</text><text class="sm" x="570" y="436">ret · bench_ret · excess_ret · status</text><text class="sm" x="570" y="452">verdict_channel · verdict_agent(run_id)</text></g>
+    <path class="edge" d="M670 338 V370"/>
+    <path class="edge dash" d="M840 183 C800 183 790 300 780 415" style="marker-end:none"/>
+    <!-- title classification labels -->
+    <g id="er-labels"><rect class="box" x="20" y="220" width="200" height="86" rx="8"/><text class="ttl" x="120" y="242" text-anchor="middle">vi.title_labels</text><line class="grid" x1="20" y1="250" x2="220" y2="250"/><text class="sm" x="30" y="268">video_id · kind · tickers[]</text><text class="sm" x="30" y="284">source  llm|human · confidence</text><text class="sm" x="30" y="300">seed: 40 hand-labelled titles</text></g>
+    <path class="edge" d="M220 263 C250 263 250 120 278 120"/>
+  </svg>
+  <figcaption>Everything below <span class="k">vi.videos</span> is derived and rebuildable from three caches (Supadata metadata, yfinance parquet, LLM extraction cache) — so the DuckDB file is committed only as a small demo snapshot, never as the source of truth.</figcaption>
+  </figure>
+<pre><span class="c">-- data/schema.sql (excerpt) — applied by `uv run vi db init`</span>
+CREATE SCHEMA IF NOT EXISTS vi;
+CREATE TABLE vi.videos (
+  video_id TEXT PRIMARY KEY, title TEXT NOT NULL, published_at DATE NOT NULL,
+  duration_s INTEGER, kind TEXT CHECK (kind IN ('single','multi','macro','other')),
+  classifier_version TEXT, reviewed_by TEXT, transcript_status TEXT DEFAULT 'none');
+CREATE TABLE vi.calls (
+  call_id TEXT PRIMARY KEY, video_id TEXT REFERENCES vi.videos, ticker TEXT NOT NULL,
+  exchange TEXT, t0 DATE NOT NULL, stance TEXT CHECK (stance IN ('buy','hold','sell','watch','avoid')),
+  intrinsic_value DOUBLE, price_at_t0 DOUBLE, horizon_years DOUBLE,
+  thesis JSON, risks JSON, evidence_chunk_ids JSON, extractor_version TEXT,
+  curation_status TEXT DEFAULT 'auto');            <span class="c">-- auto | reviewed | rejected</span>
+CREATE TABLE vi.statements (
+  ticker TEXT, period_end DATE, filed_at DATE, kind TEXT, freq TEXT,
+  line_item TEXT, value DOUBLE, source TEXT, PRIMARY KEY (ticker, period_end, kind, freq, line_item));
+<span class="c">-- the point-in-time view every agent tool reads through</span>
+CREATE VIEW vi.as_of AS SELECT * FROM vi.statements WHERE filed_at &lt;= current_setting('vi.t0')::DATE;</pre>
+</section>
+
+<!-- ───────────────────────── 4. PIPELINE ───────────────────────── -->
+<section id="pipeline">
+  <div class="section-head"><span class="num">04</span><h2>The pipeline, stage by stage</h2></div>
+  <p>Seven stages, each a CLI command with an idempotent output table, so any stage can be re-run without re-fetching upstream. Stage S3 runs <em>inside</em> transcript·lab.</p>
+  <figure>
+  <svg viewBox="0 0 1000 200" role="img" aria-labelledby="f4t"><title id="f4t">Seven pipeline stages from catalog to app, with the tool or repo that runs each.</title>
+    <g id="st-1"><rect class="box" x="10" y="40" width="125" height="70" rx="9"/><text class="ttl" x="72" y="64" text-anchor="middle">S1 catalog</text><text class="sm" x="72" y="82" text-anchor="middle">list + date 2,072</text><text class="sm" x="72" y="97" text-anchor="middle">vi.videos</text></g>
+    <path class="edge" d="M135 75 H150"/>
+    <g id="st-2"><rect class="box" x="152" y="40" width="125" height="70" rx="9"/><text class="ttl" x="214" y="64" text-anchor="middle">S2 classify</text><text class="sm" x="214" y="82" text-anchor="middle">title → kind, tickers</text><text class="sm" x="214" y="97" text-anchor="middle">vi.title_labels</text></g>
+    <path class="edge" d="M277 75 H292"/>
+    <g id="st-3"><rect class="box acc" x="294" y="40" width="125" height="70" rx="9"/><text class="ttl" x="356" y="64" text-anchor="middle">S3 ingest</text><text class="sm" x="356" y="82" text-anchor="middle">transcript·lab index</text><text class="sm" x="356" y="97" text-anchor="middle">Chroma</text></g>
+    <path class="edge" d="M419 75 H434"/>
+    <g id="st-4"><rect class="box good" x="436" y="40" width="125" height="70" rx="9"/><text class="ttl" x="498" y="64" text-anchor="middle">S4 extract</text><text class="sm" x="498" y="82" text-anchor="middle">transcript → call</text><text class="sm" x="498" y="97" text-anchor="middle">vi.calls</text></g>
+    <path class="edge" d="M561 75 H576"/>
+    <g id="st-5"><rect class="box" x="578" y="40" width="125" height="70" rx="9"/><text class="ttl" x="640" y="64" text-anchor="middle">S5 market</text><text class="sm" x="640" y="82" text-anchor="middle">prices + statements</text><text class="sm" x="640" y="97" text-anchor="middle">vi.prices/statements</text></g>
+    <path class="edge" d="M703 75 H718"/>
+    <g id="st-6"><rect class="box acc" x="720" y="40" width="125" height="70" rx="9"/><text class="ttl" x="782" y="64" text-anchor="middle">S6 agent + validate</text><text class="sm" x="782" y="82" text-anchor="middle">predict · score · verdict</text><text class="sm" x="782" y="97" text-anchor="middle">vi.predictions/validations</text></g>
+    <path class="edge" d="M845 75 H860"/>
+    <g id="st-7"><rect class="box" x="862" y="40" width="125" height="70" rx="9"/><text class="ttl" x="924" y="64" text-anchor="middle">S7 app</text><text class="sm" x="924" y="82" text-anchor="middle">walk the data</text><text class="sm" x="924" y="97" text-anchor="middle">FastAPI + React</text></g>
+    <text class="sm" x="72" y="150" text-anchor="middle">Supadata ×1,050</text>
+    <text class="sm" x="214" y="150" text-anchor="middle">LLM ×1,000 (cheap)</text>
+    <text class="sm" x="356" y="150" text-anchor="middle">Supadata ×750</text>
+    <text class="sm" x="498" y="150" text-anchor="middle">LLM ×750 (long ctx)</text>
+    <text class="sm" x="640" y="150" text-anchor="middle">yfinance ×~400 tickers</text>
+    <text class="sm" x="782" y="150" text-anchor="middle">LLM ×900 per run</text>
+    <text class="sm" x="924" y="150" text-anchor="middle">reads DuckDB + corpus API</text>
+  </svg>
+  </figure>
+
+  <div class="two">
+    <div>
+      <h3>S1 · catalog</h3>
+      <p>Pull all ids, then metadata newest→oldest until <span class="k">createdAt &lt; 2022-09-17</span>. Uses transcript·lab's <span class="k">SupadataDiscoveryClient</span> (imported as a path dependency, or simply its on-disk cache format) so the cache is shared.</p>
+      <pre>uv run vi catalog --channel @Value-Investing --since 2022-09-17
+<span class="c">→ vi.videos: 1,0xx rows · cache .vi/discovery_cache/</span></pre>
+      <h3>S2 · classify titles</h3>
+      <p>One structured LLM call per title (+ description): <span class="k">kind</span>, <span class="k">tickers[]</span> with exchange, <span class="k">confidence</span>. The 40 hand-labelled titles are the eval; target ≥ 95% agreement on <span class="k">kind</span> before running the batch. Low-confidence rows go to a review list in the app.</p>
+      <h3>S3 · ingest (in transcript·lab)</h3>
+      <p>Only <span class="k">single</span> and <span class="k">multi</span> videos are fetched — roughly 750 transcripts instead of 2,072. Two ways to trigger it; both leave the corpus browsable in the workbench:</p>
+      <pre><span class="c"># a) one-shot from the transcript-rag-agent checkout</span>
+uv run python -m src.cli bulk-index channel --channel @Value-Investing \
+   --since 2022-09-17 --label value-investing
+<span class="c"># b) per-video, driven by vi so only classified videos are fetched</span>
+uv run vi ingest --kinds single,multi   <span class="c"># POST /api/index/queue per url</span></pre>
+      <div class="note warn">Option a) fetches macro videos too (≈250 wasted Supadata calls) but needs no new code. Option b) is the plan; a) is the fallback if the queue API is awkward to drive.</div>
+    </div>
+    <div>
+      <h3>S4 · extract golden calls</h3>
+      <p>Full raw transcript (from <span class="k">raw_transcripts</span>, with timestamps) → one structured <span class="k">GoldenCall</span> per ticker discussed. Cached by <span class="k">(video_id, transcript hash, extractor_version)</span>. See §5.</p>
+      <h3>S5 · market data</h3>
+      <p>For every distinct ticker: daily OHLCV back to 2018 (so the agent has 4 years of history at the earliest T0) and quarterly + annual statements. Benchmarks: SPY, plus a local index per exchange. Parquet cache under <span class="k">.vi/market/</span>, then loaded into DuckDB. See §6.</p>
+      <h3>S6 · agent + validate</h3>
+      <p><span class="k">vi run-agent --split test --prompt v1</span> writes one <span class="k">vi.predictions</span> row per call; <span class="k">vi validate</span> writes <span class="k">vi.validations</span> for every call whose horizon has elapsed. Both are pure functions of DuckDB state, so a run is reproducible from the committed prompt version + the cached market data.</p>
+      <h3>Point-in-time timeline</h3>
+      <figure><svg viewBox="0 0 520 120" role="img" aria-labelledby="f4b"><title id="f4b">Timeline showing what the agent may see (before T0) versus what the validator uses (after T0).</title>
+        <line x1="20" y1="60" x2="500" y2="60" stroke="var(--line-strong)" stroke-width="2"/>
+        <rect x="20" y="40" width="200" height="40" fill="var(--accent-soft)" rx="4"/>
+        <text class="sm" x="120" y="34" text-anchor="middle" style="fill:var(--accent)">agent may see</text>
+        <text class="sm" x="60" y="98" text-anchor="middle">prices ≤ T0</text>
+        <text class="sm" x="170" y="98" text-anchor="middle">filed_at ≤ T0</text>
+        <line x1="220" y1="30" x2="220" y2="90" stroke="var(--bad)" stroke-width="2"/>
+        <text class="lbl" x="220" y="24" text-anchor="middle" style="font-weight:600">T0 = video date</text>
+        <rect x="222" y="40" width="278" height="40" fill="var(--good-soft)" rx="4"/>
+        <text class="sm" x="360" y="34" text-anchor="middle" style="fill:var(--good)">validator only</text>
+        <circle cx="290" cy="60" r="4" fill="var(--good)"/><text class="sm" x="290" y="98" text-anchor="middle">+6m</text>
+        <circle cx="360" cy="60" r="4" fill="var(--good)"/><text class="sm" x="360" y="98" text-anchor="middle">+12m</text>
+        <circle cx="490" cy="60" r="4" fill="var(--good)"/><text class="sm" x="490" y="98" text-anchor="middle">+24m</text>
+      </svg><figcaption>A statement for Q2 with period_end 30 June but filed 8 August is invisible to the agent for a video on 1 August. Yahoo does not expose filing dates for most rows — the main reason EDGAR is on the table (§6).</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 5. GOLDEN SET ───────────────────────── -->
+<section id="golden">
+  <div class="section-head"><span class="num">05</span><h2>The golden set</h2></div>
+  <p>The transcript sample confirms the channel states its conclusion explicitly ("if you don't want to watch the whole video … here is the conclusion", then a ranking and a 10–15-year view). That makes extraction tractable, but stance is <em>not</em> a clean buy/sell label: it is hedged, conditional and often relative ("might double, but will go bust in 10–15 years"). The schema has to capture that or the agent is being graded against noise.</p>
+  <div class="two">
+    <div>
+<pre><span class="c"># src/value_invest/golden/models.py</span>
+class GoldenCall(BaseModel):
+    ticker: str; exchange: str | None
+    stance: Literal["buy","hold","sell","watch","avoid"]
+    stance_strength: Literal["strong","moderate","weak"]
+    conditional_on: str | None      <span class="c"># "if it drops below $60"</span>
+    intrinsic_value: float | None   <span class="c"># his number, in quote ccy</span>
+    intrinsic_value_method: str | None
+    price_mentioned: float | None   <span class="c"># sanity vs vi.prices at T0</span>
+    horizon_years: float | None
+    thesis: list[str]               <span class="c"># 3–6 short claims</span>
+    risks: list[str]
+    verifiable_claims: list[Claim]  <span class="c"># "P/E is 12" → fact-check</span>
+    evidence: list[Evidence]        <span class="c"># chunk ids + timestamps</span>
+    is_primary: bool                <span class="c"># main subject vs passing mention</span></pre>
+    </div>
+    <div>
+      <h3>How it is built and kept honest</h3>
+      <ul>
+        <li><b>Extractor</b>: one long-context call per transcript with the schema above as a tool. Multi-stock videos emit several calls; passing mentions are kept but flagged <span class="k">is_primary=false</span> and excluded from scoring by default.</li>
+        <li><b>Cross-check</b>: <span class="k">price_mentioned</span> vs actual close at T0 (±10 %) catches wrong ticker resolution and wrong dates for free.</li>
+        <li><b>Curation</b>: same discipline as transcript·lab's <span class="k">docs/golden-set-curation.md</span> — a hand-reviewed core (target 100 calls, stratified by stance and year) with <span class="k">curation_status=reviewed</span>; the rest stay <span class="k">auto</span> and are reported separately.</li>
+        <li><b>Inter-extractor agreement</b>: run two extractor versions/models on the reviewed core and report κ on stance. If κ &lt; 0.7 the stance taxonomy is wrong, not the models.</li>
+        <li><b>Fact-check</b>: <span class="k">verifiable_claims</span> ("dividend yield is 7 %") are checked against <span class="k">vi.as_of</span> — a second, cheap accuracy signal about the channel itself.</li>
+      </ul>
+      <h3>Splits</h3>
+      <p>By <em>video date</em>, not random: train ≤ 2024-06, test 2024-07 → 2025-06, holdout ≥ 2025-07 (sealed until the end). Time-based splits stop the prompt loop from learning 2025 market context and applying it to 2023 videos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 6. MARKET DATA ───────────────────────── -->
+<section id="market">
+  <div class="section-head"><span class="num">06</span><h2>Market data: what Yahoo gives, what it doesn't</h2></div>
+  <p><span class="k">yfinance</span> is not installed in any sibling project yet; it is the obvious first loader. Its limits shape the design more than anything else on this page.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Need</th><th>yfinance</th><th>Good enough?</th><th>Fallback</th></tr></thead>
+    <tbody>
+      <tr><td>Daily OHLCV, 2018 → today, any exchange</td><td><span class="k">Ticker.history(period="max")</span>; adj close for splits/dividends</td><td><span class="tag good">yes</span></td><td>—</td></tr>
+      <tr><td>Non-US tickers (LVMH, Vonovia, Tencent, Xiaomi, Prosus, Ahold…)</td><td>Works with suffixes <span class="k">MC.PA</span>, <span class="k">VNA.DE</span>, <span class="k">0700.HK</span> — resolution is the classifier's job</td><td><span class="tag good">prices yes</span></td><td>ADR ticker as secondary</td></tr>
+      <tr><td>Income / balance / cash-flow statements, quarterly</td><td><span class="k">quarterly_income_stmt</span> etc. — <b>≈ last 5 quarters only</b></td><td><span class="tag bad">no for 2022–24 videos</span></td><td>EDGAR companyfacts (US), or a paid API</td></tr>
+      <tr><td>Annual statements</td><td>≈ last 4 fiscal years</td><td><span class="tag warn">partial</span></td><td>EDGAR back to 2009 (US)</td></tr>
+      <tr><td>Filing date for as-of filtering</td><td>not exposed</td><td><span class="tag bad">no</span></td><td>EDGAR <span class="k">filed</span> per fact; else assume period_end + 45/90 days</td></tr>
+      <tr><td>Benchmark index series</td><td><span class="k">SPY</span>, <span class="k">^STOXX</span>, <span class="k">^HSI</span>…</td><td><span class="tag good">yes</span></td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>1 · yfinance only</h4><p>Ship S5 in a day. Fundamentals are whatever Yahoo still shows today, so the agent's "as of 2023" balance sheet is often <em>missing</em>, not wrong.</p><p><span class="tag warn">fine for prices</span> <span class="tag bad">weak fundamentals before 2025</span></p></div>
+    <div class="card rec"><h4>2 · yfinance + SEC EDGAR for US names <span class="tag acc">recommended</span></h4><p>EDGAR's free XBRL <span class="k">companyfacts</span> JSON gives every reported line item with <span class="k">filed</span> dates for every US filer — exactly the as-of key. Non-US names keep yfinance's shallow history and are flagged <span class="k">fundamentals_depth=shallow</span> in scoring.</p><p><span class="tag good">free</span> <span class="tag good">true point-in-time</span> <span class="tag warn">US only · XBRL tag mapping work</span></p></div>
+    <div class="card"><h4>3 · paid fundamentals API</h4><p>FMP / EOD / Polygon: global coverage, 10+ years, filing dates. ~$20–60 / month.</p><p><span class="tag good">complete</span> <span class="tag bad">cost + key in CI</span></p><p style="color:var(--caption)">Revisit if non-US names dominate the golden set after S2.</p></div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 7. THE AGENT ───────────────────────── -->
+<section id="agent">
+  <div class="section-head"><span class="num">07</span><h2>The analyst agent</h2></div>
+  <div class="two">
+    <div>
+      <p>Input is a ticker and a T0. The agent gets <b>tools, not a data dump</b>, so its trace shows what it looked at — which is what the app walks through and what the teacher in the improvement loop diagnoses.</p>
+      <dl class="kv">
+        <dt>tools</dt><dd><span class="k">price_history(ticker, window)</span> · <span class="k">statement(kind, freq, n)</span> · <span class="k">ratios()</span> (P/E, EV/EBITDA, FCF yield, net debt) · <span class="k">peer_snapshot()</span> · <span class="k">prior_calls(ticker)</span> (his own earlier calls on the same name, via transcript·lab RAG — opt-in, ablated)</dd>
+        <dt>guard</dt><dd>every tool reads through <span class="k">vi.as_of</span> with <span class="k">t0</span> bound once per run; a test asserts no row with <span class="k">date &gt; t0</span> can leak</dd>
+        <dt>output</dt><dd><span class="k">AnalystReport</span>: same fields as <span class="k">GoldenCall</span> minus evidence, plus <span class="k">confidence</span> and a markdown report</dd>
+        <dt>runtime</dt><dd>Pydantic AI agent through a single <span class="k">llm.py</span> chokepoint (ConvFinQA pattern); DeepSeek for volume, Claude for the reviewed core; demo mode refuses model calls</dd>
+      </dl>
+      <h3>How it "learns"</h3>
+      <div class="cards" style="grid-template-columns:1fr">
+        <div class="card rec"><h4>a · Prompt-optimisation loop <span class="tag acc">first</span></h4><p>DABStep/ConvFinQA loop: run train split → teacher reads first-wrong cases → proposes one prompt version → gate on test split (net-positive, McNemar-significant). Cheap, auditable, versioned in <span class="k">agents/vN/system.md</span>.</p></div>
+        <div class="card"><h4>b · Retrieval few-shot</h4><p>Retrieve the k most similar <em>earlier</em> golden calls (by sector, stance, ratios) as worked examples. Strictly earlier than T0. Measured as an ablation of (a).</p></div>
+        <div class="card"><h4>c · Fine-tune</h4><p>900 examples is thin; only if (a)+(b) plateau, and then a small open model on the reviewed core. Explicit non-goal for the first milestone.</p></div>
+      </div>
+    </div>
+    <div>
+      <h3>Scoring a prediction against its golden call</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Metric</th><th>Definition</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td><span class="k">stance_match</span></td><td>exact on 5-way; also collapsed 3-way (bullish/neutral/bearish)</td><td>deterministic</td></tr>
+          <tr><td><span class="k">iv_within_band</span></td><td>|agent IV − golden IV| / golden IV ≤ 25 %</td><td>deterministic</td></tr>
+          <tr><td><span class="k">direction_vs_price</span></td><td>both say IV above/below price at T0</td><td>deterministic</td></tr>
+          <tr><td><span class="k">thesis_overlap</span></td><td>share of golden thesis claims an independent judge finds in the report</td><td>LLM judge</td></tr>
+          <tr><td><span class="k">headline</span></td><td>3-way stance accuracy on <em>reviewed</em> calls, reported per year and per region</td><td>the gate metric</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Baselines the agent must beat</h3>
+      <ul>
+        <li><b>majority stance</b> — if 60 % of calls are "buy", a constant "buy" scores 60 %.</li>
+        <li><b>ratio rule</b> — buy if FCF yield &gt; 6 % and net debt/EBITDA &lt; 2, else hold. Ten lines of SQL.</li>
+        <li><b>no-tools LLM</b> — the same model given only ticker + date, to expose memorised knowledge of what happened later. Its score is the leakage floor; the tool agent must be scored on cases where this baseline is at chance.</li>
+      </ul>
+      <div class="note warn"><b>Leakage is the real risk.</b> A 2026 model knows Nike's 2024 story. The no-tools baseline and the date-based split are the two controls; the holdout ≥ 2025-07 is the only fully clean evidence, and it is small. Say so in the results rather than hide it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 8. VALIDATION ───────────────────────── -->
+<section id="validate">
+  <div class="section-head"><span class="num">08</span><h2>Validation: were the calls right?</h2></div>
+  <div class="two">
+    <div>
+      <p>For every call and horizon <span class="k">h ∈ {6, 12, 24}</span> months where <span class="k">T0 + h ≤ today</span>:</p>
+<pre>ret        = adj_close(T0 + h) / adj_close(T0) − 1
+bench_ret  = same for the ticker's benchmark index
+excess     = ret − bench_ret
+verdict    = correct     if (stance ∈ {buy}  and excess &gt; +5 pp)
+                         or (stance ∈ {sell,avoid} and excess &lt; −5 pp)
+                         or (stance ∈ {hold,watch} and |excess| ≤ 10 pp)
+           = wrong       if the opposite sign beyond the same band
+           = indeterminate otherwise</pre>
+      <p>Thresholds are parameters in <span class="k">vi.validations</span>' run config, not constants, so the app can show sensitivity. Prices are adjusted closes; a missing T0 + h trading day snaps to the next session.</p>
+      <p><b>Intrinsic-value check</b>: for calls with an IV, did price reach it within the stated horizon (or 24 m)? Reported as a hit rate alongside stance verdicts.</p>
+    </div>
+    <div>
+      <h3>Scoreboard, two columns</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Metric</th><th>Channel</th><th>Agent (run vN)</th></tr></thead>
+        <tbody>
+          <tr><td>calls with 12 m verdict</td><td class="mono">n</td><td class="mono">n</td></tr>
+          <tr><td>hit rate @6 / 12 / 24 m</td><td class="mono">…</td><td class="mono">…</td></tr>
+          <tr><td>mean excess return of "buy" calls</td><td class="mono">…</td><td class="mono">…</td></tr>
+          <tr><td>calibration: strong vs weak stance</td><td class="mono">…</td><td class="mono">…</td></tr>
+          <tr><td>IV reached within horizon</td><td class="mono">…</td><td class="mono">…</td></tr>
+          <tr><td>agreement with channel (3-way)</td><td>—</td><td class="mono">…</td></tr>
+        </tbody>
+      </table></div>
+      <p>The interesting cell is where the agent <em>disagrees</em> with the channel and the market sided with the agent — or vice versa. The app surfaces those cases first.</p>
+      <div class="note"><b>Survivorship and coverage.</b> 24-month verdicts only exist for videos before 2024-09; the 2025–26 cohort has 6 m at most. Every headline number carries its n and horizon, following transcript·lab's "per-segment, never an average hiding a failing segment" rule.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 9. THE APP ───────────────────────── -->
+<section id="app">
+  <div class="section-head"><span class="num">09</span><h2>The app: walk every video from transcript to verdict</h2></div>
+  <p>Same stack and design system as transcript·lab's workbench (FastAPI + Vite/React, the Instrument tokens from <span class="k">frontend/src/theme.css</span>), so it can be embedded as a tab there later. Read-only demo mode with a committed DuckDB snapshot, deployable on the same App Runner pattern as the siblings.</p>
+  <div class="mock" id="app-mock">
+    <div class="bar"><span class="b">value·<i>invest</i></span><span class="tab">Corpus</span><span class="tab">Golden calls</span><span class="tab on">Walkthrough</span><span class="tab">Market</span><span class="tab">Agent runs</span><span class="tab">Scoreboard</span><span class="tab">Fact-check</span></div>
+    <div class="body">
+      <div class="rail"><div class="rh">videos · 2024 · single</div>
+        <div class="g on"><div class="t">Nike Stock Smells More Like a Buy…</div><div class="m">NKE · 2024-07-02 · buy · reviewed</div></div>
+        <div class="g"><div class="t">Vonovia Stock Explained! ETR: VNA</div><div class="m">VNA.DE · 2024-06-18 · hold · auto</div></div>
+        <div class="g"><div class="t">MCD Stock Intrinsic Value</div><div class="m">MCD · 2024-05-30 · watch · reviewed</div></div>
+        <div class="g"><div class="t">Alibaba – Adjusting My IV…</div><div class="m">BABA · 2024-05-12 · buy · auto</div></div>
+        <div class="rh" style="margin-top:12px">filters</div><div class="g"><div class="m">stance ▾ · kind ▾ · year ▾ · verdict ▾ · disagreement only ☐</div></div>
+      </div>
+      <div class="main">
+        <h5>Nike Stock Smells More Like a Buy Than Old Shoes…</h5>
+        <div class="sub">NKE · NYSE · T0 2024-07-02 · price 75.40 · transcript 14:12 · chunk:abc123:0…18</div>
+        <div class="cols">
+          <div class="pane"><div class="ph">golden call (channel)</div><div class="big good">BUY · moderate</div><p>IV $95 · horizon 3–5 y · "margin compression is cyclical, brand intact, buybacks at these prices"</p><p><span class="chip">evidence 03:41</span><span class="chip">evidence 09:10</span></p></div>
+          <div class="pane"><div class="ph">agent v3 (as of T0)</div><div class="big warn">HOLD · weak</div><p>IV $82 · "revenue −2 % YoY, inventory up, China weak; wait for FCF to stabilise" · confidence 0.55</p><p><span class="chip bad">stance ≠</span><span class="chip warn">IV −14 %</span><span class="chip good">thesis 2/4</span></p></div>
+          <div class="pane"><div class="ph">what happened</div>
+            <svg class="spark" viewBox="0 0 220 60" role="img" aria-label="price after T0"><polyline fill="none" stroke="#5b7cf0" stroke-width="1.5" points="4,20 30,26 55,40 80,44 105,50 130,42 155,36 180,30 205,28"/><line x1="4" y1="20" x2="216" y2="20" stroke="#242936" stroke-dasharray="3 3"/><text x="8" y="12" fill="#8a90a0" font-size="8" font-family="monospace">T0 75.40</text><text x="150" y="56" fill="#8a90a0" font-size="8" font-family="monospace">+6m −24 % · +12m −8 %</text></svg>
+            <p><span class="chip bad">channel: wrong @6m</span> <span class="chip good">agent: correct @6m</span> <span class="chip">excess vs SPY −31 pp</span></p></div>
+        </div>
+        <div class="cols" style="margin-top:10px">
+          <div class="pane"><div class="ph">agent tool trace</div><p>price_history(NKE, 3y) → statement(income, q, 8) → ratios() → peer_snapshot(ADS.DE, PUM.DE, LULU) → prior_calls(NKE) ×2</p></div>
+          <div class="pane"><div class="ph">transcript (synced to evidence)</div><p>…the conclusion first: at 75 I think the risk-reward is finally on the buyer's side, but this is a 3-to-5-year story, not a trade…</p></div>
+        </div>
+      </div>
+      <div class="rail right"><div class="rh">fact-check · 4 claims</div>
+        <div class="cm"><div class="q">"P/E around 20"</div><div class="x">as-of P/E 20.9 <span class="chip good">✓</span></div></div>
+        <div class="cm"><div class="q">"dividend yield near 2 %"</div><div class="x">1.96 % <span class="chip good">✓</span></div></div>
+        <div class="cm"><div class="q">"revenue still growing"</div><div class="x">TTM −0.8 % <span class="chip bad">✗</span></div></div>
+        <div class="rh" style="margin-top:12px">curation</div>
+        <div class="cm"><div class="x">stance ▾ buy · IV 95 · <span class="chip">mark reviewed</span></div></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--caption);margin-top:10px">Mock, not data: the Nike numbers above are illustrative. Tabs: <b>Corpus</b> (what was ingested, from transcript·lab's API) · <b>Golden calls</b> (table + review queue) · <b>Walkthrough</b> (above) · <b>Market</b> (coverage per ticker, fundamentals depth) · <b>Agent runs</b> (prompt versions, gate verdicts, MLflow link) · <b>Scoreboard</b> (§8) · <b>Fact-check</b> (claims vs data).</p>
+</section>
+
+<!-- ───────────────────────── 10. PLAN ───────────────────────── -->
+<section id="plan">
+  <div class="section-head"><span class="num">10</span><h2>Delivery plan</h2></div>
+  <p>Each slice ends with something reviewable in the app or a committed artifact. S0 is done as part of this page.</p>
+  <div class="slice"><div class="v">S0</div><div><h4>Repo + scaffold <span class="tag good">done today</span></h4><p>Folder renamed to <span class="k">value-invest-agent</span>, public repo <span class="k">nmp-dsci/value-invest-agent</span>, <span class="k">pyproject</span> (uv, ruff, mypy, pytest), <span class="k">README</span> / <span class="k">CLAUDE.md</span> / <span class="k">AGENTS.md</span>, <span class="k">ai_specs/s00_project_plan.md</span> mirroring this page, <span class="k">.env.example</span>, MIT licence, this artifact under <span class="k">.lavish/</span>.</p></div></div>
+  <div class="slice"><div class="v">S1</div><div><h4>Catalog + classifier</h4><p><span class="k">vi catalog</span>, <span class="k">vi classify</span>, DuckDB init, the 40-title seed as the classifier eval. Output: real funnel counts replacing the estimates in §1.</p><div class="ship">ship: vi.videos + vi.title_labels · classifier ≥ 95 % on seed · Supadata spend report</div></div></div>
+  <div class="slice"><div class="v">S2</div><div><h4>Ingest via transcript·lab</h4><p>Drive <span class="k">/api/index/queue</span> (or bulk-index) for classified videos; verify the corpus in the workbench; write <span class="k">transcript_status</span> back.</p><div class="ship">ship: ≈750 transcripts in Chroma, channel-scoped · corpus browsable in transcript·lab</div></div></div>
+  <div class="slice"><div class="v">S3</div><div><h4>Golden extraction + curation core</h4><p>Extractor with cache, price-mention cross-check, 100-call reviewed core, κ report, time-based splits.</p><div class="ship">ship: vi.calls · docs/golden-set.md · κ ≥ 0.7 on stance</div></div></div>
+  <div class="slice"><div class="v">S4</div><div><h4>Market data + as-of view</h4><p>yfinance loader → parquet → DuckDB; EDGAR companyfacts for US names; <span class="k">vi.as_of</span> with a leakage test; benchmark mapping per exchange.</p><div class="ship">ship: coverage report per ticker (prices ✓, fundamentals depth) · leakage test green</div></div></div>
+  <div class="slice"><div class="v">S5</div><div><h4>Validator + scoreboard</h4><p>Forward returns, verdict rules, IV hit rate, fact-check of verifiable claims. First real answer to "was the channel right?"</p><div class="ship">ship: vi.validations · scoreboard page · per-year/region breakdown</div></div></div>
+  <div class="slice"><div class="v">S6</div><div><h4>Analyst agent v1 + baselines</h4><p>Tool agent through <span class="k">llm.py</span>, three baselines, scoring + judge, MLflow tracking. Then the prompt loop (teacher + gate) as S6b.</p><div class="ship">ship: agent beats ratio rule and majority on test · leakage floor reported</div></div></div>
+  <div class="slice"><div class="v">S7</div><div><h4>App + demo deploy</h4><p>React walkthrough over DuckDB + corpus API; demo mode with a committed snapshot; CI (ruff, mypy, pytest, frontend, eval gate) and the App Runner deploy from the siblings.</p><div class="ship">ship: public read-only demo · README results table</div></div></div>
+</section>
+
+<!-- ───────────────────────── 11. RISKS + DECISIONS ───────────────────────── -->
+<section id="decisions">
+  <div class="section-head"><span class="num">11</span><h2>Risks, then the decisions I need from you</h2></div>
+  <div class="cards">
+    <div class="card"><h4><span class="tag bad">high</span> Model leakage of future knowledge</h4><p>Controlled by the no-tools baseline, date splits and the sealed holdout; cannot be eliminated. Report it, don't hide it.</p></div>
+    <div class="card"><h4><span class="tag bad">high</span> Fundamentals depth for 2022–24 videos</h4><p>yfinance alone leaves the agent blind for older US videos and all non-US ones. EDGAR fixes US; non-US stays shallow unless paid data is added.</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Stance is hedged, not binary</h4><p>κ between extractors on the reviewed core decides whether the taxonomy holds. A 3-way collapse is the fallback headline metric.</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Supadata budget</h4><p>≈1,050 metadata + ≈750 transcript calls. All cached; the catalog stage reports spend before ingest starts.</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Two stores drift</h4><p><span class="k">vi.videos</span> is always rebuilt from transcript·lab's corpus API; a CI check compares counts.</p></div>
+    <div class="card"><h4><span class="tag">low</span> Ticker resolution errors</h4><p>Caught by the price-mention cross-check and the review queue.</p></div>
+  </div>
+
+  <form class="decision" data-lavish-question="storage" onsubmit="event.preventDefault(); const c=new FormData(this).get('storage'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Storage decision for value-invest-agent: '+c+'. Update the plan and ai_specs/s00 accordingly.', {tag:'choice', text:'Storage: '+c, element:this, data:{question:'storage', answer:c}});">
+    <fieldset><legend>D1 · Storage for structured data</legend>
+      <label><input type="radio" name="storage" value="B: transcripts in transcript-lab Chroma + DuckDB schema vi in this repo (recommended)" checked> <span>B · Chroma for text, DuckDB <span class="k">vi</span> for facts <span class="why">Recommended. One file, SQL, no new services, transcript·lab untouched.</span></span></label>
+      <label><input type="radio" name="storage" value="C: shared Postgres schema vi used by both repos"> <span>C · Shared Postgres schema <span class="why">Only if transcript·lab should also gain a relational catalog.</span></span></label>
+      <label><input type="radio" name="storage" value="A: everything as metadata in transcript-lab Chroma"> <span>A · Everything in Chroma <span class="why">Not recommended.</span></span></label>
+    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
+  </form>
+
+  <form class="decision" data-lavish-question="fundamentals" onsubmit="event.preventDefault(); const c=new FormData(this).get('fund'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Fundamentals data source decision: '+c+'. Update §6 and the S4 slice.', {tag:'choice', text:'Fundamentals: '+c, element:this, data:{question:'fundamentals', answer:c}});">
+    <fieldset><legend>D2 · Financial statements source</legend>
+      <label><input type="radio" name="fund" value="yfinance + SEC EDGAR companyfacts for US names (recommended)" checked> <span>yfinance + EDGAR for US names <span class="why">Recommended. Free, true filing dates for US; non-US flagged shallow.</span></span></label>
+      <label><input type="radio" name="fund" value="yfinance only for the first milestone"> <span>yfinance only for now <span class="why">Fastest; accept missing fundamentals for older videos.</span></span></label>
+      <label><input type="radio" name="fund" value="paid fundamentals API (FMP/EOD/Polygon) for global point-in-time coverage"> <span>Paid API (FMP / EOD / Polygon) <span class="why">Complete coverage; adds cost and a key in CI.</span></span></label>
+    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
+  </form>
+
+  <form class="decision" data-lavish-question="scope" onsubmit="event.preventDefault(); const f=new FormData(this); const c=f.get('scope'); const note=f.get('note'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Video scope decision: '+c+(note?'. Note: '+note:'')+'. Update the funnel and S1/S2.', {tag:'choice', text:'Scope: '+c, element:this, data:{question:'scope', answer:c, note}});">
+    <fieldset><legend>D3 · Which videos go in the golden set</legend>
+      <label><input type="radio" name="scope" value="single-stock AND multi-stock videos (one call per ticker discussed), last 4 years" checked> <span>Single- and multi-stock videos, last 4 years <span class="why">Recommended. ≈750 transcripts, ≈900 calls.</span></span></label>
+      <label><input type="radio" name="scope" value="single-stock videos only, last 4 years"> <span>Single-stock only <span class="why">Cleaner labels, ≈500 calls, half the Supadata spend.</span></span></label>
+      <label><input type="radio" name="scope" value="entire channel history (all 2,072 videos), no date cut"> <span>Whole channel, no date cut <span class="why">More 24 m verdicts; ~2× cost; older videos have weaker fundamentals coverage.</span></span></label>
+      <textarea name="note" rows="2" placeholder="Anything to add — e.g. a Supadata credit ceiling, or a start date other than 2022-09-17"></textarea>
+    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
+  </form>
+
+  <form class="decision" data-lavish-question="learning" onsubmit="event.preventDefault(); const c=new FormData(this).get('learn'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Agent learning strategy decision: '+c+'. Update §7 and S6.', {tag:'choice', text:'Learning: '+c, element:this, data:{question:'learning', answer:c}});">
+    <fieldset><legend>D4 · How the agent learns from the golden set</legend>
+      <label><input type="radio" name="learn" value="prompt-optimisation loop first (teacher + gate), retrieval few-shot as an ablation, no fine-tune (recommended)" checked> <span>Prompt loop first, few-shot as ablation <span class="why">Recommended. Reuses the DABStep/ConvFinQA loop; every version gated.</span></span></label>
+      <label><input type="radio" name="learn" value="retrieval few-shot from earlier golden calls as the primary mechanism"> <span>Retrieval few-shot primary <span class="why">Leans on transcript·lab RAG; harder to attribute improvements.</span></span></label>
+      <label><input type="radio" name="learn" value="plan a fine-tune of a small open model on the reviewed core from the start"> <span>Fine-tune from the start <span class="why">900 examples is thin; expensive to iterate.</span></span></label>
+    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
+  </form>
+</section>
+
+<footer>
+  <p><b>Sources checked for this page:</b> Supadata <span class="k">channel</span>, <span class="k">channel/videos</span>, <span class="k">metadata</span> and <span class="k">transcript</span> endpoints against @Value-Investing (2026-09-17); <span class="k">transcript-rag-agent/src/{config,cli}.py</span>, <span class="k">src/transcripts/{discovery,fetcher,storage}.py</span>, <span class="k">src/rag/{models,storage}.py</span>, <span class="k">docs/golden-set-curation.md</span>, <span class="k">.env.example</span>; <span class="k">ConvFinQA-agent/AGENTS.md</span>; <span class="k">DABStep-loop/CLAUDE.md</span>. Video counts inside the 4-year window and the single/multi/macro split are estimates from a 40-title sample and are replaced by S1.</p>
+  <p>Design: the workspace's Lavish house style (Instrument Serif + Geist, paper tokens) with the transcript·lab workbench tokens for the app mock, so the mock previews the product in its real design system.</p>
+</footer>
+</div>
+</body>
+</html>
