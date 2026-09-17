@@ -167,7 +167,7 @@
 
 <div class="wrap">
 <header class="hero">
-  <div class="eyebrow"><span>s00 · project plan</span><span class="tag">rev 2 · 2026-09-17</span><span class="tag acc">repo: nmp-dsci/value-invest-agent</span></div>
+  <div class="eyebrow"><span>s00 · project plan</span><span class="tag">rev 3 · 2026-09-17</span><span class="tag acc">repo: nmp-dsci/value-invest-agent</span></div>
   <h1>Can an agent learn to make the <em>calls</em> a value investor makes on YouTube?</h1>
   <p class="lede">Four years of <b>Value Investing with Sven Carlin, Ph.D.</b> (@Value-Investing) turned into a golden set of dated stock calls; an analyst agent that sees only the prices and financial statements available on the video date and tries to reproduce each call; and a validator that scores both the channel and the agent against what the stock actually did 6, 12 and 24 months later.</p>
   <div class="facts">
@@ -652,16 +652,27 @@ verdict    = correct     if (stance ∈ {buy}  and excess &gt; +5 pp)
 
 <!-- ───────────────────────── 10. PLAN ───────────────────────── -->
 <section id="plan">
-  <div class="section-head"><span class="num">10</span><h2>Delivery plan</h2></div>
-  <p>Each slice ends with something reviewable in the app or a committed artifact. S0 is done as part of this page.</p>
-  <div class="slice"><div class="v">S0</div><div><h4>Repo + scaffold <span class="tag good">done today</span></h4><p>Folder renamed to <span class="k">value-invest-agent</span>, public repo <span class="k">nmp-dsci/value-invest-agent</span>, <span class="k">pyproject</span> (uv, ruff, mypy, pytest), <span class="k">README</span> / <span class="k">CLAUDE.md</span> / <span class="k">AGENTS.md</span>, <span class="k">ai_specs/s00_project_plan.md</span> mirroring this page, <span class="k">.env.example</span>, MIT licence, this artifact under <span class="k">.lavish/</span>.</p></div></div>
-  <div class="slice"><div class="v">S1</div><div><h4>Catalog + classifier + sample</h4><p><span class="k">llm.py</span> (Agent SDK, subscription guard), <span class="k">vi catalog</span>, <span class="k">vi classify</span>, <span class="k">vi sample --per-year 10</span>, DuckDB init, the 40-title seed as the classifier eval. Output: real funnel counts and the 40 sampled videos listed in the app.</p><div class="ship">ship: vi.videos (+in_sample) + vi.title_labels · classifier ≥ 95 % on seed · Supadata spend report</div></div></div>
-  <div class="slice"><div class="v">S2</div><div><h4>Ingest via transcript·lab</h4><p>Drive <span class="k">/api/index/queue</span> for the 40 sampled videos; verify the corpus in the workbench; write <span class="k">transcript_status</span> back.</p><div class="ship">ship: 40 transcripts in Chroma, channel-scoped · corpus browsable in transcript·lab</div></div></div>
-  <div class="slice"><div class="v">S3</div><div><h4>Golden extraction + full review</h4><p>Agent SDK extractor with cache, price-mention cross-check, all 40 calls hand-reviewed, κ report, time-based splits (20 / 10 / 10).</p><div class="ship">ship: vi.calls · docs/golden-set.md · κ ≥ 0.7 on stance</div></div></div>
-  <div class="slice"><div class="v">S4</div><div><h4>Market data + as-of view</h4><p>yfinance loader → parquet → DuckDB; EDGAR companyfacts for US names; <span class="k">vi.as_of</span> with a leakage test; benchmark mapping per exchange.</p><div class="ship">ship: coverage report per ticker (prices ✓, fundamentals depth) · leakage test green</div></div></div>
-  <div class="slice"><div class="v">S5</div><div><h4>Validator + scoreboard</h4><p>Forward returns, verdict rules, IV hit rate, fact-check of verifiable claims. First real answer to "was the channel right?"</p><div class="ship">ship: vi.validations · scoreboard page · per-year/region breakdown</div></div></div>
-  <div class="slice"><div class="v">S6</div><div><h4>Analyst agent v0 + baselines, then the loop</h4><p><span class="k">agents/v0/</span> (thin helper, plain system.md), the Python-sandbox MCP tool, three baselines, scoring + judge, MLflow tracking. S6b: the DABStep error loop — optimiser session, challenger run, McNemar gate, ledger — producing v1, v2…</p><div class="ship">ship: agent beats ratio rule and majority on test · leakage floor reported · one gated promotion</div></div></div>
-  <div class="slice"><div class="v">S7</div><div><h4>App + demo deploy</h4><p>React walkthrough over DuckDB + corpus API; demo mode with a committed snapshot; CI (ruff, mypy, pytest, frontend, eval gate) and the App Runner deploy from the siblings.</p><div class="ship">ship: public read-only demo · README results table</div></div></div>
+  <div class="section-head"><span class="num">10</span><h2>Delivery plan <span class="tag acc">rev 3</span></h2></div>
+  <p><b>Decided: build the data first, look at it, then decide.</b> Milestone 1 gets the transcripts, the Yahoo annual-report data and the app in place so every sampled video can be inspected end to end. Milestone 2 extracts the golden calls and summarises the eval data <em>in the app</em>, so the whole golden set can be reviewed for sense before anything is built on top of it. Everything else — validator, analyst agent, error loop, deploy — is deferred until that review passes.</p>
+
+  <h3>Milestone 1 · data + app</h3>
+  <div class="slice"><div class="v">S0</div><div><h4>Repo + scaffold <span class="tag good">done</span></h4><p>Folder renamed, public repo <span class="k">nmp-dsci/value-invest-agent</span>, branch <span class="k">scope-build</span>, pyproject, README / CLAUDE / AGENTS, <span class="k">ai_specs/s00</span>, this page.</p></div></div>
+  <div class="slice"><div class="v">S1</div><div><h4>Transcripts: catalog → classify → sample → ingest</h4><p><span class="k">llm.py</span> (Agent SDK, subscription guard), <span class="k">vi catalog</span> (date the 2,072 ids), <span class="k">vi classify</span> (kind + tickers, eval on the 40-title seed), <span class="k">vi sample --per-year 10</span>, <span class="k">vi ingest --sample</span> driving transcript·lab's queue, <span class="k">vi.videos</span> / <span class="k">vi.title_labels</span> in DuckDB.</p><div class="ship">ship: 40 sampled videos with transcripts in transcript·lab's Chroma · funnel counts · Supadata spend report</div></div></div>
+  <div class="slice"><div class="v">S2</div><div><h4>Market data: Yahoo prices + annual reports</h4><p><span class="k">vi market</span>: daily OHLCV from 2018 and <b>annual</b> income / balance / cash-flow statements per sampled ticker via yfinance → parquet → <span class="k">vi.prices</span> / <span class="k">vi.statements</span>; benchmark series; the <span class="k">vi.as_of</span> view using the annual-only rule (year-end + 90 d ≤ T0); a coverage report per ticker (which videos have a pre-T0 annual report, which don't). EDGAR deferred.</p><div class="ship">ship: vi.prices + vi.statements (annual) for ≤ 40 tickers · coverage table · as_of leakage test green</div></div></div>
+  <div class="slice"><div class="v">S3</div><div><h4>App: walk the data</h4><p>FastAPI + React in transcript·lab's tokens. Tabs for this milestone: <b>Corpus</b> (the 40 videos, transcript status, classifier labels), <b>Video</b> (transcript with timestamps beside the price chart around T0 and the as-of annual statements), <b>Market</b> (coverage per ticker). Golden / Agent / Scoreboard tabs are stubs.</p><div class="ship">ship: every sampled video reviewable transcript → price → statements · runs locally, no deploy</div></div></div>
+
+  <h3>Milestone 2 · golden set + eval summary, then review</h3>
+  <div class="slice"><div class="v">S4</div><div><h4>Golden extraction</h4><p>Agent SDK extractor with cache → <span class="k">vi.calls</span>; price-mention cross-check; κ between two extractor passes on stance; time-based splits (20 / 10 / 10) recorded but not yet used.</p><div class="ship">ship: 40 golden calls · κ report</div></div></div>
+  <div class="slice"><div class="v">S5</div><div><h4>Eval-data summary in the app</h4><p><b>Golden calls</b> tab: table of the 40 calls (ticker, T0, stance, IV vs price at T0, thesis, evidence links into the transcript) with a review control that sets <span class="k">curation_status</span>; a summary panel — stance mix per year, IV-vs-price distribution, fundamentals coverage per call, claims extracted — so the set can be judged for sense as a whole.</p><div class="ship">ship: all 40 reviewed in the app · summary page · review checkpoint: does the golden set make sense?</div></div></div>
+
+  <h3>Deferred until the M2 review passes</h3>
+  <div class="cards">
+    <div class="card"><h4><span class="tag">deferred</span> Forward-return validator + scoreboard</h4><p>§8. Cheap once <span class="k">vi.prices</span> exists; waits so verdict rules are set after seeing the calls.</p></div>
+    <div class="card"><h4><span class="tag">deferred</span> Analyst agent v0 + baselines</h4><p>§7. Python-sandbox tool, <span class="k">agents/v0</span>, scoring + judge.</p></div>
+    <div class="card"><h4><span class="tag">deferred</span> DABStep error loop</h4><p>Optimiser session, McNemar gate, ledger, MLflow.</p></div>
+    <div class="card"><h4><span class="tag">deferred</span> EDGAR, quarterlies, sample expansion</h4><p>Only if the M2 review shows the annual-only / 40-video data is too thin.</p></div>
+    <div class="card"><h4><span class="tag">deferred</span> Demo deploy + CI eval gate</h4><p>App Runner pattern from the siblings; CI stays lint/type/test until there is an eval to gate.</p></div>
+  </div>
 </section>
 
 <!-- ───────────────────────── 11. RISKS + DECISIONS ───────────────────────── -->
@@ -679,19 +690,13 @@ verdict    = correct     if (stance ∈ {buy}  and excess &gt; +5 pp)
 
   <form class="decision" data-lavish-question="storage" onsubmit="event.preventDefault(); const c=new FormData(this).get('storage'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Storage decision for value-invest-agent: '+c+'. Update the plan and ai_specs/s00 accordingly.', {tag:'choice', text:'Storage: '+c, element:this, data:{question:'storage', answer:c}});">
     <fieldset><legend>D1 · Storage for structured data</legend>
-      <label><input type="radio" name="storage" value="B: transcripts in transcript-lab Chroma + DuckDB schema vi in this repo (recommended)" checked> <span>B · Chroma for text, DuckDB <span class="k">vi</span> for facts <span class="why">Recommended. One file, SQL, no new services, transcript·lab untouched.</span></span></label>
+      <label><input type="radio" name="storage" value="B: transcripts in transcript-lab Chroma + DuckDB schema vi in this repo (recommended)" checked> <span>B · Chroma for text, DuckDB <span class="k">vi</span> for facts <span class="why">Recommended, and what S1 builds on unless you pick otherwise. One file, SQL, no new services, transcript·lab untouched.</span></span></label>
       <label><input type="radio" name="storage" value="C: shared Postgres schema vi used by both repos"> <span>C · Shared Postgres schema <span class="why">Only if transcript·lab should also gain a relational catalog.</span></span></label>
       <label><input type="radio" name="storage" value="A: everything as metadata in transcript-lab Chroma"> <span>A · Everything in Chroma <span class="why">Not recommended.</span></span></label>
     </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
   </form>
 
-  <form class="decision" data-lavish-question="fundamentals" onsubmit="event.preventDefault(); const c=new FormData(this).get('fund'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Fundamentals data source decision: '+c+'. Update §6 and the S4 slice.', {tag:'choice', text:'Fundamentals: '+c, element:this, data:{question:'fundamentals', answer:c}});">
-    <fieldset><legend>D2 · Financial statements source</legend>
-      <label><input type="radio" name="fund" value="yfinance + SEC EDGAR companyfacts for US names (recommended)" checked> <span>yfinance + EDGAR for US names <span class="why">Recommended. Free, true filing dates for US; non-US flagged shallow.</span></span></label>
-      <label><input type="radio" name="fund" value="yfinance only for the first milestone"> <span>yfinance only for now <span class="why">Fastest; accept missing fundamentals for older videos.</span></span></label>
-      <label><input type="radio" name="fund" value="paid fundamentals API (FMP/EOD/Polygon) for global point-in-time coverage"> <span>Paid API (FMP / EOD / Polygon) <span class="why">Complete coverage; adds cost and a key in CI.</span></span></label>
-    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
-  </form>
+    <div class="note good"><b>D2 · Fundamentals — decided for milestone 1 (rev 3):</b> yfinance, annual statements only (option 1b); the as-of rule is year-end + 90 d ≤ T0. EDGAR and quarterlies deferred until the M2 review says the data is too thin.</div>
 
     <div class="note good"><b>D3 · Scope — decided (rev 2):</b> single-stock videos only; 10 per year for 4 years = a 40-video base sample, spread across quarters, seeded; raise <span class="k">--per-year</span> to expand later. Multi-stock videos are classified but not sampled.</div>
   <div class="note good"><b>D4 · Learning — decided (rev 2):</b> Claude Agent SDK on subscription (ConvFinQA billing pattern); agent set up like DABStep — one Python-sandbox tool, <span class="k">agents/vN/{system.md, helper.py, agent.yaml}</span>; the optimiser updates only the system prompt and the helper functions the sandbox exposes; McNemar gate promotes.</div>

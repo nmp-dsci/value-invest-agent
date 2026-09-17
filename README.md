@@ -13,7 +13,7 @@ each call, and an error loop rewrites its `system.md` / `helper.py` between
 gated versions. A **validator** scores both the channel and the agent
 against what the stock did 6, 12 and 24 months later, relative to a benchmark.
 
-> Status: **S0 — plan and scaffold.** The full plan, with architecture drawings,
+> Status: **S0 — plan and scaffold.** Next: M1 (transcripts, Yahoo annual data, app) then M2 (golden extraction + eval summary, reviewed in the app) before anything agent-shaped is built. The full plan, with architecture drawings,
 > the storage schema, the pipeline, risks and open decisions, is
 > [`ai_specs/s00_project_plan.md`](ai_specs/s00_project_plan.md); the reviewable
 > page is [`.lavish/s00_value-invest-agent-plan.html`](.lavish/s00_value-invest-agent-plan.html).

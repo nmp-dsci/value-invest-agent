@@ -1,6 +1,6 @@
 # Spec: S00 Project plan — value·invest agent
 
-Status: draft (rev 2 — D3, D4 decided on the review page)
+Status: ready (rev 3 — scope cut to M1 data + app, M2 golden + review)
 Date: 2026-09-17
 Review page: `.lavish/s00_value-invest-agent-plan.html` (architecture drawings live there)
 
@@ -180,16 +180,27 @@ so it can later be embedded as a workbench tab. Tabs: Corpus · Golden calls
 Fact-check. Read-only demo with a committed DuckDB snapshot; App Runner deploy
 as in the siblings.
 
-## Delivery
+## Delivery (rev 3 — data first, review, then decide)
 
+Milestone 1 · data + app
 - S0 repo + scaffold — done 2026-09-17.
-- S1 catalog + classifier → real funnel counts, Supadata spend report.
-- S2 ingest via transcript·lab → ≈750 transcripts in Chroma.
-- S3 golden extraction + reviewed core + κ + splits.
-- S4 market data + `vi.as_of` + leakage test + coverage report.
-- S5 validator + scoreboard + fact-check.
-- S6 agent v1 + baselines + scoring + MLflow; S6b prompt loop.
-- S7 app + demo deploy + CI.
+- S1 transcripts: `llm.py`, `vi catalog`, `vi classify` (seed eval), `vi sample
+  --per-year 10`, `vi ingest --sample` → 40 transcripts in transcript·lab.
+- S2 market: yfinance daily prices + **annual** statements per sampled ticker,
+  `vi.as_of` with the annual-only rule (year-end + 90 d ≤ T0), coverage report,
+  leakage test. EDGAR deferred.
+- S3 app: Corpus · Video (transcript beside price chart at T0 and as-of annual
+  statements) · Market (coverage). Local only.
+
+Milestone 2 · golden set + eval summary
+- S4 golden extraction → `vi.calls`, price-mention cross-check, κ, splits recorded.
+- S5 Golden-calls tab with review control + summary panel (stance mix per year,
+  IV vs price, coverage per call). **Review checkpoint: does the golden set make
+  sense?**
+
+Deferred until the M2 review passes: forward-return validator + scoreboard,
+analyst agent v0 + baselines, the error loop, EDGAR / quarterlies / sample
+expansion, demo deploy + CI eval gate.
 
 ## Risks
 
@@ -205,8 +216,8 @@ as in the siblings.
 
 ## Decisions
 
-- D1 storage: **open** — B (Chroma for text + DuckDB `vi`) recommended.
-- D2 fundamentals: **open** — yfinance + EDGAR for US names recommended.
+- D1 storage: **assumed B** (Chroma for text + DuckDB `vi`) — S1 builds on it unless overridden.
+- D2 fundamentals: **decided for M1** — yfinance annual-only (1b); EDGAR/quarterlies deferred.
 - D3 scope: **decided** — single-stock only, 10 per year × 4 = 40 base sample, expand later.
 - D4 learning: **decided** — Claude Agent SDK on subscription; DABStep agent
   shape (Python sandbox + `system.md`/`helper.py` versions); optimiser edits
