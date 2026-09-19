@@ -121,11 +121,16 @@ def extract(
     force: bool = False,
     workers: int = 3,
     no_critic: bool = False,
+    reground: bool = False,
 ) -> None:
-    """S4: transcript → GoldenEval (extract · ground · critic · checkpoint) → vi.evals. Cache-aware."""
-    from value_invest.golden.checkpoint import process_all
+    """S4: transcript → GoldenEval (extract · ground · critic · checkpoint) → vi.evals. Cache-aware.
+    --reground rebuilds data checks and derived fields from the cached drafts without any model call."""
+    from value_invest.golden.checkpoint import process_all, reground_all
 
     con = db.connect()
+    if reground:
+        rprint(reground_all(con, version))
+        return
     rprint(
         process_all(
             con, version, only=only or None, force=force, workers=workers, critic=not no_critic

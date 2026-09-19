@@ -276,3 +276,53 @@ def test_split_and_cache_key():
     v = load_version("v0")
     k = cache_key("abc", "0123456789abcdef", v)
     assert k.startswith("abc:0123456789ab:v0:") and v.fingerprint in k
+
+
+def test_draft_tolerates_text_numbers_and_key_variants():
+    d = GoldenEvalDraft.model_validate(
+        {
+            "video_id": "x",
+            "ticker": "V",
+            "call": {
+                "stance_detail": "fair_hold",
+                "expected_return_pct": "not stated",
+                "headline_quote": "q",
+            },
+            "valuation": {
+                "method": "eps_multiple",
+                "base_metric": {"name": "eps", "value_stated": "$6"},
+                "discount_rate": "10%",
+                "scenarios": [
+                    {
+                        "scenario": "normal",
+                        "g_y1_5": "5 %",
+                        "terminal_multiple": 20,
+                        "probability": "n/a",
+                    }
+                ],
+                "what_is_priced_in": "the market prices 12 % growth",
+            },
+            "reasons": [
+                {
+                    "rank": 1,
+                    "direction": "for_sell",
+                    "category": "valuation",
+                    "claim": "c",
+                    "quote": "q",
+                    "metrics": {"pe ratio": 27},
+                }
+            ],
+        }
+    )
+    assert d.call.expected_return_pct is None and d.valuation.discount_rate == 10.0
+    assert d.valuation.base_metric is not None and d.valuation.base_metric.value_stated == 6.0
+    assert (
+        d.valuation.scenarios[0].name == "normal"
+        and d.valuation.scenarios[0].g_y1_5 == 5.0
+        and d.valuation.scenarios[0].probability is None
+    )
+    assert (
+        d.valuation.what_is_priced_in is not None
+        and d.valuation.what_is_priced_in.quote.startswith("the market")
+    )
+    assert d.reasons[0].metrics[0].name == "pe ratio" and d.reasons[0].metrics[0].value == 27

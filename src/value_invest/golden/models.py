@@ -31,6 +31,36 @@ Feeds = Literal["base", "g_y1_5", "g_y6_10", "terminal", "probability", "discoun
 Reproducible = Literal["statements", "prices", "derived", "external", "judgement"]
 Method = Literal["eps_multiple", "dividend", "fcf", "net_income", "none"]
 
+
+def _num(v: Any) -> Any:
+    """Numbers the model writes as text ("12 %", "not stated", "n/a") → float or None."""
+    if v is None or isinstance(v, (int, float)):
+        return v
+    if isinstance(v, str):
+        t = v.strip().replace("%", "").replace(",", "").replace("$", "")
+        try:
+            return float(t)
+        except ValueError:
+            return None
+    return v
+
+
+class LenientNumbers(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    @field_validator("*", mode="before")
+    @classmethod
+    def _coerce_numbers(cls, v: Any, info: Any) -> Any:
+        ann = (
+            cls.model_fields[info.field_name].annotation
+            if info.field_name in cls.model_fields
+            else None
+        )
+        if ann is not None and "float" in str(ann) and "list" not in str(ann):
+            return _num(v)
+        return v
+
+
 THREE_WAY: dict[str, Position] = {
     "absolute_buy": "BUY",
     "relative_buy": "BUY",
@@ -61,7 +91,7 @@ def hurdle_for(expected_return_pct: float | None, stance_detail: str) -> Positio
     return "SELL" if THREE_WAY[stance_detail] == "SELL" else "HOLD"
 
 
-class MetricMention(BaseModel):
+class MetricMention(LenientNumbers):
     """A number he cites for a reason, in his words — grounding maps it to a line item."""
 
     name: str = Field(
@@ -114,13 +144,13 @@ class Reason(BaseModel):
         return v or []
 
 
-class BaseMetric(BaseModel):
+class BaseMetric(LenientNumbers):
     name: Literal["eps", "dps", "fcf_per_share", "net_income", "other"]
     value_stated: float | None = None
     quote: str = ""
 
 
-class Scenario(BaseModel):
+class Scenario(LenientNumbers):
     model_config = ConfigDict(extra="ignore", populate_by_name=True)
 
     name: Literal["normal", "best", "worst"] = Field(
@@ -134,13 +164,13 @@ class Scenario(BaseModel):
     quote: str = ""
 
 
-class PricedIn(BaseModel):
+class PricedIn(LenientNumbers):
     growth: float | None = None
     multiple: float | None = None
     quote: str = ""
 
 
-class Valuation(BaseModel):
+class Valuation(LenientNumbers):
     model_config = ConfigDict(extra="ignore")
 
     method: Method = "none"
@@ -174,7 +204,7 @@ class Valuation(BaseModel):
         return v or []
 
 
-class Call(BaseModel):
+class Call(LenientNumbers):
     model_config = ConfigDict(extra="ignore")
 
     stance_detail: StanceDetail
