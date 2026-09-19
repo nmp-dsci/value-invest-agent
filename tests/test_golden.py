@@ -359,3 +359,27 @@ def test_draft_tolerates_unknown_feeds_and_empty_base_metric():
     assert (
         d.valuation.what_is_priced_in is not None and d.valuation.what_is_priced_in.growth is None
     )
+
+
+def test_validate_all_writes_verdicts_and_iv_hit(con):
+    from datetime import date
+
+    from value_invest.golden.validate import validate_all
+
+    con.execute(
+        "INSERT INTO vi.videos (video_id, title, published_at, kind, primary_ticker, year_bucket, in_sample, date_source) VALUES ('v1', 't', ?, 'single', 'AAPL', '2024/25', TRUE, 'yt-dlp')",
+        [date(2025, 1, 21)],
+    )
+    con.execute("INSERT INTO vi.tickers (ticker, benchmark) VALUES ('AAPL', 'SPY')")
+    con.execute(
+        "INSERT INTO vi.evals (video_id, ticker, t0, position, stance_detail, iv_weighted_stated, split) VALUES ('v1', 'AAPL', ?, 'SELL', 'avoid', 100, 'test')",
+        [date(2025, 1, 21)],
+    )
+    _seed_apple(con)
+    r = validate_all(con)
+    rows = con.execute(
+        "SELECT horizon_m, excess, verdict, iv_hit FROM vi.validations WHERE video_id = 'v1' ORDER BY 1"
+    ).fetchall()
+    # 6 m: AAPL 222.64 → 210 (−5.7 %) vs SPY 600 → 630 (+5 %): excess ≈ −10.7 pp → SELL correct; price never fell to 100 → iv_hit False
+    assert [x[0] for x in rows] == [6, 12] and rows[0][2] == "correct" and rows[0][3] is False
+    assert rows[0][1] < -0.1 and r["overall"]["6"]["hits"]["SELL"] == [1, 1]
