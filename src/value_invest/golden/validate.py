@@ -79,15 +79,11 @@ def validate_all(
             iv_hit = None
             if iv:
                 lohi = con.execute(
-                    "SELECT min(close), max(close) FROM vi.prices WHERE ticker = ? AND date > ? AND date <= ?",
+                    "SELECT min(adj_close), max(adj_close) FROM vi.prices WHERE ticker = ? AND date > ? AND date <= ?",
                     [ticker, t0, t1],
                 ).fetchone()
-                at0_row = con.execute(
-                    "SELECT close FROM vi.prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT 1",
-                    [ticker, t0],
-                ).fetchone()
-                if lohi and lohi[0] is not None and at0_row:
-                    lo, hi, at0 = lohi[0], lohi[1], at0_row[0]
+                if lohi and lohi[0] is not None:
+                    lo, hi, at0 = lohi[0], lohi[1], p0[1]
                     iv_hit = (hi >= iv) if iv >= at0 else (lo <= iv)
             con.execute(
                 """INSERT OR REPLACE INTO vi.validations (video_id, horizon_m, t0, t1, ret, bench_ret, excess, verdict, verdict_hold_alt, iv_hit)

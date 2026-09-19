@@ -18,7 +18,7 @@ import duckdb
 from value_invest import valuation as val
 from value_invest.golden.models import DataCheck, GoldenEvalDraft, Reason, Reproducible
 
-PRICE_WINDOW_DAYS = 7  # ≈ 5 trading days either side of T0
+PRICE_WINDOW_DAYS = 7  # ≈ 5 trading days trailing T0 — never after, to respect point-in-time
 PRICE_TOL = 0.10
 METRIC_REL_TOL = 0.15  # his rounding: "110 billion" for 94.9, "P/E 40" for 36.6
 IV_TOL = 0.10
@@ -275,7 +275,7 @@ def load_as_of(con: duckdb.DuckDBPyConnection, ticker: str, t0: date) -> AsOf:
             [
                 ticker,
                 t0 - timedelta(days=PRICE_WINDOW_DAYS),
-                t0 + timedelta(days=PRICE_WINDOW_DAYS),
+                t0,
             ],
         ).fetchall()
     ]
@@ -546,13 +546,20 @@ def price_history_metrics(con: duckdb.DuckDBPyConnection, a: AsOf) -> None:
             }
 
 
-def _to_comparable(key: str, stated: float, unit: str | None) -> float:
-    """His number in our unit: fractions for pct, dollars for money."""
+def _to_comparable(key: str, stated: float, unit: str | None, as_of: float | None = None) -> float:
+    """His number in our unit: fractions for pct, dollars for money.
+
+    When the unit is missing or generic, the scale (percent vs fraction,
+    millions vs billions) is ambiguous from the stated number alone; pick
+    whichever candidate scale lands closest to the as-of value we already
+    have rather than guessing from magnitude alone."""
     u = (unit or "").lower()
     if key in PCT:
-        return (
-            stated / 100.0 if (u in ("pct", "percent", "%", "") and abs(stated) > 1.0) else stated
-        )
+        if u not in ("pct", "percent", "%", ""):
+            return stated
+        if as_of is not None:
+            return min([stated, stated / 100.0], key=lambda c: abs(c - as_of))
+        return stated / 100.0 if abs(stated) > 1.0 else stated
     if key in MONEY:
         if u in ("usd_bn", "bn", "billion", "billions", "b"):
             return stated * 1e9
@@ -560,7 +567,10 @@ def _to_comparable(key: str, stated: float, unit: str | None) -> float:
             return stated * 1e6
         if u in ("usd_tn", "tn", "trillion", "t"):
             return stated * 1e12
-        if u in ("", "usd") and abs(stated) < 1e5:  # he speaks in billions
+        if u in ("", "usd") and abs(stated) < 1e5:  # he speaks in billions or millions
+            candidates = [stated, stated * 1e6, stated * 1e9]
+            if as_of:
+                return min(candidates, key=lambda c: abs(c / as_of - 1))
             return stated * 1e9 if abs(stated) < 1e4 else stated * 1e6
         return stated
     return stated
@@ -667,7 +677,11 @@ def check_reason(
         key = _resolve_for(mm)
         if key and key in a.metrics:
             info = a.metrics[key]
-            stated = _to_comparable(key, mm.value, mm.unit) if mm.value is not None else None
+            stated = (
+                _to_comparable(key, mm.value, mm.unit, as_of=float(info["value"]))
+                if mm.value is not None
+                else None
+            )
             resolved.append((key, stated, float(info["value"]), info))
         else:
             unresolved.append(mm.name)

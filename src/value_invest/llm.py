@@ -14,7 +14,6 @@ import asyncio
 import json
 import os
 import re
-import time
 from datetime import datetime, timedelta
 from typing import Any, TypeVar
 
@@ -41,6 +40,7 @@ class StructuredCallError(RuntimeError):
 
 _RESET_RE = re.compile(r"resets\s+(\d{1,2})(?::(\d{2}))?\s*([ap]m)", re.I)
 MAX_WAIT_S = 6 * 3600
+MAX_SESSION_RESETS = 3
 
 
 def seconds_until_reset(error: str, now: datetime | None = None) -> int | None:
@@ -161,6 +161,7 @@ async def run_structured(
     )
     last: Exception | None = None
     attempt = 0
+    resets = 0
     while attempt < max(1, attempts):
         attempt += 1
         final_text = ""
@@ -190,11 +191,16 @@ async def run_structured(
         wait = seconds_until_reset(str(last) if last else "") or seconds_until_reset(
             final_text[:300]
         )
-        if wait is not None and (not final_text or "session limit" in final_text.lower()):
+        if (
+            wait is not None
+            and resets < MAX_SESSION_RESETS
+            and (not final_text or "session limit" in final_text.lower())
+        ):
             # a subscription window that has run out is waited for, not failed
             print(f"[llm] session limit reached; waiting {wait // 60} min", flush=True)
-            time.sleep(wait)
+            await asyncio.sleep(wait)
             attempt -= 1  # the wait is not an attempt
+            resets += 1
             last = None
             continue
         try:

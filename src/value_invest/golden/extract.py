@@ -1,8 +1,10 @@
 """Stage 2 — one Agent SDK call turns a transcript into a ``GoldenEvalDraft``.
 
-The prompt carries the title, the description head and the chunk-marked
-transcript; the system prompt is the extractor version's ``system.md``. The
-model has no tools and never sees prices or statements."""
+The prompt carries the description head and the chunk-marked transcript; the
+system prompt is the extractor version's ``system.md``. The model has no
+tools and never sees the title, prices, or statements — the title is
+title-blind by design (see checkpoint.title_says_buy) and never reaches
+the extractor as evidence."""
 
 from __future__ import annotations
 
@@ -18,7 +20,7 @@ def build_prompt(t: Transcript, ticker: str, t0: str, description: str | None) -
     desc = (description or "").strip().replace("\n", " ")[:400]
     return (
         f"video_id: {t.video_id}\nticker: {ticker}\nvideo date (T0): {t0}\n"
-        f"title: {t.title}\ndescription (head): {desc}\n\n"
+        f"description (head): {desc}\n\n"
         f"TRANSCRIPT ({t.words} words, {t.n_chunks} chunks; each chunk starts with its marker):\n\n"
         f"{t.marked}\n\n"
         "Extract the golden eval as ONE JSON object per the system instructions."

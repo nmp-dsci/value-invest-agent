@@ -90,7 +90,9 @@ def scenario_iv(
 
 
 def _bisect(f: Any, lo: float, hi: float, tol: float = 1e-6, steps: int = 200) -> float:
-    flo = f(lo)
+    flo, fhi = f(lo), f(hi)
+    if (flo < 0) == (fhi < 0) and abs(flo) >= tol and abs(fhi) >= tol:
+        raise ValueError("no sign change between lo and hi; root is not bracketed")
     for _ in range(steps):
         mid = (lo + hi) / 2
         fm = f(mid)

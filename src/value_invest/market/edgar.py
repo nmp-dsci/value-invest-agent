@@ -271,6 +271,11 @@ FILER_CONCEPTS = (
     "Assets",
     "Revenues",
     "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "SalesRevenueNet",
+    "SalesRevenueGoodsNet",
+    "RevenueFromContractWithCustomerIncludingAssessedTax",
+    "SalesRevenueServicesNet",
+    "RevenuesNetOfInterestExpense",
     "NetIncomeLoss",
     "ProfitLoss",
 )
@@ -292,7 +297,7 @@ def check_filer(ticker: str, client: Edgar | None = None) -> tuple[int | None, b
     facts = client.companyfacts(cik)
     gaap = ((facts or {}).get("facts") or {}).get("us-gaap") or {}
     has_annual = any(
-        e.get("form", "") in ANNUAL_FORMS and e.get("fp") == "FY"
+        e.get("form", "") in ANNUAL_FORMS and e.get("fp") == "FY" and _full_year(e)
         for concept in FILER_CONCEPTS
         for e in ((gaap.get(concept) or {}).get("units") or {}).get("USD", [])
     )
