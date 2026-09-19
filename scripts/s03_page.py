@@ -54,6 +54,7 @@ def style() -> str:
 def main() -> None:
     N = json.loads((EVID / "m2_numbers.json").read_text())
     evals = N["evals"]
+    t0_of = {e["video_id"]: e["t0"] for e in evals}
     n = len(evals)
     mix = {k: sum(1 for e in evals if e["position"] == k) for k in ("BUY", "HOLD", "SELL")}
     ov = N["validation"]["overall"]
@@ -135,7 +136,7 @@ def main() -> None:
             else ""
         )
         eval_rows.append(
-            f"<tr><td class=mono>{e['t0']}</td><td class=mono>{esc(e['ticker'])}</td><td>{esc(e['title'][:64])}</td><td><span class=tag>{e['split']}{'' if v['12'] else ' · holdout @12'}</span></td>"
+            f"<tr><td class=mono><b>{esc(e['ticker'])}</b> · {e['t0']}</td><td>{esc(e['title'][:64])}</td><td><span class=tag>{e['split']}{'' if v['12'] else ' · holdout @12'}</span></td>"
             f'<td><span class="tag {POS_TAG[e["position"]]}">{e["position"]}</span>{flags}</td><td class=mono>{e["stance_detail"]}</td>'
             f"<td class=r>{num(e['expected_return_pct'])}</td><td class=r>{num(e['iv_weighted_stated'])} → {num(e['price_at_t0'])}</td>{cells}"
             f"<td>{vcell}</td>"
@@ -280,7 +281,7 @@ def main() -> None:
     <thead><tr><th>version</th><th class="r">n full</th><th class="r">position acc (full)</th><th class="r">balanced</th><th>recall B · H · S</th><th class="r">position acc (all)</th><th class="r">reason recall</th><th class="r">quotes verbatim</th><th class="r">κ 6-way / 3-way</th></tr></thead>
     <tbody>{seed_row("v0")}{seed_row("v1")}{seed_row("v2")}</tbody>
   </table></div>
-  <div class="note">The remaining v2 disagreements are the genuinely borderline videos: {esc(", ".join(f"{d['ticker']} ({d['seed_stance']} → {d['eval_stance']})" for d in ((seed.get("v2") or {}).get("disagreements") or [])))}. They are flagged in the app and are the first rows to review.</div>
+  <div class="note">The remaining v2 disagreements are the genuinely borderline videos: {esc(", ".join(f"{d['ticker']} {t0_of.get(d['video_id'], '')[:7]} ({d['seed_stance']} → {d['eval_stance']})" for d in ((seed.get("v2") or {}).get("disagreements") or [])))}. They are flagged in the app and are the first rows to review.</div>
 </section>
 
 <section id="validation">
@@ -311,9 +312,9 @@ def main() -> None:
 
 <section id="evals">
   <div class="section-head"><span class="num">04</span><h2>All {n} evals</h2></div>
-  <p>Rule-sensitive rows first (the binary and hurdle cuts disagree with the 3-way position), then by date. Excess vs SPY in pp; verdict at 12 m; "repro." = share of the reasons an agent could rebuild from data at T0; "critic" ✓ = the auditing model reads the same position.</p>
+  <p>A position is a ticker <em>at a date</em> — the same stock recurs across years (Berkshire nine times, Apple five), so the first column carries both. Rule-sensitive rows first (the binary and hurdle cuts disagree with the 3-way position), then by date. Excess vs SPY in pp; verdict at 12 m; "repro." = share of the reasons an agent could rebuild from data at T0; "critic" ✓ = the auditing model reads the same position.</p>
   <div class="tablewrap"><table>
-    <thead><tr><th>T0</th><th>ticker</th><th>title</th><th>split</th><th>position</th><th>stance</th><th class="r">expects %</th><th class="r">IV → price</th><th class="r">+6 m</th><th class="r">+12 m</th><th class="r">+24 m</th><th>verdict</th><th class="r">repro.</th><th>critic</th></tr></thead>
+    <thead><tr><th>position = ticker · T0</th><th>title</th><th>split</th><th>position</th><th>stance</th><th class="r">expects %</th><th class="r">IV → price</th><th class="r">+6 m</th><th class="r">+12 m</th><th class="r">+24 m</th><th>verdict</th><th class="r">repro.</th><th>critic</th></tr></thead>
     <tbody>{"".join(eval_rows)}</tbody>
   </table></div>
 </section>

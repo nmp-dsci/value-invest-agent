@@ -80,7 +80,7 @@ export default function GoldenEvals({ videoId, onOpen, onVideo }: { videoId?: st
       )}
       {detail && (
         <div className="panel" id="evaldetail">
-          <h3>{detail.ticker} · {detail.title} <span className="microlabel">{detail.t0} · {detail.year_bucket} · {detail.extractor_version} · {detail.model}</span><button className="pill" onClick={() => onVideo(detail.video_id)}>open video ↗</button><button className="pill" onClick={() => onOpen('')}>close</button></h3>
+          <h3>{detail.ticker} · {detail.t0} — {detail.title} <span className="microlabel">{detail.year_bucket} · {detail.extractor_version} · {detail.model}</span><button className="pill" onClick={() => onVideo(detail.video_id)}>open video ↗</button><button className="pill" onClick={() => onOpen('')}>close</button></h3>
           <EvalPanel ev={detail} onJump={() => onVideo(detail.video_id)} onChanged={(e) => { setDetail({ ...detail, ...e } as EvalDetail); load(); }} />
         </div>
       )}
@@ -96,10 +96,10 @@ export default function GoldenEvals({ videoId, onOpen, onVideo }: { videoId?: st
             <button className={'pill ' + (f.iv ? 'on' : '')} onClick={() => setF({ ...f, iv: !f.iv })}>has IV</button>
             <span className="microlabel">{list.length} of {rows.length}</span>
           </div>
-          <table><thead><tr><th>T0</th><th>ticker</th><th>title</th><th>split @ {h} m</th><th>position</th><th>stance</th><th className="num">expects</th><th className="num">IV → price</th>{H.map((x) => <th key={x} className="num">+{x} m ex</th>)}<th>verdict @ {h} m</th><th className="num">repro.</th><th>critic</th><th>review</th></tr></thead>
+          <table><thead><tr><th>ticker · T0</th><th>title</th><th>split @ {h} m</th><th>position</th><th>stance</th><th className="num">expects</th><th className="num">IV → price</th>{H.map((x) => <th key={x} className="num">+{x} m ex</th>)}<th>verdict @ {h} m</th><th className="num">repro.</th><th>critic</th><th>review</th></tr></thead>
             <tbody>{list.map((r) => { const v = r.validations?.[h]; return (
               <tr key={r.video_id} className="click" onClick={() => onOpen(r.video_id)}>
-                <td className="mono">{r.t0}</td><td className="mono">{r.ticker}</td><td>{r.title}</td><td><span className={'badge ' + splitCls(splitAt(r, h))}>{splitAt(r, h)}</span></td>
+                <td className="mono" style={{ whiteSpace: 'nowrap' }}><b>{r.ticker}</b> · {r.t0}</td><td>{r.title}</td><td><span className={'badge ' + splitCls(splitAt(r, h))}>{splitAt(r, h)}</span></td>
                 <td><span className={'badge ' + POS[r.position]}>{r.position}</span>{r.rule_sensitive && <span className="badge warn" style={{ marginLeft: 4 }}>A≠B</span>}{r.title_says_buy && r.position !== 'BUY' && <span className="badge warn" style={{ marginLeft: 4 }}>title</span>}</td>
                 <td className="mono">{r.stance_detail}</td><td className="num">{r.expected_return_pct != null ? `${r.expected_return_pct} %` : '—'}</td>
                 <td className="num">{r.iv_weighted_stated != null ? `${r.iv_weighted_stated.toFixed(0)} → ${r.price_at_t0?.toFixed(0) ?? '—'}` : '—'}</td>
