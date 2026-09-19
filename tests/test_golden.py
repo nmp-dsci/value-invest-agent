@@ -326,3 +326,36 @@ def test_draft_tolerates_text_numbers_and_key_variants():
         and d.valuation.what_is_priced_in.quote.startswith("the market")
     )
     assert d.reasons[0].metrics[0].name == "pe ratio" and d.reasons[0].metrics[0].value == 27
+
+
+def test_draft_tolerates_unknown_feeds_and_empty_base_metric():
+    d = GoldenEvalDraft.model_validate(
+        {
+            "video_id": "x",
+            "ticker": "UNH",
+            "call": {"stance_detail": "too_hard", "headline_quote": "q"},
+            "valuation": {
+                "method": "none",
+                "base_metric": {"name": None, "value_stated": None, "quote": None},
+                "what_is_priced_in": {
+                    "growth": "13 to 16% forever",
+                    "multiple": "20-25",
+                    "quote": "x",
+                },
+            },
+            "reasons": [
+                {
+                    "rank": 1,
+                    "direction": "for_sell",
+                    "category": "competence",
+                    "claim": "c",
+                    "quote": "q",
+                    "feeds": "worst",
+                }
+            ],
+        }
+    )
+    assert d.valuation.base_metric is None and d.reasons[0].feeds == "none"
+    assert (
+        d.valuation.what_is_priced_in is not None and d.valuation.what_is_priced_in.growth is None
+    )

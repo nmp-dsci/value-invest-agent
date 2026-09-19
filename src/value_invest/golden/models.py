@@ -133,6 +133,12 @@ class Reason(BaseModel):
     metrics: list[MetricMention] = Field(default_factory=list)
     data_check: DataCheck | None = None
 
+    @field_validator("feeds", mode="before")
+    @classmethod
+    def _feeds_known(cls, v: Any) -> Any:
+        known = ("base", "g_y1_5", "g_y6_10", "terminal", "probability", "discount", "none")
+        return v if v in known else "none"
+
     @field_validator("metrics", mode="before")
     @classmethod
     def _metrics_list(cls, v: Any) -> Any:
@@ -145,9 +151,32 @@ class Reason(BaseModel):
 
 
 class BaseMetric(LenientNumbers):
-    name: Literal["eps", "dps", "fcf_per_share", "net_income", "other"]
+    name: Literal["eps", "dps", "fcf_per_share", "net_income", "other"] = "other"
     value_stated: float | None = None
     quote: str = ""
+
+    @field_validator("name", mode="before")
+    @classmethod
+    def _name_known(cls, v: Any) -> Any:
+        if v in ("eps", "dps", "fcf_per_share", "net_income", "other"):
+            return v
+        t = str(v or "").lower()
+        return (
+            "eps"
+            if "eps" in t or "earnings per share" in t
+            else "dps"
+            if "dividend" in t
+            else "net_income"
+            if "net income" in t
+            else "fcf_per_share"
+            if "cash flow" in t
+            else "other"
+        )
+
+    @field_validator("quote", mode="before")
+    @classmethod
+    def _quote_str(cls, v: Any) -> Any:
+        return v or ""
 
 
 class Scenario(LenientNumbers):
@@ -183,6 +212,13 @@ class Valuation(LenientNumbers):
     iv_weighted_stated: float | None = None
     price_mentioned: float | None = None
     what_is_priced_in: PricedIn | None = None
+
+    @field_validator("base_metric", mode="before")
+    @classmethod
+    def _base_metric_optional(cls, v: Any) -> Any:
+        if isinstance(v, dict) and v.get("name") is None and v.get("value_stated") is None:
+            return None
+        return v
 
     @field_validator("what_is_priced_in", mode="before")
     @classmethod
