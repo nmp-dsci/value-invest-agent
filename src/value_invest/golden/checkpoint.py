@@ -93,6 +93,16 @@ def assemble(
     checks = g["checks"]
     checks["quote_scores"] = [round(s, 3) for s in scores]
     checks["faithful_share"] = round(sum(s >= VERBATIM for s in scores) / max(1, len(scores)), 3)
+    v = draft.valuation
+    if (
+        v.iv_weighted_stated is None and v.scenarios
+    ):  # his headline IV: the normal case when no weighted total was stated
+        normal = next((x for x in v.scenarios if x.name == "normal" and x.iv_stated), None)
+        v.iv_weighted_stated = (
+            normal.iv_stated
+            if normal
+            else next((x.iv_stated for x in v.scenarios if x.iv_stated), None)
+        )
     stance = draft.call.stance_detail
     pos = position_for(stance)
     hurdle = hurdle_for(draft.call.expected_return_pct, stance)
