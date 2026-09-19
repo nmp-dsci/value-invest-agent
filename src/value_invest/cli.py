@@ -74,7 +74,7 @@ def sample(per_year: int | None = None, seed: int | None = None) -> None:
 
 
 @app.command()
-def ingest(concurrency: int = 2, refresh: bool = False) -> None:
+def ingest(concurrency: int = 1, refresh: bool = False) -> None:
     """S1d: index every sampled video in transcript·lab (index-rag) and record status."""
     from value_invest.ingest.run import ingest_sample
 

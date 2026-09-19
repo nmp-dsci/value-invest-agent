@@ -50,6 +50,8 @@ def ingest_sample(
     failed = []
     for vid in todo:
         doc = corpus.raw(vid)
+        if doc is not None and not corpus.chunks(vid):  # transcript stored but chunking failed
+            doc = None
         if doc is None:
             failed.append(vid)
             con.execute(
