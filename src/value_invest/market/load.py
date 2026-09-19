@@ -115,8 +115,14 @@ def load_edgar(con: duckdb.DuckDBPyConnection, tickers: list[str] | None = None)
 
 
 def load_market(
-    con: duckdb.DuckDBPyConnection, only_missing: bool = True, tickers: list[str] | None = None
+    con: duckdb.DuckDBPyConnection,
+    only_missing: bool = True,
+    tickers: list[str] | None = None,
+    refresh_prices: bool = False,
 ) -> dict:
+    """``refresh_prices`` re-downloads every price history (the parquet cache starts
+    at the ``prices_from`` in force when it was written; extending the window back
+    to 2020 needs prices from 2015 for the five-year chart)."""
     sampled = tickers or [
         r[0]
         for r in con.execute(
@@ -138,9 +144,9 @@ def load_market(
     }
     now = datetime.now(timezone.utc)
     for t in sampled + benches:
-        if t in have:
+        if t in have and not refresh_prices:
             continue
-        prices = yahoo.fetch_prices(t)
+        prices = yahoo.fetch_prices(t, refresh=refresh_prices)
         n_p = _upsert_prices(con, prices)
         n_s = 0
         if t in sampled:

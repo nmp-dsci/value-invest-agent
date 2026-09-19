@@ -85,12 +85,13 @@ def ingest(concurrency: int = 1, refresh: bool = False) -> None:
 
 
 @app.command()
-def market(only_missing: bool = True) -> None:
-    """S2: Yahoo daily prices + annual statements for every sampled ticker → vi.prices / vi.statements."""
+def market(only_missing: bool = True, refresh_prices: bool = False) -> None:
+    """S2: Yahoo daily prices + annual statements for every sampled ticker → vi.prices / vi.statements.
+    --refresh-prices re-downloads price histories (needed after VI_PRICES_FROM moves earlier)."""
     from value_invest.market.load import load_market
 
     con = db.connect()
-    rprint(load_market(con, only_missing=only_missing))
+    rprint(load_market(con, only_missing=only_missing, refresh_prices=refresh_prices))
 
 
 @app.command()
