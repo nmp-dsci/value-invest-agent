@@ -128,5 +128,9 @@ validations at every horizon the data allows; κ and seed eval published;
   all-286 extraction deferred; X4 Video-tab panel included.
 - D12 sample: 20 per year × 6 years (2020-09-17 →) = 120; sequenced after the
   extractor works on the 40.
-- D13 US = US-listed 10-K filer with us-gaap facts (current `check_filer`).
+- D13 eligibility = SEC companyfacts with real filing dates — the point is having
+  the financial reports, not nationality. S4.4 broadens `check_filer` to 20-F/40-F
+  filers with us-gaap facts (JD, PDD, ASML, …) and fixes two false negatives via
+  `data/edgar_cik_overrides.json` (XOM's 2026 holding-company CIK, FI missing from
+  the ticker map). IFRS-only filers need a concept mapping (X5, optional).
 - D14 HOLD verdict: within ±10 pp of SPY; "did not lag > 5 pp" reported beside it.
