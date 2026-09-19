@@ -13,6 +13,7 @@
   "validations": 290,
   "videos": 2071
  },
+ "last_price_date": "2026-09-18",
  "funnel": [
   {
    "year_bucket": "2020/21",
@@ -4751,15 +4752,15 @@
    "n": 18
   },
   {
-   "category": "moat",
-   "direction": "for_buy",
-   "reproducible": "judgement",
-   "n": 17
-  },
-  {
    "category": "growth",
    "direction": "for_buy",
    "reproducible": "derived",
+   "n": 17
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "judgement",
    "n": 17
   },
   {
@@ -4793,15 +4794,15 @@
    "n": 13
   },
   {
-   "category": "moat",
-   "direction": "for_buy",
-   "reproducible": "external",
-   "n": 12
-  },
-  {
    "category": "cyclicality",
    "direction": "for_sell",
    "reproducible": "statements",
+   "n": 12
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "external",
    "n": 12
   },
   {
@@ -4819,13 +4820,13 @@
   {
    "category": "valuation",
    "direction": "for_sell",
-   "reproducible": "statements",
+   "reproducible": "external",
    "n": 11
   },
   {
    "category": "valuation",
    "direction": "for_sell",
-   "reproducible": "external",
+   "reproducible": "statements",
    "n": 11
   },
   {
@@ -4841,28 +4842,22 @@
    "n": 10
   },
   {
-   "category": "growth",
-   "direction": "for_buy",
-   "reproducible": "statements",
-   "n": 9
-  },
-  {
    "category": "sentiment",
    "direction": "for_buy",
    "reproducible": "external",
    "n": 9
   },
   {
-   "category": "capital_allocation",
+   "category": "growth",
    "direction": "for_buy",
-   "reproducible": "external",
+   "reproducible": "statements",
    "n": 9
   },
   {
    "category": "capital_allocation",
-   "direction": "for_sell",
+   "direction": "for_buy",
    "reproducible": "external",
-   "n": 8
+   "n": 9
   },
   {
    "category": "macro_rates",
@@ -4873,7 +4868,13 @@
   {
    "category": "capital_allocation",
    "direction": "for_sell",
-   "reproducible": "derived",
+   "reproducible": "external",
+   "n": 8
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "statements",
    "n": 6
   },
   {
@@ -4883,9 +4884,9 @@
    "n": 6
   },
   {
-   "category": "valuation",
-   "direction": "for_buy",
-   "reproducible": "statements",
+   "category": "capital_allocation",
+   "direction": "for_sell",
+   "reproducible": "derived",
    "n": 6
   },
   {
@@ -4907,27 +4908,9 @@
    "n": 5
   },
   {
-   "category": "valuation",
-   "direction": "for_buy",
-   "reproducible": "prices",
-   "n": 4
-  },
-  {
-   "category": "sentiment",
-   "direction": "for_sell",
-   "reproducible": "derived",
-   "n": 4
-  },
-  {
    "category": "growth",
    "direction": "for_sell",
    "reproducible": "external",
-   "n": 4
-  },
-  {
-   "category": "cyclicality",
-   "direction": "for_sell",
-   "reproducible": "prices",
    "n": 4
   },
   {
@@ -4943,10 +4926,22 @@
    "n": 4
   },
   {
-   "category": "valuation",
+   "category": "cyclicality",
    "direction": "for_sell",
    "reproducible": "prices",
-   "n": 3
+   "n": 4
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 4
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 4
   },
   {
    "category": "balance_sheet",
@@ -4961,9 +4956,27 @@
    "n": 3
   },
   {
+   "category": "valuation",
+   "direction": "for_sell",
+   "reproducible": "prices",
+   "n": 3
+  },
+  {
+   "category": "moat",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 2
+  },
+  {
+   "category": "moat",
+   "direction": "for_sell",
+   "reproducible": "prices",
+   "n": 2
+  },
+  {
    "category": "cyclicality",
    "direction": "for_buy",
-   "reproducible": "derived",
+   "reproducible": "judgement",
    "n": 2
   },
   {
@@ -4975,20 +4988,44 @@
   {
    "category": "cyclicality",
    "direction": "for_buy",
-   "reproducible": "judgement",
-   "n": 2
-  },
-  {
-   "category": "moat",
-   "direction": "for_sell",
-   "reproducible": "prices",
-   "n": 2
-  },
-  {
-   "category": "moat",
-   "direction": "for_sell",
    "reproducible": "derived",
    "n": 2
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 1
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 1
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 1
+  },
+  {
+   "category": "management",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 1
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 1
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 1
   },
   {
    "category": "growth",
@@ -5000,42 +5037,6 @@
    "category": "macro_rates",
    "direction": "for_buy",
    "reproducible": "external",
-   "n": 1
-  },
-  {
-   "category": "moat",
-   "direction": "for_buy",
-   "reproducible": "prices",
-   "n": 1
-  },
-  {
-   "category": "cyclicality",
-   "direction": "for_buy",
-   "reproducible": "external",
-   "n": 1
-  },
-  {
-   "category": "sentiment",
-   "direction": "for_sell",
-   "reproducible": "statements",
-   "n": 1
-  },
-  {
-   "category": "management",
-   "direction": "for_sell",
-   "reproducible": "statements",
-   "n": 1
-  },
-  {
-   "category": "cyclicality",
-   "direction": "for_buy",
-   "reproducible": "prices",
-   "n": 1
-  },
-  {
-   "category": "sentiment",
-   "direction": "for_buy",
-   "reproducible": "statements",
    "n": 1
   }
  ],

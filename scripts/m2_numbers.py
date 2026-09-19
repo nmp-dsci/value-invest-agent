@@ -24,6 +24,8 @@ def main() -> None:
     s = settings()
     out: dict = {"since": str(s.since), "until": str(s.until), "per_year": s.sample_per_year}
     out["tables"] = db.table_counts(con)
+    last = con.execute("SELECT max(date) FROM vi.prices").fetchone()
+    out["last_price_date"] = str(last[0]) if last else None
     out["funnel"] = rows(
         con,
         """SELECT year_bucket, count(*) videos, count(*) FILTER (WHERE kind='single') single,
