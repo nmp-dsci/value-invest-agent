@@ -19,39 +19,56 @@ years):
   `data/value_invest.duckdb`, schema `vi`. Foreign keys are transcript·lab's own
   ids. Two stores, one-directional dependency, `vi.videos` rebuilt from the
   corpus API.
-- **Video filter:** a title classifier (LLM, structured output) that resolves
-  company → ticker, not a ticker regex — only ~1 in 4 titles carry a ticker.
-  Seed eval: `data/samples/titles_2026-09.json` (40 hand-labelled titles).
+- **Video filter:** a title classifier (Agent SDK, structured output) that
+  resolves company → ticker, not a ticker regex — only ~1 in 4 titles carry a
+  ticker. Seed eval: `data/samples/titles_2026-09.json` (40 hand-labelled titles).
+- **Sample:** single-stock videos only, 10 per year × 4 years = 40 as the base
+  (`vi sample --per-year 10 --seed 42`, spread across quarters). Expand later by
+  raising `--per-year`; existing picks are stable under the seed.
+- **Runtime:** every model call is a Claude Agent SDK session billed to the
+  subscription (`BILLING=subscription`, `CLAUDE_CODE_OAUTH_TOKEN`), through the
+  single chokepoint `llm.py` — ConvFinQA's `evalloop/sdk.py` / DABStep's
+  `agent/llm.py` pattern. No Pydantic AI, no DeepSeek, no `ANTHROPIC_API_KEY`.
+- **Agent shape:** DABStep's — one stateful Python tool (`execute_python`, an
+  in-process SDK MCP server whose namespace preloads `pd` and `helper`), a
+  version folder `agents/vN/{system.md, helper.py, agent.yaml}`; `agent.yaml`
+  frozen. The sandbox opens DuckDB read-only with `vi.t0` bound.
 - **Fundamentals:** yfinance for prices everywhere; yfinance + SEC EDGAR
   `companyfacts` (filing dates) for US names; non-US flagged `shallow`.
-- **Agent learning:** prompt-optimisation loop (teacher + gate) first, retrieval
-  few-shot as an ablation, no fine-tune in the first milestone.
+- **Agent learning:** the DABStep error loop — one optimiser session reads the
+  wrong traces and the ledger, writes `agents/v(N+1)/{system.md, helper.py}`
+  (system prompt or Python functions the sandbox exposes — nothing else), a
+  challenger run on test, a McNemar gate on paired calls, a ledger entry.
+  Retrieval few-shot is an ablation; no fine-tune in the first milestone.
 - **Leakage controls:** date-based splits, a no-tools baseline as the leakage
   floor, sealed holdout ≥ 2025-07.
 
-## Layout (target)
+## Layout
 
 ```text
 src/value_invest/
-  config.py        settings + dotenv
-  llm.py           the single LLM chokepoint
-  db.py            DuckDB connection, schema init, as_of binding
-  catalog/         Supadata listing + dating (shares transcript-lab's cache format)
-  classify/        title → kind + tickers (structured LLM), seed eval
-  ingest/          drives transcript-lab ingestion, reads corpus back
-  golden/          GoldenCall schema, extractor, cache, curation, splits
-  market/          yfinance + EDGAR loaders → parquet → DuckDB
-  agent/           tools over vi.as_of, AnalystReport, baselines
+  config.py        Settings; reads ./.env then ~/.env with dotenv_values, never exports secrets
+  llm.py           the Agent SDK chokepoint: billing guard, subscription_env, run_structured
+  db.py            DuckDB connection + data/schema.sql (vi.*_as_of macros)
+  cli.py           `vi` (typer): db · catalog · classify · sample · refine-dates · ingest · market · coverage · serve
+  catalog/         supadata.py (paced, cached client) · ytdlp.py (channel tab + per-video) · build.py
+  classify/        models.py (TitleLabel) · run.py (batched SDK calls, seed eval)
+  sample.py        seeded, quarter-stratified draw that extends without reshuffling
+  ingest/          run.py (index-rag in ../transcript-rag-agent per video) · corpus.py (read-only Chroma)
+  golden/          M2: GoldenCall schema, extractor, curation, splits
+  market/          yahoo.py (prices + annual statements → parquet) · load.py · coverage.py
+  agent/           session.py (ClaudeSDKClient), tools/python_executor.py, versions.py, AnalystReport, baselines
   scoring/         stance/IV/thesis metrics, judge
   validate/        forward returns, verdicts, scoreboard
-  loop/            teacher, gate, prompt versions (agents/vN/system.md)
-  serving/         FastAPI app, demo mode
-  cli.py           `vi` Typer app
-frontend/          Vite + React walkthrough (transcript-lab design tokens)
+  loop/            optimiser session, McNemar gate, ledger
+agents/vN/         system.md · helper.py · agent.yaml (frozen) · diagnosis.json
+  serving/         app.py — FastAPI: /api/health /funnel /videos /videos/{id} /market/coverage /sql /sql/catalog; serves frontend/dist
+                   sql.py — the SQL viewer's executor: read-only connection, single SELECT/WITH validated, row cap, interrupt timeout
+frontend/          Vite + React 19; src/tokens.css copied from transcript-lab; views Corpus · Video · Market · Sql (CodeMirror) (+ M2 stubs)
 data/
   schema.sql       the vi schema
-  samples/         committed seeds (titles)
-  snapshot/        small demo DuckDB snapshot
+  samples/         titles_2026-09.json (40 titles) · titles_2026-09_labels.json (hand labels) · classifier_seed_eval.json
+.vi/               caches (gitignored): supadata/ ytdlp/ market/<ticker>/*.parquet
 ai_specs/          dated specs; s00 is the plan of record
 .lavish/           review artifacts (sNN_*.html) — never gitignored
 tests/

@@ -1,6 +1,6 @@
 # Spec: S00 Project plan — value·invest agent
 
-Status: draft
+Status: ready (rev 3 — scope cut to M1 data + app, M2 golden + review)
 Date: 2026-09-17
 Review page: `.lavish/s00_value-invest-agent-plan.html` (architecture drawings live there)
 
@@ -32,8 +32,9 @@ Build an evaluation-first system around the YouTube channel
 - Transcripts state a conclusion explicitly but hedged/conditional, often relative
   and with a long horizon.
 
-Estimated funnel: 2,072 → ≈1,000 in window → ≈750 stock-analysis (≈500 single,
-≈250 multi) → ≈900 golden calls. S1 replaces the estimates with counts.
+Estimated funnel: 2,072 → ≈1,000 in window → ≈500 single-stock → **40 sampled**
+(10 per year × 4, seeded, spread across quarters; `vi sample --per-year 10`).
+S1 replaces the stage estimates with counts; the 40 is a decision, not an estimate.
 
 ## Architecture
 
@@ -53,9 +54,17 @@ Two repos, one corpus:
 This repo never writes to transcript·lab's Chroma. It triggers ingestion (CLI
 or queue API) and reads back by `video_id` / `chunk:<video_id>:<index>`.
 
-Patterns reused: ConvFinQA's single LLM chokepoint (`llm.py`), Pydantic AI stage
-agents, MLflow + champion/challenger gate, keyless demo mode; DABStep/tau2's
-teacher + gate prompt loop.
+Runtime (decided, rev 2): **every model call runs on the Claude Agent SDK billed
+to the subscription** — ConvFinQA's `evalloop/sdk.py` / DABStep's `agent/llm.py`
+pattern: `BILLING=subscription`, `CLAUDE_CODE_OAUTH_TOKEN`, the guard blanks
+`ANTHROPIC_API_KEY` and refuses if both are set. `llm.py` is the only place a
+`ClaudeSDKClient` is constructed. No Pydantic AI, no DeepSeek.
+
+Agent shape (decided, rev 2): **DABStep's** — one stateful Python tool
+(`execute_python`, in-process SDK MCP server, namespace preloads `pd` and
+`helper`), a version folder `agents/vN/{system.md, helper.py, agent.yaml}` with
+`agent.yaml` frozen. The optimiser may edit only `system.md` and `helper.py` —
+the Python functions the sandbox exposes for pulling and working the data.
 
 ## Storage decision
 
@@ -88,11 +97,11 @@ Everything below `vi.videos` is derived and rebuildable from three caches
 | Stage | What | External calls |
 |---|---|---|
 | S1 catalog | list ids, date newest→oldest until `createdAt < 2022-09-17` | Supadata ≈1,050 |
-| S2 classify | title (+description) → kind, tickers[+exchange], confidence; seed eval on 40 labelled titles, target ≥ 95 % on kind | LLM ≈1,000 |
-| S3 ingest | only `single`/`multi` → transcript·lab `/api/index/queue` (fallback: `bulk-index channel --since`) | Supadata ≈750 |
-| S4 extract | raw transcript → `GoldenCall[]`, cached by (video_id, transcript hash, extractor_version); price-mention cross-check vs close at T0 | LLM ≈750 |
-| S5 market | daily OHLCV from 2018 + statements per ticker; benchmarks SPY + local index; parquet → DuckDB | yfinance ≈400 tickers, EDGAR for US |
-| S6 agent + validate | predictions per call; validations per (call, horizon) | LLM ≈900 per run |
+| S2 classify + sample | title (+description) → kind, tickers[+exchange], confidence; seed eval on 40 labelled titles, target ≥ 95 % on kind; then `vi sample --per-year 10 --seed 42` sets `vi.videos.in_sample` | Agent SDK ≈1,000 |
+| S3 ingest | sampled videos only → transcript·lab `/api/index/queue` (fallback: `bulk-index channel --since`, 25× the calls) | Supadata 40 |
+| S4 extract | raw transcript → `GoldenCall`, Agent SDK `run_structured`, cached by (video_id, transcript hash, extractor_version); price-mention cross-check vs close at T0 | Agent SDK 40 |
+| S5 market | daily OHLCV from 2018 + statements per sampled ticker; benchmarks SPY + local index; parquet → DuckDB | yfinance ≤ 40 tickers, EDGAR for US |
+| S6 agent + validate | predictions per call; validations per (call, horizon) | Agent SDK 40 per run |
 | S7 app | FastAPI + React walkthrough, demo snapshot | — |
 
 **Point-in-time rule:** prices ≤ T0; statements on `filed_at` ≤ T0 (not
@@ -104,12 +113,12 @@ assume period_end + 45 (quarterly) / 90 (annual) days.
 - `GoldenCall`: ticker, exchange, stance (5-way), stance_strength, conditional_on,
   intrinsic_value (+method), price_mentioned, horizon_years, thesis[], risks[],
   verifiable_claims[], evidence[] (chunk ids + timestamps), is_primary.
-- Curation as in transcript·lab `docs/golden-set-curation.md`: a hand-reviewed
-  core of 100 calls stratified by stance and year (`curation_status=reviewed`);
-  the rest `auto`, reported separately.
+- Curation as in transcript·lab `docs/golden-set-curation.md`: at 40 calls every
+  one is hand-reviewed (`curation_status=reviewed`); rows added when the sample
+  grows arrive as `auto` and are reported separately until reviewed.
 - Inter-extractor κ on stance over the reviewed core; κ < 0.7 means the taxonomy
   is wrong. 3-way collapse (bullish/neutral/bearish) is the fallback headline.
-- Splits by video date: train ≤ 2024-06, test 2024-07 → 2025-06, holdout ≥ 2025-07 (sealed).
+- Splits by video date: train = years 1–2 (20 calls), test = year 3 (10), holdout = year 4 (10, sealed). Gate is McNemar on paired calls.
 
 ## Market data
 
@@ -117,8 +126,14 @@ assume period_end + 45 (quarterly) / 90 (annual) days.
 |---|---|---|
 | daily OHLCV, any exchange | yes (`history(period="max")`, suffixes `.PA`, `.DE`, `.HK`) | — |
 | quarterly statements | ≈ last 5 quarters only | EDGAR `companyfacts` (US) / paid API |
-| annual statements | ≈ last 4 years | EDGAR back to 2009 (US) |
+| annual statements | ≈ last 4 years (today FY2022–25) | EDGAR back to 2009 (US) |
+| **annual only** — last FY with year-end + 90 d ≤ T0 | covers sampled videos from 2023-04 on (≈30 / 40); first-year videos need FY2021, which Yahoo no longer returns | EDGAR for first-year US names; non-US flagged shallow |
 | filing dates | not exposed | EDGAR `filed`; else period_end + 45/90 d |
+
+Option 1b, annual-only: drop quarterlies and give the agent the last annual
+report published before T0 — the simplest as-of rule, and a value investor
+reasons in fiscal years anyway. Viable first milestone alone; EDGAR fills the
+first-year gap for US names.
 
 Recommended: yfinance + EDGAR for US names; non-US flagged
 `fundamentals_depth=shallow`. Paid API (FMP/EOD/Polygon) only if non-US names
@@ -126,16 +141,20 @@ dominate after S2.
 
 ## Analyst agent
 
-- Tools over `vi.as_of`: `price_history`, `statement`, `ratios`, `peer_snapshot`,
-  `prior_calls` (his earlier calls on the name via transcript·lab RAG; opt-in,
-  ablated). A test asserts no row with date > t0 can leak.
-- Output `AnalystReport` = GoldenCall minus evidence, plus confidence + markdown.
-- Runtime: Pydantic AI through `llm.py`; DeepSeek for volume, Claude for the
-  reviewed core; demo mode refuses model calls.
-- Learning: (a) prompt-optimisation loop first (teacher diagnoses first-wrong
-  cases → one prompt version → gate on test, net-positive + McNemar-significant);
-  (b) retrieval few-shot from strictly earlier golden calls as an ablation;
-  (c) fine-tune is a non-goal for milestone 1.
+- One tool: `execute_python` (stateful sandbox). The sandbox opens DuckDB
+  read-only with `vi.t0` bound, so every helper — and any raw SQL the agent
+  writes — reads through `vi.as_of`. A test asserts no row with date > t0 leaks.
+- `agents/vN/helper.py`: `price_history(window)`, `statement(kind, freq, n)`,
+  `ratios()`, `peer_snapshot(peers)`, `prior_calls()` (earlier calls on the name
+  via transcript·lab RAG, opt-in). v0 is thin loaders; later versions are
+  distilled from failures by the optimiser.
+- `agents/vN/agent.yaml` (frozen): model `claude-sonnet-5`, effort, turn budget.
+- Output `AnalystReport` = GoldenCall minus evidence, plus confidence + markdown,
+  returned as JSON on the final turn.
+- Learning (decided): the DABStep error loop — one optimiser session (Opus)
+  reads every wrong trace + the ledger → writes `agents/v(N+1)/{system.md,
+  helper.py}` → challenger run on test → McNemar gate → ledger. Retrieval
+  few-shot is an ablation; fine-tune is a non-goal for milestone 1.
 - Scoring: `stance_match` (5-way and 3-way), `iv_within_band` (±25 %),
   `direction_vs_price`, `thesis_overlap` (independent judge). Headline: 3-way
   stance accuracy on reviewed calls, per year and per region.
@@ -161,16 +180,27 @@ so it can later be embedded as a workbench tab. Tabs: Corpus · Golden calls
 Fact-check. Read-only demo with a committed DuckDB snapshot; App Runner deploy
 as in the siblings.
 
-## Delivery
+## Delivery (rev 3 — data first, review, then decide)
 
+Milestone 1 · data + app
 - S0 repo + scaffold — done 2026-09-17.
-- S1 catalog + classifier → real funnel counts, Supadata spend report.
-- S2 ingest via transcript·lab → ≈750 transcripts in Chroma.
-- S3 golden extraction + reviewed core + κ + splits.
-- S4 market data + `vi.as_of` + leakage test + coverage report.
-- S5 validator + scoreboard + fact-check.
-- S6 agent v1 + baselines + scoring + MLflow; S6b prompt loop.
-- S7 app + demo deploy + CI.
+- S1 transcripts: `llm.py`, `vi catalog`, `vi classify` (seed eval), `vi sample
+  --per-year 10`, `vi ingest --sample` → 40 transcripts in transcript·lab.
+- S2 market: yfinance daily prices + **annual** statements per sampled ticker,
+  `vi.as_of` with the annual-only rule (year-end + 90 d ≤ T0), coverage report,
+  leakage test. EDGAR deferred.
+- S3 app: Corpus · Video (transcript beside price chart at T0 and as-of annual
+  statements) · Market (coverage). Local only.
+
+Milestone 2 · golden set + eval summary
+- S4 golden extraction → `vi.calls`, price-mention cross-check, κ, splits recorded.
+- S5 Golden-calls tab with review control + summary panel (stance mix per year,
+  IV vs price, coverage per call). **Review checkpoint: does the golden set make
+  sense?**
+
+Deferred until the M2 review passes: forward-return validator + scoreboard,
+analyst agent v0 + baselines, the error loop, EDGAR / quarterlies / sample
+expansion, demo deploy + CI eval gate.
 
 ## Risks
 
@@ -178,16 +208,23 @@ as in the siblings.
   splits, sealed holdout — report, don't hide).
 - **High:** fundamentals depth for 2022–24 and non-US videos.
 - **Med:** hedged stance (κ decides; 3-way fallback).
-- **Med:** Supadata budget (≈1,800 calls, all cached; spend reported before ingest).
+- **Low:** Supadata budget (≈1,050 metadata + 40 transcripts, all cached).
+- **Med:** small n — 40 calls, 10 per year; 24 m verdicts for ≈20. Every number
+  carries its n; the gate is paired; `--per-year` is the knob to grow it.
 - **Med:** two stores drift (`vi.videos` rebuilt from corpus API; CI count check).
 - **Low:** ticker resolution (price-mention cross-check + review queue).
 
-## Open decisions (answer on the review page)
+## Decisions
 
-- D1 storage: B recommended.
-- D2 fundamentals: yfinance + EDGAR recommended.
-- D3 scope: single + multi, last 4 years recommended.
-- D4 learning: prompt loop first recommended.
+- D1 storage: **assumed B** (Chroma for text + DuckDB `vi`) — S1 builds on it unless overridden.
+- D2 fundamentals: **decided for M1** — yfinance annual-only (1b); EDGAR/quarterlies deferred.
+- D3 scope: **decided** — single-stock only, 10 per year × 4 = 40 base sample, expand later.
+- D5 transcripts: **decided** — Supadata topped up; ingest via transcript·lab at one credit per video (transcript-rag-agent #20).
+- D6 repeat tickers: **decided** — keep repeats across years; distinct within a year only.
+- D7 fundamentals depth: **decided** — SEC EDGAR now; sample restricted to US 10-K filers (`VI_SAMPLE_EDGAR_ONLY=1`).
+- D4 learning: **decided** — Claude Agent SDK on subscription; DABStep agent
+  shape (Python sandbox + `system.md`/`helper.py` versions); optimiser edits
+  only those two files; McNemar gate.
 
 ## Acceptance criteria for this spec
 

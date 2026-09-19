@@ -7,6 +7,7 @@ requires-python = ">=3.12,<3.13"
 license = { text = "MIT" }
 authors = [{ name = "nathan phillips", email = "nathanphillips369@hotmail.com" }]
 dependencies = [
+  "claude-agent-sdk>=0.2.152",
   "duckdb>=1.1",
   "httpx>=0.28",
   "pandas>=2.2",
@@ -17,6 +18,10 @@ dependencies = [
   "typer>=0.15",
   "rich>=13.9",
   "yfinance>=0.2.50",
+  "yt-dlp>=2026.1",
+  "chromadb>=1.5.9",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.32",
 ]
 
 [project.scripts]

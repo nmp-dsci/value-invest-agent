@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>value·invest agent — M1 walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #FAF9F5; --panel: #FFFFFF; --panel-2: #F3F1EA;
+    --ink: #16181D; --body: rgba(22,24,29,.87); --caption: rgba(22,24,29,.60); --muted: #5C6270;
+    --line: #E5E2D8; --line-strong: #C9C5B8;
+    --accent: #2434C9; --accent-soft: rgba(36,52,201,.10);
+    --good: #1a7f37; --good-soft: rgba(26,127,55,.10);
+    --warn: #9a6700; --warn-soft: rgba(154,103,0,.12);
+    --bad: #cf222e; --bad-soft: rgba(207,34,46,.10);
+    --console: #14161B; --console-text: #E9E8E2; --console-label: #9BA1AE;
+    --nav-bg: rgba(250,249,245,.85);
+    --shadow: 0 1px 2px rgba(22,24,29,.05), 0 8px 28px rgba(22,24,29,.07);
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", "SF Mono", Menlo, Consolas, monospace;
+    /* workbench mock tokens (transcript-rag-agent frontend/src/theme.css, dark) */
+    --wb-bg:#0d1017; --wb-panel:#12151e; --wb-panel2:#1b2130; --wb-border:#242936; --wb-text:#e7ebf3; --wb-text2:#c7ccd9;
+    --wb-muted:#8a90a0; --wb-dim:#6d7383; --wb-accent:#5b7cf0; --wb-accent-dim:#171d33; --wb-accent-border:#33437e;
+    --wb-good:#3fb950; --wb-warn:#d29922; --wb-bad:#f85149; --wb-on-accent:#0b1020;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --paper:#101216; --panel:#171A20; --panel-2:#1C2027; --ink:#EDEBE4; --body:rgba(237,235,228,.87); --caption:rgba(237,235,228,.60);
+    --muted:#9BA1AE; --line:#262B34; --line-strong:#3A4150; --accent:#96A4FF; --accent-soft:rgba(150,164,255,.12);
+    --good:#57c86b; --good-soft:rgba(87,200,107,.14); --warn:#e0b04a; --warn-soft:rgba(224,176,74,.14); --bad:#ff7b72; --bad-soft:rgba(255,123,114,.14);
+    --console:#0B0D11; --nav-bg:rgba(16,18,22,.85); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  } }
+  :root[data-theme="dark"] {
+    --paper:#101216; --panel:#171A20; --panel-2:#1C2027; --ink:#EDEBE4; --body:rgba(237,235,228,.87); --caption:rgba(237,235,228,.60);
+    --muted:#9BA1AE; --line:#262B34; --line-strong:#3A4150; --accent:#96A4FF; --accent-soft:rgba(150,164,255,.12);
+    --good:#57c86b; --good-soft:rgba(87,200,107,.14); --warn:#e0b04a; --warn-soft:rgba(224,176,74,.14); --bad:#ff7b72; --bad-soft:rgba(255,123,114,.14);
+    --console:#0B0D11; --nav-bg:rgba(16,18,22,.85); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  }
+  *, *::before, *::after { box-sizing: border-box; min-width: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin:0; background:var(--paper); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased; padding-inline:16px; }
+  .wrap { max-width: 1060px; margin: 0 auto; }
+  nav.top { position: sticky; top:0; z-index:10; background:var(--nav-bg); backdrop-filter: blur(10px); border-bottom:1px solid var(--line); margin-inline:-16px; padding-inline:16px; }
+  nav.top .wrap { display:flex; gap:16px; align-items:center; min-height:52px; flex-wrap:wrap; padding-block:6px; }
+  nav.top .brand { font-family:var(--serif); font-size:20px; color:var(--ink); display:flex; align-items:center; gap:8px; margin-right:6px; }
+  .diamond { width:9px; height:9px; background:var(--accent); transform:rotate(45deg); display:inline-block; }
+  nav.top a { color:var(--muted); text-decoration:none; font-size:13px; font-weight:500; }
+  nav.top a:hover { color:var(--ink); }
+  header.hero { padding: 52px 0 28px; border-bottom:1px solid var(--line); }
+  .eyebrow { font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  h1 { font-family:var(--serif); font-weight:400; font-size: clamp(36px, 6vw, 58px); line-height:1.05; color:var(--ink); margin: 14px 0 12px; letter-spacing:-.01em; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { font-size:19px; color:var(--body); max-width: 780px; margin:0; }
+  .facts { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:22px; font-family:var(--mono); font-size:12.5px; color:var(--caption); }
+  .facts b { color:var(--ink); font-weight:500; }
+  section { padding: 44px 0 8px; }
+  .section-head { display:flex; align-items:baseline; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+  .section-head .num { font-size:13px; }
+  h2 { font-family:var(--serif); font-weight:400; font-size:34px; color:var(--ink); margin:0; line-height:1.1; }
+  h3 { font-family:var(--sans); font-weight:600; font-size:17px; color:var(--ink); margin:26px 0 8px; }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); }
+  .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap:14px; margin: 14px 0 6px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow); }
+  .card h4 { margin:0 0 8px; font-size:15px; color:var(--ink); font-weight:600; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .card p { font-size:14.5px; color:var(--body); margin:0 0 6px; }
+  .card ul { font-size:14px; margin:6px 0 0; }
+  .card.rec { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+  .num { font-family:var(--mono); font-size:12px; color:var(--accent); }
+  .k { font-family:var(--mono); font-size:12.5px; background:var(--panel-2); border:1px solid var(--line); border-radius:5px; padding:1px 6px; color:var(--ink); white-space:nowrap; }
+  code { font-family:var(--mono); font-size:.9em; }
+  pre { background:var(--console); color:var(--console-text); border-radius:10px; padding:14px 16px; overflow-x:auto; font-family:var(--mono); font-size:12.5px; line-height:1.55; margin: 10px 0 16px; }
+  pre .c { color:var(--console-label); }
+  pre .h { color:#9db0ff; }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin: 8px 0 18px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--caption); font-weight:500; }
+  .tablewrap { overflow-x:auto; }
+  td.mono, .mono { font-family:var(--mono); font-size:12.5px; }
+  .tag { display:inline-block; font-family:var(--mono); font-size:11px; padding:2px 7px; border-radius:99px; border:1px solid var(--line-strong); color:var(--muted); white-space:nowrap; }
+  .tag.good { color:var(--good); border-color:var(--good); background:var(--good-soft); }
+  .tag.warn { color:var(--warn); border-color:var(--warn); background:var(--warn-soft); }
+  .tag.bad { color:var(--bad); border-color:var(--bad); background:var(--bad-soft); }
+  .tag.acc { color:var(--accent); border-color:var(--accent); background:var(--accent-soft); }
+  .note { border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; border-radius:0 8px 8px 0; font-size:14.5px; margin:12px 0 18px; }
+  .note.warn { border-color:var(--warn); background:var(--warn-soft); }
+  .note.good { border-color:var(--good); background:var(--good-soft); }
+  ul, ol { padding-left: 20px; margin: 0 0 12px; } li { margin: 4px 0; }
+  .slice { display:grid; grid-template-columns: 64px minmax(0,1fr); gap: 14px; padding: 16px 0; border-top:1px solid var(--line); }
+  .slice .v { font-family:var(--serif); font-size:30px; color:var(--accent); line-height:1; }
+  .slice h4 { margin:2px 0 6px; font-size:16px; color:var(--ink); }
+  .slice p, .slice li { font-size:14.5px; }
+  .slice .ship { font-family:var(--mono); font-size:12px; color:var(--caption); margin-top:6px; }
+  figure { margin: 10px 0 22px; }
+  figure svg { width:100%; height:auto; display:block; font-family: var(--sans); }
+  figcaption { font-size:13.5px; color:var(--caption); margin-top:8px; }
+  svg text { fill: var(--ink); }
+  svg .lbl { font-size:12px; }
+  svg .sm { font-size:10.5px; fill: var(--caption); font-family: var(--mono); }
+  svg .ttl { font-size:13px; font-weight:600; }
+  svg .box { fill: var(--panel); stroke: var(--line-strong); stroke-width:1; }
+  svg .box.acc { fill: var(--accent-soft); stroke: var(--accent); }
+  svg .box.good { fill: var(--good-soft); stroke: var(--good); }
+  svg .box.warn { fill: var(--warn-soft); stroke: var(--warn); }
+  svg .box.bad { fill: var(--bad-soft); stroke: var(--bad); }
+  svg .region { fill: var(--panel-2); stroke: var(--line); stroke-dasharray: 4 3; }
+  svg .edge { stroke: var(--muted); stroke-width:1.4; fill:none; marker-end: url(#arr); }
+  svg .edge.acc { stroke: var(--accent); }
+  svg .edge.dash { stroke-dasharray: 5 4; }
+  svg .grid { stroke: var(--line); stroke-width:1; }
+  .two { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap:18px; align-items:start; }
+  /* decision forms (input playbook) */
+  form.decision { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin: 12px 0 18px; box-shadow:var(--shadow); }
+  form.decision legend { font-weight:600; color:var(--ink); font-size:15px; padding:0; margin-bottom:6px; }
+  form.decision fieldset { border:0; padding:0; margin:0; }
+  form.decision label { display:flex; gap:10px; align-items:flex-start; padding:8px 10px; border-radius:8px; font-size:14.5px; cursor:pointer; }
+  form.decision label:hover { background:var(--panel-2); }
+  form.decision label input { margin-top:4px; flex: 0 0 auto; }
+  form.decision .why { color:var(--caption); font-size:13px; display:block; }
+  form.decision textarea { width:100%; border:1px solid var(--line); border-radius:8px; padding:8px 10px; font:inherit; font-size:14px; background:var(--paper); color:var(--ink); margin-top:8px; resize:vertical; }
+  form.decision button { margin-top:10px; background:var(--accent); color:#fff; border:0; border-radius:8px; padding:8px 14px; font:inherit; font-size:14px; font-weight:600; cursor:pointer; }
+  form.decision .queued { font-family:var(--mono); font-size:12px; color:var(--good); margin-left:10px; display:none; }
+  form.decision.sent .queued { display:inline; }
+  /* workbench mock */
+  .mock { background:var(--wb-bg); color:var(--wb-text); border-radius:12px; border:1px solid var(--wb-border); overflow:hidden; font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size:12.5px; box-shadow:var(--shadow); margin: 14px 0 8px; }
+  .mock .bar { display:flex; gap:4px; align-items:center; padding:8px 12px; border-bottom:1px solid var(--wb-border); background:var(--wb-panel); flex-wrap:wrap; }
+  .mock .bar .b { font-family:"Instrument Sans", system-ui, sans-serif; font-size:14px; margin-right:12px; color:var(--wb-text); }
+  .mock .bar .b i { font-family:var(--serif); font-style:italic; }
+  .mock .tab { padding:4px 9px; border-radius:6px; color:var(--wb-muted); }
+  .mock .tab.on { background:var(--wb-accent-dim); color:var(--wb-text); border:1px solid var(--wb-accent-border); }
+  .mock .body { display:grid; grid-template-columns: 240px minmax(0,1fr) 260px; min-height:380px; }
+  @media (max-width: 860px) { .mock .body { grid-template-columns: 1fr; } .mock .rail { border-right:0; border-bottom:1px solid var(--wb-border);} .mock .rail.right { border-left:0; } }
+  .mock .rail { background:var(--wb-panel); border-right:1px solid var(--wb-border); padding:10px; }
+  .mock .rail.right { border-right:0; border-left:1px solid var(--wb-border); }
+  .mock .rh { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--wb-dim); margin: 6px 4px 8px; }
+  .mock .g { padding:8px 9px; border-radius:7px; border:1px solid transparent; margin-bottom:4px; }
+  .mock .g.on { background:var(--wb-panel2); border-color:var(--wb-border); }
+  .mock .g .t { color:var(--wb-text); font-weight:500; }
+  .mock .g .m { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; color:var(--wb-muted); margin-top:2px; }
+  .mock .main { padding:14px 16px; }
+  .mock .main h5 { margin:0 0 4px; font-family:"Instrument Sans", system-ui, sans-serif; font-weight:600; font-size:16px; color:var(--wb-text); }
+  .mock .main .sub { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; color:var(--wb-muted); margin-bottom:12px; }
+  .mock .cols { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:10px; }
+  .mock .pane { background:var(--wb-panel); border:1px solid var(--wb-border); border-radius:8px; padding:10px 11px; }
+  .mock .pane .ph { font-family:ui-monospace, Menlo, monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--wb-dim); margin-bottom:6px; }
+  .mock .pane .big { font-size:20px; font-weight:600; color:var(--wb-text); }
+  .mock .pane .big.good { color:var(--wb-good);} .mock .pane .big.warn { color:var(--wb-warn);} .mock .pane .big.bad { color:var(--wb-bad);}
+  .mock .pane p { margin:4px 0 0; color:var(--wb-text2); font-size:11.5px; line-height:1.5; }
+  .mock .spark { display:block; width:100%; height:auto; margin-top:6px; }
+  .mock .chip { display:inline-block; font-family:ui-monospace, Menlo, monospace; font-size:10px; padding:1px 6px; border-radius:99px; border:1px solid var(--wb-border); color:var(--wb-muted); margin-right:4px; }
+  .mock .chip.good { color:var(--wb-good); border-color:var(--wb-good);} .mock .chip.warn { color:var(--wb-warn); border-color:var(--wb-warn);} .mock .chip.bad { color:var(--wb-bad); border-color:var(--wb-bad);}
+  .mock .cm { background:var(--wb-panel2); border:1px solid var(--wb-border); border-radius:7px; padding:8px 9px; margin-bottom:6px; }
+  .mock .cm .q { color:var(--wb-muted); font-size:11px; }
+  .mock .cm .x { color:var(--wb-text2); margin-top:3px; font-size:11.5px; }
+  .kv { display:grid; grid-template-columns: max-content minmax(0,1fr); gap:4px 14px; font-size:14px; }
+  .kv dt { font-family:var(--mono); font-size:12.5px; color:var(--caption); } .kv dd { margin:0; }
+  footer { padding: 40px 0 60px; border-top:1px solid var(--line); margin-top:40px; font-size:13.5px; color:var(--caption); }
+
+  .shot { border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow); width:100%; height:auto; display:block; }
+  .rat { font-size:12px; color:var(--caption); }
+  .finding { display:grid; grid-template-columns: 110px minmax(0,1fr); gap:12px; padding:14px 0; border-top:1px solid var(--line); }
+  .finding .w { font-family:var(--mono); font-size:12px; color:var(--caption); padding-top:3px; }
+  .finding h4 { margin:0 0 4px; font-size:15.5px; color:var(--ink); }
+  .finding p { font-size:14.5px; margin:0 0 6px; }
+  .cmds { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,300px),1fr)); gap:12px; }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <span class="brand"><span class="diamond"></span>value·invest agent</span>
+  <a href="#built">What was built</a><a href="#numbers">Numbers</a><a href="#corpus">Corpus</a><a href="#sample">The 40</a><a href="#market">Market data</a><a href="#app">App</a><a href="#findings">Findings</a><a href="#blocked">Blocked</a><a href="#review">Review</a><a href="#next">Next</a>
+</div></nav>
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow"><span>s01 · milestone 1 walkthrough</span><span class="tag good">S1–S3 built · all-US sample · transcripts + EDGAR in</span><span class="tag acc">branch scope-build</span><span class="tag">rev 4 · 2026-09-19</span></div>
+  <h1>Milestone 1: the data is <em>all</em> in.</h1>
+  <p class="lede">The catalog, the title classifier, the 40-video sample, four years of Yahoo prices and annual statements behind a point-in-time view, and the walkthrough app are built and running on real data. Since rev 1: the Supadata plan was topped up and all 40 transcripts are in transcript·lab's Chroma; a two-credits-per-video cost in transcript·lab was found and fixed (PR #20, merged); the Video chart now spans five years before T0; and, at your request, the sample is now restricted to <b>US stocks with SEC 10-K filings</b>: every one of the 40 has a transcript and 10+ years of EDGAR statements with real filing dates. Everything on this page comes from the live app at <span class="k">http://127.0.0.1:8791</span>.</p>
+  <div class="facts">
+    <span><b>2,071</b> videos catalogued · <b>993</b> in the window</span>
+    <span><b>286</b> single-stock · classifier <b>95 % / 95 %</b> on the seed</span>
+    <span><b>40</b> sampled · 10 per window year · <b>32</b> tickers · all EDGAR 10-K filers</span>
+    <b>40</b> transcripts · 7,481 segments · 281 chunks</span>
+    <span><b>13</b> tests green</span>
+  </div>
+</header>
+
+<section id="built">
+  <div class="section-head"><span class="num">01</span><h2>What was built, against the plan</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Slice</th><th>Planned (s00 rev 3)</th><th>Built</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">S1a catalog</td><td>Supadata id list + one metadata call per video</td><td>Supadata id list (cached) + <b>yt-dlp</b> dates: channel tab for all 2,071 (approximate), per-video for 587 (exact). <span class="k">date_source</span> recorded per row.</td><td><span class="tag good">done</span></td></tr>
+      <tr><td class="mono">S1b classify</td><td>Agent SDK title → kind + ticker, ≥ 95 % on the seed</td><td>26 SDK sessions of 40 titles, 1,032 labelled, 0 errors. Seed: 95 % kind, 95 % ticker.</td><td><span class="tag good">done</span></td></tr>
+      <tr><td class="mono">S1c sample</td><td>10 single-stock per window year, seeded</td><td>40 videos, quarter-stratified, exact dates only, extends without reshuffling (tested). Rev 4: eligibility adds <span class="k">edgar_filer</span> (156 candidate tickers checked, 78 are 10-K filers) and the draw is <em>sticky</em> — 26 of the previous 40 kept their slot, 14 replaced.</td><td><span class="tag good">done</span></td></tr>
+      <tr><td class="mono">S1d ingest</td><td>transcript·lab <span class="k">index-rag</span> per sampled video</td><td>All 40 through transcript·lab's <span class="k">index-rag</span> (54 videos ingested in total across both draws; the 14 dropped ones stay in transcript·lab's corpus). Now serial (a concurrency-2 run raced on Chroma) and passes cached metadata so each video costs <b>one</b> Supadata credit.</td><td><span class="tag good">done</span></td></tr>
+      <tr><td class="mono">S2 market</td><td>yfinance prices + annual statements, as-of view, coverage</td><td>128k price rows, 37.5k statement rows, <span class="k">vi.prices_as_of</span> / <span class="k">vi.statements_as_of</span>, <span class="k">vi.fiscal_years</span> with a completeness flag, coverage per video.</td><td><span class="tag good">done</span></td></tr>
+      <tr><td class="mono">S2b EDGAR</td><td>— (D7 was "revisit after M2")</td><td>Run for all 40: every sampled ticker is a 10-K filer; 9,247 EDGAR rows, 11–16 complete fiscal years each (FY2010→), real filing dates; <span class="k">vi.fiscal_years</span> merges sources by year; "deep" coverage tier; 2 tests. Nothing in the sample is outside EDGAR any more.</td><td><span class="tag good">done</span></td></tr>
+      <tr><td class="mono">S3 app</td><td>Corpus · Video · Market in transcript·lab's tokens</td><td>FastAPI over DuckDB + Chroma; React 19 with the copied <span class="k">theme.css</span> tokens and fonts; M2 tabs stubbed. Since rev 1: green-tick logo + favicon, chart 5 y before T0 → today, transcript panel live.</td><td><span class="tag good">done</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="cmds">
+    <pre><span class="c"># reproduce, in order</span>
+uv run vi db init
+uv run vi catalog            <span class="c"># 2,071 videos, dates</span>
+uv run vi classify           <span class="c"># 26 Agent SDK calls</span>
+uv run vi refine-dates       <span class="c"># exact dates for singles</span>
+uv run vi edgar --check-candidates  <span class="c"># who files 10-K</span>
+uv run vi sample             <span class="c"># 40, seed 42, EDGAR filers only, sticky</span>
+uv run vi ingest             <span class="c"># 1 Supadata credit / video</span>
+uv run vi market             <span class="c"># yfinance → DuckDB</span>
+uv run vi edgar              <span class="c"># SEC 10-K facts, US filers</span>
+uv run vi serve              <span class="c"># :8791</span></pre>
+    <pre><span class="c"># what is on disk</span>
+data/value_invest.duckdb     <span class="c"># schema vi, gitignored</span>
+.vi/supadata/  .vi/ytdlp/    <span class="c"># metadata caches</span>
+.vi/market/&lt;ticker&gt;/*.parquet
+data/samples/titles_2026-09_labels.json
+data/samples/classifier_seed_eval.json
+frontend/dist/               <span class="c"># npm run build</span></pre>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="section-head"><span class="num">02</span><h2>The funnel, with real counts</h2></div>
+  <figure>
+  <svg viewBox="0 0 1000 230" role="img" aria-labelledby="f1t"><title id="f1t">Funnel from 2,071 listed videos to 40 sampled.</title>
+    <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+    <g id="fn-1"><rect class="box" x="20" y="50" width="200" height="120" rx="10"/><text class="ttl" x="120" y="90" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">2,071</text><text class="lbl" x="120" y="114" text-anchor="middle">on the channel</text><text class="sm" x="120" y="132" text-anchor="middle">Supadata list + yt-dlp channel tab</text><text class="sm" x="120" y="148" text-anchor="middle">1 id only in Supadata's list</text></g>
+    <path class="edge" d="M220 110 H258"/>
+    <g id="fn-2"><rect class="box" x="260" y="50" width="200" height="120" rx="10"/><text class="ttl" x="360" y="90" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">993</text><text class="lbl" x="360" y="114" text-anchor="middle">2022-09-17 → 2026-09-17</text><text class="sm" x="360" y="132" text-anchor="middle">587 exact dates · 406 approximate</text><text class="sm" x="360" y="148" text-anchor="middle">plan estimate was ≈1,000</text></g>
+    <path class="edge" d="M460 110 H498"/>
+    <g id="fn-3"><rect class="box acc" x="500" y="50" width="200" height="120" rx="10"/><text class="ttl" x="600" y="90" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">286</text><text class="lbl" x="600" y="114" text-anchor="middle">single-stock</text><text class="sm" x="600" y="132" text-anchor="middle">171 multi · 300 macro · 236 other</text><text class="sm" x="600" y="148" text-anchor="middle">plan estimate was ≈500 (29 % vs 50 %)</text></g>
+    <path class="edge" d="M700 110 H738"/>
+    <g id="fn-4"><rect class="box good" x="740" y="50" width="240" height="120" rx="10"/><text class="ttl" x="860" y="90" text-anchor="middle" style="font-size:26px;font-family:var(--serif);font-weight:400">40</text><text class="lbl" x="860" y="114" text-anchor="middle">sampled · 10 per window year</text><text class="sm" x="860" y="132" text-anchor="middle">32 distinct tickers · all US 10-K filers</text><text class="sm" x="860" y="148" text-anchor="middle">178 eligible after the EDGAR filter</text></g>
+    <text class="sm" x="500" y="205" text-anchor="middle">The classifier is stricter than the 40-title seed suggested: "single" is 29 % of the window, not 50 %. Macro/market videos are a much larger share of the channel than the recent titles implied.</text>
+  </svg>
+  </figure>
+  <div class="two">
+    <div class="tablewrap"><table>
+      <thead><tr><th>window year</th><th class="num">videos</th><th class="num">single</th><th class="num">sampled</th><th class="num">indexed</th></tr></thead>
+      <tbody><tr><td class="mono">2022/23</td><td class="num">170</td><td class="num">48</td><td class="num">10</td><td class="num">0</td></tr><tr><td class="mono">2023/24</td><td class="num">172</td><td class="num">57</td><td class="num">10</td><td class="num">0</td></tr><tr><td class="mono">2024/25</td><td class="num">270</td><td class="num">75</td><td class="num">10</td><td class="num">0</td></tr><tr><td class="mono">2025/26</td><td class="num">381</td><td class="num">106</td><td class="num">10</td><td class="num">0</td></tr></tbody>
+    </table></div>
+    <div>
+      <p>Window years are 12 months from 2022-09-17, labelled by their start, so every bucket carries the same span. The channel's output more than doubled across the window (170 → 381 videos), which is why a per-year quota rather than a random 40 was the right call: a uniform draw would have put half the sample in the last year.</p>
+      <p>Classifier confidence on singles: 237 of 286 at ≥ 0.9; 12 below 0.8. Eligibility for the sample was confidence ≥ 0.6 and an exact date.</p>
+    </div>
+  </div>
+</section>
+
+<section id="corpus">
+  <div class="section-head"><span class="num">03</span><h2>Corpus tab</h2></div>
+  <img class="shot" src="s01_evidence/corpus.jpg" alt="Corpus tab: funnel stats, per-year table, and the 40 sampled videos with kind, ticker, confidence and transcript status">
+  <p style="margin-top:10px">Funnel stats, the per-year table, and the sample — every row now shows <span class="k">indexed · N seg</span>. Every row opens the Video tab. "every video in window" switches to all 993 with the classifier's label and one-line rationale, which is how the labels get spot-checked.</p>
+</section>
+
+<section id="sample">
+  <div class="section-head"><span class="num">04</span><h2>The 40, with what the agent would see at each T0</h2></div>
+  <p>Coverage counts <em>complete</em> fiscal years visible at T0 under the annual-only rule (period_end + 90 d ≤ T0). <b>Why "FYs at T0" reads <span class="k">n / 4</span>:</b> Yahoo returns four complete fiscal years and they are anchored to <em>today</em> (FY2022–FY2025), not to the video. A 2022 video would need FY2018–FY2021 — years Yahoo no longer serves — and its FY2022 report was not filed until after the video, so it sees 0 of 4. That is the gap EDGAR closes for US names (10+ years, exact filing dates); the denominator stays 4 for the non-US names. <b>Rev 4 — all US:</b> the sample is drawn only from tickers that file 10-Ks with us-gaap facts, so every row has an EDGAR column and "complete FYs at T0" is the merged Yahoo + EDGAR count. The non-US, 20-F and delisted names from the earlier draw are out; their transcripts remain in transcript·lab's corpus for later use. <span class="tag good">full</span> ≥ 3 · <span class="tag warn">shallow</span> 1–2 · <span class="tag bad">prices_only</span> 0 · <span class="tag bad">no_prices</span> Yahoo has no history.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>T0</th><th>year</th><th>ticker</th><th>title · classifier rationale</th><th class="num">conf</th><th class="num">close at T0</th><th class="num">complete FYs at T0</th><th>EDGAR</th><th>coverage</th></tr></thead>
+    <tbody>
+<tr><td class="mono">2022-09-20</td><td class="mono">2022/23</td><td class="mono">AAPL</td><td>Apple is a GREAT BUSINESS at a ???? PRICE!!! (Adding to YT Portfolio)<div class="rat">Apple stock valuation is the clear subject.</div></td><td class="num">0.95</td><td class="num">156.90 USD</td><td class="num">12 / 16</td><td><span class="tag good">12 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2022-09-25</td><td class="mono">2022/23</td><td class="mono">GOOGL</td><td>Google Stock Is The BEST Business / At What Price It Fits Your Portfolio?<div class="rat">Google stock analysis is the clear subject.</div></td><td class="num">0.90</td><td class="num">98.74 USD</td><td class="num">8 / 12</td><td><span class="tag good">8 / 12 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2022-10-04</td><td class="mono">2022/23</td><td class="mono">V</td><td>VISA Stock Quick Take!<div class="rat">Quick take specifically on Visa stock.</div></td><td class="num">0.95</td><td class="num">185.65 USD</td><td class="num">12 / 16</td><td><span class="tag good">12 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2022-10-06</td><td class="mono">2022/23</td><td class="mono">VZ</td><td>Verizon is Still Verizon - Dividend Approaching 7% !!!<div class="rat">Verizon dividend analysis, single company subject.</div></td><td class="num">0.95</td><td class="num">37.84 USD</td><td class="num">12 / 16</td><td><span class="tag good">12 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2022-11-23</td><td class="mono">2022/23</td><td class="mono">TSLA</td><td>I&#x27;m Going Short Tesla<div class="rat">Shorting Tesla is the subject</div></td><td class="num">0.90</td><td class="num">183.20 USD</td><td class="num">12 / 16</td><td><span class="tag good">12 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2023-02-24</td><td class="mono">2022/23</td><td class="mono">GOOG</td><td>Google Is A Better Business Than Retailer Amazon<div class="rat">Google as subject, Amazon comparison secondary</div></td><td class="num">0.70</td><td class="num">89.35 USD</td><td class="num">9 / 12</td><td><span class="tag good">9 / 12 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2023-03-03</td><td class="mono">2022/23</td><td class="mono">MU</td><td>Micron Stock Analysis - Good, but not great yet!<div class="rat">Single company stock analysis</div></td><td class="num">0.90</td><td class="num">56.78 USD</td><td class="num">13 / 16</td><td><span class="tag good">13 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2023-03-26</td><td class="mono">2022/23</td><td class="mono">MBUU</td><td>Malibu Boats Stock Analysis<div class="rat">Single company stock analysis</div></td><td class="num">0.90</td><td class="num">54.10 USD</td><td class="num">10 / 14</td><td><span class="tag good">10 / 14 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2023-04-22</td><td class="mono">2022/23</td><td class="mono">DIS</td><td>I don&#x27;t think Bog Iger Can Swing His Mickey Mouse And Turn Disney....<div class="rat">Disney/Iger is sole subject</div></td><td class="num">0.90</td><td class="num">99.57 USD</td><td class="num">5 / 8</td><td><span class="tag good">5 / 8 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2023-09-07</td><td class="mono">2022/23</td><td class="mono">INTC</td><td>Intel Stock Discussion End 2023<div class="rat">Single company stock discussion</div></td><td class="num">0.90</td><td class="num">38.18 USD</td><td class="num">13 / 16</td><td><span class="tag good">13 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2023-11-30</td><td class="mono">2023/24</td><td class="mono">CPNG</td><td>Coupang Stock Analysis - Korea e-commerce!<div class="rat">Coupang stock analysis</div></td><td class="num">0.90</td><td class="num">15.28 USD</td><td class="num">3 / 6</td><td><span class="tag good">3 / 6 FYs · filed</span></td><td><span class="tag good">full</span></td></tr>
+<tr><td class="mono">2024-02-09</td><td class="mono">2023/24</td><td class="mono">LYB</td><td>LyondellBasell NYSE: LYB Stock Analysis<div class="rat">LyondellBasell stock analysis</div></td><td class="num">0.97</td><td class="num">95.40 USD</td><td class="num">12 / 15</td><td><span class="tag good">12 / 15 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-02-10</td><td class="mono">2023/24</td><td class="mono">IBKR</td><td>IBKR STOCK IS A BUY! Great broker, better stock! (Interactive Brokers)<div class="rat">IBKR stock analysis</div></td><td class="num">0.96</td><td class="num">24.51 USD</td><td class="num">13 / 16</td><td><span class="tag good">13 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-02-25</td><td class="mono">2023/24</td><td class="mono">BRK-B</td><td>7 Lessons &amp; 4 Warnings From Buffett&#x27;s Letter And Berkshire&#x27;s Earnings<div class="rat">Buffett letter and Berkshire earnings focus</div></td><td class="num">0.80</td><td class="num">417.22 USD</td><td class="num">13 / 16</td><td><span class="tag good">13 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-04-22</td><td class="mono">2023/24</td><td class="mono">HSY</td><td>Hershey Stock Analysis NYSE: HSY<div class="rat">Hershey stock analysis</div></td><td class="num">0.98</td><td class="num">186.33 USD</td><td class="num">14 / 16</td><td><span class="tag good">14 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-05-03</td><td class="mono">2023/24</td><td class="mono">INTC</td><td>Intel Stock Is Back To Value, Again...<div class="rat">Intel is sole subject</div></td><td class="num">0.97</td><td class="num">30.90 USD</td><td class="num">14 / 16</td><td><span class="tag good">14 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-06-20</td><td class="mono">2023/24</td><td class="mono">LULU</td><td>Lululemon Stock Analysis NASDAQ: LULU<div class="rat">Explicit LULU stock analysis</div></td><td class="num">0.95</td><td class="num">310.77 USD</td><td class="num">15 / 17</td><td><span class="tag good">15 / 17 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-06-22</td><td class="mono">2023/24</td><td class="mono">PYPL</td><td>PAYPAL Stock Analysis (PYPL Stock Risk &amp; Reward)<div class="rat">Explicit PYPL stock analysis</div></td><td class="num">0.95</td><td class="num">60.61 USD</td><td class="num">10 / 12</td><td><span class="tag good">10 / 12 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-07-20</td><td class="mono">2023/24</td><td class="mono">WBD</td><td>Reward From Investment While You Wait For 2X! WBD Example Investing Hints #2<div class="rat">WBD used as investing example</div></td><td class="num">0.80</td><td class="num">8.67 USD</td><td class="num">14 / 16</td><td><span class="tag good">14 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-08-31</td><td class="mono">2023/24</td><td class="mono">AAPL</td><td>Value Investing Is Hard In This Crazy Market (Buffett Lost Big On Apple)<div class="rat">Buffett&#x27;s Apple loss highlighted as focal example</div></td><td class="num">0.60</td><td class="num">229.00 USD</td><td class="num">14 / 16</td><td><span class="tag good">14 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2024-11-17</td><td class="mono">2024/25</td><td class="mono">MCD</td><td>McDonald&#x27;s Are Always Full (MCD Stock Up)<div class="rat">McDonald&#x27;s stock, single company</div></td><td class="num">0.85</td><td class="num">292.63 USD</td><td class="num">14 / 16</td><td><span class="tag good">14 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-01-20</td><td class="mono">2024/25</td><td class="mono">VZ</td><td>Verizon Stock (VZ) Intrinsic Value<div class="rat">Verizon stock intrinsic value</div></td><td class="num">0.95</td><td class="num">38.78 USD</td><td class="num">14 / 16</td><td><span class="tag good">14 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-01-21</td><td class="mono">2024/25</td><td class="mono">AAPL</td><td>Apple Stock Intrinsic Value is $105<div class="rat">Apple intrinsic value analysis</div></td><td class="num">0.95</td><td class="num">222.64 USD</td><td class="num">15 / 16</td><td><span class="tag good">15 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-02-09</td><td class="mono">2024/25</td><td class="mono">CNH</td><td>CNH Industrial Stock Analysis - Deep Dive NYSE: CNH<div class="rat">CNH Industrial deep dive</div></td><td class="num">0.90</td><td class="num">12.40 USD</td><td class="num">12 / 14</td><td><span class="tag good">12 / 14 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-03-18</td><td class="mono">2024/25</td><td class="mono">IBKR</td><td>Interactive Brokers Stock &amp; Broker Analysis<div class="rat">Interactive Brokers stock is the sole subject</div></td><td class="num">0.95</td><td class="num">43.17 USD</td><td class="num">15 / 16</td><td><span class="tag good">15 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-03-29</td><td class="mono">2024/25</td><td class="mono">OXY</td><td>Buffett Keeps Buying Occidental Stock + Oil Price Outlook!<div class="rat">Occidental stock is the sole subject</div></td><td class="num">0.95</td><td class="num">48.83 USD</td><td class="num">15 / 16</td><td><span class="tag good">15 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-04-02</td><td class="mono">2024/25</td><td class="mono">TROW</td><td>TROW Stock Cheap, But T Rowe Price Has Deteriorating Business Model<div class="rat">TROW stock is the sole subject</div></td><td class="num">0.95</td><td class="num">93.90 USD</td><td class="num">15 / 16</td><td><span class="tag good">15 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-05-15</td><td class="mono">2024/25</td><td class="mono">UNH</td><td>My Take on UNH Stock Crash = Too Hard Pile<div class="rat">UNH is sole subject</div></td><td class="num">0.90</td><td class="num">274.35 USD</td><td class="num">15 / 16</td><td><span class="tag good">15 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-06-18</td><td class="mono">2024/25</td><td class="mono">KHC</td><td>Kraft Heinz Stock Analysis KHC Stock<div class="rat">Kraft Heinz is the subject</div></td><td class="num">0.95</td><td class="num">25.68 USD</td><td class="num">10 / 11</td><td><span class="tag good">10 / 11 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-09-04</td><td class="mono">2024/25</td><td class="mono">BRK-B</td><td>Berkshire BRK Stock Analysis 2H 2025<div class="rat">Berkshire is the subject</div></td><td class="num">0.95</td><td class="num">506.91 USD</td><td class="num">15 / 16</td><td><span class="tag good">15 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2025-10-16</td><td class="mono">2025/26</td><td class="mono">BLK</td><td>Buy BlackRock Stock For a Quick 2x!<div class="rat">Single stock BlackRock analysis</div></td><td class="num">0.95</td><td class="num">1171.36 USD</td><td class="num">3 / 4</td><td><span class="tag good">3 / 4 FYs · filed</span></td><td><span class="tag good">full</span></td></tr>
+<tr><td class="mono">2026-01-03</td><td class="mono">2025/26</td><td class="mono">CPB</td><td>Campbell&#x27;s CPB Cash Flow Stock<div class="rat">Campbell&#x27;s cash flow stock analysis</div></td><td class="num">0.90</td><td class="num">27.71 USD</td><td class="num">16 / 16</td><td><span class="tag good">16 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-02-27</td><td class="mono">2025/26</td><td class="mono">AMZN</td><td>Amazon A Buy as Everybody Is Buying!<div class="rat">Single company Amazon buy analysis</div></td><td class="num">0.95</td><td class="num">210.00 USD</td><td class="num">16 / 16</td><td><span class="tag good">16 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-03-12</td><td class="mono">2025/26</td><td class="mono">HPQ</td><td>HP Stock Is A Fundamental Buy! 6.5% YIELD<div class="rat">Single company HP stock analysis</div></td><td class="num">0.90</td><td class="num">18.95 USD</td><td class="num">16 / 16</td><td><span class="tag good">16 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-06-07</td><td class="mono">2025/26</td><td class="mono">MELI</td><td>MELI - MERCADOLIBRE STOCK ANALYSIS<div class="rat">MercadoLibre stock analysis</div></td><td class="num">0.97</td><td class="num">1607.80 USD</td><td class="num">16 / 16</td><td><span class="tag good">16 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-06-08</td><td class="mono">2025/26</td><td class="mono">BRK-B</td><td>How Much Will You Make From Buying BRK? - Berkshire BRK Stock Analysis<div class="rat">Berkshire BRK stock analysis</div></td><td class="num">0.95</td><td class="num">487.00 USD</td><td class="num">16 / 16</td><td><span class="tag good">16 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-06-18</td><td class="mono">2025/26</td><td class="mono">ADBE</td><td>Adobe ADBE Stock - Time To Power Up Excel!!!<div class="rat">Adobe stock analysis and intrinsic value</div></td><td class="num">0.95</td><td class="num">195.16 USD</td><td class="num">16 / 16</td><td><span class="tag good">16 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-06-26</td><td class="mono">2025/26</td><td class="mono">NVDA</td><td>Nvidia Stock Intrinsic Value - P/E Just 30!<div class="rat">Nvidia intrinsic value/P/E analysis</div></td><td class="num">0.95</td><td class="num">192.53 USD</td><td class="num">17 / 17</td><td><span class="tag good">17 / 17 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-07-24</td><td class="mono">2025/26</td><td class="mono">CPRT</td><td>CPRT Copart Stock - Stock Crash Makes it a Better Buy!<div class="rat">Copart stock analysis after crash</div></td><td class="num">0.95</td><td class="num">27.94 USD</td><td class="num">16 / 16</td><td><span class="tag good">16 / 16 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+<tr><td class="mono">2026-07-28</td><td class="mono">2025/26</td><td class="mono">GOOGL</td><td>Capex, D&amp;A, $707 Billion in Commitments Make Google a Very RISKY Stock to Buy!<div class="rat">Google is sole subject, risk from capex/D&amp;A</div></td><td class="num">0.90</td><td class="num">333.71 USD</td><td class="num">12 / 12</td><td><span class="tag good">12 / 12 FYs · filed</span></td><td><span class="tag good">deep</span></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13.5px;color:var(--caption)">Repeats across years: AAPL ×3, BRK-B ×3, GOOGL ×2, VZ ×2, INTC ×2, IBKR ×2 — the draw prefers distinct tickers within a year, not across years (D6 below).</p>
+</section>
+
+<section id="market">
+  <div class="section-head"><span class="num">05</span><h2>Market data and the as-of view</h2></div>
+  <div class="two">
+    <div>
+      <div class="cards" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+        <div class="card"><h4>38</h4><p>deep (5+)</p></div><div class="card"><h4>2</h4><p>full (3–4)</p></div><div class="card"><h4>0</h4><p>shallow</p></div><div class="card"><h4>0</h4><p>prices only</p></div><div class="card"><h4>0</h4><p>no prices</p></div>
+      </div>
+      <p>By window year, all-US sample: <b>2022/23</b> 10 deep · <b>2023/24</b> 9 deep · 1 full · <b>2024/25</b> 10 deep · <b>2025/26</b> 9 deep · 1 full. Rev 1 was 16 full / 17 shallow / 6 prices-only / 1 no-prices; rev 3 (EDGAR on the mixed sample) 24 deep / 7 full / 7 shallow / 1 / 1. The two "full" rows are recently listed names with fewer than five fiscal years on file.</p>
+      <p>What is in DuckDB: 136,625 daily rows for 34 tickers + SPY, ^STOXX50E, ^FTSE, ^HSI, ^GSPTSE from 2017; yfinance line items for every ticker plus 9,247 EDGAR line items (source-tagged, merged by fiscal year, EDGAR wins where both exist); <span class="k">vi.fiscal_years</span> flags a year complete only when Total Revenue and Total Assets are present.</p>
+      <div class="note"><b>The as-of view is tested, not assumed.</b> <span class="k">tests/test_as_of.py</span> seeds prices and two fiscal years and asserts that a video dated 2024-07-02 sees FY2023 but not FY2024 (period end 2024-05-31, visible 2024-08-29), and that no row with a later date or availability can come back for any T0.</div>
+    </div>
+    <div>
+      <img class="shot" src="s01_evidence/market.jpg" alt="Market tab: coverage summary and per-video table">
+      <p style="font-size:13.5px;color:var(--caption);margin-top:8px">Market tab. Sorted by T0 so the coverage gradient across the window is visible at a glance.</p>
+    </div>
+  </div>
+</section>
+
+<section id="app">
+  <div class="section-head"><span class="num">06</span><h2>Video tab: transcript → price → statements, one video at a time</h2></div>
+  <img class="shot" src="s01_evidence/video-aapl-2022.jpg" alt="Video tab for the September 2022 Apple video: price chart with T0 marker, forward returns, coverage, transcript placeholder">
+  <p style="margin-top:10px"><b>Apple, 2022-09-20.</b> The chart is adjusted close with SPY rebased at T0 (dashed); the red line is the video date; the shaded right side is validator-only, with +6 / 12 / 24 m closes (+1.5 %, +11.8 %, +45.9 %). With EDGAR loaded this video now sees <b>12 complete fiscal years (FY2010–FY2021)</b> at T0, and FY2022 is hidden until its actual 10-K filing date, 2022-10-28, rather than an estimated 29 Dec. (Screenshot below predates the EDGAR run — Chrome could not render under memory pressure when it was retaken; the statements panel now shows twelve ·E columns.) The chart now runs five years back (2017-09) to the latest close, and the transcript panel shows the 347 timestamped segments from transcript·lab — the opening line already states the thesis ("Apple is a great business … if the stock drops below 150"), which is what M2's extractor will read.</p>
+  <img class="shot" src="s01_evidence/video-hpq-2026-statements.jpg" alt="Statements panel for the March 2026 HP video: four complete fiscal years plus a labelled stub column" style="margin-top:14px">
+  <p style="margin-top:10px"><b>HP, 2026-03-12.</b> The other end of the window: four complete fiscal years at T0 (FY2022–FY2025), headline items per statement with an "all line items" toggle, and the FY2021 stub labelled as such. Everything after T0 is listed as hidden with the date it would become visible.</p>
+</section>
+
+<section id="findings">
+  <div class="section-head"><span class="num">07</span><h2>What building it changed about the plan</h2></div>
+  <div class="finding"><div class="w">data source</div><div><h4>Supadata's plan ran out at video 144</h4><p><span class="k">/metadata</span> costs one credit per video and the account hit <span class="k">limit-exceeded</span> during the first catalog run. The catalog now dates videos with yt-dlp and reads Supadata only from its cache. Net effect: the ≈1,050 Supadata calls the plan budgeted for dating were never needed. Transcripts still go through transcript·lab → Supadata and are what the credits should be spent on.</p></div></div>
+  <div class="finding"><div class="w">data quality</div><div><h4>The channel tab's dates are approximate — off by up to a year</h4><p>yt-dlp's <span class="k">approximate_date</span> reads "3 years ago" off the listing. A first draw on those dates put 13 of 40 videos outside the window once exact dates arrived. Fix: exact-date every single-stock candidate near the window (156 per-video fetches, paced to avoid YouTube's bot-check), and let the sample use exact dates only. The failed draw is why the sample code now has a test that a bigger draw never reshuffles an earlier one.</p></div></div>
+  <div class="finding"><div class="w">data quality</div><div><h4>yfinance's oldest fiscal-year column is a stub</h4><p>It looked like 5 fiscal years; the oldest has ~20 items and no revenue, net income or total assets for 52 of 55 tickers. So Yahoo gives <b>four</b> complete years (FY2022–FY2025 today), and coverage is counted on complete years only. The app labels stub columns rather than hiding them.</p></div></div>
+  <div class="finding"><div class="w">data quality</div><div><h4>Delisted names have no Yahoo history</h4><p>Foot Locker (FL, video 2023-09-15) was acquired in 2025; Yahoo returns nothing. One of 40, but the eventual validator has to treat "acquired" as an outcome, not a missing price.</p></div></div>
+  <div class="finding"><div class="w">estimate</div><div><h4>Single-stock videos are 29 % of the window, not 50 %</h4><p>286 of 993. Macro/market commentary is 30 %. The seed's recent 40 titles over-represented stock analyses. 286 singles is still 7× the sample, so the per-year quota of 10 is easily met (48 / 57 / 75 / 106 eligible per year).</p></div></div>
+  <div class="finding"><div class="w">cost</div><div><h4>transcript·lab paid two Supadata credits per video</h4><p>Its fetcher calls <span class="k">/transcript</span> and then <span class="k">/metadata</span>; the 40-video ingest cost 80 credits although this project already held every video's title, date and description. Fixed upstream in <a href="https://github.com/nmp-dsci/transcript-rag-agent/pull/20">transcript-rag-agent #20</a> (merged): <span class="k">fetch(metadata=)</span> → <span class="k">index-rag --metadata-json</span>, default still fetches, the caller must override. <span class="k">vi ingest</span> now passes its cached metadata; verified live at one request per video.</p></div></div>
+  <div class="finding"><div class="w">sampling</div><div><h4>A filter change reshuffled the whole draw</h4><p>Restricting eligibility to EDGAR filers changed the seeded order and a naive re-draw kept only 6 of 40 — 34 new transcripts for a change that made 14 videos ineligible. The draw is now <em>sticky</em>: sampled videos that remain eligible keep their slot and rank, only vacated slots are refilled (test added). Result: 26 kept, 14 replaced, 14 credits.</p></div></div>
+  <div class="finding"><div class="w">ops</div><div><h4>Two index-rag processes race on Chroma</h4><p>transcript·lab's write lock is per process. At concurrency 2, four runs logged "Error finding id" and one video kept its transcript but lost its chunks. <span class="k">vi ingest</span> is serial by default and a transcript without chunks now counts as failed.</p></div></div>
+  <div class="finding"><div class="w">ops</div><div><h4>DuckDB is single-writer</h4><p>A pipeline command and the server cannot hold the file at once; run the pipeline, then serve. Fine for M1; the demo snapshot pattern (read-only copy) solves it for a deployment.</p></div></div>
+</section>
+
+<section id="blocked">
+  <div class="section-head"><span class="num">08</span><h2>Was blocked, now resolved</h2></div>
+  <div class="note good"><b>Transcripts: done.</b> Supadata topped up (D5 answered as "A"); <span class="k">vi ingest</span> ran twice (40 + 14 after the all-US re-draw); all 40 sampled videos are in transcript·lab's Chroma and browsable in its workbench as well as here.</div>
+  <div class="note good"><b>EDGAR: done.</b> <span class="k">SEC_USER_AGENT</span> set; <span class="k">vi edgar</span> loaded 20 filers back to FY2010. Two findings on the way: SEC filers switch revenue tags over the years (Apple 2018, KHC), so the loader now merges seven revenue concepts by fiscal year rather than stopping at the first with data; and BlackRock's history splits across two registrants (new CIK from 2022), so BLK shows 4–5 years.</div>
+</section>
+
+<section id="review">
+  <div class="section-head"><span class="num">09</span><h2>Evaluator's review of this page and the build</h2></div>
+  <p>Checked after writing, against the live API and the repo, before handing over.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Every number on this page matches <span class="k">/api/funnel</span> and <span class="k">/api/market/coverage</span> at the time of writing</td><td><span class="tag good">yes</span> — generated from the API, not typed</td></tr>
+      <tr><td>All 40 sampled videos fall inside the window with exact dates</td><td><span class="tag good">yes</span> — 2022-09-20 → 2026-08-25; 34 yt-dlp + 6 Supadata</td></tr>
+      <tr><td>Every sampled ticker resolves on Yahoo and on EDGAR</td><td><span class="tag good">40 / 40</span></td></tr>
+      <tr><td>No agent-visible read bypasses the as-of macros</td><td><span class="tag good">yes</span> — the app reads statements only through <span class="k">vi.statements_as_of</span>; forward prices are a separate, labelled query for the validator</td></tr>
+      <tr><td>Tests</td><td><span class="tag good">13 passed</span> — keyless boot, billing guard, as-of leakage, window years, sample determinism, API, ingest metadata shape, EDGAR selection + fiscal-year merge</td></tr>
+      <tr><td>Every sampled video has a transcript <em>and</em> chunks in transcript·lab</td><td><span class="tag good">40 / 40</span> — re-checked after the all-US re-draw</td></tr>
+      <tr><td>Supadata cost per ingested video</td><td><span class="tag good">1</span> — measured on the CLI path with request logging after PR #20</td></tr>
+      <tr><td>Subscription billing for every SDK call</td><td><span class="tag good">yes</span> — <span class="k">subscription_env</span> blanks the API key; 27 sessions ran (1 seed eval + 26 batches); the SDK's reported "cost" is nominal, not billed</td></tr>
+      <tr><td>Classifier seed disagreements are defensible</td><td><span class="tag good">yes</span> — BABA vs 9988.HK (listing choice), a "rates" video as other vs macro, a Flutter+Burry video as multi vs single</td></tr>
+      <tr><td>Things I would push back on</td><td>(1) 4 tickers repeat across years — decide below. (2) With the all-US sample every window year is fully covered; the trade-off is that the channel's many European and Asian names (LVMH, Vonovia, Tencent, Prosus…) are now outside the golden set — a paid fundamentals source would be the way to bring them back. (4) Two edits in this revision silently failed to apply because ruff had re-wrapped the target lines; both were caught by the live check and the edits are now assertion-guarded. (3) Approximate dates remain on 406 non-single videos; harmless for M1, but they must be refined before any multi-stock expansion.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="next">
+  <div class="section-head"><span class="num">10</span><h2>Next, and the decisions I need</h2></div>
+  <div class="slice"><div class="v">M1′</div><div><h4>All-US sample + EDGAR — done</h4><p>38 of 40 videos "deep", 2 "full". Optional later: a paid fundamentals source to bring the channel's non-US names back into scope.</p></div></div>
+  <div class="slice"><div class="v">M2</div><div><h4>Golden extraction + eval summary in the app</h4><p>S4 extractor (Agent SDK, one session per transcript, cached), price-mention cross-check against <span class="k">vi.prices</span>, κ between two passes, splits; S5 the Golden-calls tab with review control and summary panel. Review checkpoint follows.</p></div></div>
+
+    <div class="note good"><b>D5 · Transcripts — resolved:</b> Supadata topped up, ingest complete.</div>
+
+    <div class="note good"><b>D6 · Repeat tickers — decided:</b> keep repeats across years; the same name at a different T0 is a good analyst test. The draw keeps preferring distinct tickers <em>within</em> a year only.</div>
+
+    <div class="note good"><b>D7 · First-year fundamentals — decided (rev 2):</b> EDGAR now, not after M2. Loader built; runs as soon as <span class="k">SEC_USER_AGENT</span> is set. Non-US names stay at Yahoo's four years unless a paid source is added later.</div>
+</section>
+
+<footer>
+  <p><b>Rev 4 (2026-09-19):</b> sample restricted to US 10-K filers (sticky re-draw: 26 kept, 14 replaced), transcripts and EDGAR for the replacements, coverage and table regenerated from the API.</p>
+  <p><b>Rev 3 (2026-09-19):</b> EDGAR run; coverage, sample table and §05 regenerated from the API; revenue-tag and API column fixes.</p>
+  <p><b>Rev 2 (2026-09-19):</b> transcripts ingested; Supadata cost fix (transcript-rag-agent #20); chart window; logo; EDGAR loader. Screenshots of Corpus and Video retaken; Market and the HP statements panel are unchanged from rev 1.</p>
+  <p><b>Sources:</b> live API at :8791 (<span class="k">/api/funnel</span>, <span class="k">/api/videos</span>, <span class="k">/api/market/coverage</span>) at the time this page was generated; <span class="k">data/samples/classifier_seed_eval.json</span>; <span class="k">.vi/catalog.log</span>, <span class="k">.vi/classify.log</span>, <span class="k">.vi/refine.log</span>; <span class="k">tests/</span>. Screenshots are of the running app in its dark theme.</p>
+</footer>
+</div>
+</body>
+</html>
