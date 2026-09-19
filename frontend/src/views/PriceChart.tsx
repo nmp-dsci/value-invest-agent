@@ -19,9 +19,11 @@ export default function PriceChart({ prices, benchmark, t0, forward, currency }:
   const xt0 = X(t0);
   const ticks = [y0, (y0 + y1) / 2, y1].map((v) => ({ v, y: Y(v) }));
   const years: { x: number; label: string }[] = [];
+  const span = (x1 - x0) / (365.25 * 86400e3);
+  const step = span > 7 ? 2 : 1; // thin the year labels on long spans
   for (let y = new Date(x0).getFullYear(); y <= new Date(x1).getFullYear() + 1; y++) {
     const ms = new Date(`${y}-01-01`).getTime();
-    if (ms >= x0 && ms <= x1) years.push({ x: X(`${y}-01-01`), label: String(y) });
+    if (ms >= x0 && ms <= x1 && y % step === 0) years.push({ x: X(`${y}-01-01`), label: String(y) });
   }
   return (
     <div>

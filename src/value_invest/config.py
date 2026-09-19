@@ -48,7 +48,7 @@ class Settings:
     transcript_lab_api: str = "http://127.0.0.1:8000"
     horizons_months: tuple[int, ...] = (6, 12, 24)
     default_benchmark: str = "SPY"
-    prices_from: date = date(2018, 1, 1)
+    prices_from: date = date(2017, 1, 1)  # 5 years before the earliest sampled T0 (2022-09)
     # Annual-only as-of rule: a fiscal year's statements become visible this
     # many days after period end unless a real filing date is known.
     annual_lag_days: int = 90

@@ -135,7 +135,8 @@ def create_app() -> FastAPI:
         return rows
 
     @app.get("/api/videos/{video_id}")
-    def video(video_id: str, before_days: int = 365, after_days: int = 730) -> dict:
+    def video(video_id: str, before_days: int = 5 * 365, after_days: int = 40 * 365) -> dict:
+        """Prices for the chart: five years before T0 and everything available after it."""
         c = con()
         v = _rows(
             c,

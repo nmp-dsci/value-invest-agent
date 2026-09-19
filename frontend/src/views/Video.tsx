@@ -47,7 +47,7 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
             </div>
             <div className="grid2">
               <div>
-                <div className="panel"><h3>Price around T0 <span className="microlabel">vi.prices · adjusted close</span></h3>
+                <div className="panel"><h3>Price around T0 <span className="microlabel">vi.prices · adjusted close · 5 y before T0 → today</span></h3>
                   {d.t0 && <PriceChart prices={d.prices} benchmark={d.benchmark} t0={d.t0} forward={d.forward} currency={d.video.currency} />}
                   {d.price_at_t0 && (
                     <div className="fwd">
