@@ -43,6 +43,9 @@ def main() -> None:
         json_extract_string(e.checks,'$.price_check') price_check,
         CAST(json_extract(e.checks,'$.iv_ok') AS INTEGER) iv_ok, CAST(json_extract(e.checks,'$.iv_compared') AS INTEGER) iv_compared,
         CAST(json_extract(e.checks,'$.base_metric_gap_pct') AS DOUBLE) base_gap, e.headline_quote,
+        json_extract_string(e.checks,'$.iv_basis') iv_basis, CAST(json_extract(e.checks,'$.split_factor') AS DOUBLE) split_factor,
+        CAST(json_extract(e.checks,'$.iv_comparable') AS DOUBLE) iv_comparable, CAST(json_extract(e.checks,'$.iv_upside_pct') AS DOUBLE) iv_upside_pct,
+        json_extract_string(e.checks,'$.position_iv') position_iv,
         (SELECT json_group_object(horizon_m, json_object('excess', excess, 'verdict', verdict)) FROM vi.validations x WHERE x.video_id=e.video_id) validations
         FROM vi.evals e JOIN vi.videos v USING (video_id) ORDER BY e.t0""",
     )
@@ -62,6 +65,10 @@ def main() -> None:
         count(*) FILTER (WHERE position='BUY') buy,
         count(*) FILTER (WHERE position='HOLD') AS "hold", count(*) FILTER (WHERE position='SELL') sell, count(*) FILTER (WHERE rule_sensitive) rule_sensitive
         FROM vi.evals e JOIN vi.videos v USING (video_id) GROUP BY 1 ORDER BY 1""",
+    )
+    out["splits_in_window"] = rows(
+        con,
+        "SELECT ticker, date, ratio FROM vi.splits WHERE date >= (SELECT min(t0) FROM vi.evals) ORDER BY date",
     )
     out["tickers"] = rows(
         con,

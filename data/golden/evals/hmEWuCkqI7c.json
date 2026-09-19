@@ -80,6 +80,15 @@
     "as_of": 88995000000.0,
     "period": "FY2024",
     "gap_pct": -61.8
+   },
+   "comparable": {
+    "iv_stated": 390000000000.0,
+    "basis": "total",
+    "shares_used": 2156578922.0,
+    "split_factor": 1.0,
+    "iv_comparable": 180.84,
+    "upside_pct": -64.3,
+    "position_iv": "SELL"
    }
   },
   "price_at_t0": 506.9100036621094,
@@ -265,6 +274,11 @@
    "iv_compared": 1,
    "iv_ok": 1,
    "iv_within_band": true,
+   "split_factor": 1.0,
+   "iv_basis": "total",
+   "iv_comparable": 180.84,
+   "iv_upside_pct": -64.3,
+   "position_iv": "SELL",
    "base_metric_gap_pct": -61.8,
    "expected_return_at_price": null,
    "quote_scores": [

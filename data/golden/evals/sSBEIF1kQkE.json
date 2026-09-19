@@ -87,7 +87,16 @@
    ],
    "within_band": null,
    "n_compared": 0,
-   "n_ok": 0
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 80.0,
+    "basis": "per_share_implausible",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 80.0,
+    "upside_pct": 485.7,
+    "position_iv": null
+   }
   },
   "price_at_t0": 13.65999984741211,
   "reasons": [
@@ -160,7 +169,7 @@
      "agrees": false,
      "formula": "Total Debt FY2021",
      "as_of_period": "FY2021",
-     "gap_note": "he says 6e+10, as-of 1.5098e+10 (FY2021); annual vs TTM or a different definition; not in our data: market cap"
+     "gap_note": "he says 6e+10, as-of 1.5098e+10 (FY2021); annual vs TTM or a different definition"
     }
    },
    {
@@ -282,6 +291,11 @@
    "iv_compared": 0,
    "iv_ok": 0,
    "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share_implausible",
+   "iv_comparable": 80.0,
+   "iv_upside_pct": 485.7,
+   "position_iv": null,
    "base_metric_gap_pct": null,
    "expected_return_at_price": null,
    "quote_scores": [

@@ -54,7 +54,7 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
             <div className="grid2">
               <div>
                 <div className="panel"><h3>Price around T0 <a className="microlabel" style={{ color: 'var(--accent2)', textDecoration: 'none' }} href={`#/sql?q=${encodeURIComponent(`SELECT date, close, adj_close, volume FROM vi.prices_as_of('${d.video.primary_ticker}', DATE '${d.t0}') ORDER BY date DESC`)}`}>open in SQL ↗</a> <span className="microlabel">vi.prices · adjusted close · 5 y before T0 → today</span></h3>
-                  {d.t0 && <PriceChart prices={d.prices} benchmark={d.benchmark} t0={d.t0} forward={d.forward} currency={d.video.currency} iv={d.eval?.iv_weighted_stated ?? null} validations={d.eval?.validations} />}
+                  {d.t0 && <PriceChart prices={d.prices} benchmark={d.benchmark} t0={d.t0} forward={d.forward} currency={d.video.currency} iv={d.eval?.checks?.iv_comparable ?? null} validations={d.eval?.validations} />}
                   {d.price_at_t0 && (
                     <div className="fwd">
                       <div className="stat"><div className="v">{d.price_at_t0.close.toFixed(2)}</div><div className="l">close at T0 ({d.price_at_t0.date})</div></div>

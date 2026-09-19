@@ -36,7 +36,16 @@
    "scenarios": [],
    "within_band": null,
    "n_compared": 0,
-   "n_ok": 0
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
   },
   "price_at_t0": 37.84000015258789,
   "reasons": [
@@ -94,14 +103,18 @@
      }
     ],
     "data_check": {
-     "reproducible": "external",
-     "line_items": [],
-     "value_stated": null,
-     "value_as_of": null,
-     "agrees": null,
-     "formula": null,
-     "as_of_period": null,
-     "gap_note": "not in our data: dividend yield, free cash flow decline"
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding",
+      "close"
+     ],
+     "value_stated": 0.0667,
+     "value_as_of": 0.06651341066940743,
+     "agrees": true,
+     "formula": "DPS / close",
+     "as_of_period": "FY2021",
+     "gap_note": "not in our data: free cash flow decline"
     }
    },
    {
@@ -189,19 +202,24 @@
    "price_check": null,
    "price_at_t0": 37.84000015258789,
    "latest_fy_visible": 2021,
-   "reproducible_share": 0.4,
+   "reproducible_share": 0.6,
    "reproducible_counts": {
     "statements": 1,
     "prices": 0,
-    "derived": 1,
-    "external": 2,
+    "derived": 2,
+    "external": 1,
     "judgement": 1
    },
-   "metrics_compared": 1,
-   "metrics_agree": 1,
+   "metrics_compared": 2,
+   "metrics_agree": 2,
    "iv_compared": 0,
    "iv_ok": 0,
    "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "base_metric_gap_pct": null,
    "expected_return_at_price": null,
    "quote_scores": [

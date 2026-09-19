@@ -80,6 +80,7 @@ export default function EvalPanel({ ev, compact, onJump, onChanged }: { ev: Eval
             ) : <div className="empty" style={{ padding: 10 }}>no valuation in this video</div>}
             <div className="mono" style={{ fontSize: 'var(--t-1)', color: 'var(--muted)', marginTop: 6 }}>
               weighted IV he says {num(v.iv_weighted_stated, 0)} · recomputed {num(ivr.iv_weighted_model, 0)} · price mentioned {num(v.price_mentioned, 0)} · close at T0 {num(ev.price_at_t0)} {ev.checks?.price_check === true ? '✓' : ev.checks?.price_check === false ? '✗ price check' : ''}
+              {ev.checks?.iv_comparable != null && <><br />comparable IV {num(ev.checks.iv_comparable, 0)} ({ev.checks.iv_basis}{ev.checks.split_factor && ev.checks.split_factor !== 1 ? `, ÷ split ${ev.checks.split_factor}` : ''}) → upside {ev.checks.iv_upside_pct > 0 ? '+' : ''}{num(ev.checks.iv_upside_pct, 0)} % → rule D {ev.checks.position_iv ?? 'no call'}{ev.checks.position_iv && ev.checks.position_iv !== ev.position ? ' ≠ his ' + ev.position : ''}</>}
               {ivr.expected_return_at_price != null && <> · expected return at price <b>{ivr.expected_return_at_price} %</b></>}
               {v.what_is_priced_in && (v.what_is_priced_in.growth != null || v.what_is_priced_in.multiple != null) && <> · priced in: {pct(v.what_is_priced_in.growth, 0)} growth at P/E {num(v.what_is_priced_in.multiple, 0)}</>}
             </div>

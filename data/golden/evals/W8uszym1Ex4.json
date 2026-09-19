@@ -94,6 +94,15 @@
     "as_of": 81.417,
     "period": "FY2019",
     "gap_pct": -75.4
+   },
+   "comparable": {
+    "iv_stated": 727.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 727.0,
+    "upside_pct": 202.3,
+    "position_iv": "BUY"
    }
   },
   "price_at_t0": 240.50999450683594,
@@ -259,6 +268,11 @@
    "iv_compared": 0,
    "iv_ok": 0,
    "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 727.0,
+   "iv_upside_pct": 202.3,
+   "position_iv": "BUY",
    "base_metric_gap_pct": -75.4,
    "expected_return_at_price": null,
    "quote_scores": [

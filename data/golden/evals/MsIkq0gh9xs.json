@@ -96,6 +96,15 @@
     "as_of": 5.61,
     "period": "FY2021",
     "gap_pct": 8.7
+   },
+   "comparable": {
+    "iv_stated": 130.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 130.0,
+    "upside_pct": -17.1,
+    "position_iv": "SELL"
    }
   },
   "price_at_t0": 156.89999389648438,
@@ -286,6 +295,11 @@
    "iv_compared": 1,
    "iv_ok": 1,
    "iv_within_band": true,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 130.0,
+   "iv_upside_pct": -17.1,
+   "position_iv": "SELL",
    "base_metric_gap_pct": 8.7,
    "expected_return_at_price": 5.9,
    "quote_scores": [

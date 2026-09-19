@@ -65,6 +65,8 @@ CONCEPTS: dict[tuple[str, str], list[str]] = {
     ("balance", "Long Term Debt"): ["LongTermDebtNoncurrent", "LongTermDebt"],
     ("balance", "Current Debt"): ["DebtCurrent", "LongTermDebtCurrent"],
     ("balance", "Shares Outstanding"): ["CommonStockSharesOutstanding"],
+    # Class-B-equivalent count for dual-class filers (Berkshire's balance-sheet row is class A).
+    ("income", "Diluted Average Shares"): ["WeightedAverageNumberOfDilutedSharesOutstanding"],
     ("cashflow", "Operating Cash Flow"): ["NetCashProvidedByUsedInOperatingActivities"],
     ("cashflow", "Capital Expenditure"): [
         "PaymentsToAcquirePropertyPlantAndEquipment",

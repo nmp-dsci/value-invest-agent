@@ -471,3 +471,33 @@ def test_validate_all_writes_verdicts_and_iv_hit(con):
     }
     assert con.execute("SELECT split_at FROM vi.split_at(24)").fetchone()[0] == "holdout"
     assert con.execute("SELECT split_at FROM vi.split_at(6)").fetchone()[0] == "train"
+
+
+def test_comparable_iv_handles_splits_whole_company_and_units(con):
+    """His numbers are in the shares of the day; vi.prices is split-adjusted (rule D)."""
+    from value_invest.golden.ground import AsOf, comparable_iv, load_as_of
+
+    _seed_apple(con)
+    a = AsOf(ticker="AAPL", t0=date(2025, 1, 21), price=222.64, split_factor=1.0)
+    c = comparable_iv(105.0, a)
+    assert c["basis"] == "per_share" and c["iv_comparable"] == 105.0 and c["position_iv"] == "SELL"
+    assert c["upside_pct"] < -50
+    # pre-split IV: Amazon "$2,776" before the 20:1 → 138.8 on today's shares
+    a2 = AsOf(ticker="AMZN", t0=date(2020, 12, 15), price=158.3, split_factor=20.0)
+    c2 = comparable_iv(2776.0, a2)
+    assert c2["iv_comparable"] == 138.8 and c2["position_iv"] == "SELL"
+    # whole-company IV divides by the largest share count visible
+    a3 = AsOf(ticker="X", t0=date(2025, 1, 1), price=100.0, share_count_max=2.0e9)
+    c3 = comparable_iv(2.5e11, a3)
+    assert c3["basis"] == "total" and c3["iv_comparable"] == 125.0 and c3["position_iv"] == "BUY"
+    assert (
+        comparable_iv(2.5e11, AsOf(ticker="X", t0=date(2025, 1, 1), price=100.0))["basis"]
+        == "total_no_shares"
+    )
+    # a units slip is flagged, not called
+    c4 = comparable_iv(800.0, AsOf(ticker="INTC", t0=date(2022, 3, 13), price=45.8))
+    assert c4["basis"] == "per_share_implausible" and c4["position_iv"] is None
+    # the split factor comes from vi.splits through load_as_of
+    con.execute("INSERT INTO vi.splits VALUES ('AAPL', DATE '2025-06-01', 4.0)")
+    assert load_as_of(con, "AAPL", date(2025, 1, 21)).split_factor == 4.0
+    assert load_as_of(con, "AAPL", date(2025, 7, 1)).split_factor == 1.0

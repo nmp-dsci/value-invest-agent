@@ -4,7 +4,7 @@ For every eval and horizon h ∈ {6, 12, 24} months with T0 + h ≤ the last pri
 ret = close(T0+h) / close(T0) − 1, bench_ret the same for the benchmark,
 excess = ret − bench_ret. Verdict: BUY correct if excess > +5 pp, wrong if
 < −5 pp; SELL the mirror; HOLD correct if |excess| ≤ 10 pp (D14), with the
-"did not lag by > 5 pp" view kept beside it. iv_hit: the price touched his
+"did not lag by > 5 pp" view kept beside it. iv_hit: the price touched his (split- and share-count-adjusted, ground.comparable_iv)
 stated intrinsic value inside the horizon."""
 
 from __future__ import annotations
@@ -54,7 +54,9 @@ def validate_all(
     if last is None:
         return {"rows_written": 0, "n_evals": 0}
     rows = con.execute(
-        """SELECT e.video_id, e.ticker, e.t0, e.position, e.iv_weighted_stated, coalesce(t.benchmark, ?)
+        """SELECT e.video_id, e.ticker, e.t0, e.position,
+                  coalesce(CAST(json_extract(e.checks, '$.iv_comparable') AS DOUBLE), e.iv_weighted_stated),
+                  coalesce(t.benchmark, ?)
            FROM vi.evals e LEFT JOIN vi.tickers t ON t.ticker = e.ticker ORDER BY e.t0""",
         [s.default_benchmark],
     ).fetchall()

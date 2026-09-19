@@ -57,7 +57,16 @@
    ],
    "within_band": null,
    "n_compared": 0,
-   "n_ok": 0
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 20000000000.0,
+    "basis": "total",
+    "shares_used": 801000000.0,
+    "split_factor": 1.0,
+    "iv_comparable": 24.97,
+    "upside_pct": -54.4,
+    "position_iv": "SELL"
+   }
   },
   "price_at_t0": 54.810001373291016,
   "reasons": [
@@ -242,6 +251,11 @@
    "iv_compared": 0,
    "iv_ok": 0,
    "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "total",
+   "iv_comparable": 24.97,
+   "iv_upside_pct": -54.4,
+   "position_iv": "SELL",
    "base_metric_gap_pct": null,
    "expected_return_at_price": null,
    "quote_scores": [

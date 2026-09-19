@@ -79,6 +79,15 @@
     "as_of": 2.416,
     "period": "FY2023",
     "gap_pct": -17.2
+   },
+   "comparable": {
+    "iv_stated": 20.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 20.0,
+    "upside_pct": -83.0,
+    "position_iv": "SELL"
    }
   },
   "price_at_t0": 117.79000091552734,
@@ -253,6 +262,11 @@
    "iv_compared": 0,
    "iv_ok": 0,
    "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 20.0,
+   "iv_upside_pct": -83.0,
+   "position_iv": "SELL",
    "base_metric_gap_pct": -17.2,
    "expected_return_at_price": null,
    "quote_scores": [

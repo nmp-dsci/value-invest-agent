@@ -4,10 +4,11 @@
  "per_year": 20,
  "tables": {
   "evals": 120,
-  "fiscal_years": 1228,
+  "fiscal_years": 1230,
   "prices": 274110,
   "rates": 27424,
-  "statements": 85330,
+  "splits": 251,
+  "statements": 86090,
   "tickers": 189,
   "title_labels": 1353,
   "validations": 290,
@@ -85,6 +86,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "the total market valuation perspective on berkshire hathaway would be 845 billion dollars compare that to the market valuation current of 514 billion and you see a huge discrepancy",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 845.0,
+   "iv_upside_pct": 296.8,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": 0.007326804279782939,
@@ -126,6 +132,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so we can say that now compared to others freeport is fairly priced",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 34.46,
+   "iv_upside_pct": 88.9,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": 0.8509178649488023,
@@ -167,6 +178,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "cheniere looks like a good bet on long-term us lng prices",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 70.0,
+   "iv_upside_pct": 41.4,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": 0.4190881676582179,
@@ -208,6 +224,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so the answer whether berkshire is a buy or not it is about you not about whether the stock will go up or down",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.1321154244321625,
@@ -249,6 +270,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "however over the long term i've been negative on exxon expecting perhaps not a dividend cut but not a good situation and that's exactly what has happened",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.41968176233558907,
@@ -290,6 +316,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "i personally will not invest in ibm and really not even follow it because because it's ugly and i think i can find better",
+   "iv_basis": null,
+   "split_factor": 1.046,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.03631734753670579,
@@ -326,11 +357,16 @@
    "critic_agrees": true,
    "reproducible_share": 0.75,
    "faithful_share": 1.0,
-   "price_check": "false",
+   "price_check": "true",
    "iv_ok": 1,
    "iv_compared": 3,
    "base_gap": 48.4,
    "headline_quote": "we could say that if the growth rates are reached that amazon stock is closed to being fairly valued for an eight percent return",
+   "iv_basis": "per_share",
+   "split_factor": 20.0,
+   "iv_comparable": 138.8,
+   "iv_upside_pct": -12.3,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.08831063968945796,
@@ -365,13 +401,18 @@
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
    "critic_agrees": true,
-   "reproducible_share": 0.4,
+   "reproducible_share": 0.6,
    "faithful_share": 1.0,
    "price_check": null,
    "iv_ok": 0,
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "as soon as it Looks good that to that is invaluable am not going to follow it Cause we have Company with their Hands of a single pageview",
+   "iv_basis": null,
+   "split_factor": 1.324,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.11110890867703893,
@@ -413,6 +454,11 @@
    "iv_compared": 2,
    "base_gap": null,
    "headline_quote": "buying neo now is a very risky or we can say stupid think because of all the risks",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 60.0,
+   "iv_upside_pct": 5.3,
+   "position_iv": "HOLD",
    "validations": {
     "6": {
      "excess": -0.40884864361508144,
@@ -454,6 +500,11 @@
    "iv_compared": 0,
    "base_gap": -75.4,
    "headline_quote": "so so what you can expect van workshop and great business margin of safety men het donker mindset buff het mindset en dat we like i continue to do better and everybody en that's it",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 727.0,
+   "iv_upside_pct": 202.3,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": 0.00012516695186826077,
@@ -495,6 +546,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "you can see how the intrinsic value is slightly above the current stock price of 56 for a 10 return",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 58.0,
+   "iv_upside_pct": 2.1,
+   "position_iv": "HOLD",
    "validations": {
     "6": {
      "excess": -0.19709075997736691,
@@ -536,6 +592,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "tesla for me is just an amazing business but a risky investment and that's it",
+   "iv_basis": null,
+   "split_factor": 3.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.032235777366601326,
@@ -577,6 +638,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so that's why i invested in intel back in september and there is a lot to share and learn when it comes to this situation",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 55.53,
+   "iv_upside_pct": -14.4,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.28187382384257886,
@@ -618,6 +684,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "i have bought a little bit for my large portfolio so in a 20 position portfolio i see baidu as a fit i have put a smaller position if it goes down we'll add more",
+   "iv_basis": "total_implausible",
+   "split_factor": 1.0,
+   "iv_comparable": 2548.84,
+   "iv_upside_pct": 1025.1,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.4121275593712831,
@@ -659,6 +730,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so if it crashes 20 25 you can expect a 10 return now we are at around 7 8 from google which is still great still a great business so nothing wrong with that",
+   "iv_basis": "total",
+   "split_factor": 20.0,
+   "iv_comparable": 88.86,
+   "iv_upside_pct": -22.1,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.1630795798755973,
@@ -700,6 +776,11 @@
    "iv_compared": 1,
    "base_gap": null,
    "headline_quote": "so be very very careful when investing in this because the fundamentals are simply not there from a fundamental perspective",
+   "iv_basis": "per_share",
+   "split_factor": 0.03333333333333333,
+   "iv_comparable": 108.0,
+   "iv_upside_pct": -97.5,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.6284789036431073,
@@ -741,6 +822,11 @@
    "iv_compared": 2,
    "base_gap": 8.2,
    "headline_quote": "unfortunately for me for an expected return of 10 berkshire on a conservative basis is 50 over valued or 100 percent over valued and should crash 50",
+   "iv_basis": "total_no_shares",
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.11170409894317901,
@@ -782,6 +868,11 @@
    "iv_compared": 2,
    "base_gap": -74.9,
    "headline_quote": "so you are let's say fairly priced for a stock market return of 10 plus i'm not including jd logistics here huge value",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 115.0,
+   "iv_upside_pct": 47.0,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": -0.23299664867721748,
@@ -823,6 +914,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "i think it's an easy 2x to 10x investment over the next decade let's say i give it a 90 chance",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.46431503454082734,
@@ -864,6 +960,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "for this is not an investment would look Deeper into",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.5131507995392068,
@@ -905,6 +1006,11 @@
    "iv_compared": 1,
    "base_gap": null,
    "headline_quote": "i don't own it but it's a great business nothing wrong with it a little bit high valuation but the greatness of the business might be worth it might be worth it to pay a premium for such a good business",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 100.0,
+   "iv_upside_pct": -42.0,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.033566045021992785,
@@ -946,6 +1052,11 @@
    "iv_compared": 1,
    "base_gap": null,
    "headline_quote": "so i would not invest in paypal because i don't think the strength of the business is there to justify investing in that",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 70.0,
+   "iv_upside_pct": -44.5,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.17231213409442359,
@@ -987,6 +1098,11 @@
    "iv_compared": 0,
    "base_gap": -1.2,
    "headline_quote": "it's not even close to my top five and that's why i'm not going to add facebook here because yes there is risk and reward but it hasn't improved",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.1547459142206179,
@@ -1028,6 +1144,11 @@
    "iv_compared": 1,
    "base_gap": null,
    "headline_quote": "the risk and reward simply doesn't suit me",
+   "iv_basis": "per_share_implausible",
+   "split_factor": 20.0,
+   "iv_comparable": 0.1,
+   "iv_upside_pct": -99.9,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.04044316654870017,
@@ -1064,11 +1185,16 @@
    "critic_agrees": false,
    "reproducible_share": 0.6,
    "faithful_share": 1.0,
-   "price_check": "false",
+   "price_check": "true",
    "iv_ok": 0,
    "iv_compared": 1,
    "base_gap": -0.2,
    "headline_quote": "thus google is undervalued at current levels",
+   "iv_basis": "per_share",
+   "split_factor": 20.0,
+   "iv_comparable": 158.95,
+   "iv_upside_pct": 21.9,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": -0.08056159998821322,
@@ -1110,6 +1236,11 @@
    "iv_compared": 1,
    "base_gap": -61.7,
    "headline_quote": "you could expect this to double over the next decade so seven six seven percent long-term return which is nothing bad of course",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 211.0,
+   "iv_upside_pct": -33.9,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.024500014104762324,
@@ -1151,6 +1282,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "intel is priced for a 10 11 expected return which makes it a relatively good buy",
+   "iv_basis": "per_share_implausible",
+   "split_factor": 1.0,
+   "iv_comparable": 800.0,
+   "iv_upside_pct": 1645.6,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.2762745862402787,
@@ -1192,6 +1328,11 @@
    "iv_compared": 2,
    "base_gap": null,
    "headline_quote": "netflix is now giving likely a 10 return on investment for the long term",
+   "iv_basis": "per_share",
+   "split_factor": 10.0,
+   "iv_comparable": 14.0,
+   "iv_upside_pct": -35.8,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.3876520694187613,
@@ -1233,6 +1374,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "the opportunity of a good business at a good price might be there but also you don't have to rush anywhere you have the time to learn to get to that high degree of certainty and to buy if it fits you",
+   "iv_basis": null,
+   "split_factor": 10.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.3876520694187613,
@@ -1274,6 +1420,11 @@
    "iv_compared": 1,
    "base_gap": 39.7,
    "headline_quote": "for me definitely this is still too risky",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 238.0,
+   "iv_upside_pct": -40.3,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.19333116151271912,
@@ -1315,6 +1466,11 @@
    "iv_compared": 1,
    "base_gap": null,
    "headline_quote": "at the current price the lower you buy it of course it's better for now it looks like a good business at an okay price",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 136.0,
+   "iv_upside_pct": 24.4,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": -0.08613407303933729,
@@ -1356,6 +1512,11 @@
    "iv_compared": 1,
    "base_gap": null,
    "headline_quote": "cisco is let's say fairly priced for a return but there are better and i own what i think from a conservative valuation is still better",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 46.74,
+   "iv_upside_pct": 3.8,
+   "position_iv": "HOLD",
    "validations": {
     "6": {
      "excess": 0.12616928721402498,
@@ -1397,6 +1558,11 @@
    "iv_compared": 1,
    "base_gap": null,
    "headline_quote": "i personally think there is better no matter the valuation ... i don't like it i will not dig deeper or follow it",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 72.2,
+   "iv_upside_pct": -10.2,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.10431211872248769,
@@ -1438,6 +1604,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "that is what makes this a spin-off buy from a value perspective but you have to keep in mind also the risk",
+   "iv_basis": "per_share_implausible",
+   "split_factor": 1.0,
+   "iv_comparable": 80.0,
+   "iv_upside_pct": 485.7,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.33501080690256657,
@@ -1479,6 +1650,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "i really want to see tesla succeed but i'm not investing in it",
+   "iv_basis": null,
+   "split_factor": 3.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.5325899806790869,
@@ -1520,6 +1696,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so 15 000 buy now transmit and we have to see whether the order is filled there we go order filled at 55.18",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 24.97,
+   "iv_upside_pct": -54.4,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.035701637855045876,
@@ -1561,6 +1742,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "this is not a value investment this is nothing even close to what i do even if the fundamentals look good but reward me as a shareholder and then we can talk about good fundamentals",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.1740020673349103,
@@ -1595,13 +1781,18 @@
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
    "critic_agrees": true,
-   "reproducible_share": 0.8,
+   "reproducible_share": 1.0,
    "faithful_share": 1.0,
    "price_check": "false",
    "iv_ok": 0,
    "iv_compared": 0,
    "base_gap": -7.7,
    "headline_quote": "still offering an average 10 return discount rate expected return for the investment so nothing bad there so i'll just keep it in the portfolio at current levels",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 43.0,
+   "iv_upside_pct": -50.3,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.014893487253367366,
@@ -1643,6 +1834,11 @@
    "iv_compared": 1,
    "base_gap": -11.4,
    "headline_quote": "that was the risk and reward still looks okay still a hold for me",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 153.0,
+   "iv_upside_pct": -8.9,
+   "position_iv": "HOLD",
    "validations": {
     "6": {
      "excess": 0.05613049732288855,
@@ -1684,6 +1880,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "now it is time to add to the position because when it falls that was the strategy as already explained if it falls more i'll add more",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.10275566945609704,
@@ -1725,6 +1926,11 @@
    "iv_compared": 1,
    "base_gap": 8.7,
    "headline_quote": "well I will buy just a little bit because of the valuation and of the risks and if a great business like apple declines like it did today for uh five percent which is insane but if it declines more I will just keep adding more till we get a full position over time",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 130.0,
+   "iv_upside_pct": -17.1,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.028930312713902895,
@@ -1766,6 +1972,11 @@
    "iv_compared": 2,
    "base_gap": -95.3,
    "headline_quote": "I'll take this opportunity to buy Google for the YouTube portfolio because of the PE ratio of the quality of the business I'm going to start with the full position",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 199.0,
+   "iv_upside_pct": 101.5,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": -0.0167612065105176,
@@ -1807,6 +2018,11 @@
    "iv_compared": 0,
    "base_gap": -80.5,
    "headline_quote": "eBay is not even a contender here because I want businesses that have something of an educational purpose",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.06251891430160361,
@@ -1848,6 +2064,11 @@
    "iv_compared": 0,
    "base_gap": -36.7,
    "headline_quote": "it is not a contender for my YouTube portfolio because as we discussed with eBay as was discussed with Cole there is not that positive line of future that will give value",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.18237419217159934,
@@ -1889,6 +2110,11 @@
    "iv_compared": 0,
    "base_gap": -25.0,
    "headline_quote": "hpq is definitely a contender because what I like about businesses I like that buying them at a fair cheap price but I also like that that in 10 years the business is likely to going to be bigger and better which gives me less risk a margin of safety and I'm looking forward to following hpq",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.04375221580132127,
@@ -1930,6 +2156,11 @@
    "iv_compared": 0,
    "base_gap": -0.2,
    "headline_quote": "therefore also I will not add the Dolby to our YouTube portfolio because it's simply too risky",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.20210058171795087,
@@ -1971,6 +2202,11 @@
    "iv_compared": 0,
    "base_gap": -1071.8,
    "headline_quote": "these Industrials are simply not my passion because the risks are there the upside is there likely stable and then depending on the economy so nothing where I can have an edge on other analysts well covered all here so it's simply not for me",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.014131750863244141,
@@ -2012,6 +2248,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so if I look at my YouTube portfolio Visa is not a candidate because I prefer Google at 18 with similar growth projections ahead then Visa at 27.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.14110037188558233,
@@ -2053,6 +2294,11 @@
    "iv_compared": 0,
    "base_gap": -40.9,
    "headline_quote": "so it's not a stock that I'm going to follow long term",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 60.0,
+   "iv_upside_pct": -27.1,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.16761825107056005,
@@ -2087,13 +2333,18 @@
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
    "critic_agrees": true,
-   "reproducible_share": 0.4,
+   "reproducible_share": 0.6,
    "faithful_share": 1.0,
    "price_check": null,
    "iv_ok": 0,
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "it is a strong Contender for the YouTube portfolio and I'll put it alongside hpq and Disney for now on the contender list",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.028393654901762266,
@@ -2135,6 +2386,11 @@
    "iv_compared": 0,
    "base_gap": 64.8,
    "headline_quote": "I think that it is a medium short term but low long-term risk if you invest in Amazon now",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.10013298990280162,
@@ -2176,6 +2432,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so I'm going short",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.03178998670335165,
@@ -2217,6 +2478,11 @@
    "iv_compared": 2,
    "base_gap": -59.9,
    "headline_quote": "which means I would not invest in Berkshire now",
+   "iv_basis": "total_no_shares",
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.06888536929657474,
@@ -2258,6 +2524,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "of course I also consider Google a little bit overvalued wait for buying but I'm just saying that it might be better by down the road",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.3443296052925584,
@@ -2299,6 +2570,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "in my opinion it's not a great buy it's a good one",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.11983549987548625,
@@ -2340,6 +2616,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "no point in making the valuation of something that we can not know what happens to margin and revenues if hits the fan",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.22026547820614384,
@@ -2381,6 +2662,11 @@
    "iv_compared": 0,
    "base_gap": 154.4,
    "headline_quote": "therefore it doesn't even fit our portfolio because I need a clear positive risk and reward something undervalued to even take a position",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.19915374010490305,
@@ -2422,6 +2708,11 @@
    "iv_compared": 0,
    "base_gap": -7.4,
    "headline_quote": "I personally am not going to look deeper here because even if it might be a good investment it's just a sector that I now don't have the will nor the time not nor am I attracted to learn all the mechanics of it",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.021469010104289366,
@@ -2463,6 +2754,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "too many maybes to make this a long-term hold for people investing into it",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.05022041913575026,
@@ -2504,6 +2800,11 @@
    "iv_compared": 0,
    "base_gap": -17.2,
    "headline_quote": "not for me I'm not going to follow",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 20.0,
+   "iv_upside_pct": -83.0,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.13455475946964568,
@@ -2545,6 +2846,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "in this case cang is still risky there is still room for downside but there is still room for total disaster if they can't keep margins up",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 30.0,
+   "iv_upside_pct": 96.3,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": 0.36700313440230325,
@@ -2586,6 +2892,11 @@
    "iv_compared": 0,
    "base_gap": 67788.7,
    "headline_quote": "from the risk and reward perspective this looks like uh by when that Returns the EIT returns it could be a 2X over the long term",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 15.0,
+   "iv_upside_pct": -74.8,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.22222620769623558,
@@ -2627,6 +2938,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "which makes it something not that I'm going to put my money into but just as a fun fact it is cheaper than many of the other top S&P 500 companies",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 153.1,
+   "iv_upside_pct": 10.7,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": 0.09212664563275674,
@@ -2668,6 +2984,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "in my eyes Facebook is simply meta too risky now",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.2590052874714268,
@@ -2709,6 +3030,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "a good business good price everything looks good but there is always the recession scenario here that makes the fear",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.02800719172818078,
@@ -2750,6 +3076,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so relative buy absolutely absolute not yet",
+   "iv_basis": null,
+   "split_factor": 4.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.1218167308486755,
@@ -2791,6 +3122,11 @@
    "iv_compared": 0,
    "base_gap": -358203013691.0,
    "headline_quote": "however if you are are asking the question is Burkshire a value investment now and that depends on the price purchased then I would say not now",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.027234349696603433,
@@ -2832,6 +3168,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I'm not adding ADM to the covered stock on my research platform yet",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 20.0,
+   "iv_upside_pct": -65.7,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.051808501201996204,
@@ -2873,6 +3214,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so Starbucks yes it is a relative buy it is an okay absolute buy it is not a value investing bargain",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.019522914297418925,
@@ -2914,6 +3260,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "now is Amazon a relative buy no at a p ratio of 60 with the delution yes they're growing 10% but they're also diluting I would say no with those numbers absolutely by",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.10440729108939917,
@@ -2955,6 +3306,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so not a relative buy it is not an absolute buy for just a 3% dividend",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.17053112697880213,
@@ -2996,6 +3352,11 @@
    "iv_compared": 0,
    "base_gap": 525.0,
    "headline_quote": "to invest for my Diversified research platform portfolio I need an itsy bitsy bigger margin of safety I would need this to be 10% so I'm saying it here at 25",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 25.0,
+   "iv_upside_pct": -19.1,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.36526025537530094,
@@ -3037,6 +3398,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so then you know okay I might start accumulating and have a good return over the next three to 5 years if I am patient and I know what I own",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.11157457622971945,
@@ -3078,6 +3444,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so 2x versus ugly versus losing everything not the value investment not a bet I will continue following",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.23560095941663284,
@@ -3119,6 +3490,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I don't think it's a value investment margin of safety it's not cheap even if you would say send a p ratio of 15",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.03501340789461027,
@@ -3160,6 +3536,11 @@
    "iv_compared": 0,
    "base_gap": 14.8,
    "headline_quote": "I think relatively speaking it is a much better buy than Nike",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.12374765141359756,
@@ -3201,6 +3582,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so I would maybe there will be a high reward but there is also significant risk if they just start slowing down next quarters next year this stock is 50% down which is a huge risk so anything can happen I'm out of PayPal",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.34490118022627136,
@@ -3242,6 +3628,11 @@
    "iv_compared": 0,
    "base_gap": -1.4,
    "headline_quote": "much better now to buy Nike to conclude but not yet a great value investing opportunity",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 35.04,
+   "iv_upside_pct": -52.1,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.08925579344718759,
@@ -3283,6 +3674,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I'm always watching and looking at this as a bit too risky for my taste because I'm not getting paid to own it hold it or wait",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.0025175532696253278,
@@ -3324,6 +3720,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so the key question with value investing is can I lose with Apple stock NOW Warren Buffett said yes you can",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 110.0,
+   "iv_upside_pct": -52.0,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.0025063485964631482,
@@ -3365,6 +3766,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I think that here even a little bit changing from Buffett a bird in the hand is much more worth than two Microsoft birds in the bush five years down the road",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 267.77,
+   "iv_upside_pct": -35.7,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.02361305525584767,
@@ -3402,6 +3808,11 @@
    "iv_compared": 0,
    "base_gap": -33.3,
    "headline_quote": "it is very risky because it's based on a promise and it's very expensive on the current capacity cash value creation so simply Tesla is not something to follow on this value investing Channel",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 28.69,
+   "iv_upside_pct": -88.5,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.15470546439188504,
@@ -3439,6 +3850,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "the key is the price to earnings ratio we are now at 26 in case it reverts to normal prices like 1 then you are 50% down",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.08075262885754864,
@@ -3476,6 +3892,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "Dollar General stock looks like a strong relative buy at the moment",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.3443778123167629,
@@ -3513,6 +3934,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "for now for Value investors watch it as I say always watch it before it becomes too late",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.004361400182861019,
@@ -3550,6 +3976,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I'm sorry I'm not buying it because as I said oil prices higher benefited for exons Last 5 Years and current cash printing situation",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.009006424916000677,
@@ -3587,6 +4018,11 @@
    "iv_compared": 0,
    "base_gap": -0.9,
    "headline_quote": "fairly priced at the moment for a 10% return",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 38.35,
+   "iv_upside_pct": -1.1,
+   "position_iv": "HOLD",
    "validations": {
     "6": {
      "excess": 0.07278789527095864,
@@ -3624,6 +4060,11 @@
    "iv_compared": 2,
    "base_gap": -1.3,
    "headline_quote": "I don't think over the next 10 years there is a positive return for Apple shareholders",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 100.0,
+   "iv_upside_pct": -55.1,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.08371547312059302,
@@ -3661,6 +4102,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "now it looks great but simply not value investing I cannot know where will this be in 2027",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.15301404722165857,
@@ -3698,6 +4144,11 @@
    "iv_compared": 0,
    "base_gap": -44.8,
    "headline_quote": "p ratio of 22 is just too high call me when it gets to 15 on perhaps even lower earnings and a dividend yield of four five%",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 75.0,
+   "iv_upside_pct": -49.7,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.22645628820752428,
@@ -3735,6 +4186,11 @@
    "iv_compared": 1,
    "base_gap": -34.1,
    "headline_quote": "likely to give a 10 11% long-term return at the moment there are dividends buyback there is the food cycle food sector long-term growth",
+   "iv_basis": "per_share_implausible",
+   "split_factor": 1.0,
+   "iv_comparable": 113.0,
+   "iv_upside_pct": 811.3,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.04576371114874345,
@@ -3772,6 +4228,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "we'll keep looking for the same businesses but as Buffett did at P ratios of 10",
+   "iv_basis": null,
+   "split_factor": 1.057,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.05105530482536391,
@@ -3804,11 +4265,16 @@
    "critic_agrees": true,
    "reproducible_share": 0.4,
    "faithful_share": 1.0,
-   "price_check": "false",
+   "price_check": "true",
    "iv_ok": 0,
    "iv_compared": 0,
    "base_gap": 1.0,
    "headline_quote": "this is really too bubbly for me but if it comes slower to 100 and then I know that earnings will go from 4 to seven and then likely nine in the future then that is something that I look",
+   "iv_basis": "per_share",
+   "split_factor": 4.0,
+   "iv_comparable": 25.0,
+   "iv_upside_pct": -42.1,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.26782701911276274,
@@ -3846,6 +4312,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "it has not yet triggered the okay now we can start with a position",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 51.0,
+   "iv_upside_pct": 4.4,
+   "position_iv": "HOLD",
    "validations": {
     "6": {
      "excess": -0.2150855205943556,
@@ -3883,6 +4354,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "To me that is too risky despite the 10% let's say free cash flow yield gained from an exuberant market last year.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.08661190744622416,
@@ -3920,6 +4396,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "United Health Insurance usually goes to the two hard pile for me.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.08364015066958697,
@@ -3957,6 +4438,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "That's a risk that simply puts lithium out of the value investing question and that's it.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 1.1930435165950626,
@@ -3994,6 +4480,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "So val yes it is cheaper but still not cheap enough for an absolute value investment purchase.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.2484566628451368,
@@ -4031,6 +4522,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I just don't want to take that bet",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.13678169597584044,
@@ -4068,6 +4564,11 @@
    "iv_compared": 1,
    "base_gap": -61.8,
    "headline_quote": "This might be blasphemy but I don't think Birkshshire is such a great buy nor a hold at the moment. Perhaps a hold.",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 180.84,
+   "iv_upside_pct": -64.3,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": -0.0684527064808318,
@@ -4105,6 +4606,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "fashion is simply not for me. So, I will not be following it.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.03306009069664151,
@@ -4138,6 +4644,11 @@
    "iv_compared": 0,
    "base_gap": -0.1,
    "headline_quote": "However, I have just this value investing thing in me that doesn't allow me to make money on that.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.1839764221430863,
@@ -4171,6 +4682,11 @@
    "iv_compared": 0,
    "base_gap": -6.8,
    "headline_quote": "that's an 80 billion bottom apart from disastrous scenarios so the downside is 10 20% maybe while the upside is 2x which makes Nike a strong risk andreward buy.",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 80.0,
+   "iv_upside_pct": 31.6,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": -0.38477353801572434,
@@ -4204,6 +4720,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "so nothing wrong with the company just not my cup of tea",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.023219098104246827,
@@ -4237,6 +4758,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "that's why I think it's best to leave this to pension funds.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.21187387738984298,
@@ -4270,6 +4796,11 @@
    "iv_compared": 0,
    "base_gap": 20391.0,
    "headline_quote": "To follow and wait is my plan.",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 120.0,
+   "iv_upside_pct": 54.2,
+   "position_iv": "BUY",
    "validations": {
     "6": {
      "excess": 0.021328501733565375,
@@ -4303,6 +4834,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "if there is the potential that this might be a value trap that's enough that's all you need to know as a value investment",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.3675030399834813,
@@ -4336,6 +4872,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "you have to be able to read what is a trap, what is just the 2% fee and what is not",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": -0.2938924413730156,
@@ -4369,6 +4910,11 @@
    "iv_compared": 1,
    "base_gap": 0.0,
    "headline_quote": "given the big guys buying it, it's not a bad addition to a portfolio now depending on how diversified you are",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 180.0,
+   "iv_upside_pct": -14.3,
+   "position_iv": "SELL",
    "validations": {
     "6": {
      "excess": 0.1412363662956455,
@@ -4402,6 +4948,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I am long HP in my diversified portfolio.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {
     "6": {
      "excess": 0.6213680413331906,
@@ -4435,6 +4986,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "It looks good longterm but it doesn't have that quality that I would want to see in a business mode to consider it for my portfolios.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {}
   },
   {
@@ -4463,6 +5019,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "I personally will compare it to other opportunities that I have when it comes cheaper.",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 1000.0,
+   "iv_upside_pct": -37.8,
+   "position_iv": "SELL",
    "validations": {}
   },
   {
@@ -4491,6 +5052,11 @@
    "iv_compared": 2,
    "base_gap": -32.8,
    "headline_quote": "It's even much better than the S&P 500.",
+   "iv_basis": "total",
+   "split_factor": 1.0,
+   "iv_comparable": 324.47,
+   "iv_upside_pct": -33.4,
+   "position_iv": "SELL",
    "validations": {}
   },
   {
@@ -4519,6 +5085,11 @@
    "iv_compared": 1,
    "base_gap": 1.8,
    "headline_quote": "Therefore, on our quadrant, I put and I'll keep Adobe on a bet because it's too much of a bet for me.",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 175.0,
+   "iv_upside_pct": -10.3,
+   "position_iv": "SELL",
    "validations": {}
   },
   {
@@ -4547,6 +5118,11 @@
    "iv_compared": 0,
    "base_gap": 4.9,
    "headline_quote": "So, the reward is low. The risk is relatively high compared to others.",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 83.0,
+   "iv_upside_pct": -41.6,
+   "position_iv": "SELL",
    "validations": {}
   },
   {
@@ -4575,6 +5151,11 @@
    "iv_compared": 2,
    "base_gap": 33.3,
    "headline_quote": "Therefore, not something for the value investor.",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 275.0,
+   "iv_upside_pct": 42.8,
+   "position_iv": "BUY",
    "validations": {}
   },
   {
@@ -4603,6 +5184,11 @@
    "iv_compared": 0,
    "base_gap": 10.7,
    "headline_quote": "Therefore, no value now in Apple.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {}
   },
   {
@@ -4631,6 +5217,11 @@
    "iv_compared": 3,
    "base_gap": 1.3,
    "headline_quote": "It is again fairly priced for a 10% return.",
+   "iv_basis": "per_share",
+   "split_factor": 1.0,
+   "iv_comparable": 27.0,
+   "iv_upside_pct": -3.4,
+   "position_iv": "HOLD",
    "validations": {}
   },
   {
@@ -4659,6 +5250,11 @@
    "iv_compared": 0,
    "base_gap": -16.7,
    "headline_quote": "Google doesn't offer margin of safety. It is very risky for the low return.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {}
   },
   {
@@ -4687,6 +5283,11 @@
    "iv_compared": 0,
    "base_gap": null,
    "headline_quote": "And then Oracle is just a gamble like most of the market. Therefore, I would not touch it.",
+   "iv_basis": null,
+   "split_factor": 1.0,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
    "validations": {}
   }
  ],
@@ -4764,6 +5365,18 @@
    "n": 17
   },
   {
+   "category": "capital_allocation",
+   "direction": "for_buy",
+   "reproducible": "derived",
+   "n": 17
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 16
+  },
+  {
    "category": "competence",
    "direction": "for_sell",
    "reproducible": "judgement",
@@ -4772,14 +5385,8 @@
   {
    "category": "cyclicality",
    "direction": "for_sell",
-   "reproducible": "external",
-   "n": 16
-  },
-  {
-   "category": "capital_allocation",
-   "direction": "for_buy",
    "reproducible": "derived",
-   "n": 15
+   "n": 13
   },
   {
    "category": "growth",
@@ -4788,21 +5395,9 @@
    "n": 13
   },
   {
-   "category": "cyclicality",
-   "direction": "for_sell",
-   "reproducible": "derived",
-   "n": 13
-  },
-  {
    "category": "growth",
    "direction": "for_sell",
    "reproducible": "derived",
-   "n": 12
-  },
-  {
-   "category": "moat",
-   "direction": "for_buy",
-   "reproducible": "external",
    "n": 12
   },
   {
@@ -4820,6 +5415,24 @@
   {
    "category": "valuation",
    "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 11
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 11
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "derived",
+   "n": 11
+  },
+  {
+   "category": "valuation",
+   "direction": "for_sell",
    "reproducible": "external",
    "n": 11
   },
@@ -4830,27 +5443,9 @@
    "n": 11
   },
   {
-   "category": "valuation",
-   "direction": "for_sell",
-   "reproducible": "statements",
-   "n": 11
-  },
-  {
-   "category": "moat",
-   "direction": "for_buy",
-   "reproducible": "derived",
-   "n": 10
-  },
-  {
    "category": "growth",
    "direction": "for_buy",
    "reproducible": "statements",
-   "n": 9
-  },
-  {
-   "category": "capital_allocation",
-   "direction": "for_buy",
-   "reproducible": "external",
    "n": 9
   },
   {
@@ -4872,9 +5467,21 @@
    "n": 8
   },
   {
+   "category": "capital_allocation",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 7
+  },
+  {
    "category": "valuation",
    "direction": "for_buy",
    "reproducible": "external",
+   "n": 6
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_sell",
+   "reproducible": "derived",
    "n": 6
   },
   {
@@ -4890,10 +5497,10 @@
    "n": 6
   },
   {
-   "category": "capital_allocation",
+   "category": "moat",
    "direction": "for_sell",
-   "reproducible": "derived",
-   "n": 6
+   "reproducible": "external",
+   "n": 5
   },
   {
    "category": "valuation",
@@ -4902,15 +5509,21 @@
    "n": 5
   },
   {
-   "category": "moat",
+   "category": "cyclicality",
    "direction": "for_sell",
-   "reproducible": "external",
-   "n": 5
+   "reproducible": "prices",
+   "n": 4
   },
   {
-   "category": "sentiment",
-   "direction": "for_sell",
-   "reproducible": "derived",
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 4
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "judgement",
    "n": 4
   },
   {
@@ -4920,21 +5533,9 @@
    "n": 4
   },
   {
-   "category": "valuation",
-   "direction": "for_buy",
-   "reproducible": "prices",
-   "n": 4
-  },
-  {
-   "category": "cyclicality",
+   "category": "sentiment",
    "direction": "for_sell",
-   "reproducible": "prices",
-   "n": 4
-  },
-  {
-   "category": "valuation",
-   "direction": "for_buy",
-   "reproducible": "judgement",
+   "reproducible": "derived",
    "n": 4
   },
   {
@@ -4944,15 +5545,15 @@
    "n": 4
   },
   {
-   "category": "balance_sheet",
-   "direction": "for_sell",
-   "reproducible": "derived",
-   "n": 3
-  },
-  {
    "category": "valuation",
    "direction": "for_sell",
    "reproducible": "prices",
+   "n": 3
+  },
+  {
+   "category": "balance_sheet",
+   "direction": "for_sell",
+   "reproducible": "derived",
    "n": 3
   },
   {
@@ -4964,13 +5565,13 @@
   {
    "category": "moat",
    "direction": "for_sell",
-   "reproducible": "prices",
+   "reproducible": "derived",
    "n": 2
   },
   {
    "category": "cyclicality",
    "direction": "for_buy",
-   "reproducible": "judgement",
+   "reproducible": "derived",
    "n": 2
   },
   {
@@ -4982,14 +5583,26 @@
   {
    "category": "cyclicality",
    "direction": "for_buy",
-   "reproducible": "derived",
+   "reproducible": "judgement",
    "n": 2
   },
   {
    "category": "moat",
    "direction": "for_sell",
-   "reproducible": "derived",
+   "reproducible": "prices",
    "n": 2
+  },
+  {
+   "category": "growth",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 1
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 1
   },
   {
    "category": "macro_rates",
@@ -4998,25 +5611,13 @@
    "n": 1
   },
   {
-   "category": "cyclicality",
-   "direction": "for_buy",
-   "reproducible": "external",
-   "n": 1
-  },
-  {
-   "category": "management",
+   "category": "sentiment",
    "direction": "for_sell",
    "reproducible": "statements",
    "n": 1
   },
   {
-   "category": "cyclicality",
-   "direction": "for_buy",
-   "reproducible": "prices",
-   "n": 1
-  },
-  {
-   "category": "sentiment",
+   "category": "management",
    "direction": "for_sell",
    "reproducible": "statements",
    "n": 1
@@ -5028,13 +5629,13 @@
    "n": 1
   },
   {
-   "category": "sentiment",
+   "category": "cyclicality",
    "direction": "for_buy",
-   "reproducible": "statements",
+   "reproducible": "external",
    "n": 1
   },
   {
-   "category": "growth",
+   "category": "cyclicality",
    "direction": "for_buy",
    "reproducible": "prices",
    "n": 1
@@ -5207,7 +5808,7 @@
       "indeterminate": 2
      },
      "iv_hit": [
-      3,
+      4,
       7
      ]
     },
@@ -5248,7 +5849,7 @@
       "indeterminate": 2
      },
      "iv_hit": [
-      1,
+      2,
       7
      ]
     },
@@ -5289,7 +5890,7 @@
       "indeterminate": 4
      },
      "iv_hit": [
-      1,
+      2,
       7
      ]
     }
@@ -5457,7 +6058,7 @@
       "indeterminate": 0
      },
      "iv_hit": [
-      2,
+      4,
       15
      ]
     },
@@ -5498,7 +6099,7 @@
       "indeterminate": 1
      },
      "iv_hit": [
-      2,
+      4,
       15
      ]
     },
@@ -5582,7 +6183,7 @@
       "indeterminate": 0
      },
      "iv_hit": [
-      2,
+      6,
       13
      ]
     },
@@ -5623,7 +6224,7 @@
       "indeterminate": 1
      },
      "iv_hit": [
-      2,
+      4,
       13
      ]
     },
@@ -5664,7 +6265,7 @@
       "indeterminate": 3
      },
      "iv_hit": [
-      2,
+      4,
       13
      ]
     }
@@ -5708,7 +6309,7 @@
      "indeterminate": 19
     },
     "iv_hit": [
-     7,
+     10,
      52
     ]
    },
@@ -5749,7 +6350,7 @@
      "indeterminate": 7
     },
     "iv_hit": [
-     8,
+     13,
      49
     ]
    },
@@ -5790,7 +6391,7 @@
      "indeterminate": 4
     },
     "iv_hit": [
-     8,
+     15,
      40
     ]
    }
@@ -5835,7 +6436,7 @@
        "indeterminate": 14
       },
       "iv_hit": [
-       5,
+       6,
        35
       ]
      },
@@ -5876,7 +6477,7 @@
        "indeterminate": 5
       },
       "iv_hit": [
-       2,
+       4,
        17
       ]
      },
@@ -6145,7 +6746,7 @@
         "indeterminate": 1
        },
        "iv_hit": [
-        0,
+        1,
         2
        ]
       }
@@ -6356,7 +6957,7 @@
         "indeterminate": 2
        },
        "iv_hit": [
-        1,
+        2,
         9
        ]
       },
@@ -6397,7 +6998,7 @@
         "indeterminate": 1
        },
        "iv_hit": [
-        1,
+        2,
         4
        ]
       }
@@ -6443,7 +7044,7 @@
        "indeterminate": 7
       },
       "iv_hit": [
-       5,
+       8,
        33
       ]
      },
@@ -6484,7 +7085,7 @@
        "indeterminate": 0
       },
       "iv_hit": [
-       3,
+       5,
        16
       ]
      },
@@ -6661,7 +7262,7 @@
         "indeterminate": 0
        },
        "iv_hit": [
-        0,
+        1,
         2
        ]
       }
@@ -6788,7 +7389,7 @@
         "indeterminate": 1
        },
        "iv_hit": [
-        2,
+        4,
         10
        ]
       },
@@ -6872,7 +7473,7 @@
         "indeterminate": 1
        },
        "iv_hit": [
-        1,
+        2,
         9
        ]
       },
@@ -6913,7 +7514,7 @@
         "indeterminate": 0
        },
        "iv_hit": [
-        1,
+        2,
         4
        ]
       }
@@ -6969,7 +7570,7 @@
        "indeterminate": 4
       },
       "iv_hit": [
-       6,
+       11,
        27
       ]
      },
@@ -7010,7 +7611,7 @@
        "indeterminate": 0
       },
       "iv_hit": [
-       2,
+       4,
        13
       ]
      },
@@ -7103,7 +7704,7 @@
         "indeterminate": 0
        },
        "iv_hit": [
-        1,
+        2,
         2
        ]
       }
@@ -7230,7 +7831,7 @@
         "indeterminate": 0
        },
        "iv_hit": [
-        2,
+        4,
         10
        ]
       },
@@ -7314,7 +7915,7 @@
         "indeterminate": 0
        },
        "iv_hit": [
-        1,
+        4,
         9
        ]
       },
@@ -7355,7 +7956,7 @@
         "indeterminate": 0
        },
        "iv_hit": [
-        1,
+        2,
         4
        ]
       }
@@ -7450,6 +8051,93 @@
    "hold": 3,
    "sell": 14,
    "rule_sensitive": 6
+  }
+ ],
+ "splits_in_window": [
+  {
+   "ticker": "NVDA",
+   "date": "2021-07-20",
+   "ratio": 4.0
+  },
+  {
+   "ticker": "INMD",
+   "date": "2021-10-01",
+   "ratio": 2.0
+  },
+  {
+   "ticker": "IBM",
+   "date": "2021-11-04",
+   "ratio": 1.046
+  },
+  {
+   "ticker": "T",
+   "date": "2022-04-11",
+   "ratio": 1.324
+  },
+  {
+   "ticker": "AMZN",
+   "date": "2022-06-06",
+   "ratio": 20.0
+  },
+  {
+   "ticker": "GOOG",
+   "date": "2022-07-18",
+   "ratio": 20.0
+  },
+  {
+   "ticker": "GOOGL",
+   "date": "2022-07-18",
+   "ratio": 20.0
+  },
+  {
+   "ticker": "TSLA",
+   "date": "2022-08-25",
+   "ratio": 3.0
+  },
+  {
+   "ticker": "CPRT",
+   "date": "2022-11-04",
+   "ratio": 2.0
+  },
+  {
+   "ticker": "CPRT",
+   "date": "2023-08-22",
+   "ratio": 2.0
+  },
+  {
+   "ticker": "NVDA",
+   "date": "2024-06-10",
+   "ratio": 10.0
+  },
+  {
+   "ticker": "MSTR",
+   "date": "2024-08-08",
+   "ratio": 10.0
+  },
+  {
+   "ticker": "DECK",
+   "date": "2024-09-17",
+   "ratio": 6.0
+  },
+  {
+   "ticker": "IBKR",
+   "date": "2025-06-18",
+   "ratio": 4.0
+  },
+  {
+   "ticker": "NFLX",
+   "date": "2025-11-17",
+   "ratio": 10.0
+  },
+  {
+   "ticker": "SPGI",
+   "date": "2026-07-01",
+   "ratio": 1.057
+  },
+  {
+   "ticker": "BYND",
+   "date": "2026-08-14",
+   "ratio": 0.03333333333333333
   }
  ],
  "tickers": [

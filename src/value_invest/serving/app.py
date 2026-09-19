@@ -388,6 +388,7 @@ def create_app() -> FastAPI:
             """SELECT 'C · 3-way' AS rule, position AS label, count(*) AS n FROM vi.evals GROUP BY 2
                UNION ALL SELECT 'A · binary', CASE WHEN position = 'BUY' THEN 'BUY' ELSE 'SELL' END, count(*) FROM vi.evals GROUP BY 2
                UNION ALL SELECT 'B · hurdle', CASE WHEN expected_return_pct IS NULL THEN 'n/a' WHEN expected_return_pct >= 10 THEN 'BUY' WHEN position = 'SELL' THEN 'SELL' ELSE 'HOLD' END, count(*) FROM vi.evals GROUP BY 2
+               UNION ALL SELECT 'D · IV vs price', coalesce(json_extract_string(checks, '$.position_iv'), 'n/a'), count(*) FROM vi.evals GROUP BY 2
                ORDER BY 1, 2""",
         )
         stats = _rows(
@@ -402,7 +403,11 @@ def create_app() -> FastAPI:
                       sum(CAST(json_extract(checks, '$.iv_ok') AS INTEGER)) AS iv_ok, sum(CAST(json_extract(checks, '$.iv_compared') AS INTEGER)) AS iv_compared,
                       count(*) FILTER (WHERE abs(coalesce(CAST(json_extract(checks, '$.base_metric_gap_pct') AS DOUBLE), 0)) > 15) AS base_gap_over_15,
                       count(*) FILTER (WHERE CAST(json_extract(critic, '$.position_agrees') AS BOOLEAN)) AS critic_agrees,
-                      count(*) FILTER (WHERE critic IS NOT NULL) AS critic_n
+                      count(*) FILTER (WHERE critic IS NOT NULL) AS critic_n,
+                      count(*) FILTER (WHERE json_extract_string(checks, '$.position_iv') IS NOT NULL) AS iv_rule_n,
+                      count(*) FILTER (WHERE json_extract_string(checks, '$.position_iv') = position) AS iv_rule_agrees,
+                      count(*) FILTER (WHERE json_extract_string(checks, '$.iv_basis') LIKE 'total%') AS iv_total_basis,
+                      count(*) FILTER (WHERE json_extract_string(checks, '$.iv_basis') LIKE '%implausible' OR json_extract_string(checks, '$.iv_basis') = 'total_no_shares') AS iv_unusable
                FROM vi.evals""",
         )
         out["stats"] = stats[0] if stats else {}

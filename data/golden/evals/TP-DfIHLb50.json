@@ -100,6 +100,15 @@
     "as_of": 23.01,
     "period": "FY2019",
     "gap_pct": 48.4
+   },
+   "comparable": {
+    "iv_stated": 2776.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 20.0,
+    "iv_comparable": 138.8,
+    "upside_pct": -12.3,
+    "position_iv": "SELL"
    }
   },
   "price_at_t0": 158.25599670410156,
@@ -242,7 +251,7 @@
    "notes": "ok \u2014 tutorial video using AMZN as example; he concludes it is close to fairly valued for 8% if growth is reached, no buy/sell call. Reason 3's 'little margin of safety' is a mild inference."
   },
   "checks": {
-   "price_check": false,
+   "price_check": true,
    "price_at_t0": 158.25599670410156,
    "latest_fy_visible": 2019,
    "reproducible_share": 0.75,
@@ -258,6 +267,11 @@
    "iv_compared": 3,
    "iv_ok": 1,
    "iv_within_band": false,
+   "split_factor": 20.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 138.8,
+   "iv_upside_pct": -12.3,
+   "position_iv": "SELL",
    "base_metric_gap_pct": 48.4,
    "expected_return_at_price": 42.6,
    "quote_scores": [

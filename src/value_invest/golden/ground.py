@@ -248,6 +248,12 @@ class AsOf:
     latest: dict[str, float] = field(default_factory=dict)  # metric key → value (latest FY)
     history: dict[str, dict[int, float]] = field(default_factory=dict)  # metric key → {fy: value}
     risk_free: float | None = None
+    # Product of split ratios after T0 (vi.splits): his on-camera numbers are pre-split,
+    # vi.prices is split-adjusted, so comparable = stated / split_factor.
+    split_factor: float = 1.0
+    # Largest share count on the latest visible FY (traded-class equivalent for dual-class
+    # filers: Berkshire's "Ordinary Shares Number" is class A, its diluted average is B).
+    share_count_max: float | None = None
     metrics: dict[str, dict[str, Any]] = field(
         default_factory=dict
     )  # key → {value, unit, origin, formula, line_items}
@@ -268,6 +274,8 @@ def load_as_of(con: duckdb.DuckDBPyConnection, ticker: str, t0: date) -> AsOf:
     ).fetchone()
     if r:
         a.price_date, a.price = r[0], float(r[1])
+    sf = con.execute("SELECT vi.split_factor_after(?, ?)", [ticker, t0]).fetchone()
+    a.split_factor = float(sf[0]) if sf and sf[0] else 1.0
     a.closes_near_t0 = [
         float(x[0])
         for x in con.execute(
@@ -309,6 +317,12 @@ def load_as_of(con: duckdb.DuckDBPyConnection, ticker: str, t0: date) -> AsOf:
     if complete:
         a.fy_year = max(complete)
         a.fy_period_end, a.fy_available_from = meta_fy[a.fy_year]
+        share_rows = LINE["shares"][1]
+        for fy in sorted(by_fy, reverse=True):
+            vals = [by_fy[fy][n] for n in share_rows if by_fy[fy].get(n)]
+            if vals:
+                a.share_count_max = max(vals)
+                break
         for key, hist in a.history.items():
             if a.fy_year in hist:
                 a.latest[key] = hist[a.fy_year]
@@ -841,6 +855,53 @@ def recompute_valuation(draft: GoldenEvalDraft, a: AsOf) -> dict[str, Any]:
     return out
 
 
+IV_MARGIN = 0.10  # rule D band: |IV / price − 1| ≤ 10 % is fairly valued → HOLD
+TOTAL_VALUE_MIN = 1e6  # an "IV" above this is the whole company, not a share
+PLAUSIBLE_UPSIDE = (-0.98, 4.0)  # outside this the IV is in the wrong units; flag, don't call
+
+
+def comparable_iv(iv_stated: float | None, a: AsOf) -> dict[str, Any]:
+    """His stated intrinsic value on the same footing as ``vi.prices`` at T0.
+
+    Two conversions: (1) when he values the whole company (Berkshire "$390 billion",
+    Google "$1.2 trillion") divide by the shares outstanding visible at T0; (2) divide
+    by the split factor after T0 (Amazon's $2,776 was pre 20:1). Then rule D — the
+    position his own IV implies: BUY if the price sits more than ``IV_MARGIN`` below
+    it, SELL if more than ``IV_MARGIN`` above, HOLD in between."""
+    out: dict[str, Any] = {
+        "iv_stated": iv_stated,
+        "basis": None,
+        "shares_used": None,
+        "split_factor": a.split_factor,
+        "iv_comparable": None,
+        "upside_pct": None,
+        "position_iv": None,
+    }
+    if not iv_stated or iv_stated <= 0:
+        return out
+    iv = float(iv_stated)
+    if iv >= TOTAL_VALUE_MIN:
+        shares = a.share_count_max or a.latest.get("shares")
+        if not shares or shares <= 0:
+            out["basis"] = "total_no_shares"
+            return out
+        out["basis"], out["shares_used"] = "total", shares
+        iv = iv / shares
+    else:
+        out["basis"] = "per_share"
+    iv = iv / (a.split_factor or 1.0)
+    out["iv_comparable"] = round(iv, 2)
+    if a.price:
+        up = iv / a.price - 1
+        out["upside_pct"] = round(up * 100, 1)
+        if up < PLAUSIBLE_UPSIDE[0] or up > PLAUSIBLE_UPSIDE[1]:
+            # a units slip (ADS ratio, share class, mis-read number) — no rule-D call, review it
+            out["basis"] = f"{out['basis']}_implausible"
+            return out
+        out["position_iv"] = "BUY" if up > IV_MARGIN else "SELL" if up < -IV_MARGIN else "HOLD"
+    return out
+
+
 def ground(
     con: duckdb.DuckDBPyConnection, draft: GoldenEvalDraft, ticker: str, t0: date
 ) -> tuple[AsOf, dict[str, Any]]:
@@ -850,10 +911,12 @@ def ground(
     iv_ok = ivr.get("within_band")
     for reason in draft.reasons:
         reason.data_check = check_reason(reason, a, iv_ok, ivr)
+    ivr["comparable"] = comparable_iv(draft.valuation.iv_weighted_stated, a)
     pm = draft.valuation.price_mentioned
     price_check = None
     if pm and a.closes_near_t0:
-        price_check = any(abs(c / pm - 1) <= PRICE_TOL for c in a.closes_near_t0)
+        pm_adj = pm / (a.split_factor or 1.0)
+        price_check = any(abs(c / pm_adj - 1) <= PRICE_TOL for c in a.closes_near_t0)
     n = len(draft.reasons) or 1
     repro = sum(
         1
@@ -879,6 +942,11 @@ def ground(
         "iv_compared": ivr.get("n_compared", 0),
         "iv_ok": ivr.get("n_ok", 0),
         "iv_within_band": iv_ok,
+        "split_factor": a.split_factor,
+        "iv_basis": ivr["comparable"]["basis"],
+        "iv_comparable": ivr["comparable"]["iv_comparable"],
+        "iv_upside_pct": ivr["comparable"]["upside_pct"],
+        "position_iv": ivr["comparable"]["position_iv"],
         "base_metric_gap_pct": (ivr.get("base_metric") or {}).get("gap_pct"),
         "expected_return_at_price": ivr.get("expected_return_at_price"),
     }

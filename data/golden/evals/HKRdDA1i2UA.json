@@ -68,7 +68,16 @@
    "scenarios": [],
    "within_band": null,
    "n_compared": 0,
-   "n_ok": 0
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 50000000000.0,
+    "basis": "total",
+    "shares_used": 1451000000.0,
+    "split_factor": 1.0,
+    "iv_comparable": 34.46,
+    "upside_pct": 88.9,
+    "position_iv": "BUY"
+   }
   },
   "price_at_t0": 18.239999771118164,
   "reasons": [
@@ -109,11 +118,11 @@
       "Shares Outstanding"
      ],
      "value_stated": 0.08,
-     "value_as_of": -0.0678780292561012,
+     "value_as_of": -0.04420726233426302,
      "agrees": false,
      "formula": "FCF / market cap",
      "as_of_period": "FY2019",
-     "gap_note": "he says 0.08, as-of -0.067878 (FY2019); annual vs TTM or a different definition"
+     "gap_note": "he says 0.08, as-of -0.0442073 (FY2019); annual vs TTM or a different definition"
     }
    },
    {
@@ -283,6 +292,11 @@
    "iv_compared": 0,
    "iv_ok": 0,
    "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "total",
+   "iv_comparable": 34.46,
+   "iv_upside_pct": 88.9,
+   "position_iv": "BUY",
    "base_metric_gap_pct": null,
    "expected_return_at_price": null,
    "quote_scores": [

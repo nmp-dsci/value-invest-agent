@@ -31,6 +31,17 @@ CREATE TABLE IF NOT EXISTS vi.title_labels (
   labelled_at TIMESTAMP
 );
 
+-- Stock splits after T0 (Yahoo). vi.prices is split-adjusted; the numbers he says on
+-- camera are in the shares of the day, so IV / price mentions divide by the factor.
+CREATE TABLE IF NOT EXISTS vi.splits (
+  ticker TEXT NOT NULL,
+  date DATE NOT NULL,
+  ratio DOUBLE NOT NULL,
+  PRIMARY KEY (ticker, date)
+);
+CREATE OR REPLACE MACRO vi.split_factor_after(tkr, d) AS
+  (SELECT coalesce(product(ratio), 1.0) FROM vi.splits WHERE ticker = tkr AND date > d);
+
 CREATE TABLE IF NOT EXISTS vi.tickers (
   ticker TEXT PRIMARY KEY,
   name TEXT,

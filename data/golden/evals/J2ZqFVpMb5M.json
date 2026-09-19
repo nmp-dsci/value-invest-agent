@@ -100,6 +100,15 @@
     "as_of": 1.59,
     "period": "FY2025",
     "gap_pct": 1.3
+   },
+   "comparable": {
+    "iv_stated": 27.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 27.0,
+    "upside_pct": -3.4,
+    "position_iv": "HOLD"
    }
   },
   "price_at_t0": 27.940000534057617,
@@ -297,6 +306,11 @@
    "iv_compared": 3,
    "iv_ok": 1,
    "iv_within_band": false,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 27.0,
+   "iv_upside_pct": -3.4,
+   "position_iv": "HOLD",
    "base_metric_gap_pct": 1.3,
    "expected_return_at_price": 4.0,
    "quote_scores": [

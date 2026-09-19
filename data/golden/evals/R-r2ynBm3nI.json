@@ -90,7 +90,16 @@
    "within_band": false,
    "n_compared": 1,
    "n_ok": 0,
-   "expected_return_at_price": 36.4
+   "expected_return_at_price": 36.4,
+   "comparable": {
+    "iv_stated": 1.9,
+    "basis": "per_share_implausible",
+    "shares_used": null,
+    "split_factor": 20.0,
+    "iv_comparable": 0.1,
+    "upside_pct": -99.9,
+    "position_iv": null
+   }
   },
   "price_at_t0": 153.2935028076172,
   "reasons": [
@@ -303,6 +312,11 @@
    "iv_compared": 1,
    "iv_ok": 0,
    "iv_within_band": false,
+   "split_factor": 20.0,
+   "iv_basis": "per_share_implausible",
+   "iv_comparable": 0.1,
+   "iv_upside_pct": -99.9,
+   "position_iv": null,
    "base_metric_gap_pct": null,
    "expected_return_at_price": 36.4,
    "quote_scores": [

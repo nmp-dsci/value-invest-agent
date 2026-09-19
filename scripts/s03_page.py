@@ -207,6 +207,64 @@ def main() -> None:
         )
 
     ov12 = ov.get("12") or {}
+    splits_in_window = N.get("splits_in_window", [])
+    iv_total = sum(1 for e in evals if (e.get("iv_basis") or "").startswith("total"))
+    iv_rule_n = sum(1 for e in evals if e.get("position_iv"))
+    iv_rule_agree = sum(
+        1 for e in evals if e.get("position_iv") and e["position_iv"] == e["position"]
+    )
+    iv_unusable = sum(
+        1
+        for e in evals
+        if e.get("iv_basis")
+        and (e["iv_basis"].endswith("implausible") or e["iv_basis"] == "total_no_shares")
+    )
+    iv_conf: dict[tuple[str, str], int] = {}
+    for e in evals:
+        if e.get("position_iv"):
+            iv_conf[(e["position"], e["position_iv"])] = (
+                iv_conf.get((e["position"], e["position_iv"]), 0) + 1
+            )
+    iv_dis = [e for e in evals if e.get("position_iv") and e["position_iv"] != e["position"]]
+    hold_sell_examples = esc(
+        ", ".join(
+            f"{e['ticker']} {e['t0'][:7]} IV {e['iv_comparable']:g} vs {e['price_at_t0']:.0f}"
+            for e in iv_dis
+            if e["position"] == "HOLD" and e["position_iv"] == "SELL"
+        )
+    )
+    unusable_list = esc(
+        ", ".join(
+            f"{e['ticker']} {e['t0'][:7]} ({e['iv_basis']})"
+            for e in evals
+            if e.get("iv_basis")
+            and (e["iv_basis"].endswith("implausible") or e["iv_basis"] == "total_no_shares")
+        )
+    )
+    big_splits = esc(
+        ", ".join(
+            f"{x['ticker']} {x['ratio']:g}:1 {x['date'][:7]}"
+            for x in splits_in_window
+            if x["ratio"] >= 2
+        )
+    )
+    iv_conf_rows = "".join(
+        f"<tr><td class=mono>{a}</td>"
+        + "".join(
+            f"<td class=r>{'<b>' if a == b else ''}{iv_conf.get((a, b), 0)}{'</b>' if a == b else ''}</td>"
+            for b in ("BUY", "HOLD", "SELL")
+        )
+        + "</tr>"
+        for a in ("BUY", "HOLD", "SELL")
+    )
+    iv_dis_rows = "".join(
+        f"<tr><td class=mono><b>{esc(e['ticker'])}</b> · {e['t0']}</td>"
+        f"<td><span class='tag {POS_TAG[e['position']]}'>{e['position']}</span></td><td class=mono>{e['stance_detail']}</td>"
+        f"<td class=r>{e['iv_weighted_stated']:,.0f}</td><td class=mono>{e['iv_basis']}</td><td class=r>{e['split_factor']:g}</td>"
+        f"<td class=r>{e['iv_comparable']:g}</td><td class=r>{e['price_at_t0']:.1f}</td><td class=r>{e['iv_upside_pct']:+.0f} %</td>"
+        f"<td><span class='tag {POS_TAG[e['position_iv']]}'>{e['position_iv']}</span></td></tr>"
+        for e in iv_dis
+    )
     page = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -221,7 +279,7 @@ def main() -> None:
 <body>
 <nav class="top"><div class="wrap">
   <span class="brand"><span class="diamond"></span>value·invest agent</span>
-  <a href="#built">Built</a><a href="#how">How an eval is made</a><a href="#seed">Extractor iterations</a><a href="#validation">Were his calls right?</a><a href="#evals">All evals</a><a href="#ground">Grounding</a><a href="#method">His method</a><a href="#window">The 120</a><a href="#app">App</a><a href="#review">Review</a>
+  <a href="#built">Built</a><a href="#how">How an eval is made</a><a href="#seed">Extractor iterations</a><a href="#validation">Were his calls right?</a><a href="#evals">All evals</a><a href="#ground">Grounding</a><a href="#ivrule">Rule D</a><a href="#method">His method</a><a href="#window">The 120</a><a href="#app">App</a><a href="#review">Review</a>
 </div></nav>
 <div class="wrap">
 <header class="hero">
@@ -328,6 +386,26 @@ def main() -> None:
   </table></div>
 </section>
 
+<section id="ivrule">
+  <div class="section-head"><span class="num">05b</span><h2>Rule D: does his own intrinsic value imply his call? (added in this review)</h2></div>
+  <p>Intrinsic value is the basis of a value call — IV 200 against a price of 100 is a BUY. To test that against what he actually says, his stated IV first has to be put on the same footing as <span class="k">vi.prices</span>, which is split-adjusted while his numbers are in the shares of the day: {len(splits_in_window)} splits fall inside the window ({big_splits}), and {iv_total} of the {with_iv} IVs are whole-company figures ("Berkshire is worth $700 billion") that divide by the traded-class share count visible at T0. <b>Rule D</b> then reads BUY if the price sits more than 10 % below the comparable IV, SELL if more than 10 % above, HOLD in between. It is reported beside his stance (rule C), never instead of it — the transcript stays the golden label.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">{iv_rule_agree} / {iv_rule_n}</div><div class="l">rule D agrees with his stated position</div></div>
+    <div class="kpi"><div class="v">{iv_unusable}</div><div class="l">IVs unusable — wrong units or no share count (review queue)</div></div>
+    <div class="kpi"><div class="v">{price_ok} / {price_n}</div><div class="l">price he quotes ≈ close at T0, split-adjusted (was 25 / 68)</div></div>
+    <div class="kpi"><div class="v">{ov12.get("iv_hit", [0, 0])[0]} / {ov12.get("iv_hit", [0, 0])[1]}</div><div class="l">comparable IV reached within 12 m</div></div>
+  </div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>his position ↓ · rule D →</th><th class="r">BUY</th><th class="r">HOLD</th><th class="r">SELL</th></tr></thead>
+    <tbody>{iv_conf_rows}</tbody>
+  </table></div>
+  <div class="note"><b>What the disagreements say.</b> Most are HOLDs whose IV sits well below the price ({hold_sell_examples}): his "intrinsic value" is often the price at which the stock returns his 10 %, i.e. where he would <em>buy</em>, while "fairly valued, hold" means he would not <em>sell</em> what he owns. Rule D with a symmetric ±10 % band is therefore stricter than his stance, and the gap is itself part of the method to teach. The rest are units slips to review ({unusable_list}).</div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>position = ticker · T0</th><th>his call</th><th>stance</th><th class="r">IV stated</th><th>basis</th><th class="r">÷ split</th><th class="r">comparable IV</th><th class="r">price at T0</th><th class="r">upside</th><th>rule D</th></tr></thead>
+    <tbody>{iv_dis_rows}</tbody>
+  </table></div>
+</section>
+
 <section id="method">
   <div class="section-head"><span class="num">06</span><h2>His method, distilled from {ms.get("n_evals", n)} evals</h2></div>
   <div class="cards">
@@ -362,7 +440,7 @@ def main() -> None:
   <div class="cards">
     <div class="card rec"><h4>Start with the {len(rule_sens)} rule-sensitive evals</h4><p>{esc(", ".join(f"{e['ticker']} {e['t0'][:7]}" for e in rule_sens[:12]))}{" …" if len(rule_sens) > 12 else ""}. These are where "fairly valued for 10 %" meets "not a buy" — your accept / edit decides the boundary for M3.</p></div>
     <div class="card"><h4>{len(title_mis)} titles say buy, the transcript does not</h4><p>{esc(", ".join(f"{e['ticker']} {e['t0'][:7]}" for e in title_mis))}. The extractor read the transcript; check it read it right.</p></div>
-    <div class="card"><h4>Known limits, recorded not hidden</h4><ul><li>{with_iv} of {n} videos state an intrinsic value; the rest are stance-only.</li><li>{base_gap} evals use a base metric &gt; 15 % from the last annual figure (TTM vs annual, D9).</li><li>Reasons resting on consensus, guidance, segments or 13F stay <em>external</em> — {pct(1 - repro_total / max(1, total_reasons))} of reasons.</li><li>The critic disagrees on position in {n - critic_agree} evals; κ is reported, not hidden.</li></ul></div>
+    <div class="card"><h4>Known limits, recorded not hidden</h4><ul><li>{with_iv} of {n} videos state an intrinsic value; the rest are stance-only. Where he states one, his own IV implies his call in {iv_rule_agree} of {iv_rule_n} (rule D, §05b) — the HOLD band is where his practice and the mechanical rule part.</li><li>{base_gap} evals use a base metric &gt; 15 % from the last annual figure (TTM vs annual, D9).</li><li>Reasons resting on consensus, guidance, segments or 13F stay <em>external</em> — {pct(1 - repro_total / max(1, total_reasons))} of reasons.</li><li>The critic disagrees on position in {n - critic_agree} evals; κ is reported, not hidden.</li></ul></div>
     <div class="card"><h4>Next: M3</h4><p>The analyst agent v0 (<span class="k">agents/v0/{{system.md, helper.py}}</span>) starts from <span class="k">valuation.py</span> and the method summary, is scored on reproducing these evals from the point-in-time data only, and is gated on the within-year test split (D15); evals whose outcome is not in yet are the forward holdout.</p></div>
   </div>
 </section>

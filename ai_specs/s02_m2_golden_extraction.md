@@ -143,3 +143,10 @@ validations at every horizon the data allows; κ and seed eval published;
   30 % test, label-independent) so the M3 agent is gated on history it never saw;
   holdout = outcome not yet available at the chosen horizon, hence per horizon.
   Replaces the by-year train / test / holdout of the plan.
+- D16 (M2 review, proposed) rule D = position implied by his own IV vs the price at
+  T0 (±10 % band = HOLD), after making the IV comparable: ÷ split factor after T0
+  (`vi.splits`, `vi.split_factor_after`), whole-company IVs ÷ the traded-class
+  share count (`ground.comparable_iv`), implausible ratios flagged not called.
+  Reported beside rule C (25 / 51 agree); the transcript stance stays the label
+  because his "intrinsic value" is usually his buy price while "hold" means he
+  would not sell. `iv_hit` and the price check now use the comparable numbers.

@@ -79,6 +79,15 @@
     "as_of": 2.709,
     "period": "FY2021",
     "gap_pct": -7.7
+   },
+   "comparable": {
+    "iv_stated": 43.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 43.0,
+    "upside_pct": -50.3,
+    "position_iv": "SELL"
    }
   },
   "price_at_t0": 86.58000183105469,
@@ -152,7 +161,7 @@
      "agrees": false,
      "formula": "Operating Cash Flow FY2021",
      "as_of_period": "FY2021",
-     "gap_note": "he says 3e+09, as-of 6.595e+09 (FY2021); annual vs TTM or a different definition; not in our data: market cap"
+     "gap_note": "he says 3e+09, as-of 6.595e+09 (FY2021); annual vs TTM or a different definition"
     }
    },
    {
@@ -194,7 +203,7 @@
      "agrees": false,
      "formula": "Repurchase Of Capital Stock FY2021",
      "as_of_period": "FY2021",
-     "gap_note": "he says 1e+09, as-of -0 (FY2021); annual vs TTM or a different definition; not in our data: dividend increase, shareholder yield"
+     "gap_note": "he says 1e+09, as-of -0 (FY2021); annual vs TTM or a different definition; not in our data: shareholder yield"
     }
    },
    {
@@ -252,14 +261,17 @@
      }
     ],
     "data_check": {
-     "reproducible": "external",
-     "line_items": [],
-     "value_stated": null,
-     "value_as_of": null,
-     "agrees": null,
-     "formula": null,
-     "as_of_period": null,
-     "gap_note": "not in our data: years of dividend increases"
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding"
+     ],
+     "value_stated": 90.0,
+     "value_as_of": 1.4734982332155477,
+     "agrees": false,
+     "formula": "|Cash Dividends Paid| / shares",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 90, as-of 1.4735 (FY2021); annual vs TTM or a different definition"
     }
    }
   ],
@@ -282,19 +294,24 @@
    "price_check": false,
    "price_at_t0": 86.58000183105469,
    "latest_fy_visible": 2021,
-   "reproducible_share": 0.8,
+   "reproducible_share": 1.0,
    "reproducible_counts": {
     "statements": 3,
     "prices": 0,
-    "derived": 1,
-    "external": 1,
+    "derived": 2,
+    "external": 0,
     "judgement": 0
    },
-   "metrics_compared": 4,
+   "metrics_compared": 5,
    "metrics_agree": 0,
    "iv_compared": 0,
    "iv_ok": 0,
    "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 43.0,
+   "iv_upside_pct": -50.3,
+   "position_iv": "SELL",
    "base_metric_gap_pct": -7.7,
    "expected_return_at_price": null,
    "quote_scores": [

@@ -98,6 +98,15 @@
     "as_of": 4.9,
     "period": "FY2026",
     "gap_pct": 33.3
+   },
+   "comparable": {
+    "iv_stated": 275.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 275.0,
+    "upside_pct": 42.8,
+    "position_iv": "BUY"
    }
   },
   "price_at_t0": 192.52999877929688,
@@ -291,6 +300,11 @@
    "iv_compared": 2,
    "iv_ok": 2,
    "iv_within_band": true,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 275.0,
+   "iv_upside_pct": 42.8,
+   "position_iv": "BUY",
    "base_metric_gap_pct": 33.3,
    "expected_return_at_price": 12.8,
    "quote_scores": [

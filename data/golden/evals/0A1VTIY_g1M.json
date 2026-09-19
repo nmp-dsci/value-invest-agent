@@ -58,7 +58,16 @@
    ],
    "within_band": false,
    "n_compared": 1,
-   "n_ok": 0
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 198000000000.0,
+    "basis": "total",
+    "shares_used": 4236000000.0,
+    "split_factor": 1.0,
+    "iv_comparable": 46.74,
+    "upside_pct": 3.8,
+    "position_iv": "HOLD"
+   }
   },
   "price_at_t0": 45.04999923706055,
   "reasons": [
@@ -241,6 +250,11 @@
    "iv_compared": 1,
    "iv_ok": 0,
    "iv_within_band": false,
+   "split_factor": 1.0,
+   "iv_basis": "total",
+   "iv_comparable": 46.74,
+   "iv_upside_pct": 3.8,
+   "position_iv": "HOLD",
    "base_metric_gap_pct": null,
    "expected_return_at_price": null,
    "quote_scores": [

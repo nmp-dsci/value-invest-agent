@@ -21,6 +21,29 @@ def _upsert_prices(con: duckdb.DuckDBPyConnection, df) -> int:
     return len(df)
 
 
+def load_splits(
+    con: duckdb.DuckDBPyConnection, tickers: list[str] | None = None, refresh: bool = False
+) -> dict:
+    """Split histories for every sampled ticker → vi.splits."""
+    sampled = tickers or [
+        r[0]
+        for r in con.execute(
+            "SELECT DISTINCT primary_ticker FROM vi.videos WHERE in_sample AND primary_ticker IS NOT NULL ORDER BY 1"
+        ).fetchall()
+    ]
+    report: dict = {"tickers": len(sampled), "splits": 0, "with_splits": []}
+    for t in sampled:
+        df = yahoo.fetch_splits(t, refresh=refresh)
+        if df.empty:
+            continue
+        con.register("_s", df)
+        con.execute("INSERT OR REPLACE INTO vi.splits SELECT ticker, date, ratio FROM _s")
+        con.unregister("_s")
+        report["splits"] += len(df)
+        report["with_splits"].append(t)
+    return report
+
+
 def _upsert_statements(con: duckdb.DuckDBPyConnection, df) -> int:
     if df.empty:
         return 0

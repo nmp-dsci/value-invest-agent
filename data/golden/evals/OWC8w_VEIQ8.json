@@ -81,6 +81,15 @@
     "as_of": 112.2,
     "period": "FY2021",
     "gap_pct": -0.2
+   },
+   "comparable": {
+    "iv_stated": 3179.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 20.0,
+    "iv_comparable": 158.95,
+    "upside_pct": 21.9,
+    "position_iv": "BUY"
    }
   },
   "price_at_t0": 130.4029998779297,
@@ -251,7 +260,7 @@
    "notes": "He models ~10% return at current price, calls it 'medium risk medium reward' and 'about how you feel about owning a great company' \u2014 fairly valued for 10%, not a buy call. HOLD vs extractor's BUY."
   },
   "checks": {
-   "price_check": false,
+   "price_check": true,
    "price_at_t0": 130.4029998779297,
    "latest_fy_visible": 2021,
    "reproducible_share": 0.6,
@@ -267,6 +276,11 @@
    "iv_compared": 1,
    "iv_ok": 0,
    "iv_within_band": false,
+   "split_factor": 20.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 158.95,
+   "iv_upside_pct": 21.9,
+   "position_iv": "BUY",
    "base_metric_gap_pct": -0.2,
    "expected_return_at_price": 52.8,
    "quote_scores": [

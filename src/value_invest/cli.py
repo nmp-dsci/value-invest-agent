@@ -95,6 +95,14 @@ def market(only_missing: bool = True, refresh_prices: bool = False) -> None:
 
 
 @app.command()
+def splits(refresh: bool = False) -> None:
+    """S2: stock-split histories for every sampled ticker → vi.splits (his on-camera prices and IVs are pre-split)."""
+    from value_invest.market.load import load_splits
+
+    rprint(load_splits(db.connect(), refresh=refresh))
+
+
+@app.command()
 def edgar(check_candidates: bool = False, recheck: bool = False) -> None:
     """S2b: 10+ years of annual statements with filing dates for SEC filers (EDGAR) → vi.statements.
     --check-candidates instead marks every single-stock candidate ticker as a filer with annual
