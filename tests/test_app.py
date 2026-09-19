@@ -18,7 +18,9 @@ def test_health_and_funnel(monkeypatch, tmp_path):
     h = client.get("/api/health").json()
     assert h["ok"] and "videos" in h["tables"]
     f = client.get("/api/funnel").json()
-    assert f["listed"] == 0 and f["per_year_target"] == 10
+    from value_invest.config import settings
+
+    assert f["listed"] == 0 and f["per_year_target"] == settings().sample_per_year
     assert client.get("/api/videos/nope").status_code == 404
 
 
