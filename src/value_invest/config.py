@@ -91,5 +91,6 @@ def settings() -> Settings:
         ),
         transcript_lab_api=e.get("TRANSCRIPT_LAB_API", "http://127.0.0.1:8000"),
         default_benchmark=e.get("VI_DEFAULT_BENCHMARK", "SPY"),
+        prices_from=d("VI_PRICES_FROM", date(2017, 1, 1)),
         sec_user_agent=e.get("SEC_USER_AGENT", ""),
     )

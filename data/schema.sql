@@ -88,27 +88,65 @@ CREATE OR REPLACE VIEW vi.fiscal_years AS
          bool_or(line_item = 'Total Revenue') AND bool_or(line_item = 'Total Assets') AS complete
   FROM vi.statements WHERE freq = 'annual' GROUP BY ticker, year(period_end);
 
--- Milestone 2 tables, created now so the app's stub tabs have something to query.
-CREATE TABLE IF NOT EXISTS vi.calls (
-  call_id TEXT PRIMARY KEY,
-  video_id TEXT,
+-- Milestone 2. One golden eval per sampled video: the author's call, his
+-- valuation inputs, the ranked reasons (JSON, each with a data check) and the
+-- critic's verdict. `position` is derived from `stance_detail` by rule C
+-- (BUY / HOLD / SELL); the binary and hurdle views are derived at read time.
+DROP TABLE IF EXISTS vi.calls;  -- the empty M1 stub; superseded by vi.evals
+CREATE TABLE IF NOT EXISTS vi.evals (
+  video_id TEXT PRIMARY KEY,
   ticker TEXT NOT NULL,
-  exchange TEXT,
   t0 DATE NOT NULL,
-  stance TEXT,
-  stance_strength TEXT,
-  conditional_on TEXT,
-  intrinsic_value DOUBLE,
-  intrinsic_value_method TEXT,
+  position TEXT NOT NULL,          -- BUY | HOLD | SELL   (rule C, derived)
+  stance_detail TEXT NOT NULL,     -- absolute_buy | relative_buy | fair_hold | avoid | too_hard | short
+  personal_action TEXT,            -- buying | holding | watching | none | short
+  expected_return_pct DOUBLE,
+  horizon_years DOUBLE,
+  conviction TEXT,                 -- low | medium | high
+  rule_sensitive BOOLEAN,          -- the hurdle cut (B) disagrees with rule C
+  title_says_buy BOOLEAN,          -- title/transcript mismatch flag; never an input
+  headline_quote TEXT,
+  valuation JSON,                  -- method, base metric, scenarios, stated IVs
+  iv_weighted_stated DOUBLE,
+  iv_recomputed JSON,              -- valuation.py on the extracted inputs
   price_mentioned DOUBLE,
   price_at_t0 DOUBLE,
-  horizon_years DOUBLE,
-  thesis JSON,
-  risks JSON,
-  verifiable_claims JSON,
-  evidence JSON,
-  is_primary BOOLEAN DEFAULT TRUE,
+  reasons JSON,                    -- [{rank, direction, category, claim, quote, chunk_id, start_s, feeds, data_check}]
+  external_facts JSON,
+  critic JSON,                     -- {faithful, position_agrees, own_stance_detail, notes}
+  checks JSON,                     -- {faithful_share, reproducible_share, price_check, iv_within_band}
   extractor_version TEXT,
-  curation_status TEXT DEFAULT 'auto',
+  model TEXT,
+  session_id TEXT,
+  transcript_sha256 TEXT,
+  split TEXT,                      -- train | test | holdout
+  curation_status TEXT DEFAULT 'auto',  -- auto | reviewed | rejected
+  review_note TEXT,
+  reviewed_at TIMESTAMP,
   extracted_at TIMESTAMP
 );
+
+-- Forward returns vs the benchmark at T0 + h months, and the verdict on the call.
+CREATE TABLE IF NOT EXISTS vi.validations (
+  video_id TEXT NOT NULL,
+  horizon_m INTEGER NOT NULL,
+  t0 DATE,
+  t1 DATE,
+  ret DOUBLE,
+  bench_ret DOUBLE,
+  excess DOUBLE,                   -- ret - bench_ret, in fraction (0.05 = 5 pp)
+  verdict TEXT,                    -- correct | wrong | indeterminate   (D14 bands)
+  verdict_hold_alt TEXT,           -- HOLD scored as "did not lag by > 5 pp"; same as verdict otherwise
+  iv_hit BOOLEAN,                  -- price touched the stated IV within the horizon
+  PRIMARY KEY (video_id, horizon_m)
+);
+
+-- Daily risk-free series from FRED (DGS10, DGS3MO), so "treasuries at 4 %" reasons ground.
+CREATE TABLE IF NOT EXISTS vi.rates (
+  series TEXT NOT NULL,
+  date DATE NOT NULL,
+  value DOUBLE,
+  PRIMARY KEY (series, date)
+);
+CREATE OR REPLACE MACRO vi.rates_as_of(series_id, t0) AS TABLE
+  SELECT * FROM vi.rates WHERE series = series_id AND date <= t0;

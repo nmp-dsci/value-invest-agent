@@ -32,19 +32,25 @@ def _upsert_statements(con: duckdb.DuckDBPyConnection, df) -> int:
     return len(df)
 
 
-def check_edgar_candidates(con: duckdb.DuckDBPyConnection) -> dict:
-    """Mark every single-stock candidate's ticker as an EDGAR 10-K filer or not, so
-    the sample can be restricted to US stocks with SEC filings."""
+def check_edgar_candidates(con: duckdb.DuckDBPyConnection, recheck: bool = False) -> dict:
+    """Mark every single-stock candidate's ticker as an EDGAR filer with annual
+    us-gaap statements or not, so the sample can be restricted to names whose
+    financial reports we hold with filing dates. ``recheck`` also revisits
+    tickers marked False (the rule broadened to 20-F / 40-F us-gaap filers and
+    the CIK overrides were added after the first pass)."""
     from value_invest.market.edgar import Edgar, check_filer
 
     client = Edgar()
+    cond = (
+        "(t.edgar_filer IS NULL OR t.edgar_filer = FALSE)" if recheck else "t.edgar_filer IS NULL"
+    )
     tickers = [
         r[0]
         for r in con.execute(
-            """SELECT DISTINCT v.primary_ticker FROM vi.videos v
+            f"""SELECT DISTINCT v.primary_ticker FROM vi.videos v
                LEFT JOIN vi.tickers t ON t.ticker = v.primary_ticker
                WHERE v.kind = 'single' AND v.year_bucket IS NOT NULL AND v.primary_ticker IS NOT NULL
-                 AND t.edgar_filer IS NULL ORDER BY 1"""
+                 AND {cond} ORDER BY 1"""
         ).fetchall()
     ]
     filers, non = 0, 0

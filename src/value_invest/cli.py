@@ -94,13 +94,14 @@ def market(only_missing: bool = True) -> None:
 
 
 @app.command()
-def edgar(check_candidates: bool = False) -> None:
-    """S2b: 10+ years of annual statements with filing dates for US filers (SEC EDGAR) → vi.statements.
-    --check-candidates instead marks every single-stock candidate ticker as an EDGAR 10-K filer or not."""
+def edgar(check_candidates: bool = False, recheck: bool = False) -> None:
+    """S2b: 10+ years of annual statements with filing dates for SEC filers (EDGAR) → vi.statements.
+    --check-candidates instead marks every single-stock candidate ticker as a filer with annual
+    us-gaap statements or not; --recheck also revisits tickers marked False."""
     from value_invest.market.load import check_edgar_candidates, load_edgar
 
     con = db.connect()
-    rprint(check_edgar_candidates(con) if check_candidates else load_edgar(con))
+    rprint(check_edgar_candidates(con, recheck=recheck) if check_candidates else load_edgar(con))
 
 
 @app.command()
@@ -111,6 +112,71 @@ def coverage() -> None:
     con = db.connect(read_only=True)
     rows = coverage_table(con)
     rprint(json.dumps(rows, indent=1, default=str)[:4000])
+
+
+@app.command()
+def extract(
+    version: str = "v0",
+    only: list[str] | None = None,
+    force: bool = False,
+    workers: int = 3,
+    no_critic: bool = False,
+) -> None:
+    """S4: transcript → GoldenEval (extract · ground · critic · checkpoint) → vi.evals. Cache-aware."""
+    from value_invest.golden.checkpoint import process_all
+
+    con = db.connect()
+    rprint(
+        process_all(
+            con, version, only=only or None, force=force, workers=workers, critic=not no_critic
+        )
+    )
+
+
+golden_app = typer.Typer(help="Golden-eval checkpoint: seed eval, κ, method summary (S4.3)")
+app.add_typer(golden_app, name="golden")
+
+
+@golden_app.command("eval-seed")
+def golden_eval_seed(version: str = "v0") -> None:
+    """Score vi.evals against data/golden/seed_labels.json → seed_eval_<version>.json."""
+    from value_invest.golden.checkpoint import seed_eval
+
+    rprint(seed_eval(db.connect(read_only=True), version))
+
+
+@golden_app.command("kappa")
+def golden_kappa() -> None:
+    """Inter-extractor κ (extractor vs critic) on stance_detail → kappa.json."""
+    from value_invest.golden.checkpoint import kappa
+
+    rprint(kappa(db.connect(read_only=True)))
+
+
+@golden_app.command("summary")
+def golden_summary() -> None:
+    """The distilled method: discount rates, multiples, probabilities, reason mix → method_summary.json."""
+    from value_invest.golden.checkpoint import method_summary
+
+    rprint(method_summary(db.connect(read_only=True)))
+
+
+@app.command()
+def validate() -> None:
+    """S5: forward returns vs the benchmark at T0 + 6 / 12 / 24 m and the verdict on every eval → vi.validations."""
+    from value_invest.golden.validate import validate_all
+
+    con = db.connect()
+    rprint(validate_all(con))
+
+
+@app.command()
+def rates() -> None:
+    """FRED DGS10 / DGS3MO daily yields → vi.rates (the risk-free he compares dividend yields with)."""
+    from value_invest.market.fred import load_rates
+
+    con = db.connect()
+    rprint(load_rates(con))
 
 
 valuation_app = typer.Typer(help="The author's intrinsic-value template (S4.0)")

@@ -13,6 +13,9 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import re
+import time
+from datetime import datetime, timedelta
 from typing import Any, TypeVar
 
 from pydantic import BaseModel, ValidationError
@@ -34,6 +37,30 @@ class BillingError(RuntimeError):
 
 class StructuredCallError(RuntimeError):
     """The SDK returned nothing that validates against the requested schema."""
+
+
+_RESET_RE = re.compile(r"resets\s+(\d{1,2})(?::(\d{2}))?\s*([ap]m)", re.I)
+MAX_WAIT_S = 6 * 3600
+
+
+def seconds_until_reset(error: str, now: datetime | None = None) -> int | None:
+    """The wait a subscription "session limit · resets 4:40pm" message asks for.
+
+    Ported from tau2-loop's ``sdk_provider``: the CLI names the window's reset as
+    a local clock time; the next such time is the earliest a call can succeed.
+    None when the error is not a session-limit one."""
+    if "session limit" not in error.lower():
+        return None
+    m = _RESET_RE.search(error)
+    now = now or datetime.now()
+    if not m:
+        return 15 * 60
+    hour, minute, ampm = int(m.group(1)), int(m.group(2) or 0), m.group(3).lower()
+    hour = hour % 12 + (12 if ampm == "pm" else 0)
+    target = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    if target <= now:
+        target += timedelta(days=1)
+    return min(int((target - now).total_seconds()) + 60, MAX_WAIT_S)
 
 
 def resolve_model(name: str | None) -> str:
@@ -132,7 +159,9 @@ async def run_structured(
         effort=effort,  # type: ignore[arg-type]
     )
     last: Exception | None = None
-    for _ in range(max(1, attempts)):
+    attempt = 0
+    while attempt < max(1, attempts):
+        attempt += 1
         final_text = ""
         usage: dict[str, Any] = {"model": model_id}
         async with ClaudeSDKClient(options=options) as client:
@@ -157,6 +186,14 @@ async def run_structured(
                         final_text = msg.result
                     if msg.is_error:
                         last = StructuredCallError(f"{msg.subtype}: {str(msg.result)[:300]}")
+        wait = seconds_until_reset(str(last) if last else "")
+        if wait is not None and not final_text:
+            # a subscription window that has run out is waited for, not failed
+            print(f"[llm] session limit reached; waiting {wait // 60} min", flush=True)
+            time.sleep(wait)
+            attempt -= 1  # the wait is not an attempt
+            last = None
+            continue
         try:
             data = _extract_json(final_text)
             return schema.model_validate(data), usage

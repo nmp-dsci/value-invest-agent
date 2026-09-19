@@ -1,0 +1,38 @@
+You extract one **golden eval** from the transcript of a stock-analysis video by Sven Carlin (YouTube channel "Value Investing with Sven Carlin, Ph.D."). The transcript is the ONLY source of truth. The title is never evidence of his view — titles are often ironic ("Buy … for a quick 2x!" can be a video where he refuses to buy).
+
+## What he does in every video
+He runs one valuation template: a base per-share metric (EPS, or the dividend, or net income for Berkshire) grows at one rate for years 1–5 and another for years 6–10, is capitalised at a terminal P/E (or dividend multiple) in year 10, and everything is discounted at his required return (usually 10 %). He runs it as three scenarios — normal, best ("exuberant", "what Wall Street prices in"), worst ("margin of safety", recession) — with probabilities, compares the weighted value to the price, and places the stock on his "value-investing quadrant" (expected return vs risk). Then he says what he would do.
+
+## stance_detail — pick exactly one, from his words about the stock at the current price
+- absolute_buy — he says it is a buy on its own merits / "absolute buy" / margin-of-safety buy.
+- relative_buy — "relative buy", "good buy at the moment", "not a bad addition", he buys it (even "a little"), he holds/accumulates and recommends it, "buy and forget".
+- fair_hold — "fairly valued / fairly priced for a 10 % return", "good business, not a great return", "watch it / contender / start following", "wait for a lower price" while positive on the business.
+- avoid — overvalued / "not for the value investor" / "nothing to do there" / "too risky for the return" / "a bet I would not take" / "wake me up when it is down 50 %".
+- too_hard — he declines to judge the business ("too hard pile", "not my circle of competence").
+- short — he shorts it or says to sell it.
+Do NOT output BUY/HOLD/SELL: that is derived from stance_detail by code.
+personal_action: what HE does — buying | holding | watching | none | short. conviction: low | medium | high. expected_return_pct: the yearly return he expects at the current price, in percent, if he states or clearly implies one ("fairly valued for a 10 % return" → 10; "6 % very safe" → 6; "no positive return over 10 years" → 0). horizon_years when stated (usually 10).
+
+## valuation — his inputs, exactly as stated; null where he does not say
+method: eps_multiple | dividend | fcf | net_income | none. base_metric {name: eps|dps|fcf_per_share|net_income|other, value_stated, quote}. discount_rate as a fraction (0.10). payout_ratio if he uses one. scenarios: up to three of normal/best/worst with g_y1_5, g_y6_10 (fractions), terminal_multiple, probability (fraction), iv_stated (the value he reads off the sheet), quote. iv_weighted_stated when he states a combined number. price_mentioned: the stock price he refers to. what_is_priced_in: growth/multiple he says the market implies. If there is no valuation, method = "none" and scenarios = [].
+
+## reasons — 3 to 5, ranked by how much weight HE gives them
+Each reason: rank; direction for_buy | for_sell (a risk is for_sell; a strength is for_buy — regardless of the final stance); category from: valuation | growth | capital_allocation | balance_sheet | moat | cyclicality | management | macro_rates | competence | sentiment; claim (one sentence, his logic, no facts he did not state); quote (his exact words, ≤ 40 words, copied verbatim from the transcript text — never paraphrase, never fix grammar); chunk_id (the "[chunk:…]" marker of the passage the quote is in); start_s (the seconds of that marker, m:ss → seconds); feeds (which valuation input this argument justifies: base | g_y1_5 | g_y6_10 | terminal | probability | discount | none); metrics: every number he cites for this reason as {name, value, unit, period} in plain words ("buyback yield", 3.1, "pct", null).
+Category guide: valuation = IV vs price, P/E level, what is priced in; growth = revenue/earnings trajectory, expected growth; capital_allocation = buybacks (and at what price), dividends, acquisitions, capex discipline; balance_sheet = debt, cash, interest cost; moat = competitive position, pricing power, fee/cost disadvantage; cyclicality = cycle position, commodity/semiconductor cycles, recession sensitivity; management = incentives, CEO changes, guidance credibility; macro_rates = interest rates, inflation, Fed, treasury yields; competence = circle of competence, complexity, "too hard"; sentiment = what other investors/analysts/Buffett are doing, market exuberance.
+
+## external_facts_used
+List facts he relies on that are NOT in financial statements or price history: analyst consensus/targets, management guidance and targets, segment or geographic splits, 13F holdings, macro numbers, product/market anecdotes.
+
+## Output
+Return ONLY one JSON object with keys: video_id, ticker, call {stance_detail, personal_action, expected_return_pct, horizon_years, conviction, headline_quote}, valuation {…}, reasons [...], external_facts_used [...]. headline_quote is the one verbatim sentence that states his conclusion. No prose, no code fence.
+
+## Example (abridged) — IBKR, 2024-02-10
+Transcript says: "interactive brokers is a good stock to buy now … the p ratio is 16 but they are growing their numbers between 10 and 20% … so it is a good relative buy at the moment … the profit margins was 70% … one reason why they make so much money now … are higher interest rates if interest rates go lower … they will have lower earnings per share … not doing buybacks … there is a lot of employee compensation 7% delusion in a year … relative buy absolutely absolute not yet"
+→ call: {stance_detail: "relative_buy", personal_action: "none", expected_return_pct: null, horizon_years: null, conviction: "medium", headline_quote: "so relative buy absolutely absolute not yet"}
+→ valuation: {method: "none", scenarios: [], price_mentioned: null, …}
+→ reasons: [
+ {rank 1, for_buy, valuation, claim "P/E 16 for a business growing 10–20 % is cheap relative to the market.", quote "the p ratio is 16 but they are growing their numbers between 10 and 20%", feeds "g_y1_5", metrics [{name "pe ratio", value 16, unit "ratio"}, {name "growth", value 15, unit "pct"}]},
+ {rank 2, for_buy, moat, claim "70 % profit margins mark a quality business that keeps earning whatever happens.", quote "the profit margins was 70% this year which is insane", feeds "none", metrics [{name "profit margin", value 70, unit "pct", period "this year"}]},
+ {rank 3, for_sell, macro_rates, claim "Earnings are inflated by high rates; lower rates would cut EPS.", quote "if interest rates go lower then they don't make that spread so they will have lower earnings per share", feeds "probability", metrics [{name "net interest income", value 2.7, unit "usd_bn"}]},
+ {rank 4, for_sell, capital_allocation, claim "No buybacks and 7 % yearly dilution from employee compensation.", quote "there is a lot of employee compensation 7% delusion in a year", feeds "none", metrics [{name "dilution", value 7, unit "pct", period "year"}]}]
+→ external_facts_used: ["CEO's view that rates could reach 7 %", "client accounts and client equity growth", "ownership structure: management owns 74 %"]
