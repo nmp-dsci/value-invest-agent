@@ -40,7 +40,7 @@ FACTS = {
                     ]
                 }
             },
-            "AssetsCurrent": {"units": {"USD": [_e(None, "2023-09-30", 200.0, "2023-11-01")]}},
+            "AssetsCurrent": {"units": {"USD": [_e(None, "2023-09-30", 200.0, "2023-12-01")]}},
             "LiabilitiesCurrent": {"units": {"USD": [_e(None, "2023-09-30", 150.0, "2023-11-01")]}},
             "NetCashProvidedByUsedInOperatingActivities": {
                 "units": {"USD": [_e("2022-10-01", "2023-09-30", 40.0, "2023-11-01")]}
@@ -70,6 +70,15 @@ def test_annual_statements_selection_and_derivation():
     assert rows[(date(2023, 9, 30), "cashflow", "Free Cash Flow")].value == 30.0
     assert rows[(date(2023, 9, 30), "balance", "Working Capital")].value == 50.0
     assert set(df["source"]) == {"edgar"}
+    # Total Assets was filed 2023-11-01; AssetsCurrent for the same fiscal year
+    # only appeared in a later filing (2023-12-01) — each item must carry its
+    # own filed date, not the earliest filed date seen anywhere in the fiscal year.
+    total_assets23 = rows[(date(2023, 9, 30), "balance", "Total Assets")]
+    assert total_assets23.filed_at == date(2023, 11, 1)
+    assert total_assets23.available_from == date(2023, 11, 1)
+    working_capital23 = rows[(date(2023, 9, 30), "balance", "Working Capital")]
+    assert working_capital23.filed_at == date(2023, 12, 1)
+    assert working_capital23.available_from == date(2023, 12, 1)
 
 
 def test_fiscal_years_view_merges_sources_by_year(con):

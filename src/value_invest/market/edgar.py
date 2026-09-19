@@ -95,6 +95,17 @@ DERIVED = {  # computed after the concept rows, yfinance-style
         and r[("balance", "Current Assets")] - r[("balance", "Current Liabilities")]
     ),
 }
+DERIVED_DEPENDS = {
+    ("cashflow", "Free Cash Flow"): [
+        ("cashflow", "Operating Cash Flow"),
+        ("cashflow", "Capital Expenditure"),
+    ],
+    ("balance", "Total Debt"): [("balance", "Long Term Debt"), ("balance", "Current Debt")],
+    ("balance", "Working Capital"): [
+        ("balance", "Current Assets"),
+        ("balance", "Current Liabilities"),
+    ],
+}
 
 
 class EdgarError(RuntimeError):
@@ -172,7 +183,7 @@ def annual_statements(ticker: str, facts: dict[str, Any], since_year: int = 2010
     gaap = (facts.get("facts") or {}).get("us-gaap") or {}
     rows: list[dict[str, Any]] = []
     by_fy: dict[date, dict[tuple[str, str], float]] = {}
-    filed_by_fy: dict[date, date] = {}
+    filed_by_item: dict[date, dict[tuple[str, str], date]] = {}
     for (kind, item), concepts in CONCEPTS.items():
         picked: dict[date, dict[str, Any]] = {}
         # Concepts in priority order; a later concept only fills fiscal years the
@@ -200,14 +211,18 @@ def annual_statements(ticker: str, facts: dict[str, Any], since_year: int = 2010
                 val = -abs(val)
             filed = date.fromisoformat(e["filed"])
             by_fy.setdefault(end, {})[(kind, item)] = val
-            filed_by_fy[end] = min(filed, filed_by_fy.get(end, filed))
+            filed_by_item.setdefault(end, {})[(kind, item)] = filed
     for end, items in by_fy.items():
+        filed_for = filed_by_item[end]
         for key, fn in DERIVED.items():
             v = fn(items)
             if v is not False and v is not None:
                 items[key] = float(v)
-        filed = filed_by_fy[end]
+                filed_for[key] = max(
+                    filed_for[dep] for dep in DERIVED_DEPENDS[key] if dep in filed_for
+                )
         for (kind, item), val in items.items():
+            filed = filed_for[(kind, item)]
             rows.append(
                 {
                     "ticker": ticker,
