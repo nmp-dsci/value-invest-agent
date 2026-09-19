@@ -10,10 +10,12 @@ from typing import Any
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
 from value_invest import db
 from value_invest.config import ROOT, settings
 from value_invest.market.coverage import coverage_summary, coverage_table
+from value_invest.serving import sql as sqlviewer
 
 DIST = ROOT / "frontend" / "dist"
 
@@ -44,6 +46,14 @@ HEADLINE_ITEMS = {
         "Repurchase Of Capital Stock",
     ],
 }
+
+
+class SqlRequest(BaseModel):
+    """Module-level on purpose: with ``from __future__ import annotations`` FastAPI
+    cannot resolve a class defined inside ``create_app`` and treats it as a query param."""
+
+    sql: str
+    max_rows: int = sqlviewer.MAX_ROWS
 
 
 def _rows(con, sql: str, params: list | None = None) -> list[dict[str, Any]]:
@@ -262,6 +272,17 @@ def create_app() -> FastAPI:
                                 ORDER BY t.benchmark IS NULL, t.ticker""",
         )
         return {"rows": rows, "summary": coverage_summary(rows), "tickers": tickers}
+
+    @app.get("/api/sql/catalog")
+    def sql_catalog() -> dict:
+        return sqlviewer.catalog(con())
+
+    @app.post("/api/sql")
+    def sql_run(req: SqlRequest) -> dict:
+        try:
+            return sqlviewer.run_select(con(), req.sql, max_rows=min(max(1, req.max_rows), 5000))
+        except sqlviewer.SqlError as e:
+            raise HTTPException(400, str(e)) from e
 
     @app.get("/api/calls")
     def calls() -> list[dict]:  # M2 stub

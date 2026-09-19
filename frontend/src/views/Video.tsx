@@ -47,7 +47,7 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
             </div>
             <div className="grid2">
               <div>
-                <div className="panel"><h3>Price around T0 <span className="microlabel">vi.prices · adjusted close · 5 y before T0 → today</span></h3>
+                <div className="panel"><h3>Price around T0 <a className="microlabel" style={{ color: 'var(--accent2)', textDecoration: 'none' }} href={`#/sql?q=${encodeURIComponent(`SELECT date, close, adj_close, volume FROM vi.prices_as_of('${d.video.primary_ticker}', DATE '${d.t0}') ORDER BY date DESC`)}`}>open in SQL ↗</a> <span className="microlabel">vi.prices · adjusted close · 5 y before T0 → today</span></h3>
                   {d.t0 && <PriceChart prices={d.prices} benchmark={d.benchmark} t0={d.t0} forward={d.forward} currency={d.video.currency} />}
                   {d.price_at_t0 && (
                     <div className="fwd">
@@ -59,7 +59,7 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
                   )}
                   <p className="note">Everything right of the red line is what the future validator will use. The agent (deferred) only ever sees the left side, and only the statements below.</p>
                 </div>
-                <div className="panel"><h3>Annual statements visible at T0 <span className="microlabel">vi.statements_as_of(ticker, T0) · ·E = EDGAR (real filing date) · else yfinance, period_end + 90 d</span></h3>
+                <div className="panel"><h3>Annual statements visible at T0 <a className="microlabel" style={{ color: 'var(--accent2)', textDecoration: 'none' }} href={`#/sql?q=${encodeURIComponent(`SELECT period_end, kind, line_item, value, available_from, source\nFROM vi.statements_as_of('${d.video.primary_ticker}', DATE '${d.t0}')\nORDER BY period_end DESC, kind, line_item`)}`}>open in SQL ↗</a> <span className="microlabel">vi.statements_as_of(ticker, T0) · ·E = EDGAR (real filing date) · else yfinance, period_end + 90 d</span></h3>
                   {!d.statement_periods.length && <div className="empty">no fiscal year is visible at T0 for this ticker {d.statements_hidden_after_t0?.length ? `— the earliest yfinance still returns becomes visible on ${d.statements_hidden_after_t0[0].available_from}` : ''}</div>}
                   {!!d.statement_period_info?.some((p) => !p.complete) && <p className="note warn">yfinance's oldest column is a stub: FY {d.statement_period_info.filter((p) => !p.complete).map((p) => `${p.period_end.slice(0, 4)} (${p.n_items} items, no revenue / total assets)`).join(', ')}. Complete fiscal years visible at T0: {d.coverage?.fys_visible ?? 0}.</p>}
                   {(['income', 'balance', 'cashflow'] as const).map((k) => d.statements[k] && (

@@ -76,3 +76,18 @@ select, input[type='search'] { background: var(--panel2); border: 1px solid var(
 .empty { color: var(--muted); padding: 30px; text-align: center; }
 .stub { padding: 40px; color: var(--muted); max-width: 640px; }
 .stub h2 { color: var(--text); font-weight: 600; font-size: var(--t3); }
+/* sql viewer */
+.sqlsplit { grid-template-columns: 280px minmax(0, 1fr); }
+.sqlmain { display: grid; grid-template-rows: auto minmax(160px, 34%) auto minmax(0, 1fr); min-height: 0; }
+.sqltoolbar { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--panel); }
+.btn { background: var(--panel2); border: 1px solid var(--border); color: var(--text2); border-radius: 6px; padding: 5px 12px; cursor: pointer; font-size: var(--t0); }
+.btn.pri { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 600; }
+.btn:disabled { opacity: .6; cursor: default; }
+.kbd { font-family: var(--mono); font-size: var(--t-2); opacity: .8; margin-left: 6px; }
+.editor { border-bottom: 1px solid var(--border); min-height: 0; overflow: auto; }
+.editor .cm-editor { height: 100%; }
+.results { max-height: none; padding: 0; }
+.results th { white-space: nowrap; }
+.results td { white-space: nowrap; max-width: 420px; overflow: hidden; text-overflow: ellipsis; }
+.cols { margin-top: 4px; }
+.col { cursor: pointer; padding: 1px 6px; border-radius: 4px; } .col:hover { background: var(--hover); color: var(--text); }

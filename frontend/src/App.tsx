@@ -3,22 +3,26 @@ import { api } from './api';
 import Corpus from './views/Corpus';
 import VideoView from './views/Video';
 import Market from './views/Market';
+import Sql from './views/Sql';
 
-type Tab = 'corpus' | 'video' | 'market' | 'golden' | 'agent' | 'scoreboard';
+type Tab = 'corpus' | 'video' | 'market' | 'sql' | 'golden' | 'agent' | 'scoreboard';
 const TABS: { id: Tab; label: string; stub?: string }[] = [
   { id: 'corpus', label: 'Corpus' },
   { id: 'video', label: 'Video' },
   { id: 'market', label: 'Market' },
+  { id: 'sql', label: 'SQL' },
   { id: 'golden', label: 'Golden calls', stub: 'M2 — golden extraction + review' },
   { id: 'agent', label: 'Agent runs', stub: 'deferred until the M2 review passes' },
   { id: 'scoreboard', label: 'Scoreboard', stub: 'deferred until the M2 review passes' },
 ];
 
-function readHash(): { tab: Tab; id?: string } {
-  const h = location.hash.replace(/^#\/?/, '');
-  const [tab, id] = h.split('/');
+function readHash(): { tab: Tab; id?: string; q?: string } {
+  const raw = location.hash.replace(/^#\/?/, '');
+  const [path, query] = raw.split('?');
+  const [tab, id] = path.split('/');
   const known = TABS.find((t) => t.id === tab);
-  return { tab: (known ? known.id : 'corpus') as Tab, id };
+  const q = query ? new URLSearchParams(query).get('q') ?? undefined : undefined;
+  return { tab: (known ? known.id : 'corpus') as Tab, id, q };
 }
 
 export default function App() {
@@ -60,6 +64,7 @@ export default function App() {
         {route.tab === 'corpus' && <Corpus onOpen={(id) => go('video', id)} />}
         {route.tab === 'video' && <VideoView videoId={route.id} onSelect={(id) => go('video', id)} />}
         {route.tab === 'market' && <Market onOpen={(id) => go('video', id)} />}
+        {route.tab === 'sql' && <Sql initialSql={route.q} />}
         {cur.stub && (
           <div className="stub"><h2>{cur.label}</h2><p>{cur.stub}. This tab exists so the walkthrough shows where the later data lands; nothing here is built yet.</p></div>
         )}

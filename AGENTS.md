@@ -62,8 +62,9 @@ src/value_invest/
   validate/        forward returns, verdicts, scoreboard
   loop/            optimiser session, McNemar gate, ledger
 agents/vN/         system.md · helper.py · agent.yaml (frozen) · diagnosis.json
-  serving/         app.py — FastAPI: /api/health /funnel /videos /videos/{id} /market/coverage; serves frontend/dist
-frontend/          Vite + React 19; src/tokens.css copied from transcript-lab; views Corpus · Video · Market (+ M2 stubs)
+  serving/         app.py — FastAPI: /api/health /funnel /videos /videos/{id} /market/coverage /sql /sql/catalog; serves frontend/dist
+                   sql.py — the SQL viewer's executor: read-only connection, single SELECT/WITH validated, row cap, interrupt timeout
+frontend/          Vite + React 19; src/tokens.css copied from transcript-lab; views Corpus · Video · Market · Sql (CodeMirror) (+ M2 stubs)
 data/
   schema.sql       the vi schema
   samples/         titles_2026-09.json (40 titles) · titles_2026-09_labels.json (hand labels) · classifier_seed_eval.json
