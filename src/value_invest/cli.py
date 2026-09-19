@@ -159,6 +159,14 @@ def golden_kappa() -> None:
     rprint(kappa(db.connect(read_only=True)))
 
 
+@golden_app.command("splits")
+def golden_splits() -> None:
+    """D15: stamp the seeded within-year train/test split on vi.evals (+ the cached JSON)."""
+    from value_invest.golden.splits import assign_splits
+
+    rprint(assign_splits(db.connect()))
+
+
 @golden_app.command("summary")
 def golden_summary() -> None:
     """The distilled method: discount rates, multiples, probabilities, reason mix → method_summary.json."""

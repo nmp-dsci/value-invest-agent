@@ -150,3 +150,8 @@ CREATE TABLE IF NOT EXISTS vi.rates (
 );
 CREATE OR REPLACE MACRO vi.rates_as_of(series_id, t0) AS TABLE
   SELECT * FROM vi.rates WHERE series = series_id AND date <= t0;
+-- D15: train/test are stamped per eval (seeded, within each window year); holdout is the
+-- state at a horizon whose outcome is not yet in vi.prices, so it depends on h.
+CREATE OR REPLACE MACRO vi.split_at(h) AS TABLE
+  SELECT e.video_id, e.split, CASE WHEN val.video_id IS NULL THEN 'holdout' ELSE e.split END AS split_at
+  FROM vi.evals e LEFT JOIN vi.validations val ON val.video_id = e.video_id AND val.horizon_m = h;

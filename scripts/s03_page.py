@@ -135,7 +135,7 @@ def main() -> None:
             else ""
         )
         eval_rows.append(
-            f"<tr><td class=mono>{e['t0']}</td><td class=mono>{esc(e['ticker'])}</td><td>{esc(e['title'][:64])}</td><td><span class=tag>{e['split']}</span></td>"
+            f"<tr><td class=mono>{e['t0']}</td><td class=mono>{esc(e['ticker'])}</td><td>{esc(e['title'][:64])}</td><td><span class=tag>{e['split']}{'' if v['12'] else ' · holdout @12'}</span></td>"
             f'<td><span class="tag {POS_TAG[e["position"]]}">{e["position"]}</span>{flags}</td><td class=mono>{e["stance_detail"]}</td>'
             f"<td class=r>{num(e['expected_return_pct'])}</td><td class=r>{num(e['iv_weighted_stated'])} → {num(e['price_at_t0'])}</td>{cells}"
             f"<td>{vcell}</td>"
@@ -161,15 +161,41 @@ def main() -> None:
         f"{k} {v}"
         for k, v in list((ms.get("reason_categories") or {}).get("for_sell", {}).items())[:6]
     )
+    split_at = N["validation"].get("split_at", {})
+
+    def split_cells(sa: dict) -> str:
+        tr, te, ho = sa.get("train") or {}, sa.get("test") or {}, sa.get("holdout") or {}
+
+        def vx(b: dict) -> str:
+            v = b.get("verdict") if b else None
+            return f"{v['correct']} · {v['wrong']} · {v['indeterminate']}" if v else "—"
+
+        return (
+            f"<td class=r>{tr.get('n', 0)} · <span class=acc>{te.get('n', 0)}</span> · <span class=warn>{ho.get('n', 0)}</span></td>"
+            f"<td class=r>{vx(tr)}</td><td class=r>{vx(te)}</td>"
+        )
+
     year_rows = []
     for m in N["mix"]:
         yb = m["year_bucket"]
         f = next((x for x in funnel if x["year_bucket"] == yb), {})
         year_rows.append(
-            f"<tr><td class=mono>{yb}</td><td><span class=tag>{m['split']}</span></td><td class=r>{f.get('videos', '—')}</td><td class=r>{f.get('single', '—')}</td><td class=r>{f.get('sampled', '—')}</td><td class=r>{f.get('indexed', '—')}</td><td class=r>{m['n']}</td><td class=r>{m['buy']} / {m['hold']} / {m['sell']}</td><td class=r>{m['rule_sensitive']}</td>"
+            f"<tr><td class=mono>{yb}</td><td class=r>{f.get('videos', '—')}</td><td class=r>{f.get('single', '—')}</td><td class=r>{f.get('sampled', '—')}</td><td class=r>{f.get('indexed', '—')}</td><td class=r>{m['n']}</td><td class=r>{m['buy']} / {m['hold']} / {m['sell']}</td><td class=r>{m['train']} · <span class=acc>{m['test']}</span></td><td class=r>{m['rule_sensitive']}</td>"
             + "".join(bucket_cells(by_year.get(yb, {}).get(h)) for h in ("12",))
             + "</tr>"
         )
+    split_rows = "".join(
+        f"<tr><td class=mono>+{h} m</td>{split_cells(split_at.get(h, {}).get('overall', {}))}</tr>"
+        for h in H
+    )
+    split_year_rows = "".join(
+        f"<tr><td class=mono>{m['year_bucket']}</td>"
+        + "".join(
+            split_cells(split_at.get(h, {}).get("by_year", {}).get(m["year_bucket"], {})) for h in H
+        )
+        + "</tr>"
+        for m in N["mix"]
+    )
 
     cat_rows = []
     for cat, d in sorted(by_cat.items(), key=lambda kv: -sum(kv[1].values())):
@@ -189,6 +215,7 @@ def main() -> None:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 {style()}
+<style>span.acc{{color:var(--accent);font-weight:600}} span.warn{{color:var(--warn);font-weight:600}} th span.acc,th span.warn{{font-weight:500}}</style>
 </head>
 <body>
 <nav class="top"><div class="wrap">
@@ -265,8 +292,19 @@ def main() -> None:
   </table></div>
   <h3>Per window year (12-month horizon)</h3>
   <div class="tablewrap"><table>
-    <thead><tr><th>year</th><th>split</th><th class="r">videos</th><th class="r">single</th><th class="r">sampled</th><th class="r">indexed</th><th class="r">evals</th><th class="r">B / H / S</th><th class="r">rule-sens.</th><th class="r">right @12 m</th><th class="r">✓ · ✗ · ~</th><th class="r">mean excess</th></tr></thead>
+    <thead><tr><th>year</th><th class="r">videos</th><th class="r">single</th><th class="r">sampled</th><th class="r">indexed</th><th class="r">evals</th><th class="r">B / H / S</th><th class="r">train · test</th><th class="r">rule-sens.</th><th class="r">right @12 m</th><th class="r">✓ · ✗ · ~</th><th class="r">mean excess</th></tr></thead>
     <tbody>{"".join(year_rows)}</tbody>
+  </table></div>
+  <h3>Train / test / holdout (D15 — revised in this review)</h3>
+  <p><b>Train</b> and <b>test</b> are stamped on the video, not the year: inside every window year the sampled videos are ranked by a seeded hash and {round(N["validation"].get("test_share", 0.3) * 100)} % become test ({N["validation"]["splits"].get("train", 0)} / {N["validation"]["splits"].get("test", 0)} overall, 6 test per year). So the M3 agent is tuned on train and gated on test across the <em>same</em> years — it is checked on history it never saw, not only on the newest year. <b>Holdout</b> is not a label: it is every eval whose T0 + h close is not in the price table yet, so it depends on the horizon — pick +6 m and nearly everything has an answer, pick +24 m and the last two window years are still open. Membership is independent of the labels, so a review that changes a position never moves a video between splits. SQL: <span class="k">SELECT * FROM vi.split_at(12)</span>.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>horizon</th><th class="r">train · <span class=acc>test</span> · <span class=warn>holdout</span></th><th class="r">train ✓ · ✗ · ~</th><th class="r">test ✓ · ✗ · ~</th></tr></thead>
+    <tbody>{split_rows}</tbody>
+  </table></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th rowspan="2">year</th>{"".join(f'<th colspan="3">@ +{h} m</th>' for h in H)}</tr>
+    <tr>{"".join('<th class="r">train · <span class=acc>test</span> · <span class=warn>holdout</span></th><th class="r">train ✓ · ✗ · ~</th><th class="r">test ✓ · ✗ · ~</th>' for _ in H)}</tr></thead>
+    <tbody>{split_year_rows}</tbody>
   </table></div>
   <div class="note warn"><b>Read with the n.</b> An always-SELL baseline scores every SELL verdict and nothing else; per-class hit rates and the balanced view are the numbers to compare an agent against in M3, not the raw correct count.</div>
 </section>
@@ -313,7 +351,7 @@ def main() -> None:
 
 <section id="app">
   <div class="section-head"><span class="num">08</span><h2>The app</h2></div>
-  {img("app-golden-evals.jpg", "Golden Evals tab: per-class hit rates by horizon, the per-year × split table, reproducibility, κ and the seed eval on top; every eval in the table below.")}
+  {img("app-golden-evals.jpg", "Golden Evals tab: per-class hit rates by horizon, the per-year train / test / holdout table for the chosen horizon, reproducibility, κ and the seed eval on top; every eval in the table below.")}
   {img("app-eval-detail.jpg", "An eval opened from the table: valuation with the recomputed check, reasons with data-check chips, validation stats, and the accept / edit / reject control.")}
   <p>Reviewing in the tab writes <span class="k">curation_status</span> and appends the human label to <span class="k">data/golden/seed_labels.json</span>, so every accept or edit grows the seed the next extractor version is scored on. SQL tab: <span class="k">SELECT * FROM vi.evals</span>, <span class="k">vi.validations</span>, <span class="k">vi.rates</span>.</p>
 </section>
@@ -324,7 +362,7 @@ def main() -> None:
     <div class="card rec"><h4>Start with the {len(rule_sens)} rule-sensitive evals</h4><p>{esc(", ".join(f"{e['ticker']} {e['t0'][:7]}" for e in rule_sens[:12]))}{" …" if len(rule_sens) > 12 else ""}. These are where "fairly valued for 10 %" meets "not a buy" — your accept / edit decides the boundary for M3.</p></div>
     <div class="card"><h4>{len(title_mis)} titles say buy, the transcript does not</h4><p>{esc(", ".join(f"{e['ticker']} {e['t0'][:7]}" for e in title_mis))}. The extractor read the transcript; check it read it right.</p></div>
     <div class="card"><h4>Known limits, recorded not hidden</h4><ul><li>{with_iv} of {n} videos state an intrinsic value; the rest are stance-only.</li><li>{base_gap} evals use a base metric &gt; 15 % from the last annual figure (TTM vs annual, D9).</li><li>Reasons resting on consensus, guidance, segments or 13F stay <em>external</em> — {pct(1 - repro_total / max(1, total_reasons))} of reasons.</li><li>The critic disagrees on position in {n - critic_agree} evals; κ is reported, not hidden.</li></ul></div>
-    <div class="card"><h4>Next: M3</h4><p>The analyst agent v0 (<span class="k">agents/v0/{{system.md, helper.py}}</span>) starts from <span class="k">valuation.py</span> and the method summary, is scored on reproducing these evals from the point-in-time data only, and is gated on the test year with the holdout sealed.</p></div>
+    <div class="card"><h4>Next: M3</h4><p>The analyst agent v0 (<span class="k">agents/v0/{{system.md, helper.py}}</span>) starts from <span class="k">valuation.py</span> and the method summary, is scored on reproducing these evals from the point-in-time data only, and is gated on the within-year test split (D15); evals whose outcome is not in yet are the forward holdout.</p></div>
   </div>
 </section>
 <footer><p>Generated {date.today().isoformat()} by <span class="k">scripts/s03_page.py</span> from <span class="k">.lavish/s03_evidence/m2_numbers.json</span>. Previous pages: <a href="s00_value-invest-agent-plan.html">s00 plan</a> · <a href="s01_m1-walkthrough.html">s01 M1 walkthrough</a> · <a href="s02_m2-golden-extraction-plan.html">s02 M2 plan</a>.</p></footer>

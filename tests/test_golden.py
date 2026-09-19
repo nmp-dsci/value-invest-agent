@@ -305,15 +305,30 @@ def test_kappa_report():
     assert rep["kappa_3way"] is not None and rep["kappa_3way"] > rep["kappa_6way"]
 
 
-def test_split_and_cache_key():
-    from value_invest.golden.checkpoint import cache_key, split_for
+def test_within_year_split_is_seeded_and_label_free():
+    from value_invest.golden.splits import assign
+
+    years = {
+        "2022/23": [f"a{i}" for i in range(20)],
+        "2023/24": ["b1", "b2", "b3"],
+        "2024/25": ["c1"],
+    }
+    lab = assign(years, 0.3, "seed")
+    assert sum(lab[v] == "test" for v in years["2022/23"]) == 6  # round(20 × 0.3)
+    assert sum(lab[v] == "test" for v in years["2023/24"]) == 1 and lab["c1"] == "train"
+    assert assign(years, 0.3, "seed") == lab  # deterministic
+    assert assign(years, 0.3, "other-seed") != lab
+    # adding a video to another year never moves this year's assignment
+    years2 = {**years, "2025/26": ["d1", "d2"]}
+    assert {k: v for k, v in assign(years2, 0.3, "seed").items() if k.startswith("a")} == {
+        k: v for k, v in lab.items() if k.startswith("a")
+    }
+
+
+def test_cache_key():
+    from value_invest.golden.checkpoint import cache_key
     from value_invest.golden.versions import load_version
 
-    assert (
-        split_for("2022/23") == "train"
-        and split_for("2024/25") == "test"
-        and split_for("2025/26") == "holdout"
-    )
     v = load_version("v0")
     k = cache_key("abc", "0123456789abcdef", v)
     assert k.startswith("abc:0123456789ab:v0:") and v.fingerprint in k
@@ -447,3 +462,12 @@ def test_validate_all_writes_verdicts_and_iv_hit(con):
     # 6 m: AAPL 222.64 → 210 (−5.7 %) vs SPY 600 → 630 (+5 %): excess ≈ −10.7 pp → SELL correct; price never fell to 100 → iv_hit False
     assert [x[0] for x in rows] == [6, 12] and rows[0][2] == "correct" and rows[0][3] is False
     assert rows[0][1] < -0.1 and r["overall"]["6"]["hits"]["SELL"] == [1, 1]
+    # D15: one eval, one year → train; outcome exists at 6 / 12 m, not at 24 m → holdout there
+    assert con.execute("SELECT split FROM vi.evals").fetchone()[0] == "train"
+    assert r["split_at"]["6"]["overall"]["train"]["hits"]["SELL"] == [1, 1]
+    assert "holdout" not in r["split_at"]["6"]["overall"]
+    assert r["split_at"]["24"]["overall"] == {
+        "holdout": {"n": 1, "mix": {"BUY": 0, "HOLD": 0, "SELL": 1}}
+    }
+    assert con.execute("SELECT split_at FROM vi.split_at(24)").fetchone()[0] == "holdout"
+    assert con.execute("SELECT split_at FROM vi.split_at(6)").fetchone()[0] == "train"

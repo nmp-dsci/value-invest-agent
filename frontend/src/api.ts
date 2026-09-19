@@ -48,10 +48,15 @@ export type EvalRow = {
   validations: Record<string, { excess: number; verdict: string; verdict_hold_alt: string; iv_hit: boolean | null; t1: string }>;
 };
 export type EvalDetail = EvalRow & { valuation: Valuation; iv_recomputed: Record<string, any>; reasons: Reason[]; external_facts: string[]; validations: Validation[]; review_note: string | null; reviewed_at: string | null; model: string; transcript_sha256: string };
+export type SplitBuckets = { train?: Bucket; test?: Bucket; holdout?: { n: number; mix: Record<string, number> } };
 export type Bucket = { n: number; mix: Record<string, number>; hits: Record<string, [number, number]>; mean_excess: Record<string, number | null>; verdict: Record<string, number>; verdict_hold_alt: Record<string, number>; iv_hit: [number, number] };
 export type EvalSummary = {
-  validation: { by_year: Record<string, Record<string, Bucket>>; overall: Record<string, Bucket>; splits: Record<string, number>; n_evals: number };
-  mix: { year_bucket: string; split: string; n: number; buy: number; hold: number; sell: number; reviewed: number; rule_sensitive: number }[];
+  validation: {
+    by_year: Record<string, Record<string, Bucket>>; overall: Record<string, Bucket>; splits: Record<string, number>; n_evals: number; test_share?: number;
+    /** D15: per horizon, train / test buckets over the evals whose outcome exists, holdout = the rest. */
+    split_at: Record<string, { overall: SplitBuckets; by_year: Record<string, SplitBuckets> }>;
+  };
+  mix: { year_bucket: string; n: number; train: number; test: number; buy: number; hold: number; sell: number; reviewed: number; rule_sensitive: number }[];
   cuts: { rule: string; label: string; n: number }[];
   stats: Record<string, number | null>;
   reproducible: { reproducible: string; n: number }[];

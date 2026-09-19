@@ -16,7 +16,7 @@ from typing import Any
 
 import duckdb
 
-from value_invest.config import ROOT, settings
+from value_invest.config import ROOT
 from value_invest.golden.critic import run_critic
 from value_invest.golden.extract import run_extract
 from value_invest.golden.ground import ground
@@ -32,6 +32,7 @@ from value_invest.golden.models import (
     position_for,
     title_says_buy,
 )
+from value_invest.golden.splits import assign_splits
 from value_invest.golden.transcript import Transcript, load_transcript
 from value_invest.golden.versions import ExtractorVersion, load_version
 from value_invest.llm import resolve_model
@@ -43,16 +44,6 @@ VERBATIM = 0.9
 
 def cache_key(video_id: str, sha: str, version: ExtractorVersion) -> str:
     return f"{video_id}:{sha[:12]}:{version.name}:{version.fingerprint}"
-
-
-def split_for(year_bucket: str | None) -> str:
-    """train / test / holdout by window year: the last window year is the sealed
-    holdout, the one before it the test year, everything earlier train."""
-    if not year_bucket:
-        return "train"
-    start = int(year_bucket[:4])
-    last = settings().until.year - 1
-    return "holdout" if start >= last else "test" if start == last - 1 else "train"
 
 
 def _video_row(con: duckdb.DuckDBPyConnection, video_id: str) -> dict[str, Any] | None:
@@ -127,7 +118,7 @@ def assemble(
         external_facts_used=draft.external_facts_used,
         critic=crit,
         checks=checks,
-        split=split_for(row.get("year_bucket")),
+        split="train",  # provisional; assign_splits() stamps the seeded within-year split (D15)
         provenance=Provenance(
             extractor_version=version.name,
             model=str(usage.get("model") or resolve_model(version.model)),
@@ -290,6 +281,7 @@ def process_all(
             )
     n_row = con.execute("SELECT count(*) FROM vi.evals").fetchone()
     report["in_evals"] = n_row[0] if n_row else 0
+    report["splits"] = assign_splits(con)
     return report
 
 
@@ -339,7 +331,7 @@ def reground_all(con: duckdb.DuckDBPyConnection, version_name: str = "v0") -> di
         )
         upsert_eval(con, ev)
         n += 1
-    return {"regrounded": n, "failed": failed}
+    return {"regrounded": n, "failed": failed, "splits": assign_splits(con)}
 
 
 # ---------------------------------------------------------------- seed eval, κ, summary

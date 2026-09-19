@@ -138,6 +138,10 @@ def test_evals_endpoints_on_an_empty_and_a_seeded_db(monkeypatch, tmp_path):
     s = client.get("/api/evals/summary").json()
     assert s["stats"]["n"] == 1 and s["validation"]["overall"]["12"]["hits"]["SELL"] == [1, 1]
     assert {c["rule"] for c in s["cuts"]} == {"C · 3-way", "A · binary", "B · hurdle"}
+    assert (
+        s["mix"][0]["test"] == 1
+        and s["validation"]["split_at"]["24"]["overall"]["holdout"]["n"] == 1
+    )
     d = client.get("/api/evals/v1").json()
     assert (
         d["reasons"][0]["data_check"]["reproducible"] == "derived"

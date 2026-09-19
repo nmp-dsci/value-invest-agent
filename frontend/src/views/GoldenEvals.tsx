@@ -6,6 +6,11 @@ const H = ['6', '12', '24'];
 const hit = (b: Bucket | undefined, cls: string) => { const h = b?.hits?.[cls]; return h && h[1] ? `${h[0]}/${h[1]}` : '—'; };
 const ex = (v: number | null | undefined) => v == null ? '—' : `${v > 0 ? '+' : ''}${v.toFixed(0)}`;
 const pp = (v: number | null | undefined) => v == null ? '—' : `${v > 0 ? '+' : ''}${(v * 100).toFixed(1)}`;
+/** D15: train / test are stamped per video; holdout is the state at a horizon whose outcome is not in the price table yet. */
+const splitAt = (r: EvalRow, h: string) => (r.validations?.[h] ? r.split : 'holdout');
+const splitCls = (s: string) => (s === 'holdout' ? 'warn' : s === 'test' ? 'acc' : '');
+const vwx = (b: Bucket | undefined) => (b ? `${b.verdict.correct} · ${b.verdict.wrong} · ${b.verdict.indeterminate}` : '—');
+const hits3 = (b: Bucket | undefined) => (b ? `${hit(b, 'BUY')} · ${hit(b, 'HOLD')} · ${hit(b, 'SELL')}` : '—');
 
 export default function GoldenEvals({ videoId, onOpen, onVideo }: { videoId?: string; onOpen: (id: string) => void; onVideo: (id: string) => void }) {
   const [rows, setRows] = useState<EvalRow[]>([]);
@@ -18,7 +23,7 @@ export default function GoldenEvals({ videoId, onOpen, onVideo }: { videoId?: st
   useEffect(load, []);
   useEffect(() => { if (!videoId) { setDetail(null); return; } api.eval(videoId).then(setDetail).catch((e) => setErr(String(e))); }, [videoId]);
   const years = useMemo(() => [...new Set(rows.map((r) => r.year_bucket))].sort(), [rows]);
-  const list = useMemo(() => rows.filter((r) => (!f.year || r.year_bucket === f.year) && (!f.position || r.position === f.position) && (!f.split || r.split === f.split) && (!f.status || r.curation_status === f.status) && (!f.rs || r.rule_sensitive) && (!f.iv || r.iv_weighted_stated != null) && (!f.q || r.title.toLowerCase().includes(f.q.toLowerCase()) || r.ticker.toLowerCase().includes(f.q.toLowerCase()))), [rows, f]);
+  const list = useMemo(() => rows.filter((r) => (!f.year || r.year_bucket === f.year) && (!f.position || r.position === f.position) && (!f.split || splitAt(r, h) === f.split) && (!f.status || r.curation_status === f.status) && (!f.rs || r.rule_sensitive) && (!f.iv || r.iv_weighted_stated != null) && (!f.q || r.title.toLowerCase().includes(f.q.toLowerCase()) || r.ticker.toLowerCase().includes(f.q.toLowerCase()))), [rows, f, h]);
   const overall = sum?.validation.overall ?? {};
   const st = sum?.stats ?? {};
   const cuts = (rule: string) => (sum?.cuts ?? []).filter((c) => c.rule.startsWith(rule)).map((c) => `${c.label} ${c.n}`).join(' · ');
@@ -44,18 +49,22 @@ export default function GoldenEvals({ videoId, onOpen, onVideo }: { videoId?: st
             <div className="stat"><div className="v">{st.price_n ? `${st.price_ok} / ${st.price_n}` : '—'}</div><div className="l">price he quotes ≈ close at T0</div><div className="d">IV recomputed within ±10 %: {st.iv_ok ?? 0} / {st.iv_compared ?? 0} · base metric gap &gt; 15 %: {st.base_gap_over_15 ?? 0}</div></div>
           </div>
           <div className="panel tablewrap" style={{ maxHeight: 'none' }}>
-            <h3>Per window year · split · hits <span className="microlabel">B · H · S = BUY · HOLD · SELL calls right</span></h3>
-            <table><thead><tr><th>year</th><th>split</th><th className="num">n</th><th className="num">BUY / HOLD / SELL</th><th className="num">reviewed</th><th className="num">rule-sens.</th>{H.map((x) => <th key={x} className="num">hits @ {x} m</th>)}{H.map((x) => <th key={x} className="num">✓ · ✗ · ~ @ {x} m</th>)}</tr></thead>
-              <tbody>{sum.mix.map((m) => { const by = sum.validation.by_year[m.year_bucket] ?? {}; return (
-                <tr key={m.year_bucket}><td className="mono">{m.year_bucket}</td><td><span className={'badge ' + (m.split === 'holdout' ? 'warn' : m.split === 'test' ? 'acc' : '')}>{m.split}</span></td><td className="num">{m.n}</td><td className="num">{m.buy} / {m.hold} / {m.sell}</td><td className="num">{m.reviewed}</td><td className="num">{m.rule_sensitive}</td>
-                  {H.map((x) => <td key={x} className="num">{by[x] ? `${hit(by[x], 'BUY')} · ${hit(by[x], 'HOLD')} · ${hit(by[x], 'SELL')}` : '—'}</td>)}
-                  {H.map((x) => <td key={x} className="num">{by[x] ? `${by[x].verdict.correct} · ${by[x].verdict.wrong} · ${by[x].verdict.indeterminate}` : '—'}</td>)}
+            <h3>Per window year · train / test / holdout @ {h} m <span className="microlabel">train · test fixed per video (seeded, {Math.round((sum.validation.test_share ?? 0.3) * 100)} % test inside every year) · holdout = outcome not yet in the price table at +{h} m</span></h3>
+            <table><thead><tr><th>year</th><th className="num">n</th><th className="num">BUY / HOLD / SELL</th><th className="num">train · test</th><th className="num">@ {h} m: train · test · holdout</th><th className="num">train ✓ · ✗ · ~</th><th className="num">test ✓ · ✗ · ~</th><th className="num">train right B · H · S</th><th className="num">test right B · H · S</th><th className="num">reviewed</th><th className="num">rule-sens.</th></tr></thead>
+              <tbody>{sum.mix.map((m) => { const sa = sum.validation.split_at?.[h]?.by_year?.[m.year_bucket] ?? {}; return (
+                <tr key={m.year_bucket}><td className="mono">{m.year_bucket}</td><td className="num">{m.n}</td><td className="num">{m.buy} / {m.hold} / {m.sell}</td><td className="num">{m.train} · <span style={{ color: 'var(--accent2)' }}>{m.test}</span></td>
+                  <td className="num">{sa.train?.n ?? 0} · <span style={{ color: 'var(--accent2)' }}>{sa.test?.n ?? 0}</span> · <span style={{ color: 'var(--warn)' }}>{sa.holdout?.n ?? 0}</span></td>
+                  <td className="num">{vwx(sa.train)}</td><td className="num">{vwx(sa.test)}</td><td className="num">{hits3(sa.train)}</td><td className="num">{hits3(sa.test)}</td>
+                  <td className="num">{m.reviewed}</td><td className="num">{m.rule_sensitive}</td>
                 </tr>); })}
-                <tr><td><b>all</b></td><td></td><td className="num"><b>{st.n}</b></td><td className="num"><b>{cuts('C').replace(/[A-Z]+ /g, '').replace(/ · /g, ' / ')}</b></td><td className="num">{st.reviewed}</td><td className="num">{st.rule_sensitive}</td>
-                  {H.map((x) => <td key={x} className="num"><b>{overall[x] ? `${hit(overall[x], 'BUY')} · ${hit(overall[x], 'HOLD')} · ${hit(overall[x], 'SELL')}` : '—'}</b></td>)}
-                  {H.map((x) => <td key={x} className="num"><b>{overall[x] ? `${overall[x].verdict.correct} · ${overall[x].verdict.wrong} · ${overall[x].verdict.indeterminate}` : '—'}</b></td>)}
-                </tr>
+                {(() => { const sa = sum.validation.split_at?.[h]?.overall ?? {}; const sp = sum.validation.splits ?? {}; return (
+                <tr><td><b>all</b></td><td className="num"><b>{st.n}</b></td><td className="num"><b>{cuts('C').replace(/[A-Z]+ /g, '').replace(/ · /g, ' / ')}</b></td><td className="num"><b>{sp.train ?? 0} · <span style={{ color: 'var(--accent2)' }}>{sp.test ?? 0}</span></b></td>
+                  <td className="num"><b>{sa.train?.n ?? 0} · <span style={{ color: 'var(--accent2)' }}>{sa.test?.n ?? 0}</span> · <span style={{ color: 'var(--warn)' }}>{sa.holdout?.n ?? 0}</span></b></td>
+                  <td className="num"><b>{vwx(sa.train)}</b></td><td className="num"><b>{vwx(sa.test)}</b></td><td className="num"><b>{hits3(sa.train)}</b></td><td className="num"><b>{hits3(sa.test)}</b></td>
+                  <td className="num">{st.reviewed}</td><td className="num">{st.rule_sensitive}</td>
+                </tr>); })()}
               </tbody></table>
+            <p className="note" style={{ marginBottom: 0 }}>The agent (M3) is tuned on <b>train</b> and gated on <b>test</b> across the same years, so it is checked on history it never saw. <b>Holdout</b> is not a label — it is every eval whose +{h} m close has not happened yet; pick +6 m and most of it resolves, pick +24 m and the last two window years are still open.</p>
           </div>
           {sum.method_summary && (
             <div className="panel"><h3>His method, distilled <span className="microlabel">method_summary.json · n = {sum.method_summary.n_evals}</span></h3>
@@ -87,10 +96,10 @@ export default function GoldenEvals({ videoId, onOpen, onVideo }: { videoId?: st
             <button className={'pill ' + (f.iv ? 'on' : '')} onClick={() => setF({ ...f, iv: !f.iv })}>has IV</button>
             <span className="microlabel">{list.length} of {rows.length}</span>
           </div>
-          <table><thead><tr><th>T0</th><th>ticker</th><th>title</th><th>split</th><th>position</th><th>stance</th><th className="num">expects</th><th className="num">IV → price</th>{H.map((x) => <th key={x} className="num">+{x} m ex</th>)}<th>verdict @ {h} m</th><th className="num">repro.</th><th>critic</th><th>review</th></tr></thead>
+          <table><thead><tr><th>T0</th><th>ticker</th><th>title</th><th>split @ {h} m</th><th>position</th><th>stance</th><th className="num">expects</th><th className="num">IV → price</th>{H.map((x) => <th key={x} className="num">+{x} m ex</th>)}<th>verdict @ {h} m</th><th className="num">repro.</th><th>critic</th><th>review</th></tr></thead>
             <tbody>{list.map((r) => { const v = r.validations?.[h]; return (
               <tr key={r.video_id} className="click" onClick={() => onOpen(r.video_id)}>
-                <td className="mono">{r.t0}</td><td className="mono">{r.ticker}</td><td>{r.title}</td><td><span className={'badge ' + (r.split === 'holdout' ? 'warn' : r.split === 'test' ? 'acc' : '')}>{r.split}</span></td>
+                <td className="mono">{r.t0}</td><td className="mono">{r.ticker}</td><td>{r.title}</td><td><span className={'badge ' + splitCls(splitAt(r, h))}>{splitAt(r, h)}</span></td>
                 <td><span className={'badge ' + POS[r.position]}>{r.position}</span>{r.rule_sensitive && <span className="badge warn" style={{ marginLeft: 4 }}>A≠B</span>}{r.title_says_buy && r.position !== 'BUY' && <span className="badge warn" style={{ marginLeft: 4 }}>title</span>}</td>
                 <td className="mono">{r.stance_detail}</td><td className="num">{r.expected_return_pct != null ? `${r.expected_return_pct} %` : '—'}</td>
                 <td className="num">{r.iv_weighted_stated != null ? `${r.iv_weighted_stated.toFixed(0)} → ${r.price_at_t0?.toFixed(0) ?? '—'}` : '—'}</td>

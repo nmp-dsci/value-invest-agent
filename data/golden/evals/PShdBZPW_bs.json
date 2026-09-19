@@ -246,7 +246,7 @@
    ],
    "faithful_share": 1.0
   },
-  "split": "holdout",
+  "split": "test",
   "provenance": {
    "extractor_version": "v2",
    "model": "claude-sonnet-5",

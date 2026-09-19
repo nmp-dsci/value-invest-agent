@@ -77,8 +77,12 @@ frozen (model, effort, max_turns). Every model call goes through
 position accuracy (3-class, balanced, per-class recall) · stance κ (6-way, 3-way)
 ≥ 0.7 · faithfulness ≥ 0.95 · reason recall vs seed · IV fidelity ±10 % ·
 price check · reproducibility share (report). A new version ships only if
-nothing regresses. Splits stamped on every eval: train 2020/21–2023/24, test
-2024/25, holdout 2025/26.
+nothing regresses. Splits (D15, revised in the M2 review): train / test are
+stamped per video by a seeded hash *within each window year* (`VI_TEST_SHARE`
+0.3 → 14 / 6 per year, 84 / 36 overall; `golden/splits.py`, `vi golden splits`);
+holdout is not a label but the state at a horizon whose T0 + h close is not in
+`vi.prices` yet (`vi.split_at(h)`), so it shrinks as the horizon shortens
+(6 m: 10 · 12 m: 20 · 24 m: 40 of 120).
 
 ## Validation (moved from M3 into S5)
 
@@ -135,3 +139,7 @@ validations at every horizon the data allows; κ and seed eval published;
   `data/edgar_cik_overrides.json` (XOM's 2026 holding-company CIK, FI missing from
   the ticker map). IFRS-only filers need a concept mapping (X5, optional).
 - D14 HOLD verdict: within ±10 pp of SPY; "did not lag > 5 pp" reported beside it.
+- D15 splits (M2 review): train / test split *within* each window year (seeded,
+  30 % test, label-independent) so the M3 agent is gated on history it never saw;
+  holdout = outcome not yet available at the chosen horizon, hence per horizon.
+  Replaces the by-year train / test / holdout of the plan.

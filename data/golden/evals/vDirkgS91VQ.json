@@ -302,7 +302,7 @@
    ],
    "faithful_share": 0.8
   },
-  "split": "test",
+  "split": "train",
   "provenance": {
    "extractor_version": "v2",
    "model": "claude-sonnet-5",

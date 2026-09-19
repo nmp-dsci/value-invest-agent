@@ -373,13 +373,15 @@ def create_app() -> FastAPI:
         out: dict[str, Any] = {"validation": validation_summary(c)}
         out["mix"] = _rows(
             c,
-            """SELECT v.year_bucket, e.split, count(*) AS n,
+            """SELECT v.year_bucket, count(*) AS n,
+                      count(*) FILTER (WHERE e.split = 'train') AS train,
+                      count(*) FILTER (WHERE e.split = 'test') AS test,
                       count(*) FILTER (WHERE e.position = 'BUY') AS buy,
                       count(*) FILTER (WHERE e.position = 'HOLD') AS hold,
                       count(*) FILTER (WHERE e.position = 'SELL') AS sell,
                       count(*) FILTER (WHERE e.curation_status = 'reviewed') AS reviewed,
                       count(*) FILTER (WHERE e.rule_sensitive) AS rule_sensitive
-               FROM vi.evals e JOIN vi.videos v USING (video_id) GROUP BY 1, 2 ORDER BY 1""",
+               FROM vi.evals e JOIN vi.videos v USING (video_id) GROUP BY 1 ORDER BY 1""",
         )
         out["cuts"] = _rows(
             c,

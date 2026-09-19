@@ -50,6 +50,9 @@ class Settings:
     transcript_lab_api: str = "http://127.0.0.1:8000"
     horizons_months: tuple[int, ...] = (6, 12, 24)
     default_benchmark: str = "SPY"
+    # D15: seeded within-year train/test share; holdout is per horizon (see golden/splits.py).
+    test_share: float = 0.3
+    split_seed: str = "vi-split-1"
     prices_from: date = date(2017, 1, 1)  # 5 years before the earliest sampled T0 (2022-09)
     # Annual-only as-of rule: a fiscal year's statements become visible this
     # many days after period end unless a real filing date is known.
@@ -91,6 +94,8 @@ def settings() -> Settings:
         ),
         transcript_lab_api=e.get("TRANSCRIPT_LAB_API", "http://127.0.0.1:8000"),
         default_benchmark=e.get("VI_DEFAULT_BENCHMARK", "SPY"),
+        test_share=float(e.get("VI_TEST_SHARE", "0.3")),
+        split_seed=e.get("VI_SPLIT_SEED", "vi-split-1"),
         prices_from=d("VI_PRICES_FROM", date(2017, 1, 1)),
         sec_user_agent=e.get("SEC_USER_AGENT", ""),
     )

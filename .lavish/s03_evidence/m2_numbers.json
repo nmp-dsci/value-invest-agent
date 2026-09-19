@@ -237,7 +237,7 @@
    "price_at_t0": 39.939998626708984,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -278,7 +278,7 @@
    "price_at_t0": 121.60611724853516,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -401,7 +401,7 @@
    "price_at_t0": 57.0,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -565,7 +565,7 @@
    "price_at_t0": 64.87000274658203,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "absolute_buy",
@@ -688,7 +688,7 @@
    "price_at_t0": 4291.7998046875,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -770,7 +770,7 @@
    "price_at_t0": 78.2300033569336,
    "rule_sensitive": true,
    "title_says_buy": true,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -893,7 +893,7 @@
    "price_at_t0": 172.38999938964844,
    "rule_sensitive": true,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -1098,7 +1098,7 @@
    "price_at_t0": 319.239990234375,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -1139,7 +1139,7 @@
    "price_at_t0": 45.83000183105469,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "relative_buy",
@@ -1221,7 +1221,7 @@
    "price_at_t0": 21.82200050354004,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -1303,7 +1303,7 @@
    "price_at_t0": 109.31999969482422,
    "rule_sensitive": true,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -1590,7 +1590,7 @@
    "price_at_t0": 86.58000183105469,
    "rule_sensitive": true,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -2041,7 +2041,7 @@
    "price_at_t0": 82.30000305175781,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -2082,7 +2082,7 @@
    "price_at_t0": 37.84000015258789,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -2123,7 +2123,7 @@
    "price_at_t0": 89.9800033569336,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "relative_buy",
@@ -2205,7 +2205,7 @@
    "price_at_t0": 318.69000244140625,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -2328,7 +2328,7 @@
    "price_at_t0": 54.099998474121094,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -2369,7 +2369,7 @@
    "price_at_t0": 99.56999969482422,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -2574,7 +2574,7 @@
    "price_at_t0": 59.5099983215332,
    "rule_sensitive": true,
    "title_says_buy": true,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -2615,7 +2615,7 @@
    "price_at_t0": 138.33999633789062,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -2697,7 +2697,7 @@
    "price_at_t0": 95.4000015258789,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -3025,7 +3025,7 @@
    "price_at_t0": 55.970001220703125,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -3107,7 +3107,7 @@
    "price_at_t0": 390.82000732421875,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3148,7 +3148,7 @@
    "price_at_t0": 310.7699890136719,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "train",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "relative_buy",
@@ -3353,7 +3353,7 @@
    "price_at_t0": 416.7200012207031,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3501,7 +3501,7 @@
    "price_at_t0": 174.7100067138672,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3538,7 +3538,7 @@
    "price_at_t0": 108.75,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3612,7 +3612,7 @@
    "price_at_t0": 222.63999938964844,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3649,7 +3649,7 @@
    "price_at_t0": 77.81999969482422,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3686,7 +3686,7 @@
    "price_at_t0": 149.22999572753906,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3723,7 +3723,7 @@
    "price_at_t0": 12.399999618530273,
    "rule_sensitive": true,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -3760,7 +3760,7 @@
    "price_at_t0": 504.6168518066406,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3797,7 +3797,7 @@
    "price_at_t0": 43.17250061035156,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3871,7 +3871,7 @@
    "price_at_t0": 93.9000015258789,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -3908,7 +3908,7 @@
    "price_at_t0": 274.3500061035156,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "too_hard",
@@ -3982,7 +3982,7 @@
    "price_at_t0": 9.609999656677246,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -4019,7 +4019,7 @@
    "price_at_t0": 25.68000030517578,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4056,7 +4056,7 @@
    "price_at_t0": 506.9100036621094,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "test",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -4093,7 +4093,7 @@
    "price_at_t0": 78.1500015258789,
    "rule_sensitive": true,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -4126,7 +4126,7 @@
    "price_at_t0": 1171.3599853515625,
    "rule_sensitive": true,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4159,7 +4159,7 @@
    "price_at_t0": 60.79999923706055,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "relative_buy",
@@ -4192,7 +4192,7 @@
    "price_at_t0": 83.0999984741211,
    "rule_sensitive": true,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4225,7 +4225,7 @@
    "price_at_t0": 27.709999084472656,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4258,7 +4258,7 @@
    "price_at_t0": 77.80999755859375,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4291,7 +4291,7 @@
    "price_at_t0": 39.900001525878906,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4324,7 +4324,7 @@
    "price_at_t0": 125.19999694824219,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4357,7 +4357,7 @@
    "price_at_t0": 210.0,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -4390,7 +4390,7 @@
    "price_at_t0": 18.950000762939453,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "relative_buy",
@@ -4423,7 +4423,7 @@
    "price_at_t0": 85.87999725341797,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4451,7 +4451,7 @@
    "price_at_t0": 1607.800048828125,
    "rule_sensitive": true,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -4479,7 +4479,7 @@
    "price_at_t0": 487.0,
    "rule_sensitive": true,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "relative_buy",
@@ -4507,7 +4507,7 @@
    "price_at_t0": 195.16000366210938,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4535,7 +4535,7 @@
    "price_at_t0": 142.02000427246094,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4563,7 +4563,7 @@
    "price_at_t0": 192.52999877929688,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4591,7 +4591,7 @@
    "price_at_t0": 308.6300048828125,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "short",
@@ -4619,7 +4619,7 @@
    "price_at_t0": 27.940000534057617,
    "rule_sensitive": true,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "test",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "fair_hold",
@@ -4647,7 +4647,7 @@
    "price_at_t0": 333.7099914550781,
    "rule_sensitive": false,
    "title_says_buy": true,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4675,7 +4675,7 @@
    "price_at_t0": 145.74000549316406,
    "rule_sensitive": false,
    "title_says_buy": false,
-   "split": "holdout",
+   "split": "train",
    "curation_status": "auto",
    "extractor_version": "v2",
    "critic_stance": "avoid",
@@ -4782,6 +4782,12 @@
    "n": 15
   },
   {
+   "category": "growth",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 13
+  },
+  {
    "category": "cyclicality",
    "direction": "for_sell",
    "reproducible": "derived",
@@ -4789,20 +4795,14 @@
   },
   {
    "category": "growth",
-   "direction": "for_buy",
-   "reproducible": "external",
-   "n": 13
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 12
   },
   {
    "category": "moat",
    "direction": "for_buy",
    "reproducible": "external",
-   "n": 12
-  },
-  {
-   "category": "growth",
-   "direction": "for_sell",
-   "reproducible": "derived",
    "n": 12
   },
   {
@@ -4824,15 +4824,15 @@
    "n": 11
   },
   {
-   "category": "valuation",
-   "direction": "for_sell",
-   "reproducible": "statements",
-   "n": 11
-  },
-  {
    "category": "macro_rates",
    "direction": "for_sell",
    "reproducible": "derived",
+   "n": 11
+  },
+  {
+   "category": "valuation",
+   "direction": "for_sell",
+   "reproducible": "statements",
    "n": 11
   },
   {
@@ -4848,13 +4848,13 @@
    "n": 9
   },
   {
-   "category": "sentiment",
+   "category": "capital_allocation",
    "direction": "for_buy",
    "reproducible": "external",
    "n": 9
   },
   {
-   "category": "capital_allocation",
+   "category": "sentiment",
    "direction": "for_buy",
    "reproducible": "external",
    "n": 9
@@ -4874,18 +4874,6 @@
   {
    "category": "valuation",
    "direction": "for_buy",
-   "reproducible": "statements",
-   "n": 6
-  },
-  {
-   "category": "capital_allocation",
-   "direction": "for_sell",
-   "reproducible": "derived",
-   "n": 6
-  },
-  {
-   "category": "valuation",
-   "direction": "for_buy",
    "reproducible": "external",
    "n": 6
   },
@@ -4893,6 +4881,18 @@
    "category": "balance_sheet",
    "direction": "for_sell",
    "reproducible": "external",
+   "n": 6
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 6
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_sell",
+   "reproducible": "derived",
    "n": 6
   },
   {
@@ -4908,9 +4908,9 @@
    "n": 5
   },
   {
-   "category": "valuation",
-   "direction": "for_buy",
-   "reproducible": "judgement",
+   "category": "sentiment",
+   "direction": "for_sell",
+   "reproducible": "derived",
    "n": 4
   },
   {
@@ -4932,9 +4932,9 @@
    "n": 4
   },
   {
-   "category": "sentiment",
-   "direction": "for_sell",
-   "reproducible": "derived",
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "judgement",
    "n": 4
   },
   {
@@ -4962,9 +4962,9 @@
    "n": 3
   },
   {
-   "category": "management",
+   "category": "moat",
    "direction": "for_sell",
-   "reproducible": "derived",
+   "reproducible": "prices",
    "n": 2
   },
   {
@@ -4974,6 +4974,12 @@
    "n": 2
   },
   {
+   "category": "management",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 2
+  },
+  {
    "category": "cyclicality",
    "direction": "for_buy",
    "reproducible": "derived",
@@ -4982,31 +4988,19 @@
   {
    "category": "moat",
    "direction": "for_sell",
-   "reproducible": "prices",
-   "n": 2
-  },
-  {
-   "category": "moat",
-   "direction": "for_sell",
    "reproducible": "derived",
    "n": 2
   },
   {
-   "category": "sentiment",
+   "category": "macro_rates",
    "direction": "for_buy",
-   "reproducible": "statements",
+   "reproducible": "external",
    "n": 1
   },
   {
    "category": "cyclicality",
    "direction": "for_buy",
-   "reproducible": "prices",
-   "n": 1
-  },
-  {
-   "category": "growth",
-   "direction": "for_buy",
-   "reproducible": "prices",
+   "reproducible": "external",
    "n": 1
   },
   {
@@ -5018,7 +5012,7 @@
   {
    "category": "cyclicality",
    "direction": "for_buy",
-   "reproducible": "external",
+   "reproducible": "prices",
    "n": 1
   },
   {
@@ -5034,9 +5028,15 @@
    "n": 1
   },
   {
-   "category": "macro_rates",
+   "category": "sentiment",
    "direction": "for_buy",
-   "reproducible": "external",
+   "reproducible": "statements",
+   "n": 1
+  },
+  {
+   "category": "growth",
+   "direction": "for_buy",
+   "reproducible": "prices",
    "n": 1
   }
  ],
@@ -5795,18 +5795,1607 @@
     ]
    }
   },
-  "splits": {
-   "train": 80,
-   "test": 20,
-   "holdout": 20
+  "split_at": {
+   "6": {
+    "overall": {
+     "train": {
+      "n": 76,
+      "mix": {
+       "BUY": 15,
+       "HOLD": 17,
+       "SELL": 44
+      },
+      "hits": {
+       "BUY": [
+        4,
+        15
+       ],
+       "HOLD": [
+        8,
+        17
+       ],
+       "SELL": [
+        19,
+        44
+       ]
+      },
+      "mean_excess": {
+       "BUY": -6.7,
+       "HOLD": 13.7,
+       "SELL": -1.6
+      },
+      "verdict": {
+       "correct": 31,
+       "wrong": 31,
+       "indeterminate": 14
+      },
+      "verdict_hold_alt": {
+       "correct": 37,
+       "wrong": 25,
+       "indeterminate": 14
+      },
+      "iv_hit": [
+       5,
+       35
+      ]
+     },
+     "test": {
+      "n": 34,
+      "mix": {
+       "BUY": 6,
+       "HOLD": 10,
+       "SELL": 18
+      },
+      "hits": {
+       "BUY": [
+        3,
+        6
+       ],
+       "HOLD": [
+        7,
+        10
+       ],
+       "SELL": [
+        7,
+        18
+       ]
+      },
+      "mean_excess": {
+       "BUY": -1.7,
+       "HOLD": -1.4,
+       "SELL": 2.7
+      },
+      "verdict": {
+       "correct": 17,
+       "wrong": 12,
+       "indeterminate": 5
+      },
+      "verdict_hold_alt": {
+       "correct": 17,
+       "wrong": 12,
+       "indeterminate": 5
+      },
+      "iv_hit": [
+       2,
+       17
+      ]
+     },
+     "holdout": {
+      "n": 10,
+      "mix": {
+       "BUY": 1,
+       "HOLD": 2,
+       "SELL": 7
+      }
+     }
+    },
+    "by_year": {
+     "2025/26": {
+      "train": {
+       "n": 6,
+       "mix": {
+        "BUY": 2,
+        "HOLD": 1,
+        "SELL": 3
+       },
+       "hits": {
+        "BUY": [
+         1,
+         2
+        ],
+        "HOLD": [
+         0,
+         1
+        ],
+        "SELL": [
+         3,
+         3
+        ]
+       },
+       "mean_excess": {
+        "BUY": 11.8,
+        "HOLD": 14.1,
+        "SELL": -23.0
+       },
+       "verdict": {
+        "correct": 4,
+        "wrong": 2,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 5,
+        "wrong": 1,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        2
+       ]
+      },
+      "test": {
+       "n": 4,
+       "mix": {
+        "BUY": 0,
+        "HOLD": 0,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         0,
+         0
+        ],
+        "HOLD": [
+         0,
+         0
+        ],
+        "SELL": [
+         0,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": null,
+        "HOLD": null,
+        "SELL": 11.1
+       },
+       "verdict": {
+        "correct": 0,
+        "wrong": 1,
+        "indeterminate": 3
+       },
+       "verdict_hold_alt": {
+        "correct": 0,
+        "wrong": 1,
+        "indeterminate": 3
+       },
+       "iv_hit": [
+        0,
+        1
+       ]
+      },
+      "holdout": {
+       "n": 10,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 2,
+        "SELL": 7
+       }
+      }
+     },
+     "2024/25": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 0,
+        "HOLD": 3,
+        "SELL": 11
+       },
+       "hits": {
+        "BUY": [
+         0,
+         0
+        ],
+        "HOLD": [
+         3,
+         3
+        ],
+        "SELL": [
+         4,
+         11
+        ]
+       },
+       "mean_excess": {
+        "BUY": null,
+        "HOLD": -3.7,
+        "SELL": 5.5
+       },
+       "verdict": {
+        "correct": 7,
+        "wrong": 5,
+        "indeterminate": 2
+       },
+       "verdict_hold_alt": {
+        "correct": 6,
+        "wrong": 6,
+        "indeterminate": 2
+       },
+       "iv_hit": [
+        0,
+        6
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         1,
+         1
+        ],
+        "HOLD": [
+         1,
+         1
+        ],
+        "SELL": [
+         1,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": 34.4,
+        "HOLD": 7.3,
+        "SELL": 30.3
+       },
+       "verdict": {
+        "correct": 3,
+        "wrong": 3,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 3,
+        "wrong": 3,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        1,
+        3
+       ]
+      }
+     },
+     "2023/24": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 2,
+        "HOLD": 1,
+        "SELL": 11
+       },
+       "hits": {
+        "BUY": [
+         1,
+         2
+        ],
+        "HOLD": [
+         1,
+         1
+        ],
+        "SELL": [
+         5,
+         11
+        ]
+       },
+       "mean_excess": {
+        "BUY": 5.1,
+        "HOLD": -2.7,
+        "SELL": 3.9
+       },
+       "verdict": {
+        "correct": 7,
+        "wrong": 4,
+        "indeterminate": 3
+       },
+       "verdict_hold_alt": {
+        "correct": 7,
+        "wrong": 4,
+        "indeterminate": 3
+       },
+       "iv_hit": [
+        1,
+        5
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 2,
+        "HOLD": 2,
+        "SELL": 2
+       },
+       "hits": {
+        "BUY": [
+         1,
+         2
+        ],
+        "HOLD": [
+         1,
+         2
+        ],
+        "SELL": [
+         0,
+         2
+        ]
+       },
+       "mean_excess": {
+        "BUY": 0.6,
+        "HOLD": -12.5,
+        "SELL": 2.9
+       },
+       "verdict": {
+        "correct": 2,
+        "wrong": 3,
+        "indeterminate": 1
+       },
+       "verdict_hold_alt": {
+        "correct": 2,
+        "wrong": 3,
+        "indeterminate": 1
+       },
+       "iv_hit": [
+        0,
+        2
+       ]
+      }
+     },
+     "2022/23": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 3,
+        "HOLD": 2,
+        "SELL": 9
+       },
+       "hits": {
+        "BUY": [
+         1,
+         3
+        ],
+        "HOLD": [
+         1,
+         2
+        ],
+        "SELL": [
+         1,
+         9
+        ]
+       },
+       "mean_excess": {
+        "BUY": 2.5,
+        "HOLD": 19.4,
+        "SELL": 4.1
+       },
+       "verdict": {
+        "correct": 3,
+        "wrong": 6,
+        "indeterminate": 5
+       },
+       "verdict_hold_alt": {
+        "correct": 4,
+        "wrong": 5,
+        "indeterminate": 5
+       },
+       "iv_hit": [
+        1,
+        3
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         1,
+         1
+        ],
+        "HOLD": [
+         1,
+         1
+        ],
+        "SELL": [
+         4,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": 10.0,
+        "HOLD": -2.8,
+        "SELL": -16.4
+       },
+       "verdict": {
+        "correct": 6,
+        "wrong": 0,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 6,
+        "wrong": 0,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        2
+       ]
+      }
+     },
+     "2021/22": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 4,
+        "HOLD": 3,
+        "SELL": 7
+       },
+       "hits": {
+        "BUY": [
+         1,
+         4
+        ],
+        "HOLD": [
+         1,
+         3
+        ],
+        "SELL": [
+         4,
+         7
+        ]
+       },
+       "mean_excess": {
+        "BUY": -8.7,
+        "HOLD": 19.0,
+        "SELL": -11.6
+       },
+       "verdict": {
+        "correct": 6,
+        "wrong": 6,
+        "indeterminate": 2
+       },
+       "verdict_hold_alt": {
+        "correct": 8,
+        "wrong": 4,
+        "indeterminate": 2
+       },
+       "iv_hit": [
+        2,
+        10
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 5,
+        "SELL": 0
+       },
+       "hits": {
+        "BUY": [
+         0,
+         1
+        ],
+        "HOLD": [
+         4,
+         5
+        ],
+        "SELL": [
+         0,
+         0
+        ]
+       },
+       "mean_excess": {
+        "BUY": -27.6,
+        "HOLD": 5.9,
+        "SELL": null
+       },
+       "verdict": {
+        "correct": 4,
+        "wrong": 2,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 4,
+        "wrong": 2,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        5
+       ]
+      }
+     },
+     "2020/21": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 4,
+        "HOLD": 7,
+        "SELL": 3
+       },
+       "hits": {
+        "BUY": [
+         0,
+         4
+        ],
+        "HOLD": [
+         2,
+         7
+        ],
+        "SELL": [
+         2,
+         3
+        ]
+       },
+       "mean_excess": {
+        "BUY": -26.7,
+        "HOLD": 19.5,
+        "SELL": -19.8
+       },
+       "verdict": {
+        "correct": 4,
+        "wrong": 8,
+        "indeterminate": 2
+       },
+       "verdict_hold_alt": {
+        "correct": 7,
+        "wrong": 5,
+        "indeterminate": 2
+       },
+       "iv_hit": [
+        1,
+        9
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         0,
+         1
+        ],
+        "HOLD": [
+         0,
+         1
+        ],
+        "SELL": [
+         2,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": -28.2,
+        "HOLD": -23.3,
+        "SELL": -14.5
+       },
+       "verdict": {
+        "correct": 2,
+        "wrong": 3,
+        "indeterminate": 1
+       },
+       "verdict_hold_alt": {
+        "correct": 2,
+        "wrong": 3,
+        "indeterminate": 1
+       },
+       "iv_hit": [
+        1,
+        4
+       ]
+      }
+     }
+    }
+   },
+   "12": {
+    "overall": {
+     "train": {
+      "n": 70,
+      "mix": {
+       "BUY": 13,
+       "HOLD": 16,
+       "SELL": 41
+      },
+      "hits": {
+       "BUY": [
+        3,
+        13
+       ],
+       "HOLD": [
+        3,
+        16
+       ],
+       "SELL": [
+        20,
+        41
+       ]
+      },
+      "mean_excess": {
+       "BUY": -3.1,
+       "HOLD": 18.4,
+       "SELL": -2.1
+      },
+      "verdict": {
+       "correct": 26,
+       "wrong": 37,
+       "indeterminate": 7
+      },
+      "verdict_hold_alt": {
+       "correct": 34,
+       "wrong": 29,
+       "indeterminate": 7
+      },
+      "iv_hit": [
+       5,
+       33
+      ]
+     },
+     "test": {
+      "n": 30,
+      "mix": {
+       "BUY": 6,
+       "HOLD": 10,
+       "SELL": 14
+      },
+      "hits": {
+       "BUY": [
+        3,
+        6
+       ],
+       "HOLD": [
+        5,
+        10
+       ],
+       "SELL": [
+        8,
+        14
+       ]
+      },
+      "mean_excess": {
+       "BUY": -4.5,
+       "HOLD": -9.4,
+       "SELL": 2.9
+      },
+      "verdict": {
+       "correct": 16,
+       "wrong": 14,
+       "indeterminate": 0
+      },
+      "verdict_hold_alt": {
+       "correct": 14,
+       "wrong": 16,
+       "indeterminate": 0
+      },
+      "iv_hit": [
+       3,
+       16
+      ]
+     },
+     "holdout": {
+      "n": 20,
+      "mix": {
+       "BUY": 3,
+       "HOLD": 3,
+       "SELL": 14
+      }
+     }
+    },
+    "by_year": {
+     "2024/25": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 0,
+        "HOLD": 3,
+        "SELL": 11
+       },
+       "hits": {
+        "BUY": [
+         0,
+         0
+        ],
+        "HOLD": [
+         0,
+         3
+        ],
+        "SELL": [
+         4,
+         11
+        ]
+       },
+       "mean_excess": {
+        "BUY": null,
+        "HOLD": 10.4,
+        "SELL": 5.2
+       },
+       "verdict": {
+        "correct": 4,
+        "wrong": 9,
+        "indeterminate": 1
+       },
+       "verdict_hold_alt": {
+        "correct": 5,
+        "wrong": 8,
+        "indeterminate": 1
+       },
+       "iv_hit": [
+        0,
+        6
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         1,
+         1
+        ],
+        "HOLD": [
+         1,
+         1
+        ],
+        "SELL": [
+         1,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": 20.0,
+        "HOLD": -7.0,
+        "SELL": 66.9
+       },
+       "verdict": {
+        "correct": 3,
+        "wrong": 3,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 2,
+        "wrong": 4,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        2,
+        3
+       ]
+      }
+     },
+     "2023/24": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 2,
+        "HOLD": 1,
+        "SELL": 11
+       },
+       "hits": {
+        "BUY": [
+         1,
+         2
+        ],
+        "HOLD": [
+         1,
+         1
+        ],
+        "SELL": [
+         5,
+         11
+        ]
+       },
+       "mean_excess": {
+        "BUY": 58.8,
+        "HOLD": 0.4,
+        "SELL": 2.3
+       },
+       "verdict": {
+        "correct": 7,
+        "wrong": 5,
+        "indeterminate": 2
+       },
+       "verdict_hold_alt": {
+        "correct": 7,
+        "wrong": 5,
+        "indeterminate": 2
+       },
+       "iv_hit": [
+        1,
+        5
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 2,
+        "HOLD": 2,
+        "SELL": 2
+       },
+       "hits": {
+        "BUY": [
+         1,
+         2
+        ],
+        "HOLD": [
+         0,
+         2
+        ],
+        "SELL": [
+         0,
+         2
+        ]
+       },
+       "mean_excess": {
+        "BUY": -11.5,
+        "HOLD": -38.2,
+        "SELL": 8.3
+       },
+       "verdict": {
+        "correct": 1,
+        "wrong": 5,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 1,
+        "wrong": 5,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        2
+       ]
+      }
+     },
+     "2022/23": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 3,
+        "HOLD": 2,
+        "SELL": 9
+       },
+       "hits": {
+        "BUY": [
+         2,
+         3
+        ],
+        "HOLD": [
+         0,
+         2
+        ],
+        "SELL": [
+         5,
+         9
+        ]
+       },
+       "mean_excess": {
+        "BUY": 16.6,
+        "HOLD": 8.9,
+        "SELL": -10.2
+       },
+       "verdict": {
+        "correct": 7,
+        "wrong": 5,
+        "indeterminate": 2
+       },
+       "verdict_hold_alt": {
+        "correct": 8,
+        "wrong": 4,
+        "indeterminate": 2
+       },
+       "iv_hit": [
+        1,
+        3
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         1,
+         1
+        ],
+        "HOLD": [
+         0,
+         1
+        ],
+        "SELL": [
+         4,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": 41.6,
+        "HOLD": -29.4,
+        "SELL": -22.7
+       },
+       "verdict": {
+        "correct": 5,
+        "wrong": 1,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 5,
+        "wrong": 1,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        2
+       ]
+      }
+     },
+     "2021/22": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 4,
+        "HOLD": 3,
+        "SELL": 7
+       },
+       "hits": {
+        "BUY": [
+         0,
+         4
+        ],
+        "HOLD": [
+         0,
+         3
+        ],
+        "SELL": [
+         5,
+         7
+        ]
+       },
+       "mean_excess": {
+        "BUY": -25.4,
+        "HOLD": 43.1,
+        "SELL": -9.1
+       },
+       "verdict": {
+        "correct": 5,
+        "wrong": 8,
+        "indeterminate": 1
+       },
+       "verdict_hold_alt": {
+        "correct": 8,
+        "wrong": 5,
+        "indeterminate": 1
+       },
+       "iv_hit": [
+        2,
+        10
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 5,
+        "SELL": 0
+       },
+       "hits": {
+        "BUY": [
+         0,
+         1
+        ],
+        "HOLD": [
+         3,
+         5
+        ],
+        "SELL": [
+         0,
+         0
+        ]
+       },
+       "mean_excess": {
+        "BUY": -31.8,
+        "HOLD": 5.0,
+        "SELL": null
+       },
+       "verdict": {
+        "correct": 3,
+        "wrong": 3,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 3,
+        "wrong": 3,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        5
+       ]
+      }
+     },
+     "2020/21": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 4,
+        "HOLD": 7,
+        "SELL": 3
+       },
+       "hits": {
+        "BUY": [
+         0,
+         4
+        ],
+        "HOLD": [
+         2,
+         7
+        ],
+        "SELL": [
+         1,
+         3
+        ]
+       },
+       "mean_excess": {
+        "BUY": -26.5,
+        "HOLD": 16.5,
+        "SELL": -4.5
+       },
+       "verdict": {
+        "correct": 3,
+        "wrong": 10,
+        "indeterminate": 1
+       },
+       "verdict_hold_alt": {
+        "correct": 6,
+        "wrong": 7,
+        "indeterminate": 1
+       },
+       "iv_hit": [
+        1,
+        9
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         0,
+         1
+        ],
+        "HOLD": [
+         1,
+         1
+        ],
+        "SELL": [
+         3,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": -33.7,
+        "HOLD": -6.4,
+        "SELL": -38.0
+       },
+       "verdict": {
+        "correct": 4,
+        "wrong": 2,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 3,
+        "wrong": 3,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        1,
+        4
+       ]
+      }
+     },
+     "2025/26": {
+      "holdout": {
+       "n": 20,
+       "mix": {
+        "BUY": 3,
+        "HOLD": 3,
+        "SELL": 14
+       }
+      }
+     }
+    }
+   },
+   "24": {
+    "overall": {
+     "train": {
+      "n": 56,
+      "mix": {
+       "BUY": 13,
+       "HOLD": 13,
+       "SELL": 30
+      },
+      "hits": {
+       "BUY": [
+        3,
+        13
+       ],
+       "HOLD": [
+        1,
+        13
+       ],
+       "SELL": [
+        18,
+        30
+       ]
+      },
+      "mean_excess": {
+       "BUY": -9.5,
+       "HOLD": 44.3,
+       "SELL": -8.2
+      },
+      "verdict": {
+       "correct": 22,
+       "wrong": 30,
+       "indeterminate": 4
+      },
+      "verdict_hold_alt": {
+       "correct": 28,
+       "wrong": 24,
+       "indeterminate": 4
+      },
+      "iv_hit": [
+       6,
+       27
+      ]
+     },
+     "test": {
+      "n": 24,
+      "mix": {
+       "BUY": 5,
+       "HOLD": 9,
+       "SELL": 10
+      },
+      "hits": {
+       "BUY": [
+        2,
+        5
+       ],
+       "HOLD": [
+        2,
+        9
+       ],
+       "SELL": [
+        7,
+        10
+       ]
+      },
+      "mean_excess": {
+       "BUY": -17.1,
+       "HOLD": -26.5,
+       "SELL": -9.2
+      },
+      "verdict": {
+       "correct": 11,
+       "wrong": 13,
+       "indeterminate": 0
+      },
+      "verdict_hold_alt": {
+       "correct": 12,
+       "wrong": 12,
+       "indeterminate": 0
+      },
+      "iv_hit": [
+       2,
+       13
+      ]
+     },
+     "holdout": {
+      "n": 40,
+      "mix": {
+       "BUY": 4,
+       "HOLD": 7,
+       "SELL": 29
+      }
+     }
+    },
+    "by_year": {
+     "2023/24": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 2,
+        "HOLD": 1,
+        "SELL": 11
+       },
+       "hits": {
+        "BUY": [
+         1,
+         2
+        ],
+        "HOLD": [
+         0,
+         1
+        ],
+        "SELL": [
+         5,
+         11
+        ]
+       },
+       "mean_excess": {
+        "BUY": 78.8,
+        "HOLD": -20.2,
+        "SELL": 11.5
+       },
+       "verdict": {
+        "correct": 6,
+        "wrong": 6,
+        "indeterminate": 2
+       },
+       "verdict_hold_alt": {
+        "correct": 6,
+        "wrong": 6,
+        "indeterminate": 2
+       },
+       "iv_hit": [
+        2,
+        5
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 2,
+        "HOLD": 2,
+        "SELL": 2
+       },
+       "hits": {
+        "BUY": [
+         1,
+         2
+        ],
+        "HOLD": [
+         0,
+         2
+        ],
+        "SELL": [
+         1,
+         2
+        ]
+       },
+       "mean_excess": {
+        "BUY": -40.7,
+        "HOLD": -98.8,
+        "SELL": 26.5
+       },
+       "verdict": {
+        "correct": 2,
+        "wrong": 4,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 2,
+        "wrong": 4,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        1,
+        2
+       ]
+      }
+     },
+     "2022/23": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 3,
+        "HOLD": 2,
+        "SELL": 9
+       },
+       "hits": {
+        "BUY": [
+         1,
+         3
+        ],
+        "HOLD": [
+         0,
+         2
+        ],
+        "SELL": [
+         5,
+         9
+        ]
+       },
+       "mean_excess": {
+        "BUY": 5.1,
+        "HOLD": 17.0,
+        "SELL": -21.9
+       },
+       "verdict": {
+        "correct": 6,
+        "wrong": 6,
+        "indeterminate": 2
+       },
+       "verdict_hold_alt": {
+        "correct": 7,
+        "wrong": 5,
+        "indeterminate": 2
+       },
+       "iv_hit": [
+        1,
+        3
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         1,
+         1
+        ],
+        "HOLD": [
+         0,
+         1
+        ],
+        "SELL": [
+         4,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": 72.9,
+        "HOLD": -26.4,
+        "SELL": -42.4
+       },
+       "verdict": {
+        "correct": 5,
+        "wrong": 1,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 5,
+        "wrong": 1,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        2
+       ]
+      }
+     },
+     "2021/22": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 4,
+        "HOLD": 3,
+        "SELL": 7
+       },
+       "hits": {
+        "BUY": [
+         0,
+         4
+        ],
+        "HOLD": [
+         0,
+         3
+        ],
+        "SELL": [
+         6,
+         7
+        ]
+       },
+       "mean_excess": {
+        "BUY": -43.5,
+        "HOLD": 98.6,
+        "SELL": -18.5
+       },
+       "verdict": {
+        "correct": 6,
+        "wrong": 8,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 8,
+        "wrong": 6,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        2,
+        10
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 5,
+        "SELL": 0
+       },
+       "hits": {
+        "BUY": [
+         0,
+         1
+        ],
+        "HOLD": [
+         2,
+         5
+        ],
+        "SELL": [
+         0,
+         0
+        ]
+       },
+       "mean_excess": {
+        "BUY": -22.4,
+        "HOLD": 8.7,
+        "SELL": null
+       },
+       "verdict": {
+        "correct": 2,
+        "wrong": 4,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 3,
+        "wrong": 3,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        0,
+        5
+       ]
+      }
+     },
+     "2020/21": {
+      "train": {
+       "n": 14,
+       "mix": {
+        "BUY": 4,
+        "HOLD": 7,
+        "SELL": 3
+       },
+       "hits": {
+        "BUY": [
+         1,
+         4
+        ],
+        "HOLD": [
+         1,
+         7
+        ],
+        "SELL": [
+         2,
+         3
+        ]
+       },
+       "mean_excess": {
+        "BUY": -30.6,
+        "HOLD": 38.1,
+        "SELL": -15.7
+       },
+       "verdict": {
+        "correct": 4,
+        "wrong": 10,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 7,
+        "wrong": 7,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        1,
+        9
+       ]
+      },
+      "test": {
+       "n": 6,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 1,
+        "SELL": 4
+       },
+       "hits": {
+        "BUY": [
+         0,
+         1
+        ],
+        "HOLD": [
+         0,
+         1
+        ],
+        "SELL": [
+         2,
+         4
+        ]
+       },
+       "mean_excess": {
+        "BUY": -54.4,
+        "HOLD": -57.8,
+        "SELL": 6.3
+       },
+       "verdict": {
+        "correct": 2,
+        "wrong": 4,
+        "indeterminate": 0
+       },
+       "verdict_hold_alt": {
+        "correct": 2,
+        "wrong": 4,
+        "indeterminate": 0
+       },
+       "iv_hit": [
+        1,
+        4
+       ]
+      }
+     },
+     "2025/26": {
+      "holdout": {
+       "n": 20,
+       "mix": {
+        "BUY": 3,
+        "HOLD": 3,
+        "SELL": 14
+       }
+      }
+     },
+     "2024/25": {
+      "holdout": {
+       "n": 20,
+       "mix": {
+        "BUY": 1,
+        "HOLD": 4,
+        "SELL": 15
+       }
+      }
+     }
+    }
+   }
   },
+  "splits": {
+   "train": 84,
+   "test": 36
+  },
+  "test_share": 0.3,
   "n_evals": 120
  },
  "mix": [
   {
    "year_bucket": "2020/21",
-   "split": "train",
    "n": 20,
+   "train": 14,
+   "test": 6,
    "buy": 5,
    "hold": 8,
    "sell": 7,
@@ -5814,8 +7403,9 @@
   },
   {
    "year_bucket": "2021/22",
-   "split": "train",
    "n": 20,
+   "train": 14,
+   "test": 6,
    "buy": 5,
    "hold": 8,
    "sell": 7,
@@ -5823,8 +7413,9 @@
   },
   {
    "year_bucket": "2022/23",
-   "split": "train",
    "n": 20,
+   "train": 14,
+   "test": 6,
    "buy": 4,
    "hold": 3,
    "sell": 13,
@@ -5832,8 +7423,9 @@
   },
   {
    "year_bucket": "2023/24",
-   "split": "train",
    "n": 20,
+   "train": 14,
+   "test": 6,
    "buy": 4,
    "hold": 3,
    "sell": 13,
@@ -5841,8 +7433,9 @@
   },
   {
    "year_bucket": "2024/25",
-   "split": "test",
    "n": 20,
+   "train": 14,
+   "test": 6,
    "buy": 1,
    "hold": 4,
    "sell": 15,
@@ -5850,8 +7443,9 @@
   },
   {
    "year_bucket": "2025/26",
-   "split": "holdout",
    "n": 20,
+   "train": 14,
+   "test": 6,
    "buy": 3,
    "hold": 3,
    "sell": 14,

@@ -15,6 +15,7 @@ from typing import Any
 import duckdb
 
 from value_invest.config import settings
+from value_invest.golden.splits import assign_splits
 
 BAND = 0.05
 HOLD_BAND = 0.10
@@ -102,6 +103,7 @@ def validate_all(
                 ],
             )
             written += 1
+    assign_splits(con)
     summary = validation_summary(con)
     summary["rows_written"] = written
     summary["last_price_date"] = str(last)
@@ -149,17 +151,47 @@ def validation_summary(con: duckdb.DuckDBPyConnection) -> dict[str, Any]:
             b["iv_hit"][1] += 1
             b["iv_hit"][0] += int(bool(iv_hit))
 
-    for yb, h, pos, ex, verdict, alt, iv_hit, *_ in rows:
+    # D15: split_at[h] — train / test buckets over the evals whose outcome exists at h,
+    # holdout = the rest (counted, with their position mix). Same shape overall and per year.
+    horizons = [str(h) for h in settings().horizons_months]
+    out["split_at"] = {h: {"overall": {}, "by_year": {}} for h in horizons}
+    for yb, h, pos, ex, verdict, alt, iv_hit, _sd, _er, split in rows:
         bucket(out["by_year"].setdefault(yb, {}), str(h), pos, ex, verdict, alt, iv_hit)
         bucket(out["overall"], str(h), pos, ex, verdict, alt, iv_hit)
-    for group in [out["overall"], *out["by_year"].values()]:
+        if str(h) in out["split_at"]:
+            sa = out["split_at"][str(h)]
+            bucket(sa["overall"], split, pos, ex, verdict, alt, iv_hit)
+            bucket(sa["by_year"].setdefault(yb, {}), split, pos, ex, verdict, alt, iv_hit)
+    groups = [out["overall"], *out["by_year"].values()]
+    for sa in out["split_at"].values():
+        groups += [sa["overall"], *sa["by_year"].values()]
+    for group in groups:
         for b in group.values():
             b["mean_excess"] = {
                 k: (round(sum(v) / len(v) * 100, 1) if v else None)
                 for k, v in b["mean_excess"].items()
             }
+    evals = con.execute(
+        "SELECT e.video_id, v.year_bucket, e.split, e.position FROM vi.evals e JOIN vi.videos v USING (video_id)"
+    ).fetchall()
+    for h in horizons:
+        have = {
+            r[0]
+            for r in con.execute(
+                "SELECT video_id FROM vi.validations WHERE horizon_m = ?", [int(h)]
+            ).fetchall()
+        }
+        sa = out["split_at"][h]
+        for vid, yb, _split, pos in evals:
+            if vid in have:
+                continue
+            for target in (sa["overall"], sa["by_year"].setdefault(yb, {})):
+                hb = target.setdefault("holdout", {"n": 0, "mix": {"BUY": 0, "HOLD": 0, "SELL": 0}})
+                hb["n"] += 1
+                hb["mix"][pos] += 1
     splits = con.execute("SELECT split, count(*) FROM vi.evals GROUP BY 1").fetchall()
     out["splits"] = {k: n for k, n in splits}
+    out["test_share"] = settings().test_share
     n_row = con.execute("SELECT count(*) FROM vi.evals").fetchone()
     out["n_evals"] = n_row[0] if n_row else 0
     return out

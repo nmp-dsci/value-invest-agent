@@ -40,7 +40,7 @@ years):
   (system prompt or Python functions the sandbox exposes — nothing else), a
   challenger run on test, a McNemar gate on paired calls, a ledger entry.
   Retrieval few-shot is an ablation; no fine-tune in the first milestone.
-- **Leakage controls:** date-based splits, a no-tools baseline as the leakage
+- **Leakage controls:** point-in-time data, seeded within-year train/test splits (holdout = outcome not yet known, per horizon; D15), a no-tools baseline as the leakage
   floor, sealed holdout ≥ 2025-07.
 
 ## Layout
