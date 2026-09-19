@@ -1,0 +1,262 @@
+{
+ "key": "4HPITYUfSA4:e2a89b5d5a4e:v2:a33445f38391",
+ "eval": {
+  "video_id": "4HPITYUfSA4",
+  "ticker": "UNH",
+  "t0": "2025-05-15",
+  "title": "My Take on UNH Stock Crash = Too Hard Pile",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "too_hard",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "United Health Insurance usually goes to the two hard pile for me."
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "the P ratio was 2025 because their projected growth, earnings growth was 13 to 16% forever"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 274.3500061035156,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "competence",
+    "claim": "Insurance profits depend on estimating future costs, which is very hard to understand from outside, so he keeps it in the too-hard pile.",
+    "quote": "clearly profits depend on estimated future costs. You get the premium now and then you estimate the future costs. And here is where the discrepancy comes",
+    "chunk_id": "chunk:4HPITYUfSA4:1",
+    "start_s": 89.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "The aggressive 13-16% growth target created bad incentives that are now surfacing as problems like the Medicare investigation.",
+    "quote": "announcing that and having that as a target might lead to the wrong incentives which are now surfacing a little bit in this Medicare and things like that",
+    "chunk_id": "chunk:4HPITYUfSA4:1",
+    "start_s": 89.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "growth target",
+      "value": 14.5,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: growth target"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Insurance is inherently risky over the long run since insurers periodically go bankrupt, a risk people forget when promised high growth.",
+    "quote": "insurance companies go bankrupt every 30 years on average and banks every 50 years",
+    "chunk_id": "chunk:4HPITYUfSA4:2",
+    "start_s": 170.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "US healthcare spending per person is vastly higher than comparable-life-expectancy countries, implying long-term structural risk to the healthcare system's economics.",
+    "quote": "how much does the US spend per person on health care on average, we are at 14,000. I think Sri Lanka is 2,000 or something like that",
+    "chunk_id": "chunk:4HPITYUfSA4:2",
+    "start_s": 170.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "US healthcare spend per person",
+      "value": 14000.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "Sri Lanka healthcare spend per person",
+      "value": 2000.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "US life expectancy",
+      "value": 77.0,
+      "unit": "years",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: US healthcare spend per person, Sri Lanka healthcare spend per person, US life expectancy"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The stock might rebound short term if the temporary issues (CEO turnover, investigations) are resolved by end of 2026, but that is separate from the unpriced long-term risk.",
+    "quote": "if are solved by the end to 2026 then perhaps even the stock might rebound. That is the risk and reward there.",
+    "chunk_id": "chunk:4HPITYUfSA4:1",
+    "start_s": 89.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Bloomberg reporting on Medicare fraud investigations into UNH",
+   "Charlie Munger's commentary that insurance companies go bankrupt every 30 years on average and banks every 50 years",
+   "US life expectancy (~77 years) vs Sri Lanka's comparable life expectancy",
+   "US healthcare spend per person (~$14,000) vs Sri Lanka (~$2,000)"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "too_hard",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 274.3500061035156,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.0,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 0,
+    "external": 2,
+    "judgement": 3
+   },
+   "metrics_compared": 0,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "f533a05c-efcf-45a4-97c7-d52f4edb3cd9",
+   "transcript_sha256": "e2a89b5d5a4e40d7be43ce20a2903229e27473b691e1f8f8f3f3e2bf547b9d05",
+   "extracted_at": "2026-09-19T11:53:32+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "2573faca-af40-4b93-857b-c05e2d8f371a"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0258368,
+   "session_id": "f533a05c-efcf-45a4-97c7-d52f4edb3cd9",
+   "input_tokens": 5654,
+   "output_tokens": 1452
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.03636,
+   "session_id": "2573faca-af40-4b93-857b-c05e2d8f371a",
+   "input_tokens": 3823,
+   "output_tokens": 76
+  }
+ }
+}

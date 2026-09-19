@@ -1,0 +1,327 @@
+{
+ "key": "2Fpz6GopAUA:cecffcab3882:v2:a33445f38391",
+ "eval": {
+  "video_id": "2Fpz6GopAUA",
+  "ticker": "IBKR",
+  "t0": "2025-03-18",
+  "title": "Interactive Brokers Stock & Broker Analysis",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "this is really too bubbly for me but if it comes slower to 100 and then I know that earnings will go from 4 to seven and then likely nine in the future then that is something that I look"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 7.0,
+    "quote": "earnings per share of two for the last quarter bringing it to 7 for the year"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if earnings per share next year due to whatever reason go from 7 to five then we are talking about a 30 30 something p ratio"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 100.0,
+     "quote": "if it comes slower to 100 and then I know that earnings will go from 4 to seven and then likely N9 in the future then that is something that I look"
+    }
+   ],
+   "iv_weighted_stated": 100.0,
+   "price_mentioned": 160.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "so we cannot see accounts growing 30% even if they are the for runners"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 100.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 7.0,
+    "as_of": 6.93,
+    "period": "FY2024",
+    "gap_pct": 1.0
+   },
+   "comparable": {
+    "iv_stated": 100.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 4.0,
+    "iv_comparable": 25.0,
+    "upside_pct": -42.1,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 43.17250061035156,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At the current price the stock is too bubbly/exuberant; he would want it near 100 before being interested.",
+    "quote": "this is really too bubbly for me but if it comes slower to 100",
+    "chunk_id": "chunk:2Fpz6GopAUA:5",
+    "start_s": 404.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "price",
+      "value": 160.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "target entry price",
+      "value": 100.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 160.0,
+     "value_as_of": 43.17250061035156,
+     "agrees": false,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2025-03-18",
+     "gap_note": "he says 160, as-of 43.1725 (2025-03-18); annual vs TTM or a different definition; not in our data: target entry price"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "Falling Fed rates will directly cut net interest income, the main profit driver, and could push earnings back to prior lower levels.",
+    "quote": "for every 25 basis points decrease in the FED funds rate a 64 million reduction in annual net interest income",
+    "chunk_id": "chunk:2Fpz6GopAUA:4",
+    "start_s": 322.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "net interest income reduction per 25bps cut",
+      "value": 64.0,
+      "unit": "usd_mn",
+      "period": "annual"
+     },
+     {
+      "name": "fed funds rate",
+      "value": 4.0,
+      "unit": "pct",
+      "period": "current"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: net interest income reduction per 25bps cut, fed funds rate"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Accounts, revenue and net income are all growing strongly, showing a good scalable business.",
+    "quote": "30% of accounts growth this is also the factor that shows that it is a good business",
+    "chunk_id": "chunk:2Fpz6GopAUA:1",
+    "start_s": 76.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "account growth",
+      "value": 30.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "commission revenue growth",
+      "value": 37.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "net income growth",
+      "value": 11.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.3,
+     "value_as_of": 0.2222222222222221,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 0.3, as-of 0.222222 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Low global fees and better rates give Interactive Brokers a structural pricing advantage over legacy brokers.",
+    "quote": "the fees are really low and then you get a good interest rates on your US Dollars margin rates if you're you're interested trading rates everything is lower",
+    "chunk_id": "chunk:2Fpz6GopAUA:2",
+    "start_s": 149.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "A recession or slowdown in crypto/trading activity, combined with lower rates, would compound the hit to earnings.",
+    "quote": "lower stock prices the lower Market a recession all could wait on crypto less crypto trading all could wait on the business recession",
+    "chunk_id": "chunk:2Fpz6GopAUA:4",
+    "start_s": 322.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "management owns 74% of the company with 25% free float",
+   "for every 25 basis points Fed rate cut, a $64 million reduction in annual net interest income",
+   "daily average revenue trades hit a record in February"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 43.17250061035156,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 1,
+    "derived": 1,
+    "external": 1,
+    "judgement": 2
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 4.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 25.0,
+   "iv_upside_pct": -42.1,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": 1.0,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "593f7f98-1f6b-4473-ac5c-6cf28b9329ec",
+   "transcript_sha256": "cecffcab38826a5ff7e778896e36b709b370ffcd1aa54c0e454ee66ca9feda62",
+   "extracted_at": "2026-09-19T11:53:20+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "be458d37-8655-4e93-b476-68912872cf5b"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0507398,
+   "session_id": "593f7f98-1f6b-4473-ac5c-6cf28b9329ec",
+   "input_tokens": 6611,
+   "output_tokens": 3486
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.053745,
+   "session_id": "be458d37-8655-4e93-b476-68912872cf5b",
+   "input_tokens": 4942,
+   "output_tokens": 288
+  }
+ }
+}

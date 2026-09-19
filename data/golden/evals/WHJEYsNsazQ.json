@@ -1,0 +1,271 @@
+{
+ "key": "WHJEYsNsazQ:50e1caefee46:v2:a33445f38391",
+ "eval": {
+  "video_id": "WHJEYsNsazQ",
+  "ticker": "T",
+  "t0": "2020-12-18",
+  "title": "AT&T Stock Analysis - High Dividend Makes It Undervalued But Sell When Things Look Good",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": 10.0,
+   "conviction": "low",
+   "headline_quote": "as soon as it Looks good that to that is invaluable am not going to follow it Cause we have Company with their Hands of a single pageview"
+  },
+  "valuation": {
+   "method": "dividend",
+   "base_metric": {
+    "name": "dps",
+    "value_stated": null,
+    "quote": "de dividend eu dezvolt six seven procent which was extremely High In this Market and its environment show This is definitely a pozitiv"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "starting the worst case scenario Bastion al When Ok s\u0103 ne lu\u0103m No longer to Earn a f\u0103cut de urs chestionare well that's real creepiest The Company"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.324,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 22.2054386138916,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "The dividend yield of 6-7% is unusually high for this market, which is one reason he sees the stock as undervalued.",
+    "quote": "de dividend eu dezvolt six seven procent which was extremely High In this Market and its environment show This is definitely a pozitiv",
+    "chunk_id": "chunk:WHJEYsNsazQ:1",
+    "start_s": 86.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "dividend yield",
+      "value": 6.5,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding",
+      "close"
+     ],
+     "value_stated": 0.065,
+     "value_as_of": 0.0912447438798239,
+     "agrees": false,
+     "formula": "DPS / close",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 0.065, as-of 0.0912447 (FY2019); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "AT&T carries roughly $150 billion of long-term debt plus pension liabilities, a major balance-sheet risk.",
+    "quote": "long term dat fier One hundred fifty free billions intotero plus Calvin Klein bilet as in the Future of this de p\u0103r din cap de acces la pension liabilities",
+    "chunk_id": "chunk:WHJEYsNsazQ:6",
+    "start_s": 506.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "long-term debt",
+      "value": 150.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: long-term debt"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "The debt-funded Time Warner acquisition added significantly to the company's leverage.",
+    "quote": "Am dat de reactivi acquisition paid download money to buy this and then up dep it up and dance time warner",
+    "chunk_id": "chunk:WHJEYsNsazQ:3",
+    "start_s": 247.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "Rising inflation and interest rates are a risk for a company carrying this much debt.",
+    "quote": "fure inflation keynes Ben atent will be enabled to be caused with higher in search trends for Speed Ben You can leave a response from best formation tip normal in search of seven eight procent",
+    "chunk_id": "chunk:WHJEYsNsazQ:5",
+    "start_s": 421.0,
+    "feeds": "discount",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "DGS10"
+     ],
+     "value_stated": null,
+     "value_as_of": 0.0095,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "He plans to sell once the business looks good again, since the debt risk means the current situation is not sustainable long-term.",
+    "quote": "You might want to think about selling it When it Looks good and doesn't work because its like that It will gain the Future is not Just free scenarios",
+    "chunk_id": "chunk:WHJEYsNsazQ:9",
+    "start_s": 761.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Morgan Stanley research note/rating on AT&T",
+   "AT&T's investment-grade corporate bond rating"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "Transcript heavily garbled; he calls it undervalued with a 6-7% dividend but stresses $150B debt, single-digit growth and selling when it looks good. Reason 5's 'not sustainable long-term' is mild inference, otherwise ok."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 22.2054386138916,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.324,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "8e0c385d-89a0-44c6-9045-212fde3c20cb",
+   "transcript_sha256": "50e1caefee466d3121788ee54ad456d12dfafa8578ddc0539af7b14f5ebadf20",
+   "extracted_at": "2026-09-19T12:51:53+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "3b393592-af9f-401a-9346-8f250922bcfc"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0770918,
+   "session_id": "8e0c385d-89a0-44c6-9045-212fde3c20cb",
+   "input_tokens": 9018,
+   "output_tokens": 4995
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.09863400000000001,
+   "session_id": "3b393592-af9f-401a-9346-8f250922bcfc",
+   "input_tokens": 7254,
+   "output_tokens": 1098
+  }
+ }
+}

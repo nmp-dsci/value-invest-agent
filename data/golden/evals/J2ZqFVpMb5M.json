@@ -1,0 +1,355 @@
+{
+ "key": "J2ZqFVpMb5M:90bb1c2b44b7:v2:a33445f38391",
+ "eval": {
+  "video_id": "J2ZqFVpMb5M",
+  "ticker": "CPRT",
+  "t0": "2026-07-24",
+  "title": "CPRT Copart Stock - Stock Crash Makes it a Better Buy!",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "It is again fairly priced for a 10% return."
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 1.61,
+    "quote": "we have 1.61, the current earnings"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.06,
+     "g_y6_10": 0.05,
+     "terminal_multiple": 15.0,
+     "probability": 0.4,
+     "iv_stated": 17.0,
+     "quote": "Terminal multiple of just 15, the intrinsic value is just 17."
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.12,
+     "g_y6_10": 0.1,
+     "terminal_multiple": 20.0,
+     "probability": 0.4,
+     "iv_stated": 40.0,
+     "quote": "The present value is 40 for a 10% return."
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.04,
+     "g_y6_10": null,
+     "terminal_multiple": 12.0,
+     "probability": 0.2,
+     "iv_stated": 15.0,
+     "quote": "growth rate, terminal multiple just of 12, and then over the long term the intrinsic value is very low, then I would say perhaps the bottom will be 10 times earnings per share or around 15."
+    }
+   ],
+   "iv_weighted_stated": 27.0,
+   "price_mentioned": 27.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 15.9,
+     "iv_stated": 17.0,
+     "error": -0.065,
+     "ok": true
+    },
+    {
+     "name": "best",
+     "iv_model": 35.24,
+     "iv_stated": 40.0,
+     "error": -0.119,
+     "ok": false
+    },
+    {
+     "name": "worst",
+     "iv_model": 11.03,
+     "iv_stated": 15.0,
+     "error": -0.265,
+     "ok": false
+    }
+   ],
+   "within_band": false,
+   "n_compared": 3,
+   "n_ok": 1,
+   "iv_weighted_model": 22.66,
+   "iv_weighted_ok": false,
+   "expected_return_at_price": 4.0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 1.61,
+    "as_of": 1.59,
+    "period": "FY2025",
+    "gap_pct": 1.3
+   },
+   "comparable": {
+    "iv_stated": 27.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 27.0,
+    "upside_pct": -3.4,
+    "position_iv": "HOLD"
+   }
+  },
+  "price_at_t0": 27.940000534057617,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The P/E has collapsed from an exuberant 43 to just 16 as the market re-rates the company for near-zero growth, making it interesting after the crash.",
+    "quote": "Copart, P/E ratio 43, November 2024, and now it is 16.",
+    "chunk_id": "chunk:J2ZqFVpMb5M:2",
+    "start_s": 152.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 43.0,
+      "unit": "ratio",
+      "period": "November 2024"
+     },
+     {
+      "name": "pe ratio",
+      "value": 16.0,
+      "unit": "ratio",
+      "period": "current"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 43.0,
+     "value_as_of": 17.57232737991045,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 43, as-of 17.5723 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Revenue growth has slowed to roughly 2-4% and is essentially flat, turning Copart into a no-growth company that had to be revalued lower.",
+    "quote": "If we look at the financial results, revenue there 2.1%, 3.7%, 2.4% earnings per share, nothing spectacular. So, a no-growth company.",
+    "chunk_id": "chunk:J2ZqFVpMb5M:2",
+    "start_s": 152.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 2.1,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "revenue growth",
+      "value": 3.7,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "revenue growth",
+      "value": 2.4,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.021,
+     "value_as_of": 0.09680248620251541,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 0.021, as-of 0.0968025 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Management has been buying back a large amount of stock opportunistically while the price is down, which is rare, anti-cyclical, and something Buffett would applaud.",
+    "quote": "the last few quarters, huge buybacks, 1.6 billion of buybacks, which means that the management is very opportunistic.",
+    "chunk_id": "chunk:J2ZqFVpMb5M:4",
+    "start_s": 315.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "buybacks",
+      "value": 1.6,
+      "unit": "usd_bn",
+      "period": "last few quarters"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: buybacks"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "A very high net profit margin shows a hugely profitable, durable business unlikely to go bust despite the growth slowdown.",
+    "quote": "33% net profit margin, unlikely to go bust with such profits.",
+    "chunk_id": "chunk:J2ZqFVpMb5M:3",
+    "start_s": 241.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "net profit margin",
+      "value": 33.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income",
+      "Total Revenue"
+     ],
+     "value_stated": 0.33,
+     "value_as_of": 0.33407855203339476,
+     "agrees": true,
+     "formula": "Net Income / Revenue",
+     "as_of_period": "FY2025",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "An abrupt CEO transition, insider selling, and an analyst downgrade citing slowing salvage volumes add short-term uncertainty about whether the slowdown is structural.",
+    "quote": "slowing salvage vehicle volumes, the abrupt leadership transition, and recent insider selling.",
+    "chunk_id": "chunk:J2ZqFVpMb5M:5",
+    "start_s": 392.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Barclays downgrade citing slowing salvage vehicle volumes, leadership transition, and insider selling",
+   "analyst average price target implying 47% upside",
+   "CEO transition back to the prior CEO after the new CEO's departure",
+   "director sold 80,000 shares (about 14%, still holds 2.2 million)",
+   "international expansion into Spain, Germany, Finland, Middle East, Canada, Brazil"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 27.940000534057617,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 3,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 3,
+   "iv_ok": 1,
+   "iv_within_band": false,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 27.0,
+   "iv_upside_pct": -3.4,
+   "position_iv": "HOLD",
+   "base_metric_gap_pct": 1.3,
+   "expected_return_at_price": 4.0,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "bf82c389-2e01-4b73-83b8-f923e1d3c01d",
+   "transcript_sha256": "90bb1c2b44b74967620b6976b7030a9b9db2534a0cd7b195c41f5d10d084e441",
+   "extracted_at": "2026-09-19T11:55:51+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "ed825079-ac93-4088-9384-76286a6bd3ab"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0748488,
+   "session_id": "bf82c389-2e01-4b73-83b8-f923e1d3c01d",
+   "input_tokens": 8205,
+   "output_tokens": 5135
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.071614,
+   "session_id": "ed825079-ac93-4088-9384-76286a6bd3ab",
+   "input_tokens": 6704,
+   "output_tokens": 243
+  }
+ }
+}

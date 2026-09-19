@@ -1,0 +1,265 @@
+{
+ "key": "i6YZPSoa81g:c3c767eff42f:v2:a33445f38391",
+ "eval": {
+  "video_id": "i6YZPSoa81g",
+  "ticker": "MSTR",
+  "t0": "2026-02-18",
+  "title": "Don't Fall Into Wall Street's Traps! (Micro)Strategy Example!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "you have to be able to read what is a trap, what is just the 2% fee and what is not"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": {
+    "name": "other",
+    "value_stated": null,
+    "quote": ""
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "Bitcoin will likely go to average 150. So you can practically 3x your money."
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 125.19999694824219,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Wall Street banks all issue bullish price targets on Bitcoin and MicroStrategy because they profit from the fees, not because the targets are reliable.",
+    "quote": "all buy all high targets and Bitcoin will likely go to average 150. So you can practically 3x your money.",
+    "chunk_id": "chunk:i6YZPSoa81g:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "Bitcoin average price target",
+      "value": 150.0,
+      "unit": "usd_thousand",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: Bitcoin average price target"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Strategy has raised massive capital just to let investors bet on Bitcoin, generating large fees for Wall Street underwriters.",
+    "quote": "Strategy managed to raise 25 billion in 2025. 25 billion just for people to bet on Bitcoin.",
+    "chunk_id": "chunk:i6YZPSoa81g:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "capital raised",
+      "value": 25.0,
+      "unit": "usd_bn",
+      "period": "2025"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: capital raised"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Wall Street promotes whatever product currently earns it fees (Bitcoin ETFs, private equity in 401ks), regardless of investor benefit, showing incentives are misaligned.",
+    "quote": "They are getting their fee and they are promoting whatever gives them their fee.",
+    "chunk_id": "chunk:i6YZPSoa81g:1",
+    "start_s": 98.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "The fee structure of Wall Street intermediation has stayed constant near 2% for over a century, meaning hype-driven products like MSTR mainly serve to extract that fee from investors.",
+    "quote": "the cost of financial intermediation has remained relatively constant over the past 130 years. Close to 2% of financial assets if you let Wall Street manage it.",
+    "chunk_id": "chunk:i6YZPSoa81g:1",
+    "start_s": 98.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "financial intermediation cost",
+      "value": 2.0,
+      "unit": "pct",
+      "period": "130 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: financial intermediation cost"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Even skeptics on Bitcoin (Munger, Buffett) and initially reluctant firms (BlackRock) only changed stance once it became profitable to promote, underscoring that endorsements track fees not fundamentals.",
+    "quote": "Warren Buffett has been saying it's red poison squared. Even Black Rockck Larry Frink at first was against Bitcoin but now has accepted the con.",
+    "chunk_id": "chunk:i6YZPSoa81g:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Wall Street bank price targets on Bitcoin and MicroStrategy (Citi, Bernstein, etc.)",
+   "Charlie Munger's and Warren Buffett's public comments on Bitcoin",
+   "BlackRock's/Larry Fink's shift to offering Bitcoin ETFs",
+   "Strategy raised $25 billion in 2025, largest US equity issuer",
+   "2% underwriting/management fee cited on capital raised",
+   "130-year historical average cost of financial intermediation (~2%)"
+  ],
+  "critic": {
+   "faithful": false,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [
+    5
+   ],
+   "notes": "Reason 5 misstates transcript: Munger/Buffett never changed stance, only BlackRock did; he cites them as consistent skeptics. Category 'management' also wrong. Stance avoid (trap/gambling/con) agrees."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 125.19999694824219,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.0,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 0,
+    "external": 5,
+    "judgement": 0
+   },
+   "metrics_compared": 0,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "c169b381-6e77-40f6-b0f2-d08eb9961079",
+   "transcript_sha256": "c3c767eff42fd7b9cd2f08a085cd9c9e3652b67270eb730c3ed6ef8005380a90",
+   "extracted_at": "2026-09-19T13:03:17+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "404a12f3-badb-4794-8ba2-8660a8450767"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0245768,
+   "session_id": "c169b381-6e77-40f6-b0f2-d08eb9961079",
+   "input_tokens": 5238,
+   "output_tokens": 1531
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.049267,
+   "session_id": "404a12f3-badb-4794-8ba2-8660a8450767",
+   "input_tokens": 3487,
+   "output_tokens": 741
+  }
+ }
+}

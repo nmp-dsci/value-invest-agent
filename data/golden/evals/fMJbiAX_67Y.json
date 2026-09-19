@@ -1,0 +1,345 @@
+{
+ "key": "fMJbiAX_67Y:48f9f4182be8:v2:a33445f38391",
+ "eval": {
+  "video_id": "fMJbiAX_67Y",
+  "ticker": "AMZN",
+  "t0": "2022-11-08",
+  "title": "Amazon Stock Is Another Better & Better Buy (Risk & Reward Valuation)",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "I think that it is a medium short term but low long-term risk if you invest in Amazon now"
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 55.0,
+    "quote": "10 on 500 billion and more it's 50 billion in valuation or 55 billion with the last earnings"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 16.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if we take 55 billion on the 900 billion market cap the price earnings ratio for Amazon is 16"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 30.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if I add the 20 billion of stock compensation then the profits the estimated potential is not 55 billion and the p ratio goes to 30 which is then not as cheap"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 55.0,
+    "as_of": 33.364,
+    "period": "FY2021",
+    "gap_pct": 64.8
+   },
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 89.9800033569336,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "On an assumed 10% net margin, Amazon trades at a P/E of only 16 for a business he thinks can double again in five years.",
+    "quote": "and if we take 55 billion on the 900 billion market cap the price earnings ratio for Amazon is 16.",
+    "chunk_id": "chunk:fMJbiAX_67Y:7",
+    "start_s": 576.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "estimated net margin",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "implied net income",
+      "value": 55.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 900.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "implied pe",
+      "value": 16.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 900000000000.0,
+     "value_as_of": 45799821708.6792,
+     "agrees": false,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 9e+11, as-of 4.57998e+10 (FY2021); annual vs TTM or a different definition; not in our data: estimated net margin, implied net income, implied pe"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Heavy stock-based compensation dilution means the real earnings power is lower, pushing the effective P/E up to 30.",
+    "quote": "then again as I mentioned already if I add the 20 billion of stock compensation then the profits the estimated potential is not 55 billion and the p ratio goes to 30",
+    "chunk_id": "chunk:fMJbiAX_67Y:7",
+    "start_s": 576.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "stock based compensation",
+      "value": 20.0,
+      "unit": "usd_bn",
+      "period": "year"
+     },
+     {
+      "name": "adjusted pe",
+      "value": 30.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 20.0,
+     "value_as_of": 89.9800033569336,
+     "agrees": false,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2022-11-08",
+     "gap_note": "he says 20, as-of 89.98 (2022-11-08); annual vs TTM or a different definition; not in our data: adjusted pe"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Despite the stock crashing, the underlying business is still growing strongly, including AWS.",
+    "quote": "the stock is down but sales are up 19 that is still remarkable the business is still growing",
+    "chunk_id": "chunk:fMJbiAX_67Y:2",
+    "start_s": 171.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "sales growth",
+      "value": 19.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "AWS growth",
+      "value": 28.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.19,
+     "value_as_of": 0.21695366571345676,
+     "agrees": true,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2021",
+     "gap_note": "not in our data: AWS growth"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "management",
+    "claim": "Management says the current margin and cash flow pressure is temporary and expects a recovery as capex and inventory efficiency improve.",
+    "quote": "we expect to see a recovery in income generation normalization of the inventory versus accounts payable cycle and efficiency in our capex spend we intend to flip those numbers around",
+    "chunk_id": "chunk:fMJbiAX_67Y:5",
+    "start_s": 415.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Weak guidance and a myopic, panicked market could push the stock down another 30-40% short term even though he thinks it's a good long-term buy.",
+    "quote": "the stock can go down another 30 percent very very easily",
+    "chunk_id": "chunk:fMJbiAX_67Y:8",
+    "start_s": 660.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "potential further downside",
+      "value": 30.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: potential further downside"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Q4 revenue guidance of 2-8% growth",
+   "Amazon shifted ~$10bn spending from fulfillment to AWS capex",
+   "Stock-based compensation expense of $5.6bn in the quarter (>$20bn annualized)",
+   "AWS outage in September took down his own research platform, illustrating how widely AWS is used",
+   "Analyst questions from Goldman Sachs and JPMorgan on the earnings call focused on revenue guidance and cash flow/margins"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 89.9800033569336,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 1,
+    "derived": 2,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": 64.8,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "9cee38ba-5ca3-4857-83d2-d81f44fd742a",
+   "transcript_sha256": "48f9f4182be874cbe8617a656a32cb9d1b3ecb8b0ae0c945daeb495d591dbe20",
+   "extracted_at": "2026-09-19T12:57:45+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "8f522c2a-6b5c-4ef4-b1f2-fae1dc60e64c"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.056048799999999996,
+   "session_id": "9cee38ba-5ca3-4857-83d2-d81f44fd742a",
+   "input_tokens": 8358,
+   "output_tokens": 3194
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.067643,
+   "session_id": "8f522c2a-6b5c-4ef4-b1f2-fae1dc60e64c",
+   "input_tokens": 6737,
+   "output_tokens": 77
+  }
+ }
+}

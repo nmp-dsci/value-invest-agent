@@ -85,22 +85,32 @@ def ingest(concurrency: int = 1, refresh: bool = False) -> None:
 
 
 @app.command()
-def market(only_missing: bool = True) -> None:
-    """S2: Yahoo daily prices + annual statements for every sampled ticker → vi.prices / vi.statements."""
+def market(only_missing: bool = True, refresh_prices: bool = False) -> None:
+    """S2: Yahoo daily prices + annual statements for every sampled ticker → vi.prices / vi.statements.
+    --refresh-prices re-downloads price histories (needed after VI_PRICES_FROM moves earlier)."""
     from value_invest.market.load import load_market
 
     con = db.connect()
-    rprint(load_market(con, only_missing=only_missing))
+    rprint(load_market(con, only_missing=only_missing, refresh_prices=refresh_prices))
 
 
 @app.command()
-def edgar(check_candidates: bool = False) -> None:
-    """S2b: 10+ years of annual statements with filing dates for US filers (SEC EDGAR) → vi.statements.
-    --check-candidates instead marks every single-stock candidate ticker as an EDGAR 10-K filer or not."""
+def splits(refresh: bool = False) -> None:
+    """S2: stock-split histories for every sampled ticker → vi.splits (his on-camera prices and IVs are pre-split)."""
+    from value_invest.market.load import load_splits
+
+    rprint(load_splits(db.connect(), refresh=refresh))
+
+
+@app.command()
+def edgar(check_candidates: bool = False, recheck: bool = False) -> None:
+    """S2b: 10+ years of annual statements with filing dates for SEC filers (EDGAR) → vi.statements.
+    --check-candidates instead marks every single-stock candidate ticker as a filer with annual
+    us-gaap statements or not; --recheck also revisits tickers marked False."""
     from value_invest.market.load import check_edgar_candidates, load_edgar
 
     con = db.connect()
-    rprint(check_edgar_candidates(con) if check_candidates else load_edgar(con))
+    rprint(check_edgar_candidates(con, recheck=recheck) if check_candidates else load_edgar(con))
 
 
 @app.command()
@@ -111,6 +121,103 @@ def coverage() -> None:
     con = db.connect(read_only=True)
     rows = coverage_table(con)
     rprint(json.dumps(rows, indent=1, default=str)[:4000])
+
+
+@app.command()
+def extract(
+    version: str = "v0",
+    only: list[str] | None = None,
+    force: bool = False,
+    workers: int = 3,
+    no_critic: bool = False,
+    reground: bool = False,
+) -> None:
+    """S4: transcript → GoldenEval (extract · ground · critic · checkpoint) → vi.evals. Cache-aware.
+    --reground rebuilds data checks and derived fields from the cached drafts without any model call."""
+    from value_invest.golden.checkpoint import process_all, reground_all
+
+    con = db.connect()
+    if reground:
+        rprint(reground_all(con, version))
+        return
+    rprint(
+        process_all(
+            con, version, only=only or None, force=force, workers=workers, critic=not no_critic
+        )
+    )
+
+
+golden_app = typer.Typer(help="Golden-eval checkpoint: seed eval, κ, method summary (S4.3)")
+app.add_typer(golden_app, name="golden")
+
+
+@golden_app.command("eval-seed")
+def golden_eval_seed(version: str = "v0") -> None:
+    """Score vi.evals against data/golden/seed_labels.json → seed_eval_<version>.json."""
+    from value_invest.golden.checkpoint import seed_eval
+
+    rprint(seed_eval(db.connect(read_only=True), version))
+
+
+@golden_app.command("kappa")
+def golden_kappa() -> None:
+    """Inter-extractor κ (extractor vs critic) on stance_detail → kappa.json."""
+    from value_invest.golden.checkpoint import kappa
+
+    rprint(kappa(db.connect(read_only=True)))
+
+
+@golden_app.command("splits")
+def golden_splits() -> None:
+    """D15: stamp the seeded within-year train/test split on vi.evals (+ the cached JSON)."""
+    from value_invest.golden.splits import assign_splits
+
+    rprint(assign_splits(db.connect()))
+
+
+@golden_app.command("summary")
+def golden_summary() -> None:
+    """The distilled method: discount rates, multiples, probabilities, reason mix → method_summary.json."""
+    from value_invest.golden.checkpoint import method_summary
+
+    rprint(method_summary(db.connect(read_only=True)))
+
+
+@app.command()
+def validate() -> None:
+    """S5: forward returns vs the benchmark at T0 + 6 / 12 / 24 m and the verdict on every eval → vi.validations."""
+    from value_invest.golden.validate import validate_all
+
+    con = db.connect()
+    rprint(validate_all(con))
+
+
+@app.command()
+def rates() -> None:
+    """FRED DGS10 / DGS3MO daily yields → vi.rates (the risk-free he compares dividend yields with)."""
+    from value_invest.market.fred import load_rates
+
+    con = db.connect()
+    rprint(load_rates(con))
+
+
+valuation_app = typer.Typer(help="The author's intrinsic-value template (S4.0)")
+app.add_typer(valuation_app, name="valuation")
+
+
+@valuation_app.command("check")
+def valuation_check() -> None:
+    """S4.0: recompute every intrinsic value he states on camera and show the error."""
+    from value_invest.valuation import fidelity
+
+    rows = fidelity()
+    for r in rows:
+        flag = "ok " if r["ok"] else "OUT"
+        rprint(
+            f"{flag} {r['ticker']:6} {r['t0']} {r['scenario']:7} stated {r['stated']:>8} "
+            f"model {r['model']:>8}  {r['error'] * 100:+.1f}% (±{r['tolerance'] * 100:.0f}%)"
+        )
+    rprint({"cases": len(rows), "within_tolerance": sum(r["ok"] for r in rows)})
 
 
 @app.command()

@@ -1,0 +1,340 @@
+{
+ "key": "sSBEIF1kQkE:cbd0b3d3a6a8:v2:a33445f38391",
+ "eval": {
+  "video_id": "sSBEIF1kQkE",
+  "ticker": "WBD",
+  "t0": "2022-06-28",
+  "title": "AT&T Dividend Holders Dumping WBD Stock Make It A Strong Buy (added to YT portfolio)",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "low",
+   "headline_quote": "that is what makes this a spin-off buy from a value perspective but you have to keep in mind also the risk"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "other",
+    "value_stated": 14.0,
+    "quote": "already in 2023 expected 14 billion of ebitda normal company ebit price to ebitda is 10 that's 140 billion"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 80.0,
+     "quote": "this could quickly go to 80 billion at least which means that it is a double and back to where it was when it spun off"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 10.0,
+     "probability": null,
+     "iv_stated": 140.0,
+     "quote": "if things get to normal stability that's potential 5x"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "it can always get ugly from an investment perspective and stay where it is or even go 20 30 40 percent lower"
+    }
+   ],
+   "iv_weighted_stated": 80.0,
+   "price_mentioned": 14.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": 80.0,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 140.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 80.0,
+    "basis": "per_share_implausible",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 80.0,
+    "upside_pct": 485.7,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 13.65999984741211,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "If EBITDA normalizes to expected 2023 levels and is valued at a 10x multiple, the company would be worth 140 billion, a potential 5x.",
+    "quote": "if things get to normal stability that's potential 5x",
+    "chunk_id": "chunk:sSBEIF1kQkE:2",
+    "start_s": 158.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "ebitda",
+      "value": 14.0,
+      "unit": "usd_bn",
+      "period": "2023"
+     },
+     {
+      "name": "price to ebitda",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 10.0,
+     "value_as_of": 13.65999984741211,
+     "agrees": false,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2022-06-28",
+     "gap_note": "he says 10, as-of 13.66 (2022-06-28); annual vs TTM or a different definition; not in our data: ebitda"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "The company carries roughly 60 billion in debt against a 35 billion market cap, creating real uncertainty and risk.",
+    "quote": "60 billion of debt which creates high uncertainty which makes this also risky",
+    "chunk_id": "chunk:sSBEIF1kQkE:4",
+    "start_s": 323.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "debt",
+      "value": 60.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 35.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt"
+     ],
+     "value_stated": 60000000000.0,
+     "value_as_of": 15098000000.0,
+     "agrees": false,
+     "formula": "Total Debt FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 6e+10, as-of 1.5098e+10 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "sentiment",
+    "claim": "AT&T dividend investors are dumping the stock irrationally simply because it does not pay a dividend, creating a value opportunity.",
+    "quote": "it as a dividend it doesn't pay a dividend they are dividend investors and you have so much selling pressure that 50 down is not an issue",
+    "chunk_id": "chunk:sSBEIF1kQkE:1",
+    "start_s": 74.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Management plans to use robust free cash flow to pay down debt from 5x to 2.5x leverage, improving the investment case over time.",
+    "quote": "they will use the free cash flow to reduce debt and lower it from 5x now to 3x and then stabilize it to 2.5 to free to keep the investment great",
+    "chunk_id": "chunk:sSBEIF1kQkE:3",
+    "start_s": 239.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "debt to ebitda",
+      "value": 5.0,
+      "unit": "ratio",
+      "period": "current"
+     },
+     {
+      "name": "debt to ebitda target",
+      "value": 2.5,
+      "unit": "ratio",
+      "period": "target"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt"
+     ],
+     "value_stated": 5.0,
+     "value_as_of": 15098000000.0,
+     "agrees": false,
+     "formula": "Total Debt FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 5, as-of 1.5098e+10 (FY2021); annual vs TTM or a different definition; not in our data: debt to ebitda target"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "If debt reduction and growth plans falter the stock could stay flat or fall a further 20-40 percent, so the risk is real.",
+    "quote": "it can always get ugly from an investment perspective and stay where it is or even go 20 30 40 percent lower and then be ugly",
+    "chunk_id": "chunk:sSBEIF1kQkE:4",
+    "start_s": 323.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "further downside",
+      "value": 40.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: further downside"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "AT&T shareholders received 71% of the new company in the spin-off",
+   "expected synergies of 3 billion per year to be reinvested into content",
+   "expected 2023 revenue of 52 billion and EBITDA of 14 billion",
+   "debt reduction target from 5x to 2.5x leverage",
+   "comparison to the Chemours spin-off from DuPont"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [],
+   "notes": "ok \u2014 he calls it a spin-off buy with positive risk/reward and would allot 3% in a 30-position portfolio, though he personally passes for better opportunities; borderline fair_hold."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 13.65999984741211,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 1,
+    "derived": 0,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share_implausible",
+   "iv_comparable": 80.0,
+   "iv_upside_pct": 485.7,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "9ac1f2cc-a160-4226-98da-fa08b166d4dc",
+   "transcript_sha256": "cbd0b3d3a6a8fc960f1d29e7cc43403a9bc46e767c1c1ef6301fa11ad67b0535",
+   "extracted_at": "2026-09-19T12:56:25+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "071e63ca-1956-4f80-877d-2a793e2608cf"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.06433180000000001,
+   "session_id": "9ac1f2cc-a160-4226-98da-fa08b166d4dc",
+   "input_tokens": 6620,
+   "output_tokens": 4839
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.062300999999999995,
+   "session_id": "071e63ca-1956-4f80-877d-2a793e2608cf",
+   "input_tokens": 5032,
+   "output_tokens": 590
+  }
+ }
+}

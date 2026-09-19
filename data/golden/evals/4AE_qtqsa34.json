@@ -1,0 +1,279 @@
+{
+ "key": "4AE_qtqsa34:7c76634049ae:v2:a33445f38391",
+ "eval": {
+  "video_id": "4AE_qtqsa34",
+  "ticker": "BRK-B",
+  "t0": "2024-02-25",
+  "title": "7 Lessons & 4 Warnings From Buffett's Letter And Berkshire's Earnings",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "however if you are are asking the question is Burkshire a value investment now and that depends on the price purchased then I would say not now"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 37000000000.0,
+    "quote": "if I divide the market capitalization of 95 billion with 37 billion of earnings I get a price earnings ratio of 24"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 24.0,
+    "quote": "the p ratio is is not 12 but actually 24 because if I divide the market capitalization of 95 billion with 37 billion of earnings I get a price earnings ratio of 24"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 37000000000.0,
+    "as_of": -10.329,
+    "period": "FY2022",
+    "gap_pct": -358203013691.0
+   },
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 417.2200012207031,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Adjusted for operating earnings, Berkshire trades at a P/E of ~24 (or 20 including hidden earnings), which is on the high end historically and not a value buy now.",
+    "quote": "a p ratio of 24 when we add the hidden in earnings 20 is on the higher range for Burkshire",
+    "chunk_id": "chunk:4AE_qtqsa34:9",
+    "start_s": 786.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "p/e ratio",
+      "value": 24.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "p/e ratio with hidden earnings",
+      "value": 20.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 24.0,
+     "value_as_of": -40.39174642370141,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 24, as-of -40.3917 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "balance_sheet",
+    "claim": "Berkshire's huge cash pile and diversified essential businesses mean it is built to survive downturns better than the average S&P 500 company, lowering risk of permanent capital loss at similar returns.",
+    "quote": "whatever comes in the next 10 20 years economy whatever Burkshire is likely the one that will survive whatever comes ahead many other businesses will not",
+    "chunk_id": "chunk:4AE_qtqsa34:4",
+    "start_s": 358.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt",
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At times of panic (e.g. March 2020, P/E of 10) Berkshire becomes a clear value buy, unlike the current elevated multiple.",
+    "quote": "maybe you remember in March of 2020 I told you birkshire will not be long at these prices because then the p ratio was 10 compared to the 24 of now which is a huge difference",
+    "chunk_id": "chunk:4AE_qtqsa34:9",
+    "start_s": 786.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "p/e ratio March 2020",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": "2020-03"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 10.0,
+     "value_as_of": -40.39174642370141,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 10, as-of -40.3917 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Buffett has slowed buybacks as the stock price rose, signaling he himself does not see it as cheap enough to aggressively repurchase.",
+    "quote": "Burkshire lowered the amount of Buybacks in the last two years and that is because the stock went up up and up and Warren Buffett doesn't think that that the best thing to do now is to buy birkshire stock",
+    "chunk_id": "chunk:4AE_qtqsa34:7",
+    "start_s": 699.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Some segments like railroads and utilities are facing headwinds (depreciation costs, regulatory/fire pressure) that weren't present before, reducing overall business quality somewhat.",
+    "quote": "utilities are starting to be under pressure by States and governments fires so that is also not going well",
+    "chunk_id": "chunk:4AE_qtqsa34:6",
+    "start_s": 526.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Berkshire net worth of 561 billion vs S&P 500 net worth of 8.9 trillion",
+   "Berkshire market capitalization less than 3% of S&P 500",
+   "return on equity comparison: Berkshire ~6.5% vs S&P 500 increase in equity this year",
+   "Burlington Northern purchase history (2009 purchase, money recouped via dividends by 2015)"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": false,
+   "own_stance_detail": "absolute_buy",
+   "invented_reasons": [],
+   "notes": "He explicitly says Berkshire is 'an absolute buy if you are an American investor' and 'five times better than the S&P 500'; the 'not a value investment now' caveat is secondary. BUY, not HOLD."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 417.2200012207031,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 2,
+    "external": 0,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": -358203013691.0,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "73782921-3356-4353-b80b-1f7246b42f47",
+   "transcript_sha256": "7c76634049ae48aada6f98f750bde81a6d322300ae1b268ce2d9703120c849e6",
+   "extracted_at": "2026-09-19T11:51:48+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "b3d45ccf-5312-4496-bb65-3f002caf6f87"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.039386800000000007,
+   "session_id": "73782921-3356-4353-b80b-1f7246b42f47",
+   "input_tokens": 8197,
+   "output_tokens": 1601
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.074386,
+   "session_id": "b3d45ccf-5312-4496-bb65-3f002caf6f87",
+   "input_tokens": 6508,
+   "output_tokens": 444
+  }
+ }
+}

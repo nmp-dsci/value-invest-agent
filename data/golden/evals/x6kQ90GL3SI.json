@@ -1,0 +1,273 @@
+{
+ "key": "x6kQ90GL3SI:e8c86cdf43b5:v2:a33445f38391",
+ "eval": {
+  "video_id": "x6kQ90GL3SI",
+  "ticker": "EBAY",
+  "t0": "2022-10-02",
+  "title": "Ebay Stock Quick Take (Turnaround)",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "eBay is not even a contender here because I want businesses that have something of an educational purpose"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 4.0,
+    "quote": "so forty dollars and they expect earnings per share of four and that is now the issue"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 40.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 10.0,
+    "quote": "that's a p ratio of 10 doing BuyBacks"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 4.0,
+    "as_of": 20.54,
+    "period": "FY2021",
+    "gap_pct": -80.5
+   },
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 36.810001373291016,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "The business is slowly declining with no clear path to growth, which is exactly the kind of turnaround Buffett avoids.",
+    "quote": "currently eBay has no clear path to growth no certainty there just a turnaround story that the management hopes to turn around somehow",
+    "chunk_id": "chunk:x6kQ90GL3SI:3",
+    "start_s": 237.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Management bought back stock aggressively at twice the current price and continues to buy back into a declining business, destroying value instead of paying down debt.",
+    "quote": "billions spent in Q4 2021 when the stock price was twice the current price I don't know why management always does that when the stock price is high they force those BuyBacks",
+    "chunk_id": "chunk:x6kQ90GL3SI:2",
+    "start_s": 147.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buyback spend Q4 2021",
+      "value": 3.0,
+      "unit": "usd_bn",
+      "period": "Q4 2021"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: buyback spend Q4 2021"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "The company has significant debt yet keeps funding buybacks instead of paying it down, raising risk if the decline continues.",
+    "quote": "7.7 billion of debt and the company has that but is focused on Capital returns and capital returns in the way of stock repurchases",
+    "chunk_id": "chunk:x6kQ90GL3SI:1",
+    "start_s": 68.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "debt",
+      "value": 7.7,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt"
+     ],
+     "value_stated": 7700000000.0,
+     "value_as_of": 9082000000.0,
+     "agrees": false,
+     "formula": "Total Debt FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 7.7e+09, as-of 9.082e+09 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Margins and free cash flow are declining from pandemic highs, showing the recent boom was temporary and the underlying trend is deterioration.",
+    "quote": "revenues have been slowly declining of course there was the 2021 boom with everyone being at home but declining revenues and everything leads to also declining margins",
+    "chunk_id": "chunk:x6kQ90GL3SI:1",
+    "start_s": 68.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "peak margin",
+      "value": 37.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: peak margin"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Expansion into categories like motor parts is a questionable, low-conviction growth strategy that doesn't inspire confidence in a turnaround.",
+    "quote": "expanding in motor parts is is yes you can't wait to buy motor parts on eBay oh let me check on eBay if they have my motor oil or something like that very very questionable thing to do",
+    "chunk_id": "chunk:x6kQ90GL3SI:3",
+    "start_s": 237.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Seeking Alpha analyst ratings (mixed strong buy/sell/hold)",
+   "Seeking Alpha 10-year revenue and gross profit history",
+   "Warren Buffett's 1985 Berkshire letter on turnaround situations",
+   "eBay's own guidance of negative margin trend and ~$4 EPS"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 4,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok \u2014 reason 5 quote has a duplicated 'is is' not in transcript; otherwise all claims supported; stance avoid (not a contender, buybacks destroy value, risk of zero) matches."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 36.810001373291016,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 0,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": -80.5,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.808
+   ],
+   "faithful_share": 0.8
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "b5cf102a-4274-4699-bbde-7170ce271640",
+   "transcript_sha256": "e8c86cdf43b517b1ae2986ef914c2c1ff5fb9ab471e6230a800bb7c35fb83679",
+   "extracted_at": "2026-09-19T12:56:48+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "37abccaf-e80c-4a8a-8c87-3e1e73144536"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0316378,
+   "session_id": "b5cf102a-4274-4699-bbde-7170ce271640",
+   "input_tokens": 6895,
+   "output_tokens": 1445
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.05812799999999999,
+   "session_id": "37abccaf-e80c-4a8a-8c87-3e1e73144536",
+   "input_tokens": 5061,
+   "output_tokens": 417
+  }
+ }
+}

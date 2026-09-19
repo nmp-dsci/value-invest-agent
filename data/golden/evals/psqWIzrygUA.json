@@ -1,0 +1,291 @@
+{
+ "key": "psqWIzrygUA:5d0d6ff17eec:v2:a33445f38391",
+ "eval": {
+  "video_id": "psqWIzrygUA",
+  "ticker": "AAPL",
+  "t0": "2024-08-31",
+  "title": "Value Investing Is Hard In This Crazy Market (Buffett Lost Big On Apple)",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "so the key question with value investing is can I lose with Apple stock NOW Warren Buffett said yes you can"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": null,
+    "quote": "price earnings ratio of 44"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 17.0,
+     "probability": null,
+     "iv_stated": 110.0,
+     "quote": "if it goes back to a p ratio of 17 we go to 110 which is not far from where the stock was just a year and a half ago"
+    }
+   ],
+   "iv_weighted_stated": 110.0,
+   "price_mentioned": 186.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 44.0,
+    "quote": "price earnings ratio of 44 dividend yield of 0.44% and if you look at Apple and the revenues there pretty much stagnant lately net income pretty much stagnant"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 110.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 110.0,
+    "upside_pct": -52.0,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 229.0,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "A P/E of 44 with stagnant revenue and net income is too expensive and explains why Buffett is selling.",
+    "quote": "price earnings ratio of 44 dividend yield of 0.44% and if you look at Apple and the revenues there pretty much stagnant lately net income pretty much stagnant",
+    "chunk_id": "chunk:psqWIzrygUA:1",
+    "start_s": 90.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 44.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "dividend yield",
+      "value": 0.44,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 44.0,
+     "value_as_of": 37.35725938009788,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 44, as-of 37.3573 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "If the P/E reverts from 44 to a more normal 17, the stock would fall to around 110, a huge downside risk.",
+    "quote": "if it goes back to a p ratio of 17 we go to 110 which is not far from where the stock was just a year and a half ago",
+    "chunk_id": "chunk:psqWIzrygUA:2",
+    "start_s": 174.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "terminal pe",
+      "value": 17.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "implied price",
+      "value": 110.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: terminal pe, implied price"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Apple's massive buybacks at a high price are not the smart kind of buyback Buffett favors, signaling overvaluation.",
+    "quote": "Apple spent a 100 billion per year over the last few years on BuyBacks",
+    "chunk_id": "chunk:psqWIzrygUA:1",
+    "start_s": 90.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buyback spend",
+      "value": 100.0,
+      "unit": "usd_bn",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 100000000000.0,
+     "value_as_of": -77550000000.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2023",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 1e+11, as-of -7.755e+10 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Without a new product growth generator, current earnings may be peak earnings, adding risk.",
+    "quote": "what will be the next growth generator which is a risk competition recession less purchasing so are these top maximum Apple earnings",
+    "chunk_id": "chunk:psqWIzrygUA:2",
+    "start_s": 174.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Apple has a strong ecosystem and products giving it a durable place in the market.",
+    "quote": "great products great ecosystem and I'm filming this on an iPhone iMac iMovie editing whatever so it is there it has its place in the market",
+    "chunk_id": "chunk:psqWIzrygUA:1",
+    "start_s": 90.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Warren Buffett sold 50% of his Apple shares over recent quarters, reaching his highest ever cash position",
+   "389 million Apple shares sold last quarter at average estimated closing price of 186",
+   "Buffett bought Apple originally when P/E was around 10",
+   "Buffett is earning about 5% yield on treasuries with the proceeds"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 229.0,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 1,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 110.0,
+   "iv_upside_pct": -52.0,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "a75dfda8-cc42-4dfa-85b1-ca87b2fa1134",
+   "transcript_sha256": "5d0d6ff17eec2f99ea3fdf7aaacc9caf88b16f02edf5a32c9c9a5683b71fc6a5",
+   "extracted_at": "2026-09-19T11:52:33+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "587e52a6-f02d-4e31-9a7c-756cfe6076eb"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0283528,
+   "session_id": "a75dfda8-cc42-4dfa-85b1-ca87b2fa1134",
+   "input_tokens": 5987,
+   "output_tokens": 1548
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.044763000000000004,
+   "session_id": "587e52a6-f02d-4e31-9a7c-756cfe6076eb",
+   "input_tokens": 4277,
+   "output_tokens": 217
+  }
+ }
+}

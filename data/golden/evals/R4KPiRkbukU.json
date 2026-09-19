@@ -1,0 +1,304 @@
+{
+ "key": "R4KPiRkbukU:f61eee572228:v2:a33445f38391",
+ "eval": {
+  "video_id": "R4KPiRkbukU",
+  "ticker": "OXY",
+  "t0": "2025-03-29",
+  "title": "Buffett Keeps Buying Occidental Stock + Oil Price Outlook!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "it has not yet triggered the okay now we can start with a position"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "I have put in a 100% payout ratio as they could be paying let's say all the free cash flow they are getting now per share in dividends"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": 1.0,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.04,
+     "g_y6_10": 0.04,
+     "terminal_multiple": 10.0,
+     "probability": null,
+     "iv_stated": 51.0,
+     "quote": "the free cash flows grow at just 4% % discount rate 10% terminal multiple on the free cash flows 10 then the intrinsic value is 51 per share which is close to where we are now"
+    }
+   ],
+   "iv_weighted_stated": 51.0,
+   "price_mentioned": 51.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 51.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 51.0,
+    "upside_pct": 4.4,
+    "position_iv": "HOLD"
+   }
+  },
+  "price_at_t0": 48.83000183105469,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Thin margins mean a small drop in oil prices wipes out most of the profit, making the stock highly volatile with oil.",
+    "quote": "just a small 10% decline in oil prices all else equal there is not much profit left this means that the margins are thin which means when oil prices go up accidental stock shoots up when oil prices go lower accidental has issues",
+    "chunk_id": "chunk:R4KPiRkbukU:7",
+    "start_s": 641.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "net sales",
+      "value": 26.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "net income",
+      "value": 3.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 26000000000.0,
+     "value_as_of": 26725000000.0,
+     "agrees": true,
+     "formula": "Total Revenue FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Below roughly $60 oil, Occidental generates no free cash flow, creating survival risk and making valuation impossible in that scenario.",
+    "quote": "if oil prices go to below 60 there is no free cash flow for accidental then there is surviving and then you cannot value it",
+    "chunk_id": "chunk:R4KPiRkbukU:10",
+    "start_s": 924.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "cash flow sensitivity",
+      "value": 260.0,
+      "unit": "usd_mn",
+      "period": "per $1 oil price change"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": 260.0,
+     "value_as_of": 11439000000.0,
+     "agrees": false,
+     "formula": "Operating Cash Flow FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 260, as-of 1.1439e+10 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Management is paying down debt from the Crown Rock acquisition, which lowers interest payments and should allow higher dividends.",
+    "quote": "their target is 15 billion of debt that's 10 billion down that is 33% of less interest payments that would then push the dividend higher",
+    "chunk_id": "chunk:R4KPiRkbukU:9",
+    "start_s": 834.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "debt target",
+      "value": 15.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "current debt",
+      "value": 25.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt"
+     ],
+     "value_stated": 25000000000.0,
+     "value_as_of": 25323000000.0,
+     "agrees": true,
+     "formula": "Total Debt FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "not in our data: debt target"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Berkshire's large ownership gives Occidental effectively unlimited access to capital, letting it survive downturns.",
+    "quote": "because if birkshire owns 30% of the company it has unlimited access to Capital thus it can survive whatever",
+    "chunk_id": "chunk:R4KPiRkbukU:12",
+    "start_s": 1104.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At current 10% free cash flow yield the stock has not yet reached the margin of safety he requires versus his existing 15-position portfolio.",
+    "quote": "Occidental now gives me 10% free cash flow yield perhaps a little bit lower and I have already 15 positions there looking in some other things so it has not yet triggered",
+    "chunk_id": "chunk:R4KPiRkbukU:11",
+    "start_s": 1014.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "free cash flow yield",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Free Cash Flow",
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 0.1,
+     "value_as_of": 0.09650510340773986,
+     "agrees": true,
+     "formula": "FCF / market cap",
+     "as_of_period": "FY2024",
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Warren Buffett/Berkshire Hathaway's continued buying and ~30% ownership stake in Occidental",
+   "Short-term Energy Outlook forecasts for oil supply/demand and prices",
+   "IEA World Energy Outlook scenarios (STEPS, Announced Pledges, Net Zero)",
+   "$12 billion Crown Rock acquisition details",
+   "Conference call commentary on debt paydown targets and Gulf of Mexico/Gulf of America naming"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": false,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "He values it at IV ~51 near price (~10% return), says viewers can start a 3% position now and it's a 'rare exception' to make money, though he personally waits for a margin of safety. That is fair_hold, not avoid."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 48.83000183105469,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 1.0,
+   "reproducible_counts": {
+    "statements": 4,
+    "prices": 0,
+    "derived": 1,
+    "external": 0,
+    "judgement": 0
+   },
+   "metrics_compared": 4,
+   "metrics_agree": 3,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 51.0,
+   "iv_upside_pct": 4.4,
+   "position_iv": "HOLD",
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "1096e66e-5eab-4656-9f99-a5a5cf8197ac",
+   "transcript_sha256": "f61eee57222862ab36c84e572b72d4255608a7ebdd0276e01b3b55e686f8791c",
+   "extracted_at": "2026-09-19T11:53:20+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "3640f37a-6c26-40c7-bb36-4cf3834e8c23"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.045032800000000005,
+   "session_id": "1096e66e-5eab-4656-9f99-a5a5cf8197ac",
+   "input_tokens": 9128,
+   "output_tokens": 1721
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.08272799999999998,
+   "session_id": "3640f37a-6c26-40c7-bb36-4cf3834e8c23",
+   "input_tokens": 7525,
+   "output_tokens": 338
+  }
+ }
+}

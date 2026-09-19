@@ -1,0 +1,323 @@
+{
+ "key": "hmEWuCkqI7c:c1173b49291c:v2:a33445f38391",
+ "eval": {
+  "video_id": "hmEWuCkqI7c",
+  "ticker": "BRK-B",
+  "t0": "2025-09-04",
+  "title": "Berkshire BRK Stock Analysis 2H 2025",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "HOLD",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 7.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "This might be blasphemy but I don't think Birkshshire is such a great buy nor a hold at the moment. Perhaps a hold."
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 34000000000.0,
+    "quote": "17 billion for the first 6 months, 17 billion for the next 6 months and that's 34 billion of value creation from Birkshshire"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.06,
+     "g_y6_10": 0.06,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 390000000000.0,
+     "quote": "for a discount rate or expected return of 10% the intrinsic value is 390 billion"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "bad case scenario let's say a downturn or recession or something birkshshireare goes 70% down from where it is now"
+    }
+   ],
+   "iv_weighted_stated": 390000000000.0,
+   "price_mentioned": 1000000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "market capitalization of Burkshshire is expected to be 1 trillion in 2034"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 352129149014.14,
+     "iv_stated": 390000000000.0,
+     "error": -0.097,
+     "ok": true
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": true,
+   "n_compared": 1,
+   "n_ok": 1,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 34000000000.0,
+    "as_of": 88995000000.0,
+    "period": "FY2024",
+    "gap_pct": -61.8
+   },
+   "comparable": {
+    "iv_stated": 390000000000.0,
+    "basis": "total",
+    "shares_used": 2156578922.0,
+    "split_factor": 1.0,
+    "iv_comparable": 180.84,
+    "upside_pct": -64.3,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 506.9100036621094,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At a $1 trillion market cap versus his $390 billion intrinsic value, Berkshire is expensive from an intrinsic value perspective.",
+    "quote": "if I compare my 300 billion with the market cap of 1 trillion ion. It's really really a bad situation from an intrinsic value perspective.",
+    "chunk_id": "chunk:hmEWuCkqI7c:1",
+    "start_s": 88.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "intrinsic value",
+      "value": 390.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 1000.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS",
+      "close"
+     ],
+     "value_stated": 390.0,
+     "value_as_of": 352129149014.14,
+     "agrees": false,
+     "formula": "valuation.two_stage_iv on his inputs",
+     "as_of_period": "T0",
+     "gap_note": "he says 390, as-of 3.52129e+11 (T0); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Buffett's huge, growing cash pile signals he sees nothing worth buying, implying markets and Berkshire itself are expensive.",
+    "quote": "This is his cash pile. Therefore, he is saying, \"Look guys, there is nothing to buy. This is extremely expensive the markets. I'm not buying anything.\"",
+    "chunk_id": "chunk:hmEWuCkqI7c:2",
+    "start_s": 171.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "cash pile",
+      "value": 344.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 344000000000.0,
+     "value_as_of": 48376000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 3.44e+11, as-of 4.8376e+10 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Buffett's own buyback behavior\u2014buying heavily when the price was half or 40% of today's level and now stopping\u2014signals the stock is not cheap now.",
+    "quote": "he was doing buybacks here when the price was half of what is now 40% of what it is now. Here he isn't doing it buyback. So I cannot tell you okay it is a great buy.",
+    "chunk_id": "chunk:hmEWuCkqI7c:3",
+    "start_s": 256.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Berkshire's enormous size ($340 billion cash) limits its ability to deploy capital effectively, capping long-term returns.",
+    "quote": "the issue with Berkshire is of course its size because 340 billion of cash that's not something you can deploy like this",
+    "chunk_id": "chunk:hmEWuCkqI7c:3",
+    "start_s": 256.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "cash",
+      "value": 340.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 340000000000.0,
+     "value_as_of": 48376000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 3.4e+11, as-of 4.8376e+10 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Even with a modest ~4-7% return estimate, Berkshire remains a reliable long-term wealth compounding machine that will outperform most alternatives.",
+    "quote": "Berkshire is an okay long-term always will be always is an okay long-term wealth compounding machine. If you buy Berkshire now and you leave it there for the next 30, 40 years, I'm very sure that it will do very good, much better than 98% of other things.",
+    "chunk_id": "chunk:hmEWuCkqI7c:2",
+    "start_s": 171.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "value creation return",
+      "value": 4.0,
+      "unit": "pct",
+      "period": "annual"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: value creation return"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Buffett's public statements/promise of 8-10% return on Berkshire through conference calls",
+   "3-month treasury yield of 3.54% used to estimate interest income on cash",
+   "Berkshire's buyback history and prices at which buybacks were made"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok. Borderline: 4-7% expected return and 'bad situation from intrinsic value' lean toward avoid, but his explicit 'perhaps a hold' and 'will do very good over 30-40 years' support fair_hold."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 506.9100036621094,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 3,
+    "prices": 0,
+    "derived": 1,
+    "external": 1,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 1,
+   "iv_ok": 1,
+   "iv_within_band": true,
+   "split_factor": 1.0,
+   "iv_basis": "total",
+   "iv_comparable": 180.84,
+   "iv_upside_pct": -64.3,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": -61.8,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "be0b710a-2027-4c51-8fda-3903c7f224e6",
+   "transcript_sha256": "c1173b49291c3c4971344eae924210801db6501848f1f4613d667c515030894c",
+   "extracted_at": "2026-09-19T11:53:57+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "8571ee54-b1ab-430d-8b22-0d477b654611"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.030769800000000003,
+   "session_id": "be0b710a-2027-4c51-8fda-3903c7f224e6",
+   "input_tokens": 5951,
+   "output_tokens": 1804
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.056503,
+   "session_id": "8571ee54-b1ab-430d-8b22-0d477b654611",
+   "input_tokens": 4466,
+   "output_tokens": 603
+  }
+ }
+}

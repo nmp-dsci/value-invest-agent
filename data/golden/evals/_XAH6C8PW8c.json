@@ -1,0 +1,338 @@
+{
+ "key": "_XAH6C8PW8c:2e1a464e35e6:v2:a33445f38391",
+ "eval": {
+  "video_id": "_XAH6C8PW8c",
+  "ticker": "TSLA",
+  "t0": "2024-11-02",
+  "title": "TESLA Stock UP On New Promises",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": 7.0,
+   "conviction": "high",
+   "headline_quote": "it is very risky because it's based on a promise and it's very expensive on the current capacity cash value creation so simply Tesla is not something to follow on this value investing Channel"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 10000000000.0,
+    "quote": "let's say that they do average net income of 10 billion per year 10 billion per year for a car company"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 12.5,
+     "probability": null,
+     "iv_stated": 100000000000.0,
+     "quote": "that's a p ratio of 10 to 15 usually at full capacity and then you have 10050 billion"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 450000000000.0,
+     "quote": "even if Tesla keeps on growing if they reach I don't know 30 billion of competitive durable profit ability 15 billion for cars and 15 billion from Robo taxes whatever still with a p ratio even of 15 that is 450 billion market cap"
+    }
+   ],
+   "iv_weighted_stated": 100000000000.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "still more and more promises are baked into the price"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": 100000000000.0,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 450000000000.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 10000000000.0,
+    "as_of": 14997000000.0,
+    "period": "FY2023",
+    "gap_pct": -33.3
+   },
+   "comparable": {
+    "iv_stated": 100000000000.0,
+    "basis": "total",
+    "shares_used": 3485000000.0,
+    "split_factor": 1.0,
+    "iv_comparable": 28.69,
+    "upside_pct": -88.5,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 248.97999572753906,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Current market cap already implies far more profitability than Tesla's realistic full-capacity car business can generate, so the stock needs 100 billion in profit just to double.",
+    "quote": "for Tesla they need to reach 100 billion in profitability p ratio 1520 and then you get 1.5 trillion for that to reach profitability and for you to make some money",
+    "chunk_id": "chunk:_XAH6C8PW8c:4",
+    "start_s": 343.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "required net income",
+      "value": 100.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "implied market cap",
+      "value": 1500.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 100000000000.0,
+     "value_as_of": 14997000000.0,
+     "agrees": false,
+     "formula": "Net Income FY2023",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 1e+11, as-of 1.4997e+10 (FY2023); annual vs TTM or a different definition; not in our data: implied market cap"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Tesla lacks a durable competitive advantage because it must constantly reinvest to stay ahead, unlike a true moat that prints money, and competitors are chasing the same opportunities.",
+    "quote": "a durable competitive mode prints money as would Warren Buffett say so even if Tesla keeps on growing",
+    "chunk_id": "chunk:_XAH6C8PW8c:3",
+    "start_s": 253.0,
+    "feeds": "terminal",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "At full production capacity, Tesla's underlying car business only generates a modest net income once tax benefits are normalized, implying a modest fair value.",
+    "quote": "if I look at current Tesla full capacity for cars the free cash flow is 4 billion net income 13 billion but there are a lot of tax benefits I think there so if I take the middle for the trailing 12 months that's let's say 8 billion",
+    "chunk_id": "chunk:_XAH6C8PW8c:2",
+    "start_s": 168.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "free cash flow",
+      "value": 4.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "net income",
+      "value": 13.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "normalized net income",
+      "value": 8.0,
+      "unit": "usd_bn",
+      "period": "trailing 12 months"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Free Cash Flow"
+     ],
+     "value_stated": 4000000000.0,
+     "value_as_of": 4358000000.0,
+     "agrees": true,
+     "formula": "Free Cash Flow FY2023",
+     "as_of_period": "FY2023",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Wall Street analysts are net negative (hold effectively means sell) and only follow the stock price rather than fundamentals, showing the bullishness is promise-driven hype rather than value.",
+    "quote": "12 and six are buy a hold on Wall Street means sell so even Wall Street turns its back on Tesla and there are more sells than buys when hold is predominant that means sell on Wall Street",
+    "chunk_id": "chunk:_XAH6C8PW8c:4",
+    "start_s": 343.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buy ratings",
+      "value": 12.0,
+      "unit": "count",
+      "period": null
+     },
+     {
+      "name": "hold ratings",
+      "value": 6.0,
+      "unit": "count",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: buy ratings, hold ratings"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Growth outside China has stalled and US market share has fallen below 50%, showing competition is eroding Tesla's position.",
+    "quote": "the market share now I think this is in the US has fallen below 50% okay there is competition and there will always be competition",
+    "chunk_id": "chunk:_XAH6C8PW8c:5",
+    "start_s": 429.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "US market share",
+      "value": 50.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: US market share"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Tesla's 2025 guidance of 30% growth and lower production costs",
+   "Cash position of 33 billion and profits of 2.7 billion",
+   "Plans for capacity close to 3 million vehicles, over 50% growth vs 2023",
+   "Wall Street analyst buy/hold/sell ratings (12 buy, 6 hold)",
+   "Seeking Alpha social media sentiment showing strong buy ratings",
+   "US EV market share falling below 50%",
+   "Earnings call Q&A description (Travis asking on behalf of Wall Street)"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "short",
+   "invented_reasons": [],
+   "notes": "He explicitly says 'it is still a sell here' and his value portfolio rates it a sell, so 'short' fits slightly better than 'avoid'; both map to SELL. Rank 3 category 'cyclicality' is mislabeled but claim is supported."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 248.97999572753906,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 0,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "total",
+   "iv_comparable": 28.69,
+   "iv_upside_pct": -88.5,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": -33.3,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "c1917241-6f26-4f47-adb0-e1c151f3c2e6",
+   "transcript_sha256": "2e1a464e35e67ddc5254c1419a7a43b221e40157bccdb7fa32ad9ce41c909408",
+   "extracted_at": "2026-09-19T13:00:55+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "84f5c97e-7872-4f6f-990d-668adc85224f"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.035171799999999996,
+   "session_id": "c1917241-6f26-4f47-adb0-e1c151f3c2e6",
+   "input_tokens": 6383,
+   "output_tokens": 2043
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.06082400000000001,
+   "session_id": "84f5c97e-7872-4f6f-990d-668adc85224f",
+   "input_tokens": 5066,
+   "output_tokens": 521
+  }
+ }
+}

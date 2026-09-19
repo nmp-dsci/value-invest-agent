@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>value·invest agent — M2 plan: golden extraction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #FAF9F5; --panel: #FFFFFF; --panel-2: #F3F1EA;
+    --ink: #16181D; --body: rgba(22,24,29,.87); --caption: rgba(22,24,29,.60); --muted: #5C6270;
+    --line: #E5E2D8; --line-strong: #C9C5B8;
+    --accent: #2434C9; --accent-soft: rgba(36,52,201,.10);
+    --good: #1a7f37; --good-soft: rgba(26,127,55,.10);
+    --warn: #9a6700; --warn-soft: rgba(154,103,0,.12);
+    --bad: #cf222e; --bad-soft: rgba(207,34,46,.10);
+    --console: #14161B; --console-text: #E9E8E2; --console-label: #9BA1AE;
+    --nav-bg: rgba(250,249,245,.85);
+    --shadow: 0 1px 2px rgba(22,24,29,.05), 0 8px 28px rgba(22,24,29,.07);
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", "SF Mono", Menlo, Consolas, monospace;
+    /* workbench mock tokens (transcript-rag-agent frontend/src/theme.css, dark) */
+    --wb-bg:#0d1017; --wb-panel:#12151e; --wb-panel2:#1b2130; --wb-border:#242936; --wb-text:#e7ebf3; --wb-text2:#c7ccd9;
+    --wb-muted:#8a90a0; --wb-dim:#6d7383; --wb-accent:#5b7cf0; --wb-accent-dim:#171d33; --wb-accent-border:#33437e;
+    --wb-good:#3fb950; --wb-warn:#d29922; --wb-bad:#f85149; --wb-on-accent:#0b1020;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --paper:#101216; --panel:#171A20; --panel-2:#1C2027; --ink:#EDEBE4; --body:rgba(237,235,228,.87); --caption:rgba(237,235,228,.60);
+    --muted:#9BA1AE; --line:#262B34; --line-strong:#3A4150; --accent:#96A4FF; --accent-soft:rgba(150,164,255,.12);
+    --good:#57c86b; --good-soft:rgba(87,200,107,.14); --warn:#e0b04a; --warn-soft:rgba(224,176,74,.14); --bad:#ff7b72; --bad-soft:rgba(255,123,114,.14);
+    --console:#0B0D11; --nav-bg:rgba(16,18,22,.85); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  } }
+  :root[data-theme="dark"] {
+    --paper:#101216; --panel:#171A20; --panel-2:#1C2027; --ink:#EDEBE4; --body:rgba(237,235,228,.87); --caption:rgba(237,235,228,.60);
+    --muted:#9BA1AE; --line:#262B34; --line-strong:#3A4150; --accent:#96A4FF; --accent-soft:rgba(150,164,255,.12);
+    --good:#57c86b; --good-soft:rgba(87,200,107,.14); --warn:#e0b04a; --warn-soft:rgba(224,176,74,.14); --bad:#ff7b72; --bad-soft:rgba(255,123,114,.14);
+    --console:#0B0D11; --nav-bg:rgba(16,18,22,.85); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  }
+  *, *::before, *::after { box-sizing: border-box; min-width: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin:0; background:var(--paper); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased; padding-inline:16px; }
+  .wrap { max-width: 1060px; margin: 0 auto; }
+  nav.top { position: sticky; top:0; z-index:10; background:var(--nav-bg); backdrop-filter: blur(10px); border-bottom:1px solid var(--line); margin-inline:-16px; padding-inline:16px; }
+  nav.top .wrap { display:flex; gap:16px; align-items:center; min-height:52px; flex-wrap:wrap; padding-block:6px; }
+  nav.top .brand { font-family:var(--serif); font-size:20px; color:var(--ink); display:flex; align-items:center; gap:8px; margin-right:6px; }
+  .diamond { width:9px; height:9px; background:var(--accent); transform:rotate(45deg); display:inline-block; }
+  nav.top a { color:var(--muted); text-decoration:none; font-size:13px; font-weight:500; }
+  nav.top a:hover { color:var(--ink); }
+  header.hero { padding: 52px 0 28px; border-bottom:1px solid var(--line); }
+  .eyebrow { font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  h1 { font-family:var(--serif); font-weight:400; font-size: clamp(36px, 6vw, 58px); line-height:1.05; color:var(--ink); margin: 14px 0 12px; letter-spacing:-.01em; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { font-size:19px; color:var(--body); max-width: 800px; margin:0; }
+  .facts { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:22px; font-family:var(--mono); font-size:12.5px; color:var(--caption); }
+  .facts b { color:var(--ink); font-weight:500; }
+  section { padding: 44px 0 8px; }
+  .section-head { display:flex; align-items:baseline; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+  .section-head .num { font-size:13px; }
+  h2 { font-family:var(--serif); font-weight:400; font-size:34px; color:var(--ink); margin:0; line-height:1.1; }
+  h3 { font-family:var(--sans); font-weight:600; font-size:17px; color:var(--ink); margin:26px 0 8px; }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); }
+  .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap:14px; margin: 14px 0 6px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow); }
+  .card h4 { margin:0 0 8px; font-size:15px; color:var(--ink); font-weight:600; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .card p { font-size:14.5px; color:var(--body); margin:0 0 6px; }
+  .card ul { font-size:14px; margin:6px 0 0; }
+  .card.rec { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+  .num { font-family:var(--mono); font-size:12px; color:var(--accent); }
+  .k { font-family:var(--mono); font-size:12.5px; background:var(--panel-2); border:1px solid var(--line); border-radius:5px; padding:1px 6px; color:var(--ink); white-space:nowrap; }
+  code { font-family:var(--mono); font-size:.9em; }
+  pre { background:var(--console); color:var(--console-text); border-radius:10px; padding:14px 16px; overflow-x:auto; font-family:var(--mono); font-size:12.5px; line-height:1.55; margin: 10px 0 16px; }
+  pre .c { color:var(--console-label); }
+  pre .h { color:#9db0ff; }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin: 8px 0 18px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--caption); font-weight:500; }
+  .tablewrap { overflow-x:auto; }
+  td.mono, .mono { font-family:var(--mono); font-size:12.5px; }
+  td.r, th.r { text-align:right; }
+  .tag { display:inline-block; font-family:var(--mono); font-size:11px; padding:2px 7px; border-radius:99px; border:1px solid var(--line-strong); color:var(--muted); white-space:nowrap; }
+  .tag.good { color:var(--good); border-color:var(--good); background:var(--good-soft); }
+  .tag.warn { color:var(--warn); border-color:var(--warn); background:var(--warn-soft); }
+  .tag.bad { color:var(--bad); border-color:var(--bad); background:var(--bad-soft); }
+  .tag.acc { color:var(--accent); border-color:var(--accent); background:var(--accent-soft); }
+  .note { border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; border-radius:0 8px 8px 0; font-size:14.5px; margin:12px 0 18px; }
+  .note.warn { border-color:var(--warn); background:var(--warn-soft); }
+  .note.good { border-color:var(--good); background:var(--good-soft); }
+  .note.bad { border-color:var(--bad); background:var(--bad-soft); }
+  ul, ol { padding-left: 20px; margin: 0 0 12px; } li { margin: 4px 0; }
+  .slice { display:grid; grid-template-columns: 64px minmax(0,1fr); gap: 14px; padding: 16px 0; border-top:1px solid var(--line); }
+  .slice .v { font-family:var(--serif); font-size:30px; color:var(--accent); line-height:1; }
+  .slice h4 { margin:2px 0 6px; font-size:16px; color:var(--ink); }
+  .slice p, .slice li { font-size:14.5px; }
+  .slice .ship { font-family:var(--mono); font-size:12px; color:var(--caption); margin-top:6px; }
+  figure { margin: 10px 0 22px; }
+  figure svg { width:100%; height:auto; display:block; font-family: var(--sans); }
+  figcaption { font-size:13.5px; color:var(--caption); margin-top:8px; }
+  svg text { fill: var(--ink); }
+  svg .lbl { font-size:12px; }
+  svg .sm { font-size:10.5px; fill: var(--caption); font-family: var(--mono); }
+  svg .ttl { font-size:13px; font-weight:600; }
+  svg .big { font-size:22px; font-family: var(--serif); font-weight:400; }
+  svg .box { fill: var(--panel); stroke: var(--line-strong); stroke-width:1; }
+  svg .box.acc { fill: var(--accent-soft); stroke: var(--accent); }
+  svg .box.good { fill: var(--good-soft); stroke: var(--good); }
+  svg .box.warn { fill: var(--warn-soft); stroke: var(--warn); }
+  svg .box.bad { fill: var(--bad-soft); stroke: var(--bad); }
+  svg .region { fill: var(--panel-2); stroke: var(--line); stroke-dasharray: 4 3; }
+  svg .edge { stroke: var(--muted); stroke-width:1.4; fill:none; marker-end: url(#arr); }
+  svg .edge.acc { stroke: var(--accent); }
+  svg .edge.good { stroke: var(--good); }
+  svg .edge.dash { stroke-dasharray: 5 4; }
+  svg .grid { stroke: var(--line); stroke-width:1; }
+  .two { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap:18px; align-items:start; }
+  .quote { font-family:var(--serif); font-size:17px; color:var(--ink); border-left:3px solid var(--line-strong); padding:4px 14px; margin:10px 0 14px; }
+  .quote small { display:block; font-family:var(--mono); font-size:11.5px; color:var(--caption); margin-top:4px; }
+  /* decision forms (input playbook) */
+  form.decision { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin: 12px 0 18px; box-shadow:var(--shadow); }
+  form.decision legend { font-weight:600; color:var(--ink); font-size:15px; padding:0; margin-bottom:6px; }
+  form.decision fieldset { border:0; padding:0; margin:0; }
+  form.decision label { display:flex; gap:10px; align-items:flex-start; padding:8px 10px; border-radius:8px; font-size:14.5px; cursor:pointer; }
+  form.decision label:hover { background:var(--panel-2); }
+  form.decision label input { margin-top:4px; flex: 0 0 auto; }
+  form.decision .why { color:var(--caption); font-size:13px; display:block; }
+  form.decision textarea { width:100%; border:1px solid var(--line); border-radius:8px; padding:8px 10px; font:inherit; font-size:14px; background:var(--paper); color:var(--ink); margin-top:8px; resize:vertical; }
+  form.decision button { margin-top:10px; background:var(--accent); color:#fff; border:0; border-radius:8px; padding:8px 14px; font:inherit; font-size:14px; font-weight:600; cursor:pointer; }
+  form.decision .queued { font-family:var(--mono); font-size:12px; color:var(--good); margin-left:10px; display:none; }
+  form.decision.sent .queued { display:inline; }
+  /* code (pierre/diffs) */
+  .codebox { border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:10px 0 16px; background:var(--panel); }
+  .codebox .path { font-family:var(--mono); font-size:12px; color:var(--caption); padding:8px 12px; border-bottom:1px solid var(--line); background:var(--panel-2); display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .codebox pre.fallback { margin:0; border-radius:0; }
+  .codebox .diffs { font-size:12.5px; }
+  /* workbench mock */
+  .mock { background:var(--wb-bg); color:var(--wb-text); border-radius:12px; border:1px solid var(--wb-border); overflow:hidden; font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size:12.5px; box-shadow:var(--shadow); margin: 14px 0 8px; }
+  .mock .bar { display:flex; gap:4px; align-items:center; padding:8px 12px; border-bottom:1px solid var(--wb-border); background:var(--wb-panel); flex-wrap:wrap; }
+  .mock .bar .b { font-family:"Instrument Sans", system-ui, sans-serif; font-size:14px; margin-right:12px; color:var(--wb-text); display:flex; align-items:center; gap:7px; }
+  .mock .bar .b i { font-family:var(--serif); font-style:italic; }
+  .mock .tab { padding:4px 9px; border-radius:6px; color:var(--wb-muted); }
+  .mock .tab.on { background:var(--wb-accent-dim); color:var(--wb-text); border:1px solid var(--wb-accent-border); }
+  .mock .body { display:grid; grid-template-columns: 230px minmax(0,1fr) 250px; min-height:380px; }
+  @media (max-width: 900px) { .mock .body { grid-template-columns: 1fr; } .mock .rail { border-right:0; border-bottom:1px solid var(--wb-border);} .mock .rail.right { border-left:0; } }
+  .mock .rail { background:var(--wb-panel); border-right:1px solid var(--wb-border); padding:10px; }
+  .mock .rail.right { border-right:0; border-left:1px solid var(--wb-border); }
+  .mock .rh { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--wb-dim); margin: 6px 4px 8px; }
+  .mock .g { padding:7px 9px; border-radius:7px; border:1px solid transparent; margin-bottom:3px; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+  .mock .g.on { background:var(--wb-panel2); border-color:var(--wb-border); }
+  .mock .g .t { color:var(--wb-text); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mock .g .m { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; color:var(--wb-muted); margin-top:1px; }
+  .mock .main { padding:14px 16px; }
+  .mock .main h5 { margin:0 0 4px; font-family:"Instrument Sans", system-ui, sans-serif; font-weight:600; font-size:16px; color:var(--wb-text); }
+  .mock .main .sub { font-family:ui-monospace, Menlo, monospace; font-size:10.5px; color:var(--wb-muted); margin-bottom:12px; }
+  .mock .cols { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:10px; }
+  .mock .pane { background:var(--wb-panel); border:1px solid var(--wb-border); border-radius:8px; padding:10px 11px; }
+  .mock .pane .ph { font-family:ui-monospace, Menlo, monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--wb-dim); margin-bottom:6px; }
+  .mock .pane .big { font-size:20px; font-weight:600; color:var(--wb-text); }
+  .mock .pane .big.good { color:var(--wb-good);} .mock .pane .big.warn { color:var(--wb-warn);} .mock .pane .big.bad { color:var(--wb-bad);}
+  .mock .pane p { margin:4px 0 0; color:var(--wb-text2); font-size:11.5px; line-height:1.5; }
+  .mock .chip { display:inline-block; font-family:ui-monospace, Menlo, monospace; font-size:10px; padding:1px 6px; border-radius:99px; border:1px solid var(--wb-border); color:var(--wb-muted); margin-right:4px; white-space:nowrap; }
+  .mock .chip.good { color:var(--wb-good); border-color:var(--wb-good);} .mock .chip.warn { color:var(--wb-warn); border-color:var(--wb-warn);} .mock .chip.bad { color:var(--wb-bad); border-color:var(--wb-bad);} .mock .chip.acc { color:var(--wb-accent); border-color:var(--wb-accent-border); background:var(--wb-accent-dim); }
+  .mock .rs { background:var(--wb-panel2); border:1px solid var(--wb-border); border-radius:7px; padding:8px 9px; margin-bottom:6px; }
+  .mock .rs .q { color:var(--wb-text); font-size:11.5px; }
+  .mock .rs .x { color:var(--wb-muted); margin-top:3px; font-size:10.5px; font-family:ui-monospace, Menlo, monospace; }
+  .mock .btn { display:inline-block; padding:4px 9px; border-radius:6px; border:1px solid var(--wb-border); color:var(--wb-text2); font-size:11px; margin-right:4px; }
+  .mock .btn.p { background:var(--wb-accent); color:var(--wb-on-accent); border-color:var(--wb-accent); font-weight:600; }
+  .mock .ivbar { position:relative; height:10px; border-radius:5px; background:var(--wb-panel2); border:1px solid var(--wb-border); margin:8px 0 4px; }
+  .mock .ivbar i { position:absolute; top:-3px; width:2px; height:14px; background:var(--wb-good); }
+  .mock .ivbar i.p { background:var(--wb-bad); }
+  .mock .ivbar span { position:absolute; top:14px; font-family:ui-monospace, Menlo, monospace; font-size:9.5px; color:var(--wb-muted); transform:translateX(-50%); white-space:nowrap; }
+  .mock table { font-size:11px; margin:6px 0 2px; color:var(--wb-text2); }
+  .mock th, .mock td { padding:3px 6px; border-bottom:1px solid var(--wb-border); }
+  .mock th { color:var(--wb-dim); font-size:9.5px; }
+  .kv { display:grid; grid-template-columns: max-content minmax(0,1fr); gap:4px 14px; font-size:14px; }
+  .kv dt { font-family:var(--mono); font-size:12.5px; color:var(--caption); } .kv dd { margin:0; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--caption); margin:4px 0 10px; }
+  footer { padding: 40px 0 60px; border-top:1px solid var(--line); margin-top:40px; font-size:13.5px; color:var(--caption); }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <span class="brand"><span class="diamond"></span>value·invest agent</span>
+  <a href="#goal">Goal</a><a href="#method">His method</a><a href="#stance">Stance → BUY/SELL</a><a href="#schema">Golden eval</a><a href="#pipeline">Pipeline</a><a href="#ground">Grounding</a><a href="#distil">Distillation</a><a href="#checkpoint">Checkpoint</a><a href="#app">App</a><a href="#plan">Plan</a><a href="#decisions">Decisions</a>
+</div></nav>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow"><span>s02 · milestone 2 plan · S4 golden extraction + S5 review tab</span><span class="tag good">rev 10 · 2026-09-19 · D13 clarified: reports, not nationality</span><span class="tag acc">branch: m2-golden (to create)</span><span class="tag good">M1 merged · PR #1</span></div>
+  <h1>Extract the <em>call</em> — and the <em>reasons</em> that ladder up to it</h1>
+  <p class="lede">Milestone 1 left 40 single-stock transcripts in transcript·lab and ten years of as-of prices and statements in DuckDB. Milestone 2 turns each transcript into a <b>golden eval</b>: BUY / HOLD / SELL, a target (intrinsic value), and the 3–5 reasons the author gives — each reason tagged with whether it can be rebuilt from the financial data available on the video date. The extraction runs as a versioned Agent SDK pipeline on the subscription, with a hand-labelled seed as its checkpoint, so it can be re-run and improved like the classifier was.</p>
+  <div class="facts">
+    <span><b>120</b> target sample (20 / yr × 6, from 2020-09-17) · <b>40</b> transcripts in hand · <b>60,948</b> words · 3–20 chunks each</span>
+    <span><b>14</b> read in full for this plan, 22 skimmed at the conclusion</span>
+    <span><b>11 / 11</b> stated intrinsic values reproduced within ±11 % (8 within ±6 %)</span>
+    <span><b>1</b> reproducible valuation model behind every video</span>
+    <span><b>Agent SDK</b> · subscription · <span class="k">llm.run_structured</span></span>
+  </div>
+</header>
+
+<!-- ───────────────────────── 00. GOAL ───────────────────────── -->
+<section id="goal">
+  <div class="section-head"><span class="num">00</span><h2>What the golden set is for</h2></div>
+  <div class="two">
+    <div class="card">
+      <h4><span class="num">now</span> after M1</h4>
+      <ul>
+        <li><span class="k">vi.videos</span> 40 in-sample, all exact dates, all US 10-K filers; transcripts in Chroma as <span class="k">raw_transcript:&lt;id&gt;</span> + <span class="k">chunk:&lt;id&gt;:&lt;i&gt;</span> with <span class="k">start_seconds</span></li>
+        <li><span class="k">vi.prices</span> from 2017, <span class="k">vi.statements</span> EDGAR FY2010+ with real <span class="k">filed_at</span>, yfinance fallback; <span class="k">vi.statements_as_of(tk, t0)</span></li>
+        <li><span class="k">vi.evals</span> exists as an empty stub; the app's <em>Golden Evals</em> tab is a placeholder</li>
+        <li><span class="k">llm.run_structured</span> proven on 1,032 title labels (95 % on the 40-title seed)</li>
+      </ul>
+    </div>
+    <div class="card rec">
+      <h4><span class="num">after M2</span> the deliverable</h4>
+      <ul>
+        <li>120 <span class="k">GoldenEval</span> rows (40 now, 80 after the window extension — D12): <b>position BUY | HOLD | SELL</b> (decided: fair value = HOLD; the binary "not a buy is a sell" view stays derivable), a 6-way <span class="k">stance_detail</span> underneath it, expected return, intrinsic value with its scenario inputs</li>
+        <li><b>3–5 ranked reasons</b>, each a claim + verbatim quote + chunk id + timestamp + a <em>data check</em>: rebuilt from statements / prices / derived / external / judgement</li>
+        <li>A <b>distilled method</b>: <span class="k">valuation.py</span> functions that reproduce his intrinsic values, and a summary of the parameters he actually uses</li>
+        <li>A <b>checkpoint</b>: seed labels, κ between two extractors, seed eval per extractor version, cache keyed on transcript hash</li>
+        <li>Golden Evals tab — validation insights on top (recommendation vs actual at T0 + 6 / 12 / 24 m, per year and split), every eval in a table below, review controls → <b>the M2 review question: does the golden set make sense, and were the calls any good?</b></li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>Why the reasons matter more than the label.</b> With ~70 % of the 40 videos landing on SELL under the binary rule (§02) — 56 % if fair-holds are called HOLD (9 / 7 / 20) — a majority baseline already scores 56–70 % on position. The signal the analyst agent (M3) has to learn is <em>how he gets there</em>: which numbers he looks at, how he turns them into growth/multiple/probability inputs, and where he stops and says "too hard". That is what the reasons and the valuation block capture, and why every reason carries a data-check.</div>
+</section>
+
+<!-- ───────────────────────── 01. THE METHOD ───────────────────────── -->
+<section id="method">
+  <div class="section-head"><span class="num">01</span><h2>What the author actually does — read from the transcripts</h2></div>
+  <p>Fourteen transcripts read end to end (AAPL ×2, VZ ×2, NVDA, TROW, UNH, TSLA, IBKR, CPB, BLK, CPRT, GOOGL, BRK ×2, AMZN, HSY, MU, MCD). The same procedure appears every time he values a stock, and it is <b>fully reproducible</b>: it is a ten-year two-stage earnings model with a terminal multiple, discounted at his required return, run as three scenarios with probabilities.</p>
+  <figure>
+  <svg viewBox="0 0 1000 400" role="img" aria-labelledby="f1t"><title id="f1t">The author's intrinsic-value template: a base per-share metric grows at two rates for ten years, is capitalised at a terminal multiple, discounted at the required return; three scenarios are probability-weighted; the result is compared to price and placed on a return-vs-risk quadrant, which yields the stance.</title>
+    <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+    <!-- inputs -->
+    <g id="m-base"><rect class="box good" x="20" y="30" width="170" height="70" rx="9"/><text class="ttl" x="105" y="55" text-anchor="middle">Base metric</text><text class="sm" x="105" y="73" text-anchor="middle">EPS · DPS · net income</text><text class="sm" x="105" y="88" text-anchor="middle">"earnings per share $6"</text></g>
+    <g id="m-g1"><rect class="box" x="210" y="30" width="135" height="70" rx="9"/><text class="ttl" x="277" y="55" text-anchor="middle">Growth y1–5</text><text class="sm" x="277" y="73" text-anchor="middle">judgement</text><text class="sm" x="277" y="88" text-anchor="middle">"5 % … 25 % … 0 %"</text></g>
+    <g id="m-g2"><rect class="box" x="365" y="30" width="135" height="70" rx="9"/><text class="ttl" x="432" y="55" text-anchor="middle">Growth y6–10</text><text class="sm" x="432" y="73" text-anchor="middle">judgement</text><text class="sm" x="432" y="88" text-anchor="middle">"things stabilise"</text></g>
+    <g id="m-pe"><rect class="box" x="520" y="30" width="200" height="70" rx="9"/><text class="ttl" x="620" y="55" text-anchor="middle">Terminal P/E (year 10)</text><text class="sm" x="620" y="73" text-anchor="middle">normal 20 · worst 10–12</text><text class="sm" x="620" y="88" text-anchor="middle">best 25–40 · BRK 15–25</text></g>
+    <g id="m-r"><rect class="box acc" x="740" y="30" width="240" height="70" rx="9"/><text class="ttl" x="860" y="55" text-anchor="middle">Discount = required return</text><text class="sm" x="860" y="73" text-anchor="middle">10 % in all 8 valuations read</text><text class="sm" x="860" y="88" text-anchor="middle">"I expect a 10 % return"</text></g>
+    <path class="edge" d="M190 65 H208"/><path class="edge" d="M345 65 H363"/><path class="edge" d="M500 65 H518"/><path class="edge" d="M720 65 H738"/>
+    <!-- scenarios -->
+    <rect class="region" x="20" y="130" width="960" height="120" rx="12"/>
+    <text class="ttl" x="36" y="152" style="fill:var(--accent)">three scenarios, each with a probability</text>
+    <g id="m-normal"><rect class="box" x="40" y="165" width="280" height="68" rx="9"/><text class="ttl" x="180" y="188" text-anchor="middle">normal · p ≈ 50–70 %</text><text class="sm" x="180" y="206" text-anchor="middle">AAPL: 5 % growth, P/E 20 → $80</text><text class="sm" x="180" y="221" text-anchor="middle">"call me crazy but…"</text></g>
+    <g id="m-best"><rect class="box good" x="340" y="165" width="310" height="68" rx="9"/><text class="ttl" x="495" y="188" text-anchor="middle">best · p ≈ 15–25 %</text><text class="sm" x="495" y="206" text-anchor="middle">AAPL: 10 % growth, P/E 40 → ≈ price</text><text class="sm" x="495" y="221" text-anchor="middle">"what Wall Street is pricing in"</text></g>
+    <g id="m-worst"><rect class="box bad" x="670" y="165" width="310" height="68" rx="9"/><text class="ttl" x="825" y="188" text-anchor="middle">worst = "margin of safety" · p ≈ 15–25 %</text><text class="sm" x="825" y="206" text-anchor="middle">AAPL: 0 % growth, P/E 12 → $34</text><text class="sm" x="825" y="221" text-anchor="middle">"recession, who knows what"</text></g>
+    <path class="edge" d="M277 100 V128"/><path class="edge" d="M432 100 V128"/><path class="edge" d="M620 100 V128"/><path class="edge" d="M860 100 V128"/>
+    <!-- outputs -->
+    <g id="m-iv"><rect class="box acc" x="40" y="290" width="240" height="80" rx="9"/><text class="ttl" x="160" y="315" text-anchor="middle">Weighted intrinsic value</text><text class="big" x="160" y="345" text-anchor="middle">Σ pᵢ · IVᵢ</text><text class="sm" x="160" y="362" text-anchor="middle">AAPL 2025-01: ≈ $100 vs price $228</text></g>
+    <g id="m-cmp"><rect class="box" x="300" y="290" width="300" height="80" rx="9"/><text class="ttl" x="450" y="315" text-anchor="middle">IV / price → expected return</text><text class="sm" x="450" y="335" text-anchor="middle">"fairly valued for a 10 % return"</text><text class="sm" x="450" y="350" text-anchor="middle">"you would need to buy it at 20"</text><text class="sm" x="450" y="364" text-anchor="middle">what is priced in: solve growth at P/E</text></g>
+    <g id="m-quad"><rect class="box good" x="620" y="290" width="360" height="80" rx="9"/><text class="ttl" x="800" y="315" text-anchor="middle">Value-investing quadrant → stance</text><text class="sm" x="800" y="335" text-anchor="middle">x = risk · y = expected return %</text><text class="sm" x="800" y="350" text-anchor="middle">"6–7 %, very safe" · "a bet I would not take"</text><text class="sm" x="800" y="364" text-anchor="middle">abs./rel. buy · fair · avoid · too hard · short</text></g>
+    <path class="edge" d="M495 250 C495 270 160 265 160 288"/>
+    <path class="edge" d="M280 330 H298"/><path class="edge" d="M600 330 H618"/>
+  </svg>
+  <figcaption>The only inputs that are <em>facts</em> are the base metric and the price. Everything else — the two growth rates, the terminal multiple, the probabilities and occasionally the discount rate — is judgement, and the "reasons" in a video are the arguments for those judgements. That is exactly what the golden set has to record: the numbers he chose <b>and</b> the reasons he gave for choosing them.</figcaption>
+  </figure>
+
+  <h3>Fidelity check: does a simple formula reproduce the numbers he says on camera?</h3>
+  <p>I coded the template as <em>ten years of growth (g₁ for years 1–5, g₂ for 6–10), terminal value = E₁₀ × P/E, everything discounted at r, dividends added at the payout ratio</em> and fed it the inputs he states in each video:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Video · scenario</th><th>Inputs he states</th><th class="r">Formula</th><th class="r">He says</th><th class="r">Error</th></tr></thead>
+    <tbody>
+      <tr><td>AAPL 2025-01 · normal</td><td class="mono">EPS 6 · 5 % / 5 % · P/E 20 · r 10 % · payout 15 %</td><td class="r mono">82.4</td><td class="r mono">80</td><td class="r"><span class="tag good">+3 %</span></td></tr>
+      <tr><td>AAPL 2025-01 · best</td><td class="mono">10 % / 10 % · P/E 40</td><td class="r mono">249</td><td class="r mono">≈ 228 ("okay")</td><td class="r"><span class="tag warn">+9 %</span></td></tr>
+      <tr><td>AAPL 2025-01 · worst</td><td class="mono">0 % / 0 % · P/E 12</td><td class="r mono">33.3</td><td class="r mono">34</td><td class="r"><span class="tag good">−2 %</span></td></tr>
+      <tr><td>AAPL 2025-01 · weighted 70/15/15</td><td class="mono">normal nudged to 6 % ("make the market a little happier")</td><td class="r mono">105.5</td><td class="r mono">100</td><td class="r"><span class="tag good">+6 %</span></td></tr>
+      <tr><td>VZ 2025-01 · normal (dividend model)</td><td class="mono">DPS 2.6 · 2.3 % · terminal 15× dividend · r 10 %</td><td class="r mono">36.7</td><td class="r mono">38.35</td><td class="r"><span class="tag good">−4 %</span></td></tr>
+      <tr><td>NVDA 2026-06 · normal</td><td class="mono">EPS 6.53 · 25–30 % / 10 % · P/E 20</td><td class="r mono">279 (at 28 %)</td><td class="r mono">275</td><td class="r"><span class="tag good">+1 %</span></td></tr>
+      <tr><td>NVDA 2026-06 · worst</td><td class="mono">≈ 5 % avg · P/E 10</td><td class="r mono">41</td><td class="r mono">39</td><td class="r"><span class="tag good">+5 %</span></td></tr>
+      <tr><td>CPRT 2026-07 · normal</td><td class="mono">EPS 1.61 · 8 % / 5 % · P/E 15</td><td class="r mono">17.5</td><td class="r mono">17</td><td class="r"><span class="tag good">+3 %</span></td></tr>
+      <tr><td>CPRT 2026-07 · best</td><td class="mono">12 % / 10 % · P/E 25</td><td class="r mono">44</td><td class="r mono">40</td><td class="r"><span class="tag warn">+10 %</span></td></tr>
+      <tr><td>BRK 2026-06 · normal (net income, $B)</td><td class="mono">NI 45 · 6 % / 6 % · P/E 25</td><td class="r mono">777</td><td class="r mono">"around 700"</td><td class="r"><span class="tag warn">+11 %</span></td></tr>
+      <tr><td>BRK 2025-09 · normal ($B)</td><td class="mono">NI "a little higher than 34" (36) · 6 % · P/E 15</td><td class="r mono">373</td><td class="r mono">390</td><td class="r"><span class="tag good">−4 %</span></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13.5px;color:var(--caption)">Where he states all inputs precisely the formula lands within ±6 %; the three ±10 % rows are videos where he says "let's put 25… perhaps a bit more" while typing. The remaining ambiguity (year-0 vs year-1 timing, whether the terminal is discounted 10 or 11 periods) is settled by <b>S4.0: download his free template spreadsheet and encode it cell-for-cell</b> before extraction starts, so the grounding step (§05) recomputes exactly what he computed.</p>
+
+  <h3>The reasons he gives, by kind — and how often they decide the call</h3>
+  <div class="cards">
+    <div class="card"><h4><span class="tag acc">valuation</span> IV vs price · P/E vs growth</h4><p>The decisive reason in almost every video: "intrinsic value 100, stock 228"; "P/E 26, if it reverts to 15 you're 50 % down" (MCD); "P/E 16 for a compounder that averaged 29" (CPRT). Rebuilt from <span class="k">prices</span> + <span class="k">Diluted EPS</span>.</p></div>
+    <div class="card"><h4><span class="tag acc">growth</span> trajectory and what's priced in</h4><p>"Three years of practically no growth if it wouldn't be for buybacks" (AAPL); "revenue flat as a pancake" (VZ); "P/E went from 43 to 16 as growth went from double digit to zero" (CPRT). Rebuilt from revenue / EPS history; <em>consensus</em> growth is external.</p></div>
+    <div class="card"><h4><span class="tag acc">capital allocation</span> buybacks at what price, dividends, M&amp;A</h4><p>"Buyback yield 3.1 % at a 3.5 T market cap — stupid if done at a premium" (AAPL); "opportunistic buybacks when the stock is down — Buffett would applaud" (CPRT); "market cap lower than what they spent on acquisitions" (CPB). Rebuilt from <span class="k">Repurchase Of Capital Stock</span>, <span class="k">Cash Dividends Paid</span>, price × shares.</p></div>
+    <div class="card"><h4><span class="tag acc">balance sheet · rates</span> debt as the anchor</h4><p>"Verizon is a pure interest-rate investment: 150 B of debt, refinancing 0.85 % paper at 5 %"; "the dividend yield is always ≈ 300 bp over the risk-free" (VZ). Debt and interest expense rebuilt; the risk-free rate is external (cheap to add).</p></div>
+    <div class="card"><h4><span class="tag acc">moat · cyclicality · competence</span> the qualitative gate</h4><p>"Semiconductors are clearly cyclical; when the cycle reverts it gets very ugly" (NVDA, MU); "index funds cost a tenth of their fees — the competitive advantage is gone" (TROW); "insurance goes to the too-hard pile" (UNH). Mostly judgement; partly visible in margin history.</p></div>
+    <div class="card"><h4><span class="tag acc">sentiment · who else is buying</span></h4><p>"Buffett stopped the buybacks — he's telling you it's expensive" (BRK); "Druckenmiller, Klarman, Ackman all bought" (AMZN); "analysts always merrily follow the stock" (GOOGL). External (13F, analyst ratings) — recorded, not reproducible from our data.</p></div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 02. STANCE → BINARY ───────────────────────── -->
+<section id="stance">
+  <div class="section-head"><span class="num">02</span><h2>His stance vocabulary, and the BUY / SELL rule</h2></div>
+  <p>He almost never says "buy" or "sell" flat. He says where the stock sits on his quadrant and what he personally does. The headline label is <b>BUY / HOLD / SELL</b> (decided, D8): buys are BUY, fair-value holds are HOLD, avoid / too-hard / short are SELL. Your original binary — <em>anything that is not a buy is a sell</em> — is derived from it (HOLD → SELL) and reported beside it. Underneath, the extractor records the 6-way <span class="k">stance_detail</span> and what he <em>personally</em> does, so any cut can be changed later without re-extracting.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>What he says (verbatim)</th><th>Video</th><th>stance_detail</th><th>personal action</th><th>Position (3-way)</th></tr></thead>
+    <tbody>
+      <tr><td>"it is an absolute buy if you are an American investor… want long-term safety"</td><td class="mono">BRK 2024-02</td><td><span class="tag good">absolute_buy</span></td><td>—</td><td><span class="tag good">BUY</span></td></tr>
+      <tr><td>"a good relative buy… to be an absolute value investing buy I would need the interest income to go down"</td><td class="mono">IBKR 2024-02</td><td><span class="tag good">relative_buy</span></td><td>—</td><td><span class="tag good">BUY</span></td></tr>
+      <tr><td>"I will buy just a little bit because of the valuation and of the risks"</td><td class="mono">AAPL 2022-09</td><td><span class="tag good">relative_buy</span></td><td>buys (YT portfolio)</td><td><span class="tag good">BUY</span></td></tr>
+      <tr><td>"at the end of the video I'll buy it… a value investment but a cyclical one"</td><td class="mono">MU 2023-03</td><td><span class="tag good">relative_buy</span></td><td>buys</td><td><span class="tag good">BUY</span></td></tr>
+      <tr><td>"the risk and reward is positive… I'll put 300 bucks on myself"</td><td class="mono">LULU 2024-06</td><td><span class="tag good">relative_buy</span></td><td>buys</td><td><span class="tag good">BUY</span></td></tr>
+      <tr><td>"buy and forget is much better… better than 98 % of other investments" (6 % return, DCA-ing in)</td><td class="mono">BRK 2026-06</td><td><span class="tag good">relative_buy</span></td><td>accumulating</td><td><span class="tag good">BUY</span> <span class="tag warn">hurdle rule → HOLD</span></td></tr>
+      <tr><td>"fairly valued for a 10 % return… could be a very interesting addition in a diversified dividend portfolio" (quadrant 7 %)</td><td class="mono">VZ 2025-01</td><td><span class="tag">fair_hold</span></td><td>—</td><td><span class="tag acc">HOLD</span> <span class="tag warn">borderline</span></td></tr>
+      <tr><td>"fairly priced for a 10 % return… not a margin-of-safety buy… I'll start following it"</td><td class="mono">CPRT 2026-07</td><td><span class="tag">fair_hold</span></td><td>watchlist</td><td><span class="tag acc">HOLD</span> <span class="tag warn">borderline</span></td></tr>
+      <tr><td>"not a bad addition to a portfolio… will I buy? for my personal portfolio, no"</td><td class="mono">AMZN 2026-02</td><td><span class="tag">fair_hold</span></td><td>no</td><td><span class="tag acc">HOLD</span> <span class="tag warn">borderline</span></td></tr>
+      <tr><td>"fairly priced and the good is priced in… simply not for me"</td><td class="mono">V 2022-10</td><td><span class="tag">fair_hold</span></td><td>no</td><td><span class="tag acc">HOLD</span></td></tr>
+      <tr><td>"I don't think Berkshire is such a great buy nor a hold at the moment"</td><td class="mono">BRK 2025-09</td><td><span class="tag bad">avoid</span></td><td>—</td><td><span class="tag bad">SELL</span></td></tr>
+      <tr><td>"the stock is significantly overvalued… I don't think over the next 10 years there is a positive return"</td><td class="mono">AAPL 2025-01</td><td><span class="tag bad">avoid</span></td><td>no</td><td><span class="tag bad">SELL</span></td></tr>
+      <tr><td>"Buy BlackRock for a quick 2x!" (title) → "I would put it as high risk… my value investing thing doesn't allow me to make money on that"</td><td class="mono">BLK 2025-10</td><td><span class="tag bad">avoid</span></td><td>no</td><td><span class="tag bad">SELL</span> <span class="tag warn">title is ironic</span></td></tr>
+      <tr><td>"not something for the value investor… potential upside, certainly potential downside"</td><td class="mono">NVDA 2026-06</td><td><span class="tag bad">avoid</span></td><td>no</td><td><span class="tag bad">SELL</span></td></tr>
+      <tr><td>"too risky despite the 10 % free cash flow yield… nothing to do there"</td><td class="mono">TROW 2025-04</td><td><span class="tag bad">avoid</span></td><td>no</td><td><span class="tag bad">SELL</span></td></tr>
+      <tr><td>"wake me up when the stock is down 50 %… just an AI gamble now"</td><td class="mono">GOOGL 2026-07</td><td><span class="tag bad">avoid</span></td><td>no</td><td><span class="tag bad">SELL</span></td></tr>
+      <tr><td>"United Health usually goes to the too-hard pile for me… the rest is gambling"</td><td class="mono">UNH 2025-05</td><td><span class="tag bad">too_hard</span></td><td>no</td><td><span class="tag bad">SELL</span></td></tr>
+      <tr><td>"I'm going short… let's put it there for the next two years"</td><td class="mono">TSLA 2022-11</td><td><span class="tag bad">short</span></td><td>shorts $100k</td><td><span class="tag bad">SELL</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The rule has an edge, and the edge is where the interesting videos are</h3>
+  <div class="cards">
+    <div class="card"><h4>A · strict binary <span class="tag">derived view</span></h4><p><b>BUY</b> only when he says it is a buy (absolute or relative) or he is buying/accumulating it. Everything else — fair value, watchlist, avoid, too hard, short — is <b>SELL</b>.</p><p>On the 18 videos above: 6 BUY / 12 SELL. Across all 40 (provisional, §07): 9 BUY, 27 SELL, 4 pending.</p><p style="color:var(--caption);font-size:13px">Cost: VZ / CPRT / AMZN ("fairly valued for 10 %") become SELL although he'd hold them; BRK 2026 is BUY at a 6 % expected return.</p></div>
+    <div class="card"><h4>B · hurdle</h4><p><b>BUY</b> when his own expected return at the current price ≥ 10 % (his discount rate), else SELL. Purely from the valuation block.</p><p style="color:var(--caption);font-size:13px">Cost: flips BRK 2026 to SELL and VZ/CPRT to borderline BUY; needs an IV in every video (≈ 3 of 40 have none, e.g. UNH).</p></div>
+    <div class="card rec"><h4>C · 3-way headline: BUY / HOLD / SELL <span class="tag good">decided</span></h4><p>BUY (absolute/relative buy) · HOLD (fair_hold) · SELL (avoid / too_hard / short). On the 36 labelled: <b>9 / 7 / 20</b> (+4 pending) — SELL is still the majority (56 %) but the set is far less lopsided than 9 / 27; per year 3/4/3 · 3/0/5 · 1/1/7 · 2/2/5. At 120 expect ≈ 27 / 21 / 67.</p><p style="color:var(--caption);font-size:13px">Preview verdicts at 12 m: BUY 3 ✓ / 2 ✗ (n 7) · HOLD 1 ✓ / 4 ✗ (n 5 — his "fairly valued" names moved &gt; 10 pp either way: GOOG +33, MBUU −58) · SELL 8 ✓ / 6 ✗ (n 15). The HOLD band is the rule to think about: "did not lag by &gt; 5 pp" may be the fairer test of a hold than "stayed within ±10 pp".</p></div>
+  </div>
+  <div class="note good"><b>Decided (D8).</b> Extract once, store <span class="k">stance_detail</span> (6-way) + <span class="k">personal_action</span> + <span class="k">expected_return_pct</span>; derive <span class="k">position</span> as BUY / HOLD / SELL (rule C) and report the binary A and the hurdle B as alternative cuts in the summary panel. Videos where the cuts disagree are flagged <span class="k">rule_sensitive=true</span> so the review tab shows them first. The HOLD verdict band is D14.</div>
+</section>
+
+<!-- ───────────────────────── 03. SCHEMA ───────────────────────── -->
+<section id="schema">
+  <div class="section-head"><span class="num">03</span><h2>The structured output: <span style="font-family:var(--mono);font-size:26px">GoldenEval</span> v1</h2></div>
+  <p>One object per video. The <b>call</b> is what he concluded; the <b>valuation</b> is how he priced it; the <b>reasons</b> are why; the <b>data checks</b> say what an agent with only T0 data could have rebuilt. The spec's earlier fields (thesis[], risks[], verifiable_claims[]) collapse into <span class="k">reasons[]</span> with a <span class="k">direction</span> — a risk is a reason for SELL.</p>
+  <figure>
+  <svg viewBox="0 0 1000 470" role="img" aria-labelledby="f3t"><title id="f3t">GoldenEval schema: call block, valuation block with scenarios, reasons array with data checks, evidence, and provenance.</title>
+    <rect class="region" x="10" y="10" width="980" height="450" rx="14"/>
+    <text class="ttl" x="26" y="34" style="fill:var(--accent)">GoldenEval  (pydantic · src/value_invest/golden/models.py)</text>
+    <g id="s-call"><rect class="box good" x="26" y="50" width="300" height="150" rx="10"/><text class="ttl" x="40" y="72">call</text>
+      <text class="sm" x="40" y="92">video_id · ticker · t0</text>
+      <text class="sm" x="40" y="106">position: BUY | HOLD | SELL  ← derived (rule C)</text>
+      <text class="sm" x="40" y="120">stance_detail: absolute_buy | relative_buy</text>
+      <text class="sm" x="40" y="134">    | fair_hold | avoid | too_hard | short</text>
+      <text class="sm" x="40" y="148">personal_action: buying | holding |</text>
+      <text class="sm" x="40" y="162">    watching | none | short</text>
+      <text class="sm" x="40" y="176">expected_return_pct · horizon_years</text>
+      <text class="sm" x="40" y="190">conviction · rule_sensitive · headline_quote</text></g>
+    <g id="s-val"><rect class="box acc" x="346" y="50" width="310" height="150" rx="10"/><text class="ttl" x="360" y="72">valuation</text>
+      <text class="sm" x="360" y="92">method: eps_multiple | dividend | fcf</text>
+      <text class="sm" x="360" y="106">    | net_income | none</text>
+      <text class="sm" x="360" y="120">base_metric: {name, value_stated, quote}</text>
+      <text class="sm" x="360" y="134">discount_rate · payout_ratio</text>
+      <text class="sm" x="360" y="148">scenarios[3]: {name, g_y1_5, g_y6_10,</text>
+      <text class="sm" x="360" y="162">    terminal_multiple, probability, iv_stated}</text>
+      <text class="sm" x="360" y="176">iv_weighted_stated · price_mentioned</text>
+      <text class="sm" x="360" y="190">what_is_priced_in: {growth, multiple}</text></g>
+    <g id="s-ev"><rect class="box" x="676" y="50" width="298" height="150" rx="10"/><text class="ttl" x="690" y="72">provenance</text>
+      <text class="sm" x="690" y="92">extractor_version: v0 · model · session_id</text>
+      <text class="sm" x="690" y="108">transcript_sha256 · extracted_at</text>
+      <text class="sm" x="690" y="124">evidence[]: chunk_id · start_s · end_s</text>
+      <text class="sm" x="690" y="140">curation_status: auto | reviewed | rejected</text>
+      <text class="sm" x="690" y="156">critic: {faithful, position_agrees, notes}</text>
+      <text class="sm" x="690" y="172">external_facts_used[]  (what we don't have)</text>
+      <text class="sm" x="690" y="188">split: train | test | holdout   (by year)</text></g>
+    <!-- reasons -->
+    <g id="s-reasons"><rect class="box" x="26" y="222" width="948" height="222" rx="10"/><text class="ttl" x="40" y="244">reasons[3–5]  ranked · each one a claim he actually made</text>
+      <g id="s-r1"><rect class="box warn" x="40" y="258" width="280" height="172" rx="8"/><text class="lbl" x="54" y="280" style="font-weight:600">reason</text>
+        <text class="sm" x="54" y="298">rank 1–5 · direction: for_buy | for_sell</text>
+        <text class="sm" x="54" y="312">category: valuation | growth |</text>
+        <text class="sm" x="54" y="326">    capital_allocation | balance_sheet</text>
+        <text class="sm" x="54" y="340">    | moat | cyclicality | management</text>
+        <text class="sm" x="54" y="354">    | macro_rates | competence | sentiment</text>
+        <text class="sm" x="54" y="368">claim  (one sentence, his logic)</text>
+        <text class="sm" x="54" y="382">quote · chunk_id · start_s</text>
+        <text class="sm" x="54" y="396">feeds: g_y1_5 | g_y6_10 | terminal |</text>
+        <text class="sm" x="54" y="410">    probability | discount | none</text></g>
+      <path class="edge" d="M320 344 H338"/>
+      <g id="s-dc"><rect class="box acc" x="340" y="258" width="310" height="172" rx="8"/><text class="lbl" x="354" y="280" style="font-weight:600">data_check  (grounding step, not the LLM)</text>
+        <text class="sm" x="354" y="298">reproducible: statements | prices | derived</text>
+        <text class="sm" x="354" y="312">    | external | judgement</text>
+        <text class="sm" x="354" y="328">line_items[]: Diluted EPS, Repurchase Of…</text>
+        <text class="sm" x="354" y="344">value_stated: 3.1 %      value_as_of: 2.8 %</text>
+        <text class="sm" x="354" y="360">agrees: true | false | n/a   tolerance 10 %</text>
+        <text class="sm" x="354" y="376">formula: repurchase / (close × shares)</text>
+        <text class="sm" x="354" y="392">as_of: FY2024 · filed 2024-11-01 ≤ T0</text>
+        <text class="sm" x="354" y="408">gap_note: "he uses TTM; we have annual"</text></g>
+      <g id="s-ex"><rect class="box" x="670" y="258" width="290" height="172" rx="8"/><text class="lbl" x="684" y="280" style="font-weight:600">AAPL 2025-01-21 · reason #3</text>
+        <text class="sm" x="684" y="300">for_sell · capital_allocation · feeds none</text>
+        <text class="sm" x="684" y="318">"$110 B of buybacks at a 3.5 T market cap</text>
+        <text class="sm" x="684" y="332"> is a 3.1 % yield — stupid at a premium"</text>
+        <text class="sm" x="684" y="352">chunk:vDirkgS91VQ:2 · 4:10</text>
+        <text class="sm" x="684" y="372">as-of: repurchase 94.9 B (FY24) ·</text>
+        <text class="sm" x="684" y="386">15.12 B sh × $222.64 = 3.37 T → 2.8 %</text>
+        <text class="sm" x="684" y="406" style="fill:var(--good)">reproducible: derived · agrees ✓</text></g>
+    </g>
+  </svg>
+  <figcaption>The LLM fills the white and green/blue boxes on the top row and the <em>reason</em> box; the <em>data_check</em> box is filled deterministically in Python from <span class="k">vi.statements_as_of</span> and <span class="k">vi.prices</span>, so the extractor never sees market data and cannot be contaminated by it. A reason's <span class="k">feeds</span> field is the bridge to M3: it says which valuation input that argument justifies.</figcaption>
+  </figure>
+
+  <h3>A worked example, filled by hand from the transcript</h3>
+  <div class="codebox"><div class="path"><span class="k">data/golden/vDirkgS91VQ.json</span><span>AAPL · 2025-01-21 · "Apple Stock Intrinsic Value is $105" · what the pipeline should produce</span></div>
+    <pre class="fallback" id="src-example">{
+  "video_id": "vDirkgS91VQ", "ticker": "AAPL", "t0": "2025-01-21",
+  "call": {
+    "position": "SELL", "stance_detail": "avoid", "personal_action": "none",
+    "expected_return_pct": 0, "horizon_years": 10, "conviction": "high", "rule_sensitive": false,
+    "headline_quote": "I don't think over the next 10 years there is a positive return for Apple shareholders"
+  },
+  "valuation": {
+    "method": "eps_multiple", "base_metric": {"name": "eps", "value_stated": 6.0, "quote": "earnings per share $6"},
+    "discount_rate": 0.10, "payout_ratio": null,
+    "scenarios": [
+      {"name": "normal", "g_y1_5": 0.05, "g_y6_10": 0.05, "terminal_multiple": 20, "probability": 0.70, "iv_stated": 80},
+      {"name": "best",   "g_y1_5": 0.10, "g_y6_10": 0.10, "terminal_multiple": 40, "probability": 0.15, "iv_stated": null},
+      {"name": "worst",  "g_y1_5": 0.00, "g_y6_10": 0.00, "terminal_multiple": 12, "probability": 0.15, "iv_stated": 34}
+    ],
+    "iv_weighted_stated": 100, "price_mentioned": 228,
+    "what_is_priced_in": {"growth": 0.12, "multiple": 40, "quote": "the market is pricing a 40 P/E and 12 % growth"}
+  },
+  "reasons": [
+    {"rank": 1, "direction": "for_sell", "category": "valuation", "feeds": "none",
+     "claim": "At a 10 % required return the weighted intrinsic value is ~100 against a price of 228.",
+     "quote": "intrinsic value is 100 the stock is significantly overvalued", "chunk_id": "chunk:vDirkgS91VQ:5", "start_s": 612},
+    {"rank": 2, "direction": "for_sell", "category": "growth", "feeds": "g_y1_5",
+     "claim": "Three years of no revenue/EPS growth ex-buybacks; Wall Street's 10–12 % is what is priced in.",
+     "quote": "one two three years of practically no growth actually decline if it wouldn't be for buybacks", "chunk_id": "chunk:vDirkgS91VQ:0", "start_s": 71},
+    {"rank": 3, "direction": "for_sell", "category": "capital_allocation", "feeds": "none",
+     "claim": "$110 B/yr of buybacks at a 3.5 T market cap is a 3.1 % yield at a premium to value — 'stupid' by Buffett's rule.",
+     "quote": "the buyback yield is 3.1 % ... becomes stupid if done at the premium", "chunk_id": "chunk:vDirkgS91VQ:2", "start_s": 250},
+    {"rank": 4, "direction": "for_sell", "category": "cyclicality", "feeds": "probability",
+     "claim": "19 % of sales and all production are in China; iPhone China sales declining.",
+     "quote": "19 % of sales are from China ... I think Apple is a China stock", "chunk_id": "chunk:vDirkgS91VQ:1", "start_s": 140},
+    {"rank": 5, "direction": "for_sell", "category": "sentiment", "feeds": "none",
+     "claim": "Buffett has been the biggest seller of Apple and calls buybacks at a premium stupid.",
+     "quote": "who has been the greatest seller of Apple stock lately", "chunk_id": "chunk:vDirkgS91VQ:3", "start_s": 330}
+  ],
+  "external_facts_used": ["Wall Street consensus growth 10–12 %", "China = 19 % of sales (segment data)", "Berkshire 13F selling"],
+  "provenance": {"extractor_version": "v0", "model": "claude-sonnet-5", "transcript_sha256": "…", "curation_status": "auto", "split": "test"}
+}</pre></div>
+  <p>Grounding then fills each reason's <span class="k">data_check</span> from the DuckDB as-of view. For this video: EPS stated 6.0 vs FY2024 diluted EPS <b>6.08</b> ✓; price 228 vs close 222.64 on T0 and 229.98 two trading days earlier ✓ (window ±5 days); buyback yield 3.1 % vs 2.8 % derived ✓; revenue FY22→FY24 391 → 383 → 391 B confirms "no growth" ✓; China share and consensus → <span class="tag">external</span>; Buffett → <span class="tag">external</span>. Recomputing his scenarios with <span class="k">valuation.py</span> gives 82 / 249 / 33 → weighted 105 vs his 100 ✓.</p>
+</section>
+
+<!-- ───────────────────────── 04. PIPELINE ───────────────────────── -->
+<section id="pipeline">
+  <div class="section-head"><span class="num">04</span><h2>The pipeline: five stages, two of them model calls</h2></div>
+  <p>Every model call goes through the existing <span class="k">llm.run_structured</span> — a <span class="k">ClaudeSDKClient</span> session with no tools, <span class="k">subscription_env()</span>, one validated pydantic object back — exactly the shape the classifier used and tau2-loop's <span class="k">sdk_provider.run_query</span> uses (including its wait-for-window-reset on a session-limit error, which I'll port). The extractor sees the transcript only. Market data enters in a deterministic Python stage, so a wrong number in the golden set can always be traced to either the author or the data, never to the model reading both.</p>
+  <figure>
+  <svg viewBox="0 0 1000 520" role="img" aria-labelledby="f4t"><title id="f4t">Extraction pipeline: locate, extract, ground, critic, checkpoint; with the seed evaluation and versioned extractor folders forming the improvement loop.</title>
+    <!-- inputs -->
+    <g id="p-in1"><rect class="box" x="20" y="20" width="180" height="56" rx="9"/><text class="ttl" x="110" y="43" text-anchor="middle">transcript·lab Chroma</text><text class="sm" x="110" y="61" text-anchor="middle">raw + chunks · read-only</text></g>
+    <g id="p-in2"><rect class="box" x="20" y="300" width="180" height="56" rx="9"/><text class="ttl" x="110" y="323" text-anchor="middle">DuckDB vi</text><text class="sm" x="110" y="341" text-anchor="middle">as-of statements · prices</text></g>
+    <g id="p-in3"><rect class="box acc" x="20" y="150" width="180" height="56" rx="9"/><text class="ttl" x="110" y="173" text-anchor="middle">extractors/vN/</text><text class="sm" x="110" y="191" text-anchor="middle">system.md · rubric.md</text></g>
+    <!-- stages -->
+    <g id="p-locate"><rect class="box" x="240" y="20" width="150" height="92" rx="10"/><text class="ttl" x="315" y="44" text-anchor="middle">1 · locate</text><text class="sm" x="315" y="62" text-anchor="middle">python · no model</text><text class="sm" x="315" y="77" text-anchor="middle">segments → chunks with</text><text class="sm" x="315" y="91" text-anchor="middle">ids + start_s · sha256</text></g>
+    <g id="p-extract"><rect class="box acc" x="410" y="20" width="175" height="92" rx="10"/><text class="ttl" x="497" y="44" text-anchor="middle">2 · extract</text><text class="sm" x="497" y="62" text-anchor="middle">Agent SDK · Sonnet 5</text><text class="sm" x="497" y="77" text-anchor="middle">llm.run_structured(…)</text><text class="sm" x="497" y="91" text-anchor="middle">transcript only · 1 call</text></g>
+    <g id="p-ground"><rect class="box good" x="605" y="20" width="175" height="92" rx="10"/><text class="ttl" x="692" y="44" text-anchor="middle">3 · ground</text><text class="sm" x="692" y="62" text-anchor="middle">python · no model</text><text class="sm" x="692" y="77" text-anchor="middle">data_check per reason</text><text class="sm" x="692" y="91" text-anchor="middle">recompute IV · price ±5 d</text></g>
+    <g id="p-critic"><rect class="box acc" x="800" y="20" width="180" height="92" rx="10"/><text class="ttl" x="890" y="44" text-anchor="middle">4 · critic</text><text class="sm" x="890" y="62" text-anchor="middle">Agent SDK · Opus 5 · 1 call</text><text class="sm" x="890" y="77" text-anchor="middle">quotes real? rule A?</text><text class="sm" x="890" y="91" text-anchor="middle">own stance → κ</text></g>
+    <path class="edge" d="M200 48 H238"/><path class="edge" d="M390 66 H408"/><path class="edge" d="M585 66 H603"/><path class="edge" d="M780 66 H798"/>
+    <path class="edge acc" d="M200 178 C230 178 230 100 418 90" />
+    <path class="edge" d="M200 328 C400 328 500 200 692 114" style="marker-end:url(#arr)"/>
+    <!-- checkpoint -->
+    <g id="p-ckpt"><rect class="box good" x="420" y="170" width="560" height="96" rx="10"/><text class="ttl" x="700" y="194" text-anchor="middle">5 · checkpoint</text>
+      <text class="sm" x="700" y="214" text-anchor="middle">data/golden/&lt;video_id&gt;.json · key (video_id, transcript_sha256, extractor_version)</text>
+      <text class="sm" x="700" y="230" text-anchor="middle">→ vi.evals: position · stance_detail · iv · reasons · checks · critic · status</text>
+      <text class="sm" x="700" y="246" text-anchor="middle">→ seed_eval_vN.json · method_summary.json · kappa.json</text></g>
+    <path class="edge" d="M890 112 C890 140 700 140 700 168"/>
+    <!-- seed + gate -->
+    <g id="p-seed"><rect class="box warn" x="240" y="310" width="220" height="80" rx="10"/><text class="ttl" x="350" y="334" text-anchor="middle">seed labels (human)</text><text class="sm" x="350" y="352" text-anchor="middle">data/golden/seed_labels.json</text><text class="sm" x="350" y="367" text-anchor="middle">14 now → you confirm in the app</text><text class="sm" x="350" y="382" text-anchor="middle">position · stance · reasons</text></g>
+    <g id="p-gate"><rect class="box warn" x="500" y="310" width="240" height="80" rx="10"/><text class="ttl" x="620" y="334" text-anchor="middle">seed eval → gate</text><text class="sm" x="620" y="352" text-anchor="middle">position acc · stance κ ≥ 0.7</text><text class="sm" x="620" y="367" text-anchor="middle">reason recall · IV within ±10 %</text><text class="sm" x="620" y="382" text-anchor="middle">ships only if nothing regresses</text></g>
+    <g id="p-opt"><rect class="box" x="780" y="310" width="200" height="80" rx="10"/><text class="ttl" x="880" y="334" text-anchor="middle">improve → v(N+1)</text><text class="sm" x="880" y="352" text-anchor="middle">seed misses + critic notes</text><text class="sm" x="880" y="367" text-anchor="middle">edits prompt + rubric only</text><text class="sm" x="880" y="382" text-anchor="middle">me, or an optimiser (X2)</text></g>
+    <path class="edge" d="M700 266 V308"/><path class="edge" d="M460 350 H498"/><path class="edge" d="M740 350 H778"/>
+    <path class="edge acc dash" d="M880 390 C880 470 110 470 110 208"/>
+    <text class="sm" x="500" y="452" text-anchor="middle" style="fill:var(--accent)">the improvement loop: a new extractor version is a new folder; the cache key changes; only the 40 transcripts are re-run</text>
+    <!-- app -->
+    <g id="p-app"><rect class="box" x="240" y="170" width="150" height="96" rx="10"/><text class="ttl" x="315" y="194" text-anchor="middle">app · Golden Evals</text><text class="sm" x="315" y="212" text-anchor="middle">accept·edit·reject</text><text class="sm" x="315" y="227" text-anchor="middle">→ curation_status</text><text class="sm" x="315" y="242" text-anchor="middle">→ seed_labels grows</text><text class="sm" x="315" y="257" text-anchor="middle">summary · κ · eval</text></g>
+    <path class="edge" d="M418 218 H392"/>
+    <path class="edge dash" d="M315 266 V308" />
+  </svg>
+  <figcaption>Two model calls per video (extract, critic) → 80 Agent SDK sessions for the 40-video sample, each ~3–5k input tokens. On the classifier's measured rate that is minutes of wall-clock at 3 workers and no per-token bill. The critic doubles as the second extractor for the spec's inter-extractor κ on <span class="k">stance_detail</span>; κ &lt; 0.7 means the 6-way taxonomy is wrong and the 3-way view (rule C) becomes the reported headline.</figcaption>
+  </figure>
+
+  <h3>Stage by stage</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Stage</th><th>Does</th><th>Reads</th><th>Writes</th><th>Model</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">1 locate</td><td>Joins segments into the transcript; maps every sentence to its <span class="k">chunk:&lt;id&gt;:&lt;i&gt;</span> and <span class="k">start_seconds</span>; computes <span class="k">transcript_sha256</span>; checks the cache</td><td>Chroma (ro)</td><td>in-memory <span class="k">Transcript</span></td><td>—</td></tr>
+      <tr><td class="mono">2 extract</td><td>One <span class="k">run_structured</span> call: system prompt = <span class="k">extractors/vN/system.md</span> (the rule, the taxonomy, the valuation template, 2 few-shot examples from the seed); user prompt = title + description + transcript with chunk markers; schema = <span class="k">GoldenEval</span> minus data_check/critic</td><td>Transcript, extractor version</td><td><span class="k">GoldenEval</span> draft</td><td>Sonnet 5 · medium</td></tr>
+      <tr><td class="mono">3 ground</td><td>For each reason: resolve <span class="k">line_items</span> via a category → formula table (<span class="k">golden/ground.py</span>), pull values from <span class="k">vi.statements_as_of(ticker, t0)</span> (EDGAR first, yfinance fallback) and <span class="k">vi.prices</span>; recompute every scenario with <span class="k">valuation.py</span>; compare <span class="k">price_mentioned</span> to closes within ±5 trading days of T0; mark <span class="k">reproducible</span> and <span class="k">agrees</span></td><td>DuckDB (ro)</td><td>data_check[], iv_recomputed[]</td><td>—</td></tr>
+      <tr><td class="mono">4 critic</td><td>Second <span class="k">run_structured</span> call with a different system prompt: given transcript + draft, verify each quote exists verbatim (fuzzy ≥ 0.9), that <span class="k">position</span> follows rule A, that no reason is invented; return its own independent <span class="k">stance_detail</span> for κ</td><td>Transcript, draft</td><td><span class="k">Critic</span> {faithful, position_agrees, own_stance, notes}</td><td>Opus 5 · medium</td></tr>
+      <tr><td class="mono">5 checkpoint</td><td>Write the JSON cache; upsert <span class="k">vi.evals</span>; if the video is in the seed, score it; aggregate <span class="k">method_summary.json</span> (§06) and <span class="k">kappa.json</span></td><td>—</td><td><span class="k">data/golden/*</span>, <span class="k">vi.evals</span></td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Where it lives</h3>
+  <div class="two">
+    <div class="codebox"><div class="path"><span class="k">src/value_invest/golden/</span><span>new package</span></div>
+<pre class="fallback">models.py       GoldenEval · Reason · Scenario · DataCheck · Critic (pydantic)
+transcript.py   load from Corpus → sentences with chunk ids + seconds · sha256
+extract.py      run_extract(video_id, version) → GoldenEval  (llm.run_structured)
+ground.py       CATEGORY_FORMULAS · ground(call, con) → data_check[] + iv_recomputed
+critic.py       run_critic(transcript, call) → Critic
+checkpoint.py   cache key · write JSON · upsert vi.evals · seed eval · κ · method summary
+versions.py     load_version("v0") → system.md, rubric.md, version.yaml (frozen model/effort)
+valuation.py    two_stage_iv · scenario_iv · implied_growth · buyback_yield · dividend_spread
+                (lives at src/value_invest/valuation.py — shared with M3's helper.py)
+
+extractors/v0/  system.md · rubric.md · version.yaml        ← the only files a later optimiser may edit
+data/golden/    seed_labels.json · &lt;video_id&gt;.json · seed_eval_v0.json · kappa.json · method_summary.json</pre></div>
+    <div class="codebox"><div class="path"><span class="k">vi</span> CLI additions <span>typer · src/value_invest/cli.py</span></div>
+<pre class="fallback">vi extract [--version v0] [--only VIDEO_ID] [--force] [--workers 3]
+           runs stages 1–5 for every in-sample video; cache-aware
+vi extract --eval-seed [--version v0]
+           scores the version on data/golden/seed_labels.json → seed_eval_v0.json
+vi extract --kappa
+           inter-extractor κ (extractor vs critic) over the 40 calls
+vi golden summary
+           method_summary.json: discount rates, terminal multiples by growth
+           bucket, probabilities, hurdle → the distilled method (§06)
+vi valuation check
+           recomputes every stated IV with valuation.py → fidelity table (§01)
+
+# every model call: value_invest.llm.run_structured(...)  (Agent SDK, BILLING=subscription)
+# DuckDB single-writer: stop `vi serve` before `vi extract`, as with the other pipeline commands</pre></div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 05. GROUNDING ───────────────────────── -->
+<section id="ground">
+  <div class="section-head"><span class="num">05</span><h2>Grounding: what he uses vs what we hold at T0</h2></div>
+  <p>The point of the data-check is to answer, per reason, "could an agent with only <span class="k">vi.statements_as_of(ticker, t0)</span> and <span class="k">vi.prices</span> have made this argument?". From the fourteen transcripts, this is the inventory:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>He uses</th><th>Example</th><th>We have at T0</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>EPS (base metric)</td><td>"earnings per share $6" (AAPL) · "6.53" (NVDA)</td><td><span class="k">Diluted EPS</span> EDGAR: AAPL FY24 6.08 ✓ · NVDA FY26 <b>4.90</b> ✗ — he uses trailing-12-month incl. the latest quarter</td><td><span class="tag warn">annual lag on fast growers</span></td></tr>
+      <tr><td>Dividend per share, yield</td><td>"dividend is $2.6 per share… 7 % yield" (VZ)</td><td><span class="k">Cash Dividends Paid</span> ÷ shares = 11.0 B / 4.2 B = 2.62 ✓ — but VZ's EDGAR facts lack <span class="k">Shares Outstanding</span>; yfinance <span class="k">Ordinary Shares Number</span> fills it</td><td><span class="tag good">derived · fallback needed</span></td></tr>
+      <tr><td>Buyback yield</td><td>"110 B on 3.5 T = 3.1 %" (AAPL) · "1.6 B, opportunistic" (CPRT)</td><td><span class="k">Repurchase Of Capital Stock</span> ÷ (close × <span class="k">Shares Outstanding</span>) = 2.8 % ✓</td><td><span class="tag good">derived</span></td></tr>
+      <tr><td>P/E at T0, P/E history</td><td>"P/E 26, reverts to 15 → 50 % down" (MCD) · "43 → 16" (CPRT)</td><td>close ÷ EPS ✓ · history from prices × FY EPS ✓ (annual granularity)</td><td><span class="tag good">derived</span></td></tr>
+      <tr><td>Revenue / EPS growth history</td><td>"flat as a pancake" (VZ) · "doubled revenue" (NVDA)</td><td><span class="k">Total Revenue</span>, <span class="k">Net Income</span> back to FY2010 ✓</td><td><span class="tag good">statements</span></td></tr>
+      <tr><td>FCF, capex, margins, ROE</td><td>"FCF 48 B in one quarter" (NVDA) · "33 % net margin, ROE 20 %" (CPRT) · "capex 10 % → 50 % of revenue" (GOOGL)</td><td><span class="k">Free Cash Flow</span>, <span class="k">Capital Expenditure</span>, <span class="k">Operating Income</span>, <span class="k">Stockholders Equity</span> ✓ (annual)</td><td><span class="tag good">statements</span></td></tr>
+      <tr><td>Debt, interest cost</td><td>"150 B of debt… refinancing 0.85 % at 5 %" (VZ)</td><td><span class="k">Total Debt</span>, <span class="k">Interest Expense</span> ✓ (VZ: yfinance fallback) · tranche coupons ✗</td><td><span class="tag warn">partly</span></td></tr>
+      <tr><td>Adjusted vs GAAP earnings</td><td>"GAAP vs as-adjusted differ 20 %" (BLK) · "adjusted EPS 2.67 ex-Anthropic gains" (GOOGL)</td><td>yfinance <span class="k">Normalized Income</span>, <span class="k">Total Unusual Items</span> — partial</td><td><span class="tag warn">partly</span></td></tr>
+      <tr><td>5-year price path, drawdown</td><td>"down 36 % over 5 years while the market doubled" (VZ)</td><td><span class="k">vi.prices</span> from 2017 + SPY ✓</td><td><span class="tag good">prices</span></td></tr>
+      <tr><td>Risk-free rate, Fed path</td><td>"you can lend to the US government at 4 %… 300 bp premium" (VZ) · "treasuries 3.7 %" (BRK)</td><td>✗ — FRED DGS10/DGS3MO is one small loader</td><td><span class="tag bad">external · cheap to add</span></td></tr>
+      <tr><td>Wall Street consensus, targets, ratings</td><td>"analysts expect 10–12 % growth" (AAPL) · "average upside 43 %" (NVDA)</td><td>✗</td><td><span class="tag bad">external</span></td></tr>
+      <tr><td>Management guidance, targets, commitments</td><td>"50 % annual delivery growth" (TSLA) · "13–16 % EPS growth forever" (UNH) · "capex 205 B, 470 B of commitments" (GOOGL)</td><td>✗ (10-K text, not XBRL facts)</td><td><span class="tag bad">external</span></td></tr>
+      <tr><td>Segment / geographic data</td><td>"19 % of sales from China" (AAPL) · "AWS 24 % growth, 30 % margin" (AMZN) · "net outflows" (TROW)</td><td>✗</td><td><span class="tag bad">external</span></td></tr>
+      <tr><td>Who else is buying (13F), Buffett letters</td><td>OXY, AMZN, BRK, AAPL</td><td>✗</td><td><span class="tag bad">external</span></td></tr>
+      <tr><td>Business quality, moat, competence</td><td>"index funds cost a tenth of their fees" (TROW) · "too hard pile" (UNH)</td><td>judgement; margin stability partly visible</td><td><span class="tag">judgement</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><b>Two findings for M3, recorded now.</b> (1) <b>Annual-only fundamentals understate the base for fast growers</b>: NVDA's last annual EPS at T0 is 4.90, his TTM figure 6.53 (−25 %). The data-check records <span class="k">value_stated</span> vs <span class="k">value_as_of</span> and the gap, so the M2 summary will say how many calls are affected; adding EDGAR 10-Q facts for the base metric is decision D9. (2) <b>Roughly a third of his reasons rest on external facts</b> (consensus, guidance, segments, 13F). They stay in the golden set as <span class="k">external</span> so the analyst agent is scored against what it <em>could</em> know, and the reproducibility share becomes a headline number of the M2 review.</div>
+</section>
+
+<!-- ───────────────────────── 06. DISTILLATION ───────────────────────── -->
+<section id="distil">
+  <div class="section-head"><span class="num">06</span><h2>Distillation: from 40 calls to functions and parameters</h2></div>
+  <p>Because the valuation is one model with a handful of judgement inputs, "learning his approach" decomposes into (a) code that is right by construction and (b) a small table of the judgements he tends to make. Both are M2 deliverables; M3's <span class="k">agents/v0/helper.py</span> starts as (a) plus loaders, and M3's <span class="k">system.md</span> starts as (b) in prose.</p>
+  <figure>
+  <svg viewBox="0 0 1000 300" role="img" aria-labelledby="f6t"><title id="f6t">Distillation: reasons feed valuation inputs; inputs feed valuation.py functions; the parameter distribution across 40 calls becomes the method summary; both seed the M3 analyst agent.</title>
+    <g id="d-reasons"><rect class="box warn" x="20" y="40" width="200" height="90" rx="10"/><text class="ttl" x="120" y="66" text-anchor="middle">reasons[] · 40 calls</text><text class="sm" x="120" y="86" text-anchor="middle">category · direction · feeds</text><text class="sm" x="120" y="101" text-anchor="middle">"cyclical → worst-case P/E 10"</text><text class="sm" x="120" y="116" text-anchor="middle">"no growth → g = 0–2 %"</text></g>
+    <g id="d-params"><rect class="box" x="260" y="40" width="220" height="90" rx="10"/><text class="ttl" x="370" y="66" text-anchor="middle">judgement inputs</text><text class="sm" x="370" y="86" text-anchor="middle">g_y1_5 · g_y6_10 · terminal P/E</text><text class="sm" x="370" y="101" text-anchor="middle">probabilities · discount rate</text><text class="sm" x="370" y="116" text-anchor="middle">per scenario · per call</text></g>
+    <g id="d-fn"><rect class="box acc" x="520" y="20" width="220" height="130" rx="10"/><text class="ttl" x="630" y="44" text-anchor="middle">valuation.py  (a)</text><text class="sm" x="630" y="64" text-anchor="middle">two_stage_iv(base,g1,g2,pe,r)</text><text class="sm" x="630" y="79" text-anchor="middle">scenario_iv(scenarios) → weighted</text><text class="sm" x="630" y="94" text-anchor="middle">implied_growth(price, eps, pe, r)</text><text class="sm" x="630" y="109" text-anchor="middle">buyback_yield · dividend_spread</text><text class="sm" x="630" y="124" text-anchor="middle">quadrant(expected_return, risk)</text><text class="sm" x="630" y="141" text-anchor="middle">tested against the 11 stated IVs</text></g>
+    <g id="d-sum"><rect class="box good" x="520" y="170" width="220" height="110" rx="10"/><text class="ttl" x="630" y="194" text-anchor="middle">method_summary.json  (b)</text><text class="sm" x="630" y="214" text-anchor="middle">discount rate: 10 % (n=…), else …</text><text class="sm" x="630" y="229" text-anchor="middle">terminal P/E by growth bucket</text><text class="sm" x="630" y="244" text-anchor="middle">normal/best/worst probabilities</text><text class="sm" x="630" y="259" text-anchor="middle">hurdle: BUY ↔ expected return</text><text class="sm" x="630" y="274" text-anchor="middle">reason categories → which input</text></g>
+    <g id="d-m3"><rect class="box" x="780" y="80" width="200" height="130" rx="10"/><text class="ttl" x="880" y="104" text-anchor="middle">M3 · analyst agent v0</text><text class="sm" x="880" y="124" text-anchor="middle">helper.py = valuation.py</text><text class="sm" x="880" y="139" text-anchor="middle">  + as-of loaders</text><text class="sm" x="880" y="154" text-anchor="middle">system.md = method summary</text><text class="sm" x="880" y="169" text-anchor="middle">  + rule A + taxonomy</text><text class="sm" x="880" y="189" text-anchor="middle" style="fill:var(--caption)">deferred until the M2 review</text></g>
+    <path class="edge" d="M220 85 H258"/><path class="edge" d="M480 85 H518"/><path class="edge" d="M480 95 C500 95 500 225 518 225"/>
+    <path class="edge dash" d="M740 85 C760 85 760 120 778 120"/><path class="edge dash" d="M740 225 C760 225 760 170 778 170"/>
+  </svg>
+  <figcaption>What is <em>not</em> distilled here: a rule that maps data → growth rate. That is the M3 learning problem. M2 only records the inputs he chose and the reasons he gave, so that M3 can be scored on reproducing them.</figcaption>
+  </figure>
+  <div class="two">
+    <div class="codebox"><div class="path"><span class="k">src/value_invest/valuation.py</span><span>the template, as code · tested against §01</span></div>
+<pre class="fallback" id="src-valuation">def two_stage_iv(base, g1, g2, terminal_multiple, r=0.10, payout=0.0, years=10):
+    """His intrinsic-value template: base grows g1 for 5 years then g2 for 5,
+    terminal value = E10 × multiple, dividends at payout ratio, all discounted at r.
+    Exact cell layout pinned in S4.0 from the downloadable template."""
+    e, pv_div = base, 0.0
+    for t in range(1, years + 1):
+        e *= (1 + g1) if t &lt;= 5 else (1 + g2)
+        pv_div += e * payout / (1 + r) ** t
+    return e * terminal_multiple / (1 + r) ** years + pv_div
+
+def scenario_iv(scenarios):           # Σ p_i · IV_i  (probabilities must sum to 1)
+def implied_growth(price, eps, terminal_multiple, r=0.10):   # "what is priced in"
+def buyback_yield(repurchase, close, shares): return repurchase / (close * shares)
+def dividend_spread(dps, close, risk_free): return dps / close - risk_free   # his ≈300 bp rule
+def quadrant(expected_return, risk): ...   # low/mid/high risk × return band → label</pre></div>
+    <div class="card"><h4>What the summary will show (numbers filled by <span class="k">vi golden summary</span>)</h4>
+      <ul>
+        <li><b>Discount rate</b> — 10 % in all 8 template runs among the 14 read; he moves it only to express a target ("18 % if the bull case")</li>
+        <li><b>Terminal multiples</b> — slow growers 15–20 normal / 10–12 worst; growth names 20–25 normal / 25–40 best; BRK 15–25</li>
+        <li><b>Probabilities</b> — 70/15/15 or 50/25/25; he raises the worst-case weight when uncertainty rises (GOOGL: "increasing the worst case given the high investment")</li>
+        <li><b>Hurdle</b> — BUY language appears when expected return ≥ ~10 % <em>and</em> he can name a margin of safety; fair value at 10 % is a hold</li>
+        <li><b>Reason → input</b> — growth reasons feed g₁; cyclicality/competition feed the worst-case multiple and probability; capital allocation adjusts the base (buyback-adjusted EPS growth); rates feed the dividend model's terminal yield</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 07. CHECKPOINT ───────────────────────── -->
+<section id="checkpoint">
+  <div class="section-head"><span class="num">07</span><h2>The checkpoint: seed labels, κ, and a gate for every extractor version</h2></div>
+  <p>The classifier had a 40-title hand-labelled seed and a <span class="k">--eval-seed</span> flag; the extractor gets the same. I have read 14 transcripts for this plan, which is a seed. The table below is my provisional label for every in-sample video — <b>full</b> means read end to end, <b>part</b> the first half, <b>end</b> only the conclusion; the last two groups are what the extractor produces first and you review in the app.</p>
+  <div class="legend"><span><span class="tag good">BUY</span> / <span class="tag acc">HOLD</span> / <span class="tag bad">SELL</span> (rule C; binary A = HOLD → SELL)</span><span>IV = he states an intrinsic value</span><span><span class="tag warn">rule-sensitive</span> = A and B disagree</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>T0</th><th>Ticker</th><th>Title</th><th>Read</th><th>stance_detail</th><th>Position</th><th>IV</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">2022-09-20</td><td class="mono">AAPL</td><td>Apple is a GREAT BUSINESS at a ???? PRICE!!!</td><td>end</td><td>relative_buy</td><td><span class="tag good">BUY</span></td><td>—</td><td>buys "just a little bit" for the YT portfolio</td></tr>
+      <tr><td class="mono">2022-09-25</td><td class="mono">GOOGL</td><td>Google Stock Is The BEST Business / At What Price…</td><td>end</td><td>relative_buy</td><td><span class="tag good">BUY</span></td><td>—</td><td>buys live on camera</td></tr>
+      <tr><td class="mono">2022-10-04</td><td class="mono">V</td><td>VISA Stock Quick Take!</td><td>full</td><td>fair_hold</td><td><span class="tag acc">HOLD</span></td><td>—</td><td>"fairly priced… not for me"</td></tr>
+      <tr><td class="mono">2022-10-06</td><td class="mono">VZ</td><td>Verizon is Still Verizon - Dividend Approaching 7 %</td><td>full</td><td>fair_hold (watch)</td><td><span class="tag acc">HOLD</span></td><td>—</td><td>"strong contender" for the portfolio; no buy yet</td></tr>
+      <tr><td class="mono">2022-11-23</td><td class="mono">TSLA</td><td>I'm Going Short Tesla</td><td>full</td><td>short</td><td><span class="tag bad">SELL</span></td><td>—</td><td>shorts $100k; P/E 50 → 10 thesis</td></tr>
+      <tr><td class="mono">2023-02-24</td><td class="mono">GOOG</td><td>Google Is A Better Business Than Retailer Amazon</td><td>end</td><td>fair_hold</td><td><span class="tag acc">HOLD</span></td><td>—</td><td>"a little bit overvalued, wait for buying"</td></tr>
+      <tr><td class="mono">2023-03-03</td><td class="mono">MU</td><td>Micron Stock Analysis - Good, but not great yet!</td><td>part</td><td>relative_buy</td><td><span class="tag good">BUY</span></td><td>—</td><td>buys at the end (cyclical)</td></tr>
+      <tr><td class="mono">2023-03-26</td><td class="mono">MBUU</td><td>Malibu Boats Stock Analysis</td><td>end</td><td>fair_hold (watch)</td><td><span class="tag acc">HOLD</span></td><td>—</td><td>cyclical timing: "buy when it looks ugly"</td></tr>
+      <tr><td class="mono">2023-04-22</td><td class="mono">DIS</td><td>I don't think Bob Iger Can Swing His Mickey Mouse…</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"I would not buy it"; wants P/E 15</td></tr>
+      <tr><td class="mono">2023-09-07</td><td class="mono">INTC</td><td>Intel Stock Discussion End 2023</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"a bet on promises"</td></tr>
+      <tr><td class="mono">2023-11-30</td><td class="mono">CPNG</td><td>Coupang Stock Analysis - Korea e-commerce!</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>high risk, unclear reward</td></tr>
+      <tr><td class="mono">2024-02-09</td><td class="mono">LYB</td><td>LyondellBasell NYSE: LYB Stock Analysis</td><td>end</td><td>? fair_hold / relative_buy</td><td><span class="tag warn">to extract</span></td><td>—</td><td>"cheaper good buy but… recession scenario"</td></tr>
+      <tr><td class="mono">2024-02-10</td><td class="mono">IBKR</td><td>IBKR STOCK IS A BUY!</td><td>full</td><td>relative_buy</td><td><span class="tag good">BUY</span></td><td>—</td><td>"relative buy, absolute not yet"</td></tr>
+      <tr><td class="mono">2024-02-25</td><td class="mono">BRK-B</td><td>7 Lessons &amp; 4 Warnings From Buffett's Letter</td><td>end</td><td>absolute_buy</td><td><span class="tag good">BUY</span></td><td>—</td><td>"absolute buy if you are an American investor"</td></tr>
+      <tr><td class="mono">2024-04-22</td><td class="mono">HSY</td><td>Hershey Stock Analysis NYSE: HSY</td><td>part</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"not a relative buy, not an absolute buy"</td></tr>
+      <tr><td class="mono">2024-05-03</td><td class="mono">INTC</td><td>Intel Stock Is Back To Value, Again...</td><td>end</td><td>?</td><td><span class="tag warn">to extract</span></td><td>—</td><td>"should be upside from 25… then we can include it"</td></tr>
+      <tr><td class="mono">2024-06-20</td><td class="mono">LULU</td><td>Lululemon Stock Analysis NASDAQ: LULU</td><td>end</td><td>relative_buy</td><td><span class="tag good">BUY</span></td><td>—</td><td>"risk and reward is positive"</td></tr>
+      <tr><td class="mono">2024-06-22</td><td class="mono">PYPL</td><td>PAYPAL Stock Analysis (Risk &amp; Reward)</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"red flag… moat eroding"</td></tr>
+      <tr><td class="mono">2024-07-20</td><td class="mono">WBD</td><td>Reward From Investment While You Wait For 2X!</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"too risky for my taste"</td></tr>
+      <tr><td class="mono">2024-08-31</td><td class="mono">AAPL</td><td>Value Investing Is Hard In This Crazy Market</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>sides with Buffett selling</td></tr>
+      <tr><td class="mono">2024-11-17</td><td class="mono">MCD</td><td>McDonald's Are Always Full (MCD Stock Up)</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>5 % expected return; P/E 26</td></tr>
+      <tr><td class="mono">2025-01-20</td><td class="mono">VZ</td><td>Verizon Stock (VZ) Intrinsic Value</td><td>full</td><td>fair_hold</td><td><span class="tag acc">HOLD</span> <span class="tag warn">rule-sensitive</span></td><td>38.35</td><td>fair for 10 %; quadrant 7 %</td></tr>
+      <tr><td class="mono">2025-01-21</td><td class="mono">AAPL</td><td>Apple Stock Intrinsic Value is $105</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>100</td><td>worked example §03</td></tr>
+      <tr><td class="mono">2025-02-09</td><td class="mono">CNH</td><td>CNH Industrial Stock Analysis - Deep Dive</td><td>end</td><td>relative_buy</td><td><span class="tag good">BUY</span></td><td>yes</td><td>"maybe small position then increasing"; 10–11 %</td></tr>
+      <tr><td class="mono">2025-03-18</td><td class="mono">IBKR</td><td>Interactive Brokers Stock &amp; Broker Analysis</td><td>end</td><td>?</td><td><span class="tag warn">to extract</span></td><td>—</td><td>"at what price is it a buy… at 160?"</td></tr>
+      <tr><td class="mono">2025-03-29</td><td class="mono">OXY</td><td>Buffett Keeps Buying Occidental Stock</td><td>end</td><td>avoid (watch)</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"if it goes down another 30 % it might be interesting"</td></tr>
+      <tr><td class="mono">2025-04-02</td><td class="mono">TROW</td><td>TROW Stock Cheap, But… Deteriorating Business Model</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"nothing to do there"</td></tr>
+      <tr><td class="mono">2025-05-15</td><td class="mono">UNH</td><td>My Take on UNH Stock Crash = Too Hard Pile</td><td>full</td><td>too_hard</td><td><span class="tag bad">SELL</span></td><td>—</td><td>no valuation at all</td></tr>
+      <tr><td class="mono">2025-06-18</td><td class="mono">KHC</td><td>Kraft Heinz Stock Analysis KHC Stock</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"I just don't want to take that bet"</td></tr>
+      <tr><td class="mono">2025-09-04</td><td class="mono">BRK-B</td><td>Berkshire BRK Stock Analysis 2H 2025</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>390 B</td><td>"not a great buy nor a hold"</td></tr>
+      <tr><td class="mono">2025-10-16</td><td class="mono">BLK</td><td>Buy BlackRock Stock For a Quick 2x!</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span> <span class="tag warn">ironic title</span></td><td>—</td><td>title says buy; he places it "high risk" and won't</td></tr>
+      <tr><td class="mono">2026-01-03</td><td class="mono">CPB</td><td>Campbell's CPB Cash Flow Stock</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>—</td><td>"leave this to pension funds"; 6 %</td></tr>
+      <tr><td class="mono">2026-02-27</td><td class="mono">AMZN</td><td>Amazon A Buy as Everybody Is Buying!</td><td>full</td><td>fair_hold</td><td><span class="tag acc">HOLD</span> <span class="tag warn">rule-sensitive</span></td><td>180</td><td>"not a bad addition… personally, no"; 8–9 %</td></tr>
+      <tr><td class="mono">2026-03-12</td><td class="mono">HPQ</td><td>HP Stock Is A Fundamental Buy! 6.5 % YIELD</td><td>end</td><td>relative_buy</td><td><span class="tag good">BUY</span></td><td>—</td><td>"happy… having a small position"</td></tr>
+      <tr><td class="mono">2026-06-07</td><td class="mono">MELI</td><td>MELI - MERCADOLIBRE STOCK ANALYSIS</td><td>end</td><td>? fair_hold</td><td><span class="tag warn">to extract</span></td><td>1,000</td><td>IV 1,000 &lt; price; quadrant 12–15 % "depending on growth"</td></tr>
+      <tr><td class="mono">2026-06-08</td><td class="mono">BRK-B</td><td>How Much Will You Make From Buying BRK?</td><td>full</td><td>relative_buy</td><td><span class="tag good">BUY</span> <span class="tag warn">rule-sensitive</span></td><td>700 B</td><td>"buy and forget"; 6 % expected</td></tr>
+      <tr><td class="mono">2026-06-18</td><td class="mono">ADBE</td><td>Adobe ADBE Stock - Time To Power Up Excel!!!</td><td>end</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>yes</td><td>"too much of a bet for me"</td></tr>
+      <tr><td class="mono">2026-06-26</td><td class="mono">NVDA</td><td>Nvidia Stock Intrinsic Value - P/E Just 30!</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>275</td><td>"not something for the value investor"</td></tr>
+      <tr><td class="mono">2026-07-24</td><td class="mono">CPRT</td><td>CPRT Copart Stock - Stock Crash Makes it a Better Buy!</td><td>full</td><td>fair_hold (watch)</td><td><span class="tag acc">HOLD</span> <span class="tag warn">rule-sensitive</span></td><td>27</td><td>"fairly priced for 10 %… start following"</td></tr>
+      <tr><td class="mono">2026-07-28</td><td class="mono">GOOGL</td><td>Capex, D&amp;A, $707 Billion in Commitments Make Google a Very RISKY Stock</td><td>full</td><td>avoid</td><td><span class="tag bad">SELL</span></td><td>200</td><td>"wake me up when it's down 50 %"</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13.5px;color:var(--caption)">Provisional count: <b>9 BUY · 7 HOLD · 20 SELL · 4 to extract</b> (binary view 9 / 27). Three titles say BUY while the transcript lands on hold or avoid (BLK, AMZN, CPRT); two BUY titles agree with their transcript (IBKR 2024, HPQ) — which is why the extractor reads the transcript and the critic checks the position against the rule rather than the title.</p>
+
+  <h3>Metrics per extractor version → <span class="k">data/golden/seed_eval_vN.json</span></h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Metric</th><th>How</th><th>Over</th><th>Gate for v(N+1)</th></tr></thead>
+    <tbody>
+      <tr><td><b>position accuracy</b></td><td>extractor vs seed label, 3-class; balanced accuracy and per-class recall (SELL is ~56 %)</td><td>seed (14 → 40 as you review)</td><td>≥ previous version</td></tr>
+      <tr><td><b>stance κ</b></td><td>Cohen's κ, extractor vs critic on the 6-way <span class="k">stance_detail</span>; 3-way collapse reported beside it</td><td>all 40</td><td>κ ≥ 0.7 or the taxonomy changes (spec)</td></tr>
+      <tr><td><b>faithfulness</b></td><td>share of reasons whose quote is found verbatim (fuzzy ≥ 0.9) at the cited chunk — deterministic, plus the critic's judgement</td><td>all 40 × reasons</td><td>≥ 0.95</td></tr>
+      <tr><td><b>reason recall</b></td><td>seed reasons matched by an extracted reason (same category + direction, claim overlap judged by the critic call)</td><td>seed</td><td>≥ previous</td></tr>
+      <tr><td><b>IV fidelity</b></td><td><span class="k">valuation.py</span> on extracted inputs vs <span class="k">iv_stated</span>, per scenario; ±10 %</td><td>calls with an IV (≈ 12–15)</td><td>≥ 0.8 within band</td></tr>
+      <tr><td><b>price check</b></td><td><span class="k">price_mentioned</span> within ±10 % of a close in T0 ± 5 trading days — catches a wrong ticker or a wrong date</td><td>calls with a price</td><td>1.0 (a miss is a data bug, not a prompt bug)</td></tr>
+      <tr><td><b>reproducibility share</b></td><td>reasons with <span class="k">reproducible ∈ {statements, prices, derived}</span> ÷ all reasons — a <em>report</em>, not a target</td><td>all 40</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><b>Cache and versions.</b> A call is cached at <span class="k">data/golden/&lt;video_id&gt;.json</span> under the key (video_id, transcript_sha256, extractor_version). Re-running <span class="k">vi extract</span> costs nothing unless the transcript or the extractor changed. A new version is a new folder <span class="k">extractors/v1/</span>; <span class="k">version.yaml</span> (model, effort, max_turns) is frozen so two versions differ only in prompt and rubric — DABStep's <span class="k">agent.yaml</span> rule. Splits (train = 2020/21 – 2023/24, test = 2024/25, holdout = 2025/26 — 80 / 20 / 20 at the 120 target) are stamped on every call now so M3 can't drift.</div>
+</section>
+
+<!-- ───────────────────────── 08. APP ───────────────────────── -->
+<section id="app">
+  <div class="section-head"><span class="num">08</span><h2>S5 · the Golden Evals tab</h2></div>
+  <p>Replaces the M1 placeholder in <span class="k">frontend/src/App.tsx</span> (tab renamed <b>Golden Evals</b>). Layout as you asked: <b>insights and validation at the top</b> — recommendation vs what the stock actually did at T0 + 6 / 12 / 24 months, per window year with its train / test / holdout split — and <b>every eval in a table below</b>. This pulls the forward-return validator into M2 (the spec had it in M3): it is pure SQL over <span class="k">vi.prices</span> — no model calls, +½ day — and it is the part of the page that answers "were his calls any good?".</p>
+  <div class="note"><b>The numbers in the mock are real, but provisional.</b> They use my §07 labels for the 36 videos I could label and adjusted closes to 2026-09-18 (SPY as the benchmark). The rule is the spec's: a buy is <em>correct</em> if it beat the index by &gt; 5 pp, an avoid / short / too-hard if it lagged by &gt; 5 pp, a fair-hold if it stayed within ±10 pp; otherwise <em>wrong</em> beyond the band or <em>indeterminate</em> inside it. The extractor's labels and your reviews replace mine; the 80 added videos fill the two older years.</div>
+  <div class="mock" role="img" aria-label="Mock of the Golden Evals tab">
+    <div class="bar"><span class="b"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#3fb950"/><path d="M4.5 8.2l2.3 2.3 4.7-4.9" stroke="#0b1020" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>value·<i>invest</i></span><span class="tab">Corpus</span><span class="tab">Video</span><span class="tab">Market</span><span class="tab">SQL</span><span class="tab on">Golden Evals</span><span class="tab">Agent runs</span><span class="tab">Scoreboard</span></div>
+    <div class="main">
+      <h5>Insights · recommendation vs actual <span class="chip acc">extractor v0</span> <span class="chip">36 / 40 labelled</span> <span class="chip">prices to 2026-09-18</span> <span class="chip warn">provisional labels</span></h5>
+      <div class="sub">benchmark SPY · excess = stock return − SPY return · bands ±5 pp (buy / avoid) · ±10 pp (fair hold) · 24 m only for T0 ≤ 2024-09</div>
+      <div class="cols" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr))">
+        <div class="pane"><div class="ph">BUY calls · beat SPY by &gt; 5 pp</div><div class="big good">3 / 7</div><p>at 12 m · mean excess +16 pp, median +0.4 pp (IBKR +116 pp carries the mean) · 6 m: 4 / 8 · 24 m: 2 / 6</p></div>
+        <div class="pane"><div class="ph">HOLD calls · stayed within ±10 pp of SPY</div><div class="big warn">1 / 5</div><p>at 12 m · mean excess −10 pp · 6 m: 2 / 6 · 24 m: 1 / 4 · his "fairly valued" names moved: GOOG +33, MBUU −58 (D14: band)</p></div>
+        <div class="pane"><div class="ph">SELL calls · lagged SPY by &gt; 5 pp</div><div class="big good">8 / 15</div><p>at 12 m · mean excess −4 pp, median −8 · 6 m: 9 / 17 · 24 m: 4 / 8 · misses: CPNG +32, TSLA short +13, UNH +21</p></div>
+        <div class="pane"><div class="ph">verdicts at 12 m</div><div class="big">12 · 12 · 3</div><p>correct · wrong · indeterminate (n = 27) · 6 m: 15 · 8 · 8 · 24 m: 7 · 9 · 2</p></div>
+        <div class="pane"><div class="ph">intrinsic value reached?</div><div class="big warn">— / 13</div><p>filled by <span class="chip">vi extract</span>: did price touch the stated IV within the horizon · 13 of the 40 state one</p></div>
+      </div>
+      <div class="ph" style="margin:12px 0 4px;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--wb-dim)">per window year · split · hit rates</div>
+      <div style="overflow-x:auto"><table>
+        <thead><tr><th>year</th><th>split</th><th>n @ 6 · 12 · 24 m</th><th>BUY / HOLD / SELL</th><th>hits @ 6 m (B · H · S)</th><th>hits @ 12 m</th><th>hits @ 24 m</th><th>verdict ✓ · ✗ · ~ @ 12 m</th></tr></thead>
+        <tbody>
+          <tr><td>2020/21</td><td><span class="chip">train</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>after S4.4</td></tr>
+          <tr><td>2021/22</td><td><span class="chip">train</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>after S4.4</td></tr>
+          <tr><td>2022/23</td><td><span class="chip">train</span></td><td>10 · 10 · 10</td><td>3 / 4 / 3</td><td>1/3 · 1/4 · 1/3</td><td>2/3 · 0/4 · 2/3</td><td>1/3 · 1/4 · 2/3</td><td>4 · 5 · 1</td></tr>
+          <tr><td>2023/24</td><td><span class="chip">train</span></td><td>8 · 8 · 8 (+2 pending)</td><td>3 / 0 / 5</td><td>2/3 · — · 1/5</td><td>1/3 · — · 2/5</td><td>1/3 · — · 2/5</td><td>3 · 4 · 1</td></tr>
+          <tr><td>2024/25</td><td><span class="chip acc">test</span></td><td>9 · 9 · 0 (+1 pending)</td><td>1 / 1 / 7</td><td>0/1 · 1/1 · 5/7</td><td>0/1 · 1/1 · 4/7</td><td>—</td><td>5 · 3 · 1</td></tr>
+          <tr><td>2025/26</td><td><span class="chip warn">holdout</span></td><td>4 · 0 · 0 of 9 (+1 pending)</td><td>2 / 2 / 5</td><td>1/1 · 0/1 · 2/2</td><td>—</td><td>—</td><td>3 · 1 · 0 (6 m)</td></tr>
+          <tr><td><b>all</b></td><td></td><td><b>31 · 27 · 18</b></td><td><b>9 / 7 / 20</b></td><td><b>4/8 · 2/6 · 9/17</b></td><td><b>3/7 · 1/5 · 8/15</b></td><td><b>2/6 · 1/4 · 4/8</b></td><td><b>12 · 12 · 3</b></td></tr>
+        </tbody>
+      </table></div>
+      <div class="rs" style="margin-top:10px"><div class="q">what the preview already says</div><div class="x">· his avoid / too-hard calls carry more information than his buys at 12–24 m (INTC 2023 −73 pp, HSY −14, KHC −32, DIS −8 vs the index)&nbsp; · buys are few and dispersed: one great (IBKR), one bad (LULU −37 pp), the rest within ±15 pp&nbsp; · "fairly valued, wait" was the costliest stance: GOOG 2023 +33 pp, V +11, AMZN +14 left on the table, MBUU −58 avoided&nbsp; · the TSLA short was wrong at every horizon&nbsp; · SELL is 56 % of calls: an always-SELL baseline gets 8 of 27 verdicts right at 12 m and scores 0 on BUY and HOLD — balanced accuracy is the number to watch</div></div>
+
+      <h5 style="margin-top:16px">Evals · one row per video <span class="chip">40 → 120</span> <span class="chip">rule-sensitive first</span></h5>
+      <div class="sub">filters: year · split · position · stance · reviewed · has IV · verdict · reproducible ≥ 60 % &nbsp; · click a row → the eval (valuation, reasons with data checks, transcript at the timestamp, accept / edit / reject)</div>
+      <div style="overflow-x:auto"><table>
+        <thead><tr><th>T0</th><th>ticker</th><th>split</th><th>position</th><th>stance</th><th>IV → price</th><th>6 m ex</th><th>12 m ex</th><th>24 m ex</th><th>verdict @12 m</th><th>reasons repro.</th><th>review</th></tr></thead>
+        <tbody>
+          <tr><td>2025-01-20</td><td>VZ</td><td>test</td><td><span class="chip acc">HOLD</span> <span class="chip warn">A≠B</span></td><td>fair_hold</td><td>38 → 39</td><td>+7.3</td><td>−7.0</td><td>—</td><td><span class="chip good">correct</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2026-07-24</td><td>CPRT</td><td>holdout</td><td><span class="chip acc">HOLD</span> <span class="chip warn">A≠B</span></td><td>fair_hold</td><td>27 → 27</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2026-02-27</td><td>AMZN</td><td>holdout</td><td><span class="chip acc">HOLD</span> <span class="chip warn">A≠B</span></td><td>fair_hold</td><td>180 → 200</td><td>+14.1</td><td>—</td><td>—</td><td><span class="chip bad">wrong</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2025-01-21</td><td>AAPL</td><td>test</td><td><span class="chip bad">SELL</span></td><td>avoid</td><td>100 → 223</td><td>−8.4</td><td>−3.3</td><td>—</td><td><span class="chip">indet.</span></td><td>3 / 5</td><td><span class="chip good">reviewed</span></td></tr>
+          <tr><td>2024-02-10</td><td>IBKR</td><td>train</td><td><span class="chip good">BUY</span></td><td>relative_buy</td><td>—</td><td>+12.2</td><td>+115.8</td><td>+181.7</td><td><span class="chip good">correct</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2024-06-20</td><td>LULU</td><td>train</td><td><span class="chip good">BUY</span></td><td>relative_buy</td><td>—</td><td>+12.4</td><td>−37.2</td><td>−104.2</td><td><span class="chip bad">wrong</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2023-09-07</td><td>INTC</td><td>train</td><td><span class="chip bad">SELL</span></td><td>avoid</td><td>—</td><td>+5.0</td><td>−72.9</td><td>−84.2</td><td><span class="chip good">correct</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2023-11-30</td><td>CPNG</td><td>train</td><td><span class="chip bad">SELL</span></td><td>avoid</td><td>—</td><td>+36.7</td><td>+32.2</td><td>+30.7</td><td><span class="chip bad">wrong</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2022-11-23</td><td>TSLA</td><td>train</td><td><span class="chip bad">SELL</span></td><td>short</td><td>—</td><td>−3.2</td><td>+13.0</td><td>+40.1</td><td><span class="chip bad">wrong</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2023-02-24</td><td>GOOG</td><td>train</td><td><span class="chip acc">HOLD</span></td><td>fair_hold</td><td>—</td><td>+34.4</td><td>+32.5</td><td>+48.3</td><td><span class="chip bad">wrong</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2023-03-03</td><td>MU</td><td>train</td><td><span class="chip good">BUY</span></td><td>relative_buy</td><td>—</td><td>+12.0</td><td>+39.9</td><td>+15.6</td><td><span class="chip good">correct</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td>2025-05-15</td><td>UNH</td><td>test</td><td><span class="chip bad">SELL</span></td><td>too_hard</td><td>—</td><td>+8.4</td><td>+21.0</td><td>—</td><td><span class="chip bad">wrong</span></td><td>—</td><td><span class="chip">auto</span></td></tr>
+          <tr><td colspan="12" style="color:var(--wb-dim)">… 28 more (4 pending labels: LYB, INTC 2024, IBKR 2025, MELI) · 80 arrive with S4.4</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <h3>The Video tab gets the eval too <span class="tag good">decided</span></h3>
+  <p>When you pull a video, the extracted recommendation and reasoning sit next to the transcript, chart and statements — one place to check the extractor against the source. <span class="k">GET /api/videos/{id}</span> returns the eval with the video; the panel is the same component the Golden Evals detail uses, so accept / edit / reject works from either tab.</p>
+  <div class="mock" role="img" aria-label="Mock of the Video tab with the extracted eval">
+    <div class="bar"><span class="b"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#3fb950"/><path d="M4.5 8.2l2.3 2.3 4.7-4.9" stroke="#0b1020" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>value·<i>invest</i></span><span class="tab">Corpus</span><span class="tab on">Video</span><span class="tab">Market</span><span class="tab">SQL</span><span class="tab">Golden Evals</span><span class="tab">Agent runs</span><span class="tab">Scoreboard</span></div>
+    <div class="body" style="grid-template-columns: 200px minmax(0,1fr)">
+      <div class="rail">
+        <div class="rh">in sample · 40 → 120</div>
+        <div class="g"><div><div class="t">VZ · 2025-01-20</div><div class="m">fair_hold</div></div><span class="chip acc">HOLD</span></div>
+        <div class="g on"><div><div class="t">AAPL · 2025-01-21</div><div class="m">avoid · IV 100</div></div><span class="chip bad">SELL</span></div>
+        <div class="g"><div><div class="t">CNH · 2025-02-09</div><div class="m">relative_buy</div></div><span class="chip good">BUY</span></div>
+        <div class="g"><div><div class="t">IBKR · 2025-03-18</div><div class="m">pending</div></div><span class="chip">?</span></div>
+      </div>
+      <div class="main">
+        <h5>Apple Stock Intrinsic Value is $105 <span class="chip">AAPL</span> <span class="chip">T0 2025-01-21 · close 222.64</span> <span class="chip acc">test</span></h5>
+        <div class="sub">5 y before T0 · all available after · markers at T0 + 6 / 12 / 24 m with excess vs SPY · as-of annual statements (EDGAR ·E) below</div>
+        <div class="pane" style="margin-bottom:10px"><div class="ph">price · adj close · SPY rebased</div>
+          <svg class="spark" viewBox="0 0 600 90" aria-hidden="true"><path d="M0 70 C60 66 90 60 130 58 S200 40 240 44 S300 30 340 34 S400 22 440 26 L440 26" fill="none" stroke="#5b7cf0" stroke-width="1.6"/><path d="M440 26 C470 24 490 34 520 30 S570 20 600 22" fill="none" stroke="#5b7cf0" stroke-width="1.6" stroke-dasharray="3 3"/><line x1="440" y1="6" x2="440" y2="84" stroke="#d29922" stroke-width="1.2"/><text x="444" y="14" fill="#d29922" font-size="9" font-family="ui-monospace,Menlo,monospace">T0</text><line x1="500" y1="6" x2="500" y2="84" stroke="#6d7383" stroke-dasharray="2 3"/><text x="503" y="82" fill="#8a90a0" font-size="8.5" font-family="ui-monospace,Menlo,monospace">+6 m −8.4</text><line x1="560" y1="6" x2="560" y2="84" stroke="#6d7383" stroke-dasharray="2 3"/><text x="563" y="82" fill="#8a90a0" font-size="8.5" font-family="ui-monospace,Menlo,monospace">+12 m −3.3</text><line x1="0" y1="66" x2="600" y2="66" stroke="#3fb950" stroke-width="1" stroke-dasharray="4 3"/><text x="4" y="63" fill="#3fb950" font-size="8.5" font-family="ui-monospace,Menlo,monospace">IV 100</text></svg></div>
+        <div class="cols">
+          <div class="pane"><div class="ph">extracted eval · v0 · critic agrees · <span class="chip bad">SELL</span> avoid · expected return ≈ 0 % · 10 y</div>
+            <div class="rs"><div class="q">1 · valuation — weighted IV ≈ 100 vs price 228 at a 10 % required return</div><div class="x"><span class="chip good">derived</span> close/EPS 36.6 · <b>▶ 10:12</b></div></div>
+            <div class="rs"><div class="q">2 · growth — three years of no growth ex-buybacks; Wall St 10–12 % priced in</div><div class="x"><span class="chip good">statements</span> rev 391→383→391 B <span class="chip bad">external</span> consensus · <b>▶ 1:11</b></div></div>
+            <div class="rs"><div class="q">3 · capital allocation — $110 B buybacks at 3.1 % yield, at a premium</div><div class="x"><span class="chip good">derived</span> 94.9 B / 3.37 T = 2.8 % · <b>▶ 4:10</b></div></div>
+            <div class="rs"><div class="q">4 · risk — 19 % of sales in China, declining &nbsp; 5 · sentiment — Buffett selling</div><div class="x"><span class="chip bad">external</span> · ▶ 2:20 · ▶ 5:30</div></div>
+            <p>scenarios: normal 5 % / P/E 20 → 80 (recomputed 82 ✓) · best 10 % / 40 · worst 0 % / 12 → 34 (33 ✓) · <span class="btn p">accept</span><span class="btn">edit</span><span class="btn">reject</span><span class="btn">open in Golden Evals ↗</span></p></div>
+          <div class="pane"><div class="ph">transcript · 210 segments · click ▶ to jump</div>
+            <p style="color:var(--wb-dim)">… 3:58 &nbsp;they are doing those buybacks now with the market cap of 3.5 trillion which means that</p>
+            <p style="background:var(--wb-accent-dim);border-left:2px solid var(--wb-accent);padding:4px 6px;border-radius:4px;color:var(--wb-text)">4:10 &nbsp;<b>the buyback yield is 3.1 %</b> when you divide the buyback spent on the market capitalization and if we go to the last Warren Buffett Berkshire letter …</p>
+            <p style="color:var(--wb-dim)">4:31 &nbsp;all stock repurchases should be price dependent what is sensible at the discount to business value <b>becomes stupid if done at the premium</b> …</p>
+            <p style="color:var(--wb-dim)">… statements FY2020–FY2024 ·E below (unchanged from M1)</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--caption)">Clicking ▶ on a reason scrolls the transcript to the cited chunk and highlights the quoted sentence; the chart gains the IV line and the T0 + 6 / 12 / 24 m markers with excess vs SPY. Same review control as the Golden Evals detail, so a video can be reviewed where it is read.</p>
+  <p style="font-size:13.5px;color:var(--caption)">API: <span class="k">GET /api/evals/summary</span> (per-year × horizon hit rates, verdict counts, IV hit rate, alternative rule cuts B/C), <span class="k">GET /api/evals</span> (rows + filters), <span class="k">GET /api/evals/{video_id}</span> (eval + data checks + recomputed IV + validations + transcript anchors), <span class="k">POST /api/evals/{video_id}/review</span> (curation_status + edited fields → also appended to <span class="k">seed_labels.json</span>). New table <span class="k">vi.validations(video_id, horizon_m, ret, bench_ret, excess, verdict, iv_hit)</span> built by <span class="k">vi validate</span> (spec §Validation, moved from M3 into S5); <span class="k">vi.evals</span> replaces the empty <span class="k">vi.calls</span> stub. The <em>Video</em> tab gets a strip under the chart with the eval and its forward markers; the SQL tab's catalog picks both tables up automatically.</p>
+</section>
+
+<!-- ───────────────────────── 09. PLAN ───────────────────────── -->
+<section id="plan">
+  <div class="section-head"><span class="num">09</span><h2>Delivery: five slices on branch <span class="k" style="font-size:20px">m2-golden</span></h2></div>
+  <div class="slice"><div class="v">S4.0</div><div><h4>Pin the template · <span class="k">valuation.py</span></h4><p>Download his free intrinsic-value spreadsheet, encode it cell-for-cell, and make the §01 fidelity table a test (<span class="k">tests/test_valuation.py</span>: every stated IV within ±10 %, the precise ones within ±6 %). Add <span class="k">implied_growth</span>, <span class="k">buyback_yield</span>, <span class="k">dividend_spread</span>, <span class="k">quadrant</span>. <span class="k">vi valuation check</span>.</p><div class="ship">½ day · no model calls</div></div></div>
+  <div class="slice"><div class="v">S4.1</div><div><h4>Schema + extractor v0 + seed</h4><p><span class="k">golden/models.py</span>, <span class="k">transcript.py</span> (chunk anchors, sha), <span class="k">extractors/v0/system.md</span> with rule A, the taxonomy and two few-shot examples (AAPL 2025, IBKR 2024); <span class="k">seed_labels.json</span> from the 14 read videos; <span class="k">vi extract --only</span> on those 14 first, iterate the prompt until position ≥ 13/14 and faithfulness ≥ 0.95, then run all 40.</p><div class="ship">1 day · ~60 Sonnet sessions incl. iterations</div></div></div>
+  <div class="slice"><div class="v">S4.2</div><div><h4>Ground + critic + κ <span class="tag good">+ X1 FRED rates</span></h4><p><span class="k">ground.py</span> with the category→formula table and the EDGAR→yfinance fallback for per-share items; <span class="k">market/fred.py</span> loads DGS10 / DGS3MO into <span class="k">vi.rates</span> so dividend-spread and "treasuries at 4 %" reasons ground (D11 · X1); <span class="k">critic.py</span> (Opus, second stance); <span class="k">vi extract --kappa</span>; the six checkpoint metrics; leakage test that grounding never reads a row with <span class="k">available_from &gt; t0</span> or a price <span class="k">&gt; t0 + 5 trading days</span>.</p><div class="ship">1 day · 40 Opus sessions</div></div></div>
+  <div class="slice"><div class="v">S4.3</div><div><h4>Checkpoint, summary, docs</h4><p><span class="k">checkpoint.py</span> cache + <span class="k">vi.evals</span> upsert (schema: add <span class="k">stance_detail</span>, <span class="k">personal_action</span>, <span class="k">expected_return_pct</span>, <span class="k">reasons</span>, <span class="k">data_checks</span>, <span class="k">critic</span>, <span class="k">split</span>, <span class="k">transcript_sha256</span>); <span class="k">vi golden summary</span> → <span class="k">method_summary.json</span>; README/AGENTS/CLAUDE pipeline table; spec rev 4 with D8–D11 recorded.</p><div class="ship">½ day</div></div></div>
+  <div class="slice"><div class="v">S4.4</div><div><h4>Extend the window: 20 / yr × 6 = 120 <span class="tag good">D12 decided</span></h4><p><span class="k">VI_SINCE=2020-09-17</span>, <span class="k">VI_SAMPLE_PER_YEAR=20</span>, <span class="k">prices_from → 2015-01-01</span>; then <span class="k">vi catalog</span> (year buckets) → <span class="k">vi classify</span> (≈ 360 titles) → <span class="k">vi refine-dates</span> (new singles) → <span class="k">vi edgar --check-candidates</span> → <span class="k">vi sample</span> (sticky, +80) → <span class="k">vi ingest</span> (80 credits) → <span class="k">vi market</span> / <span class="k">vi edgar</span> → <span class="k">vi extract</span> on the 80 (arrive as <span class="k">auto</span>). The credit-free steps run first and replace the pool estimates with real counts before any transcript is bought.</p><div class="ship">1 day · 80 Supadata credits · +160 SDK sessions</div></div></div>
+  <div class="slice"><div class="v">S5</div><div><h4>Golden Evals tab: validation on top, evals below <span class="tag acc">validator pulled in from M3</span></h4><p><span class="k">vi validate</span> → <span class="k">vi.validations</span> (6 / 12 / 24 m returns vs SPY, verdict per the spec bands, IV hit) — SQL only. Routes above, <span class="k">views/GoldenEvals.tsx</span>: insights panel (KPIs, per-year × split × horizon table, notable calls, rule cuts B/C) over the evals table with filters; row → eval detail with review control that writes <span class="k">curation_status</span> and grows the seed; the same eval panel on the Video tab (reasons → transcript timestamps, IV line and forward markers on the chart); SQL examples. Then <span class="k">/no-mistakes</span>, PR, and a Lavish walkthrough (s03) generated from the live API like s01 — <b>the M2 review checkpoint</b>.</p><div class="ship">1½ days · 5½ days total</div></div></div>
+  <div class="note good"><b>Definition of done for M2:</b> 120 evals in <span class="k">vi.evals</span> (40 reviewed by you, 80 auto with the rule-sensitive ones queued first) with <span class="k">vi.validations</span> at every horizon the data allows with reasons and data checks; κ and seed eval published; <span class="k">valuation.py</span> reproduces the stated IVs; the Golden-Evals tab lets you accept/edit/reject each call; the walkthrough page shows the position mix, reproducibility share and the rule-sensitive cases — and asks the review question.</div>
+</section>
+
+<!-- ───────────────────────── 10. RISKS + DECISIONS ───────────────────────── -->
+<section id="decisions">
+  <div class="section-head"><span class="num">10</span><h2>Risks, and the decisions — all taken</h2></div>
+  <div class="note good"><b>Decisions D8–D14 are recorded in <span class="k">ai_specs/s02_m2_golden_extraction.md</span></b> and in the project plan (rev 4). Build starts with S4.0 on branch <span class="k">m2-golden</span>.</div>
+  <div class="cards">
+    <div class="card"><h4><span class="tag bad">high</span> Title ≠ transcript — <b>the transcript is the source of truth</b></h4><p>BLK ("Buy… for a quick 2x!") is ironic; AMZN/CPRT titles say buy, he holds. The title is never an input to <span class="k">position</span>: the extractor sees the transcript, the critic checks the rule against the transcript, and a title/transcript mismatch is only a flag (<span class="k">title_says_buy</span>) that surfaces the row for review.</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Class imbalance</h4><p>BUY / HOLD / SELL is 9 / 7 / 20 on the labelled 36 — SELL is 56 %, down from 70 % under the binary. Control: per-class recall and balanced accuracy on every number; the 6-way keeps the signal; M3 baselines include "always SELL".</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Hedged stance → low κ</h4><p>"fairly valued… could be interesting" is hard to place. Control: κ on 6-way and 3-way; if 6-way κ &lt; 0.7 the taxonomy merges fair_hold/watch and the 3-way becomes the headline (spec).</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Base-metric gap (annual vs TTM)</h4><p>NVDA 4.90 vs 6.53. Control: record both; report the share of calls affected; D9 decides whether 10-Q facts land in M2 or M3.</p></div>
+    <div class="card"><h4><span class="tag warn">med</span> Template ambiguity</h4><p>±10 % rows in §01. Control: S4.0 pins the spreadsheet before any extraction; IV fidelity is a gate metric.</p></div>
+    <div class="card"><h4><span class="tag">low</span> Transcript noise</h4><p>ASR drops "Berkshire" to "Birkshshire", "P/E" to "peer ratio". Control: quote matching is fuzzy (≥ 0.9) and the critic sees the same text; ticker comes from the classifier, not the transcript.</p></div>
+  </div>
+
+  <div class="note good"><b>D8 · decided (2026-09-19): headline position = BUY / HOLD / SELL</b> (rule C). Binary A (HOLD → SELL) and hurdle B are reported as alternative cuts; nothing is re-extracted to switch between them.</div>
+  <div class="note good"><b>D14 · decided: a HOLD is right when the stock stays within ±10 pp of SPY over the horizon</b> (spec band); the "did not lag by &gt; 5 pp" view is reported beside it in the summary panel.</div>
+
+  <div class="note good"><b>D9 · decided: record the annual-vs-TTM gap in M2</b> (<span class="k">value_stated</span> vs <span class="k">value_as_of</span> per reason, share of affected evals in the summary); EDGAR 10-Q facts and a TTM view land with the M3 loaders.</div>
+
+  <div class="note good"><b>D10 · decided: my 14 read videos seed v0</b>; every accept / edit in the Golden Evals tab becomes a human label, and the eval reports "human-confirmed n" separately from "agent-read n".</div>
+
+  <h3 id="d12">D12 · Only 9 BUYs — grow the sample? 15 × 4, 20 × 4, or 20 × 6</h3>
+  <p>The eligible pool (single-stock, exact date, classifier ≥ 0.6, US 10-K filer) is large enough in every window year, and the sampler is sticky, so raising <span class="k">--per-year</span> keeps the current 40 and <em>adds</em> 20 — nothing already labelled or extracted moves.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Window year</th><th class="r">eligible (EDGAR)</th><th class="r">distinct tickers</th><th class="r">sampled now</th><th class="r">at 15 / yr</th><th class="r">provisional BUY now</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">2022/23</td><td class="r mono">31</td><td class="r mono">21</td><td class="r mono">10</td><td class="r mono">15 (half the pool)</td><td class="r mono">3</td></tr>
+      <tr><td class="mono">2023/24</td><td class="r mono">37</td><td class="r mono">22</td><td class="r mono">10</td><td class="r mono">15</td><td class="r mono">3 (+2 pending)</td></tr>
+      <tr><td class="mono">2024/25</td><td class="r mono">45</td><td class="r mono">29</td><td class="r mono">10</td><td class="r mono">15</td><td class="r mono">1 (+1 pending)</td></tr>
+      <tr><td class="mono">2025/26</td><td class="r mono">65</td><td class="r mono">45</td><td class="r mono">10</td><td class="r mono">15</td><td class="r mono">2 (+1 pending)</td></tr>
+      <tr><td><b>total</b></td><td class="r mono"><b>178</b></td><td class="r mono">—</td><td class="r mono"><b>40</b></td><td class="r mono"><b>60</b></td><td class="r mono"><b>9 → ≈ 14 expected</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="two">
+    <div class="card"><h4>What 20 more videos cost</h4><ul><li>20 Supadata credits (transcripts) · ~20 min serial ingest</li><li>~15 new tickers → <span class="k">vi market</span> + <span class="k">vi edgar</span>, minutes</li><li>+40 Agent SDK sessions (extract + critic), no per-token bill</li><li>+½ day on the M2 estimate; my hand-labelled seed stays 14 — the new 20 arrive as <span class="k">auto</span> and you review them in the tab</li></ul></div>
+    <div class="card rec"><h4>What it buys — and what it doesn't</h4><ul><li>At his ~25–30 % BUY rate, 60 videos give ≈ 14 BUYs instead of 9. For <b>M3</b> that matters: BUY-recall on 9 positives has a ±30 pp confidence band; on 14 it is ±25 pp; the paired McNemar gate gains power roughly with n.</li><li>For <b>M2 itself</b> (does the golden set make sense, κ, the method summary) 40 vs 60 changes little.</li><li>SELL videos still teach the hurdle: "I'd need a P/E of 15", "at 20 there is a margin of safety" are the same reasoning with the sign flipped, so the reasons taxonomy is not starved by 9 BUYs.</li><li>The imbalance is his, not the sampler's — a BUY-enriched draw (e.g. from titles) would select on the outcome and bias validation; if more positives are ever needed, add them as a <b>train-only</b> slice, never to test/holdout.</li></ul></div>
+  </div>
+  <h3>…or 20 per year over 6 years (120 videos, window from 2020-09-17)?</h3>
+  <p>The catalog already holds the older videos (2,071 ids, approximate dates from the channel tab) but nothing before 2022-09-17 has been classified or date-refined except 39 spill-overs. Extending the window is a config change (<span class="k">VI_SINCE=2020-09-17</span>) plus re-running the M1 pipeline for the two extra years:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Window year</th><th class="r">videos</th><th class="r">exact dates</th><th class="r">classified</th><th class="r">singles</th><th class="r">eligible (est.)</th><th class="r">at 20 / yr</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">2020/21</td><td class="r mono">146</td><td class="r mono">0</td><td class="r mono">0</td><td class="r mono">≈ 42</td><td class="r mono">≈ 27</td><td class="r mono">20 — <b>¾ of the pool</b></td></tr>
+      <tr><td class="mono">2021/22</td><td class="r mono">214</td><td class="r mono">39</td><td class="r mono">39</td><td class="r mono">≈ 62</td><td class="r mono">≈ 40</td><td class="r mono">20</td></tr>
+      <tr><td class="mono">2022/23 – 2025/26</td><td class="r mono">993</td><td class="r mono">587</td><td class="r mono">993</td><td class="r mono">286</td><td class="r mono">178</td><td class="r mono">80</td></tr>
+      <tr><td><b>total</b></td><td class="r mono">1,353</td><td class="r mono"></td><td class="r mono"></td><td class="r mono">≈ 390</td><td class="r mono">≈ 245</td><td class="r mono"><b>120 · ≈ 30 BUY</b></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13.5px;color:var(--caption)">Estimates for the two older years apply the in-window rates (29 % single, 65 % of those US 10-K filers) to the raw counts; <span class="k">vi classify</span> replaces them with real numbers in ~10 minutes.</p>
+  <div class="two">
+    <div class="card"><h4>What 120 costs</h4><ul>
+      <li><b>Pipeline re-run for 2 years:</b> classify ≈ 360 titles (9 SDK batches, ~10 min) → refine dates on the ≈ 100 new singles (yt-dlp, paced, ~3 min) → EDGAR check on ≈ 40 new tickers → <span class="k">vi sample --per-year 20</span> (sticky: the 40 stay). About ½ day including the two config changes (<span class="k">VI_SINCE</span>, <span class="k">prices_from → 2015-01-01</span> so the 5-year pre-T0 chart still has data).</li>
+      <li><b>Transcripts:</b> 80 Supadata credits, ~80 min serial ingest — <em>check the balance first; I don't know what the top-up left.</em></li>
+      <li><b>Model calls:</b> +160 Agent SDK sessions (extract + critic), ~1–2 h at 3 workers, no per-token bill.</li>
+      <li><b>Your time:</b> reviewing 120 golden evals in the tab instead of 40 — this is the real cost (rule-sensitive ones first keeps it bounded).</li>
+    </ul></div>
+    <div class="card rec"><h4>What 120 buys</h4><ul>
+      <li>≈ 30 BUYs and n = 120 for M3: BUY-recall band ±30 pp → ±16 pp; the McNemar gate has real power.</li>
+      <li><b>24-month verdicts for ≈ 80 videos instead of ≈ 20</b> — every T0 before Sept 2024 has one, and 2020–22 adds a rebound and a bear market to the regimes covered.</li>
+      <li>Splits become train 2020/21–2023/24 (80) · test 2024/25 (20) · holdout 2025/26 (20).</li>
+      <li>Caveat: 2020/21 is thin (≈ 27 eligible for 20 picks) — within-year distinct tickers may not hold there; D6 already allows repeats across years, and the sampler falls back to repeats within the year when the pool runs out.</li>
+    </ul></div>
+  </div>
+  <div class="note good"><b>Recommendation.</b> 20 × 6 is the strongest configuration for M3 and costs about a day of pipeline time plus 80 credits. Build and iterate the extractor on the current 40 first (quality before volume — the seed and the prompt loop don't need more), then extend the window and scale to 120 <em>before</em> the M2 review checkpoint, so the review page shows the full set with the 40 already reviewed. If the credit balance is short, 15 × 4 now and the older years later costs the same in total.</div>
+  <div class="note good"><b>D12 · decided (2026-09-19): 20 per year over the last 6 years = 120 videos.</b> Sequencing as recommended: build and iterate the extractor on the 40 in hand (S4.0–S4.3), then S4.4 extends the window and scales to 120 before the M2 review checkpoint. The credit-free steps (classify, refine dates, EDGAR check, sample) can run at any time and cost nothing; the 80-credit ingest waits for a balance check.</div>
+  <h3>US-only guarantee for the added videos</h3>
+  <p>The sampler already enforces it: with <span class="k">VI_SAMPLE_EDGAR_ONLY=1</span> (the default) a video is eligible only if its ticker passed <span class="k">check_filer</span> in <span class="k">market/edgar.py</span> — no exchange suffix (<span class="k">.PA</span>, <span class="k">.HK</span>, <span class="k">.TO</span> are out), a CIK in SEC's ticker map, <span class="k">us-gaap</span> facts, and at least one <b>10-K</b>. 20-F filers are rejected even when NYSE-listed (RACE, RIO, NOMD are already marked <span class="k">false</span>). All 40 current tickers pass; 78 of 166 catalogued tickers are marked 10-K filers, 78 not, and the 10 unchecked (BBY, CSCO, NEM, INMD, LUG.TO + 5 indices) get <span class="k">vi edgar --check-candidates</span> before the new draw — S4.4 runs that step before <span class="k">vi sample</span>, and the review tab shows the filer flag on every call.</p>
+  <div class="note warn"><b>One definition to confirm (D13).</b> "US 10-K filer" is not quite "US-based": MELI (Uruguay/Argentina), CPNG (Korea) and CNH (UK/Netherlands) are in the current 40 because they list in the US and file 10-Ks with us-gaap statements — the point-in-time data is identical to a US company's. If you want <em>headquartered/incorporated in the US</em>, one extra check on SEC's <span class="k">submissions</span> endpoint (<span class="k">stateOfIncorporation</span>, business address country) drops those three from future draws (the sticky sampler keeps them unless told otherwise) — ~1 hour.</div>
+  <div class="note good"><b>D13 · decided, then clarified: the filter is about having the financial reports, not about being American.</b> Eligibility = SEC <span class="k">companyfacts</span> with real filing dates. MELI, CPNG and CNH stay; no incorporation check. Two consequences for S4.4, found by re-reading the EDGAR cache:</div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Group (US-listed, currently marked <span class="k">edgar_filer = false</span>)</th><th>Tickers</th><th class="r">videos</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>20-F / 40-F filers <b>with us-gaap facts</b> — the same statements a 10-K gives</td><td class="mono">JD, PDD, ASML, DAC, CSIQ, TRMD, VALE, KSPI</td><td class="r">≈ 11</td><td><span class="tag good">S4.4</span> broaden <span class="k">check_filer</span> to accept 20-F / 40-F annual forms when the us-gaap taxonomy is present</td></tr>
+      <tr><td>False negatives</td><td class="mono">XOM (ticker map now points at a 2026 holding-company CIK with 10-Q facts only; the 10-K history sits under CIK 34088) · FI (not in SEC's ticker map)</td><td class="r">2</td><td><span class="tag good">S4.4</span> <span class="k">data/edgar_cik_overrides.json</span> + <span class="k">vi edgar --check-candidates --recheck</span></td></tr>
+      <tr><td>IFRS-only filers (20-F / 40-F, <span class="k">ifrs-full</span> taxonomy)</td><td class="mono">STLA, RACE, RIO, BN, NTR, BCE, NOMD, ZIM, ABEV, BAK, SBSW</td><td class="r">≈ 16</td><td><span class="tag warn">X5 · optional</span> IFRS concept mapping (Revenue, ProfitLoss, Assets, …) — ½ day; filing dates are real</td></tr>
+      <tr><td>Foreign-listed (suffixed) tickers — no SEC filings</td><td class="mono">.PA .AS .L .HK .DE .MI .TO …</td><td class="r">67</td><td>stay out (yfinance gives 4 annual years and no filing dates)</td></tr>
+    </tbody>
+  </table></div>
+  <form class="decision" data-lavish-question="X5" onsubmit="event.preventDefault(); const f=new FormData(event.currentTarget); const c=f.get('x5'); if(!c) return; window.lavish.queuePrompt('X5 IFRS filers: '+c, {tag:'decision', text:'X5 → '+c, element:event.currentTarget, data:{question:'X5', answer:c}}); event.currentTarget.classList.add('sent');">
+    <fieldset><legend>X5 · Add the IFRS concept mapping so 20-F / 40-F IFRS filers are eligible too?</legend>
+      <label><input type="radio" name="x5" value="yes, in S4.4 before the 120-draw (+half a day, ~16 more eligible videos)"> <span><b>Yes, in S4.4 before the draw</b> <span class="why">Adds ≈ 11 tickers / 16 videos to the pool (STLA, RACE, RIO, BN …); the as-of rule is identical since filing dates are real.</span></span></label>
+      <label><input type="radio" name="x5" value="defer; us-gaap 20-F broadening and the two false-negative fixes only" checked> <span><b>Defer; do the us-gaap 20-F broadening and the two fixes only</b> (recommended) <span class="why">The pool is already ≈ 245 for 120 picks; IFRS can come with M3's loaders if needed.</span></span></label>
+    </fieldset>
+    <button type="submit">Queue this answer</button><span class="queued">queued ✓</span>
+  </form>
+
+  <div class="note good"><b>D11 · decided — receipt:</b> <b>X1</b> FRED risk-free loader (DGS10, DGS3MO) → <em>included</em>, added to S4.2 so dividend-spread and "treasuries at 4 %" reasons ground; <b>X2</b> automated optimiser → <em>deferred</em> (I iterate the extractor by hand until the seed is ≥ 20 human labels); <b>X3</b> extract all 286 singles → <em>deferred</em> (D12 grows the sample to 120 instead); <b>X4</b> Video-tab panel → <em>included</em> earlier (in S5).</div>
+</section>
+
+<footer>
+  <p>Design source: the project's own house style (s00/s01 tokens — Instrument Serif + Geist) and transcript·lab's <span class="k">theme.css</span> tokens for the app mock. Evidence: 14 transcripts read in full from transcript·lab's Chroma via <span class="k">value_invest.ingest.corpus.Corpus</span>; as-of values from <span class="k">data/value_invest.duckdb</span>; fidelity numbers from a 12-line reimplementation of the template run in this session. Sibling patterns cited: tau2-loop <span class="k">llm/sdk_provider.py</span> (session-limit wait), data-qa-agent <span class="k">agent/eval_judge.py</span> (reference-based labels, rubric hash), DABStep-loop <span class="k">agent/versions.py</span> (frozen config, fingerprint) and <span class="k">loop/optimiser.py</span>.</p>
+  <p>Previous pages: <a href="s00_value-invest-agent-plan.html">s00 project plan</a> · <a href="s01_m1-walkthrough.html">s01 M1 walkthrough</a>.</p>
+</footer>
+</div>
+
+<script type="module">
+  // Code surfaces via @pierre/diffs (code playbook). The <pre class="fallback"> stays if the module cannot load (offline).
+  try {
+    const { File } = await import("https://esm.sh/@pierre/diffs@1.2.10?bundle");
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light' || document.documentElement.dataset.theme === 'dark';
+    const options = { theme: { light: 'github-light', dark: 'github-dark' }, themeType: dark ? 'dark' : 'light', overflow: 'wrap' };
+    const boxes = [
+      ['src-example', 'data/golden/vDirkgS91VQ.json'],
+      ['src-valuation', 'src/value_invest/valuation.py'],
+    ];
+    for (const [id, name] of boxes) {
+      const pre = document.getElementById(id); if (!pre) continue;
+      const host = document.createElement('div'); host.className = 'diffs';
+      pre.parentElement.appendChild(host);
+      new File(options).render({ containerWrapper: host, file: { name, contents: pre.textContent } });
+      pre.hidden = true;
+    }
+  } catch (e) { /* keep the <pre> fallbacks */ }
+</script>
+</body>
+</html>

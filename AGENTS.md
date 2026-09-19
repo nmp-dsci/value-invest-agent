@@ -40,7 +40,7 @@ years):
   (system prompt or Python functions the sandbox exposes — nothing else), a
   challenger run on test, a McNemar gate on paired calls, a ledger entry.
   Retrieval few-shot is an ablation; no fine-tune in the first milestone.
-- **Leakage controls:** date-based splits, a no-tools baseline as the leakage
+- **Leakage controls:** point-in-time data, seeded within-year train/test splits (holdout = outcome not yet known, per horizon; D15), a no-tools baseline as the leakage
   floor, sealed holdout ≥ 2025-07.
 
 ## Layout
@@ -68,6 +68,8 @@ frontend/          Vite + React 19; src/tokens.css copied from transcript-lab; v
 data/
   schema.sql       the vi schema
   samples/         titles_2026-09.json (40 titles) · titles_2026-09_labels.json (hand labels) · classifier_seed_eval.json
+  golden/          seed_labels.json (hand labels) · stated_ivs.json (his on-camera IVs) · evals/<video_id>.json (cache) · seed_eval_vN.json · kappa.json · method_summary.json
+extractors/v0/     system.md (the extractor prompt) · version.yaml (frozen: model, effort, critic)
 .vi/               caches (gitignored): supadata/ ytdlp/ market/<ticker>/*.parquet
 ai_specs/          dated specs; s00 is the plan of record
 .lavish/           review artifacts (sNN_*.html) — never gitignored
@@ -76,9 +78,14 @@ tests/
 
 ## Pipeline stages
 
-S1 catalog → S2 classify → S3 ingest (in transcript·lab) → S4 extract → S5 market
-→ S6 agent + validate → S7 app. Each stage is a `vi` subcommand with an
-idempotent output table, so any stage can be re-run without re-fetching upstream.
+S1 catalog → S2 classify → S3 ingest (in transcript·lab) → S2 market/edgar/rates
+→ S4 extract (golden evals) → S5 validate → app. Each stage is a `vi` subcommand
+with an idempotent output table, so any stage can be re-run without re-fetching
+upstream. M2 (`ai_specs/s02_m2_golden_extraction.md`): `vi extract` runs
+extract (Sonnet) · ground (python, as-of only) · critic (Opus) · checkpoint;
+`vi golden {eval-seed,kappa,summary}` scores a version; `vi validate` writes the
+forward-return verdicts. Extractor prompts live in `extractors/vN/` and are the
+only surface a later optimiser may edit; `version.yaml` is frozen per version.
 
 ## Working guidelines
 

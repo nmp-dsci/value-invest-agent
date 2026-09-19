@@ -1,0 +1,280 @@
+{
+ "key": "qUOLQtBFaGo:22c17e43d44d:v2:a33445f38391",
+ "eval": {
+  "video_id": "qUOLQtBFaGo",
+  "ticker": "MBUU",
+  "t0": "2023-03-26",
+  "title": "Malibu Boats Stock Analysis",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "too_hard",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "low",
+   "headline_quote": "no point in making the valuation of something that we can not know what happens to margin and revenues if hits the fan"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "why such a low p ratio because 2022 was great and the market expects that sales will go down especially as interest rates go up"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 54.099998474121094,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Boat demand is deeply cyclical and can collapse 50-70% in a recession, making forward margins and revenue unpredictable.",
+    "quote": "this is minus what is this 50 70 60 70 that is the destruction that happens in a recession",
+    "chunk_id": "chunk:qUOLQtBFaGo:9",
+    "start_s": 772.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "peak-to-trough decline",
+      "value": 60.0,
+      "unit": "pct",
+      "period": "recession"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: peak-to-trough decline"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "Rising consumer loan rates make boats, a discretionary luxury purchase, much more expensive and could crush demand.",
+    "quote": "now we are already 6.57 which means that boats are much more expensive especially if you buy them on a loan",
+    "chunk_id": "chunk:qUOLQtBFaGo:11",
+    "start_s": 945.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "consumer loan rate",
+      "value": 6.57,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: consumer loan rate"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "A potential 200 million legal liability could seriously hurt the company especially if it hits during a low-earnings period of the cycle.",
+    "quote": "this is 140 million potential maximum liability plus interest so that's potential 200 million that might come for the company to be paid",
+    "chunk_id": "chunk:qUOLQtBFaGo:5",
+    "start_s": 427.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "potential maximum liability",
+      "value": 200.0,
+      "unit": "usd_mn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: potential maximum liability"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The stock's low P/E of 6-10 reflects peak cyclical earnings, and buying when it looks ugly (in the trough) has historically doubled money.",
+    "quote": "if they make now 100 million in cash flow p ratio is 10 if things turns out they'll still hopefully make 20 to 50 million",
+    "chunk_id": "chunk:qUOLQtBFaGo:12",
+    "start_s": 1027.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "p/e ratio",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 10.0,
+     "value_as_of": 7.20372815900414,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 10, as-of 7.20373 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Growth has come from disciplined acquisitions of premium boat brands funded by internally generated cash, with debt being paid down quickly.",
+    "quote": "they have really benefited from the Boom in people buying boats as they had a lot of money especially from their low interest loans and stimulus money",
+    "chunk_id": "chunk:qUOLQtBFaGo:3",
+    "start_s": 250.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "cobalt boats acquisition",
+      "value": 130.0,
+      "unit": "usd_mn",
+      "period": null
+     },
+     {
+      "name": "pursuit boats acquisition",
+      "value": 100.0,
+      "unit": "usd_mn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: cobalt boats acquisition, pursuit boats acquisition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Seeking Alpha analyst articles reviewed for trendline and key factors",
+   "Performance sport retail sales / boat industry historical cycle data (2006 peak, 2010 trough)",
+   "Competitor data from Mastercraft, Marine Products, Brunswick Corporation",
+   "Consumer loan interest rate level of 6.57%"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "He declines a formal valuation but still judges: not now, only interesting much lower (~300-500M cap) in the trough; that reads as avoid rather than too_hard. Both map to SELL. Reason 5 'disciplined' is mild embellishment."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 54.099998474121094,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.2,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 1,
+    "external": 4,
+    "judgement": 0
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "2086efde-4c95-4e86-9e6a-f2ff75c9aaaa",
+   "transcript_sha256": "22c17e43d44d4036e41c0fdb4610ebf92ac40b986d2681db245b04fbdcf860d4",
+   "extracted_at": "2026-09-19T11:51:06+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "c54d4681-f363-4cfe-8655-0688d3499e39"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0432628,
+   "session_id": "2086efde-4c95-4e86-9e6a-f2ff75c9aaaa",
+   "input_tokens": 9187,
+   "output_tokens": 1505
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.09042200000000002,
+   "session_id": "c54d4681-f363-4cfe-8655-0688d3499e39",
+   "input_tokens": 7354,
+   "output_tokens": 715
+  }
+ }
+}

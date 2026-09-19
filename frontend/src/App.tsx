@@ -4,6 +4,7 @@ import Corpus from './views/Corpus';
 import VideoView from './views/Video';
 import Market from './views/Market';
 import Sql from './views/Sql';
+import GoldenEvals from './views/GoldenEvals';
 
 type Tab = 'corpus' | 'video' | 'market' | 'sql' | 'golden' | 'agent' | 'scoreboard';
 const TABS: { id: Tab; label: string; stub?: string }[] = [
@@ -11,7 +12,7 @@ const TABS: { id: Tab; label: string; stub?: string }[] = [
   { id: 'video', label: 'Video' },
   { id: 'market', label: 'Market' },
   { id: 'sql', label: 'SQL' },
-  { id: 'golden', label: 'Golden calls', stub: 'M2 — golden extraction + review' },
+  { id: 'golden', label: 'Golden Evals' },
   { id: 'agent', label: 'Agent runs', stub: 'deferred until the M2 review passes' },
   { id: 'scoreboard', label: 'Scoreboard', stub: 'deferred until the M2 review passes' },
 ];
@@ -65,6 +66,7 @@ export default function App() {
         {route.tab === 'video' && <VideoView videoId={route.id} onSelect={(id) => go('video', id)} />}
         {route.tab === 'market' && <Market onOpen={(id) => go('video', id)} />}
         {route.tab === 'sql' && <Sql initialSql={route.q} />}
+        {route.tab === 'golden' && <GoldenEvals videoId={route.id} onOpen={(id) => go('golden', id || undefined)} onVideo={(id) => go('video', id)} />}
         {cur.stub && (
           <div className="stub"><h2>{cur.label}</h2><p>{cur.stub}. This tab exists so the walkthrough shows where the later data lands; nothing here is built yet.</p></div>
         )}

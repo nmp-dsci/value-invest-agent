@@ -1,0 +1,287 @@
+{
+ "key": "lUSBBozs7bA:eb777b00766c:v2:a33445f38391",
+ "eval": {
+  "video_id": "lUSBBozs7bA",
+  "ticker": "TSLA",
+  "t0": "2022-11-23",
+  "title": "I'm Going Short Tesla",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "short",
+   "personal_action": "short",
+   "expected_return_pct": null,
+   "horizon_years": 2.0,
+   "conviction": "medium",
+   "headline_quote": "so I'm going short"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "other",
+    "value_stated": null,
+    "quote": "seebita High free cash flow above 3 billion so 12 billion now maybe 24 billion as it grows 100 in the coming few years"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 10.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if growth stagnates in the three years where they plan to double free cash flows then it will be priced as a normal car company not a at a peer ratio of 50 but at the peer ratio of 10"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": 0.5,
+    "multiple": 50.0,
+    "quote": "over a multi-year horizon we expect to achieve 50 annual growth in vehicle deliveries"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 183.1999969482422,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "If growth stagnates, Tesla would be repriced from a P/E of 50 down to a normal car company's P/E of 10.",
+    "quote": "it will be priced as a normal car company not a at a peer ratio of 50 but at the peer ratio of 10",
+    "chunk_id": "chunk:lUSBBozs7bA:3",
+    "start_s": 249.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio priced in",
+      "value": 50.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "pe ratio normal car company",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 10.0,
+     "value_as_of": 37.387754479233095,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 10, as-of 37.3878 (FY2021); annual vs TTM or a different definition; not in our data: pe ratio priced in"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Demand signals are weakening: Tesla buyers are in financial trouble, Bitcoin (a proxy for speculative wealth) is down, and nearby supercharger stations are empty.",
+    "quote": "I'm looking at all the Tesla buyers out there in trouble so I don't think these guys will be buying any more Teslas soon",
+    "chunk_id": "chunk:lUSBBozs7bA:1",
+    "start_s": 84.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "In pioneer EV markets like Norway and the Netherlands, Tesla's market share is declining as new competing EVs take over, suggesting peak growth.",
+    "quote": "Tesla is really declining there and then if I look at their Outlook what's priced in in the projection",
+    "chunk_id": "chunk:lUSBBozs7bA:2",
+    "start_s": 166.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "top 20 EV market share (Netherlands)",
+      "value": 43.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: top 20 EV market share (Netherlands)"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Management's own guidance shows they only plan for supply/capacity constraints, not demand risk, implying they are not pricing in a demand slowdown that Sven sees coming.",
+    "quote": "so the rate of growth will not depend on the market but just on capacity Factory uptime operational efficiency and the capacity and stability of the supply chain so they don't even worry about demand they just worry about Supply",
+    "chunk_id": "chunk:lUSBBozs7bA:2",
+    "start_s": 166.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Acknowledges the fundamentals are still genuinely strong: 55% YoY growth, high gross margins, and stable ~12 billion in free cash flow.",
+    "quote": "they are still growing at 55 year-over over year that is really crazy the gross margins are still out of this you industry",
+    "chunk_id": "chunk:lUSBBozs7bA:1",
+    "start_s": 84.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 55.0,
+      "unit": "pct",
+      "period": "year over year"
+     },
+     {
+      "name": "free cash flow",
+      "value": 12.0,
+      "unit": "usd_bn",
+      "period": "annual"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.55,
+     "value_as_of": 0.7067161339421613,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 0.55, as-of 0.706716 (FY2021); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Tesla's own multi-year outlook/guidance projecting 50% annual growth in vehicle deliveries",
+   "top 20 vehicles sold in the Netherlands market share data",
+   "observation of empty supercharger stations near Sven's home"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "short",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 183.1999969482422,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 2,
+    "external": 3,
+    "judgement": 0
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "d5835f80-28c6-4b13-827c-8cf3e7d5adf6",
+   "transcript_sha256": "eb777b00766c9309a8598bf88748b8546adc23d9e1315b91ae1f85b51116beb1",
+   "extracted_at": "2026-09-19T11:50:36+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "1919444a-5441-4ee2-b62d-de5e747038fc"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0321308,
+   "session_id": "d5835f80-28c6-4b13-827c-8cf3e7d5adf6",
+   "input_tokens": 6594,
+   "output_tokens": 1641
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.04856799999999999,
+   "session_id": "1919444a-5441-4ee2-b62d-de5e747038fc",
+   "input_tokens": 4970,
+   "output_tokens": 73
+  }
+ }
+}

@@ -1,0 +1,317 @@
+{
+ "key": "W8uszym1Ex4:f4c53f8b11ef:v2:a33445f38391",
+ "eval": {
+  "video_id": "W8uszym1Ex4",
+  "ticker": "BRK-B",
+  "t0": "2021-02-28",
+  "title": "Buffett Letter Key Takeaways + Berkshire Earnings + BRK Stock Valuation (Always A Buy)",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "HOLD",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 8.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "so so what you can expect van workshop and great business margin of safety men het donker mindset buff het mindset en dat we like i continue to do better and everybody en that's it"
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 20.0,
+    "quote": "wat je hebt de focus is 20 miljoen of operating earnings ok\u00e9 sangria live games"
+   },
+   "discount_rate": 0.07,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.03,
+     "g_y6_10": 0.03,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "of 3% want or free percent organic growth we hebben inflation en wie zet de barbecue lesmap te starten dubai wekt zo heet procent is likely to be te groot discount rate"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.08,
+     "g_y6_10": 0.08,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 727.0,
+     "quote": "led spot grow treedt of en procent over de heer cent en de terminal maud apple lossless site lengte 5 en ja dan de pleasant valley is much much higher lipje snap een nieuwe dance zo led mindy dat dit 720 seven den de stok is aan de randen for hire"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.0,
+     "g_y6_10": 0.0,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "led zei dat de prijs earnings specialist and that there is no brood reed because of fire all bad situatie in amerika den de downside is pretty much their met all in all it voorpoot scenario"
+    }
+   ],
+   "iv_weighted_stated": 727.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 727.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 20.0,
+    "as_of": 81.417,
+    "period": "FY2019",
+    "gap_pct": -75.4
+   },
+   "comparable": {
+    "iv_stated": 727.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 727.0,
+    "upside_pct": 202.3,
+    "position_iv": "BUY"
+   }
+  },
+  "price_at_t0": 240.50999450683594,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At the current price the stock is close to fair value, offering roughly an 8% expected return.",
+    "quote": "bad wiar close to my sets stock market intrinsiek when you is close to bad stock price for en procent return",
+    "chunk_id": "chunk:W8uszym1Ex4:11",
+    "start_s": 898.0,
+    "feeds": "discount",
+    "metrics": [
+     {
+      "name": "expected return",
+      "value": 8.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Berkshire's portfolio companies earn returns on equity higher than the average American industry, which compounds into outperformance.",
+    "quote": "finding business is dat hij real time on their equity onder business earnings vertoont higher than the american industrie adwords",
+    "chunk_id": "chunk:W8uszym1Ex4:2",
+    "start_s": 162.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Berkshire is opportunistic with buybacks, buying more when the stock price is lower rather than at any price.",
+    "quote": "die will be opportunistic keer moet je de game the friend that would corporate america there if you look at de bite back yard and the you can see the higher de stock prices de more by pixarr dan de lower de stad-prijs",
+    "chunk_id": "chunk:W8uszym1Ex4:6",
+    "start_s": 480.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "balance_sheet",
+    "claim": "Insurance float gives Berkshire free money to invest, an advantage over other insurers who invest float conservatively.",
+    "quote": "de float is free money but i can use and then again the prince met hun beurt sharon ander in chauffeurs in andere share schep de put that money in band safety",
+    "chunk_id": "chunk:W8uszym1Ex4:5",
+    "start_s": 396.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "insurance earnings",
+      "value": 600.0,
+      "unit": "usd_mn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 600.0,
+     "value_as_of": 81417000000.0,
+     "agrees": false,
+     "formula": "Net Income FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 600, as-of 8.1417e+10 (FY2019); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "In the worst case there is little growth and low P/E, but downside is largely protected given the diversified conglomerate.",
+    "quote": "there is no brood reed because of fire all bad situatie in amerika den de downside is pretty much their met all in all it voorpoot scenario",
+    "chunk_id": "chunk:W8uszym1Ex4:12",
+    "start_s": 976.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Insurance earnings of about $600 million",
+   "Berkshire's 55-year performance vs the S&P 500",
+   "Buybacks of about $20 billion in 2020",
+   "Apple stake of roughly 5% of Berkshire's portfolio",
+   "Cash position and Treasury bill holdings",
+   "Operating earnings of about $20 billion"
+  ],
+  "critic": {
+   "faithful": false,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [
+    5
+   ],
+   "notes": "Reason 5 inverts the transcript: he says in the worst case 'the downside is pretty much there', not that downside is protected by diversification. Stance (~8% return at current price, fair value close to price) agrees as fair_hold."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 240.50999450683594,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 0,
+    "external": 1,
+    "judgement": 2
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 727.0,
+   "iv_upside_pct": 202.3,
+   "position_iv": "BUY",
+   "base_metric_gap_pct": -75.4,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "8e1e21d3-523c-4bce-ac3f-c4b5a4b891b8",
+   "transcript_sha256": "f4c53f8b11efaa27922d90aeaf581cafb84ea6389b4d6c9be7dba7c682da6416",
+   "extracted_at": "2026-09-19T12:52:26+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "f711c1ba-bee0-4258-bc19-8f06698bbd19"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.09129079999999999,
+   "session_id": "8e1e21d3-523c-4bce-ac3f-c4b5a4b891b8",
+   "input_tokens": 9758,
+   "output_tokens": 6050
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.104833,
+   "session_id": "f711c1ba-bee0-4258-bc19-8f06698bbd19",
+   "input_tokens": 8325,
+   "output_tokens": 880
+  }
+ }
+}

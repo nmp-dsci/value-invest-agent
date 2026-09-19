@@ -1,0 +1,321 @@
+{
+ "key": "IuZ0_IGeLT4:f8941d591e4c:v2:a33445f38391",
+ "eval": {
+  "video_id": "IuZ0_IGeLT4",
+  "ticker": "CNH",
+  "t0": "2025-02-09",
+  "title": "CNH Industrial Stock Analysis - Deep Dive NYSE: CNH",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 11.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "likely to give a 10 11% long-term return at the moment there are dividends buyback there is the food cycle food sector long-term growth"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 1.16,
+    "quote": "earnings per share 1.16"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": 0.35,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.05,
+     "g_y6_10": 0.05,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 113.0,
+     "quote": "if we put a growth rate across a cycle of 5% a discount rate of 10% a terminal multiple of 15 on earnings per share dividend payout ratio 35% so there is some income there the intrinsic value is $113"
+    }
+   ],
+   "iv_weighted_stated": 113.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 14.1,
+     "iv_stated": 113.0,
+     "error": -0.875,
+     "ok": false
+    }
+   ],
+   "within_band": false,
+   "n_compared": 1,
+   "n_ok": 0,
+   "expected_return_at_price": 11.6,
+   "base_metric": {
+    "name": "eps",
+    "stated": 1.16,
+    "as_of": 1.76,
+    "period": "FY2023",
+    "gap_pct": -34.1
+   },
+   "comparable": {
+    "iv_stated": 113.0,
+    "basis": "per_share_implausible",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 113.0,
+    "upside_pct": 811.3,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 12.399999618530273,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "The business is deep in a cyclical downturn with revenues, earnings and margins all down sharply, and the decline is expected to continue into 2025.",
+    "quote": "Consolidated revenues down 28% which is staggering for any business but usually not that uncommon in a cyclical food agricultural business consequently ebit is down 71% net income 70%",
+    "chunk_id": "chunk:IuZ0_IGeLT4:2",
+    "start_s": 170.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue decline",
+      "value": 28.0,
+      "unit": "pct",
+      "period": "quarter"
+     },
+     {
+      "name": "ebit decline",
+      "value": 71.0,
+      "unit": "pct",
+      "period": "quarter"
+     },
+     {
+      "name": "net income decline",
+      "value": 70.0,
+      "unit": "pct",
+      "period": "quarter"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.28,
+     "value_as_of": 0.0482357437051506,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 0.28, as-of 0.0482357 (FY2023); annual vs TTM or a different definition; not in our data: ebit decline, net income decline"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At the current price the stock offers an 11% long-term return, and in a worse 2025 downturn it could be bought at a stronger cyclical return of up to 20%.",
+    "quote": "it is is now leading to an 11% long-term return however with cyclicals you can sometimes buy them at 20% not just 10%",
+    "chunk_id": "chunk:IuZ0_IGeLT4:18",
+    "start_s": 1521.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "expected return",
+      "value": 11.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "cyclical buy return",
+      "value": 20.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: expected return, cyclical buy return"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "The company returns significant cash to shareholders via dividends and buybacks and plans to continue, though the dividend will likely decline with lower earnings.",
+    "quote": "in 2024 they returned approximately 1.3 billion to shareholders through dividends and share repurchases",
+    "chunk_id": "chunk:IuZ0_IGeLT4:9",
+    "start_s": 782.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "shareholder returns",
+      "value": 1.3,
+      "unit": "usd_bn",
+      "period": "2024"
+     },
+     {
+      "name": "dividend payout ratio range",
+      "value": 30.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Net Income"
+     ],
+     "value_stated": 0.3,
+     "value_as_of": 0.22690847743568116,
+     "agrees": false,
+     "formula": "|Dividends| / Net Income",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 0.3, as-of 0.226908 (FY2023); annual vs TTM or a different definition; not in our data: shareholder returns"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Financial services delinquencies could rise if food prices fall further, hurting farmer profitability and creating additional risk on top of the equipment cycle.",
+    "quote": "food prices are still likely at the profitable level for Farmers but you never know if food prices go lower then it can be unprofitable for I don't know farmers",
+    "chunk_id": "chunk:IuZ0_IGeLT4:8",
+    "start_s": 696.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "Tariff uncertainty and a volatile political environment make it hard for the company and farmers to plan investment, weighing on near-term demand.",
+    "quote": "this is very volatile environment and hard to make business decisions in a such a volatile environment",
+    "chunk_id": "chunk:IuZ0_IGeLT4:11",
+    "start_s": 951.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "DGS10"
+     ],
+     "value_stated": null,
+     "value_as_of": 0.0449,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "David Einhorn's public comment that CNH is a good long-term buy offering 10+ earnings yields and growth",
+   "Company guidance on 2025 industry unit declines (Global -5 to -10%, North America -10 to -15%)",
+   "Management's $600 million annual run-rate cost savings target",
+   "Company's stated dividend policy of 25-35% (later stated 30-50%) of prior-year net income",
+   "Company relocating some production to the US would take 18-20 months due to tariff uncertainty",
+   "IPO/demerger history: CNH went public 12 years ago at $112, demerged from Iveco in 2022",
+   "Deere's reported P/E of ~30 and declining guidance despite stock strength"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok \u2014 he calls it a fair business at ~10-11% return, places it with higher cyclical risk on the quadrant, and personally keeps watching (maybe a small position); a strong buy only at 15%+ cycle returns."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 12.399999618530273,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 3,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 1,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "split_factor": 1.0,
+   "iv_basis": "per_share_implausible",
+   "iv_comparable": 113.0,
+   "iv_upside_pct": 811.3,
+   "position_iv": null,
+   "base_metric_gap_pct": -34.1,
+   "expected_return_at_price": 11.6,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "aa5208c5-7b52-4e62-9953-7bb0f4dc0849",
+   "transcript_sha256": "f8941d591e4c919af90d813f4dc09f3027f3e1dbbf543ccbf2930940fafac242",
+   "extracted_at": "2026-09-19T11:53:20+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "32f39190-ffa8-4842-bd7d-65a83b3afb0e"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0559018,
+   "session_id": "aa5208c5-7b52-4e62-9953-7bb0f4dc0849",
+   "input_tokens": 11185,
+   "output_tokens": 1836
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.10918000000000001,
+   "session_id": "32f39190-ffa8-4842-bd7d-65a83b3afb0e",
+   "input_tokens": 9664,
+   "output_tokens": 477
+  }
+ }
+}

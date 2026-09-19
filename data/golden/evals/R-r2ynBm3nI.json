@@ -1,0 +1,361 @@
+{
+ "key": "R-r2ynBm3nI:151e12c11580:v2:a33445f38391",
+ "eval": {
+  "video_id": "R-r2ynBm3nI",
+  "ticker": "AMZN",
+  "t0": "2022-02-13",
+  "title": "AMZN Stock Analysis For 2022 - Risk And Reward! (Will it get too big?)",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 6.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "the risk and reward simply doesn't suit me"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 46.0,
+    "quote": "current revenue is 469 billion ten percent of that would be 46 billion"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "best",
+     "g_y1_5": 0.265,
+     "g_y6_10": null,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 1.9,
+     "quote": "if they keep growing at 26 5 of course the intrinsic value is 1.9 billion"
+    },
+    {
+     "name": "normal",
+     "g_y1_5": 0.16,
+     "g_y6_10": 0.12,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "let's say 12 down the road with a terminal multiple for a 10 return then the intrinsic valuation is already much much lower"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.15,
+     "g_y6_10": 0.1,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if things slow down and they grow just 15 then slow down to 10 and the market gives a lower multiple to that then the valuation and the risk is there significantly because you can lose let's say 50 of your investment"
+    }
+   ],
+   "iv_weighted_stated": 1.9,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "really reaching 300 billion in cash flows down the road for let's say a what is this if i change the discount rate then let's say it is valued now in the best case scenario for a 15 discount"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "best",
+     "iv_model": 3721.91,
+     "iv_stated": 1.9,
+     "error": 1957.902,
+     "ok": false
+    },
+    {
+     "name": "normal",
+     "iv_model": 1312.93,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": false,
+   "n_compared": 1,
+   "n_ok": 0,
+   "expected_return_at_price": 36.4,
+   "comparable": {
+    "iv_stated": 1.9,
+    "basis": "per_share_implausible",
+    "shares_used": null,
+    "split_factor": 20.0,
+    "iv_comparable": 0.1,
+    "upside_pct": -99.9,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 153.2935028076172,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At current pricing his model shows only a 5\u20137% expected return, not the 10% he requires.",
+    "quote": "i have a ratio that is not enough for a 10 return over the long term but still goods should do five six seven percent returns there",
+    "chunk_id": "chunk:R-r2ynBm3nI:6",
+    "start_s": 468.0,
+    "feeds": "discount",
+    "metrics": [
+     {
+      "name": "expected return",
+      "value": 6.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "required return",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: expected return, required return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Reaching the cash flows implied by continued growth would require Amazon to become four times its current size, which is a major open question.",
+    "quote": "can amazon grow four times the current size is the key risk and key question",
+    "chunk_id": "chunk:R-r2ynBm3nI:5",
+    "start_s": 407.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "projected FCF in 10 years",
+      "value": 170.0,
+      "unit": "usd_bn",
+      "period": "10 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Free Cash Flow"
+     ],
+     "value_stated": 170000000000.0,
+     "value_as_of": -14726000000.0,
+     "agrees": false,
+     "formula": "Free Cash Flow FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 1.7e+11, as-of -1.4726e+10 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Analyst projections for AWS, retail, and advertising growth support a strong double-digit revenue growth outlook.",
+    "quote": "so an average of 14 per year through 2026",
+    "chunk_id": "chunk:R-r2ynBm3nI:3",
+    "start_s": 230.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "retail growth",
+      "value": 12.0,
+      "unit": "pct",
+      "period": "5yr"
+     },
+     {
+      "name": "AWS growth",
+      "value": 23.0,
+      "unit": "pct",
+      "period": "5yr"
+     },
+     {
+      "name": "advertising growth",
+      "value": 20.0,
+      "unit": "pct",
+      "period": "5yr"
+     },
+     {
+      "name": "average growth",
+      "value": 14.0,
+      "unit": "pct",
+      "period": "through 2026"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.12,
+     "value_as_of": 0.5493664833851304,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 0.12, as-of 0.549366 (FY2021); annual vs TTM or a different definition; not in our data: AWS growth"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Heavy reinvestment into infrastructure and AWS is being driven by insatiable demand, fueling future growth even at the cost of near-term cash flow.",
+    "quote": "amazon web services grew 40 in q4 which is really really insane",
+    "chunk_id": "chunk:R-r2ynBm3nI:2",
+    "start_s": 149.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "AWS growth",
+      "value": 40.0,
+      "unit": "pct",
+      "period": "q4"
+     },
+     {
+      "name": "new AWS services announced",
+      "value": 150.0,
+      "unit": "count",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: AWS growth, new AWS services announced"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Amazon's pricing power lets it raise Prime membership prices significantly, showing customer stickiness.",
+    "quote": "they are increasing the price of prime in the united states they are pushing it up from yearly membership from 119 to 139 dollars which is a significant increase but likely they have the power to do it",
+    "chunk_id": "chunk:R-r2ynBm3nI:2",
+    "start_s": 149.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "Prime price increase",
+      "value": 20.0,
+      "unit": "usd",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 20.0,
+     "value_as_of": 153.2935028076172,
+     "agrees": false,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2022-02-11",
+     "gap_note": "he says 20, as-of 153.294 (2022-02-11); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Morningstar growth projections for retail (12%), AWS (23%), and advertising (20%) through 2026",
+   "Morningstar's operating margin expansion estimate from 5% to 8% by 2026",
+   "Amazon's announcement of a Prime membership price increase from $119 to $139",
+   "AWS Q4 growth of 40% and announcement of 150+ new services"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 153.2935028076172,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 1,
+    "derived": 1,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 1,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "split_factor": 20.0,
+   "iv_basis": "per_share_implausible",
+   "iv_comparable": 0.1,
+   "iv_upside_pct": -99.9,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": 36.4,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "e3f62c27-ba86-4031-bf57-15b64e53a021",
+   "transcript_sha256": "151e12c115801eeedf2d5ec5fa5d13c8f35e038275b388150501f05829b948e8",
+   "extracted_at": "2026-09-19T12:54:19+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "5d6b0405-3353-4a4a-870e-7e3c63f54d50"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0677508,
+   "session_id": "e3f62c27-ba86-4031-bf57-15b64e53a021",
+   "input_tokens": 7005,
+   "output_tokens": 4994
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.059509,
+   "session_id": "5d6b0405-3353-4a4a-870e-7e3c63f54d50",
+   "input_tokens": 5474,
+   "output_tokens": 287
+  }
+ }
+}

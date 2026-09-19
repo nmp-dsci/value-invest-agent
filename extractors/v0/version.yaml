@@ -1,0 +1,5 @@
+# Frozen for the version: the optimiser may edit system.md only.
+model: sonnet
+effort: medium
+max_turns: 4
+critic_model: opus

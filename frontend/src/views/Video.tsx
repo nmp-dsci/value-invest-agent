@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { api, type Video, type VideoDetail } from '../api';
 import PriceChart from './PriceChart';
+import EvalPanel from './EvalPanel';
 
 const fmt = (v: number | undefined) => v === undefined || v === null ? '' : Math.abs(v) >= 1e9 ? (v / 1e9).toFixed(2) + ' B' : Math.abs(v) >= 1e6 ? (v / 1e6).toFixed(1) + ' M' : Math.abs(v) >= 1e3 ? (v / 1e3).toFixed(1) + ' K' : v.toFixed(2);
 const ts = (s: number | null | undefined) => s == null ? '' : `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -12,6 +13,11 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
   const [d, setD] = useState<VideoDetail | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [showAll, setShowAll] = useState<Record<string, boolean>>({});
+  const [hl, setHl] = useState<string | null>(null);
+  const jump = (chunkId: string | null, startS: number | null) => {
+    const el = document.getElementById(chunkId ? `chunk-${chunkId}` : '') ?? [...document.querySelectorAll<HTMLElement>('.seg[data-start]')].find((x) => Number(x.dataset.start) >= (startS ?? 0));
+    if (el) { el.scrollIntoView({ block: 'center' }); setHl(el.id || el.dataset.start || null); }
+  };
   useEffect(() => { api.videos(true).then(setList); }, []);
   useEffect(() => {
     if (!videoId) { setD(null); return; }
@@ -48,7 +54,7 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
             <div className="grid2">
               <div>
                 <div className="panel"><h3>Price around T0 <a className="microlabel" style={{ color: 'var(--accent2)', textDecoration: 'none' }} href={`#/sql?q=${encodeURIComponent(`SELECT date, close, adj_close, volume FROM vi.prices_as_of('${d.video.primary_ticker}', DATE '${d.t0}') ORDER BY date DESC`)}`}>open in SQL ↗</a> <span className="microlabel">vi.prices · adjusted close · 5 y before T0 → today</span></h3>
-                  {d.t0 && <PriceChart prices={d.prices} benchmark={d.benchmark} t0={d.t0} forward={d.forward} currency={d.video.currency} />}
+                  {d.t0 && <PriceChart prices={d.prices} benchmark={d.benchmark} t0={d.t0} forward={d.forward} currency={d.video.currency} iv={d.eval?.checks?.iv_comparable ?? null} validations={d.eval?.validations} />}
                   {d.price_at_t0 && (
                     <div className="fwd">
                       <div className="stat"><div className="v">{d.price_at_t0.close.toFixed(2)}</div><div className="l">close at T0 ({d.price_at_t0.date})</div></div>
@@ -59,6 +65,11 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
                   )}
                   <p className="note">Everything right of the red line is what the future validator will use. The agent (deferred) only ever sees the left side, and only the statements below.</p>
                 </div>
+                {d.eval ? (
+                  <div className="panel"><h3>Golden eval <span className="microlabel">extracted from this transcript · {d.eval.extractor_version} · <a href={`#/golden/${d.video.video_id}`} style={{ color: 'var(--accent2)', textDecoration: 'none' }}>open in Golden Evals ↗</a></span></h3>
+                    <EvalPanel ev={d.eval} onJump={jump} onChanged={(e) => setD({ ...d, eval: { ...d.eval!, ...e } })} />
+                  </div>
+                ) : <div className="panel"><h3>Golden eval</h3><div className="empty">not extracted yet (<span className="mono">uv run vi extract</span>)</div></div>}
                 <div className="panel"><h3>Annual statements visible at T0 <a className="microlabel" style={{ color: 'var(--accent2)', textDecoration: 'none' }} href={`#/sql?q=${encodeURIComponent(`SELECT period_end, kind, line_item, value, available_from, source\nFROM vi.statements_as_of('${d.video.primary_ticker}', DATE '${d.t0}')\nORDER BY period_end DESC, kind, line_item`)}`}>open in SQL ↗</a> <span className="microlabel">vi.statements_as_of(ticker, T0) · ·E = EDGAR (real filing date) · else yfinance, period_end + 90 d</span></h3>
                   {!d.statement_periods.length && <div className="empty">no fiscal year is visible at T0 for this ticker {d.statements_hidden_after_t0?.length ? `— the earliest yfinance still returns becomes visible on ${d.statements_hidden_after_t0[0].available_from}` : ''}</div>}
                   {!!d.statement_period_info?.some((p) => !p.complete) && <p className="note warn">yfinance's oldest column is a stub: FY {d.statement_period_info.filter((p) => !p.complete).map((p) => `${p.period_end.slice(0, 4)} (${p.n_items} items, no revenue / total assets)`).join(', ')}. Complete fiscal years visible at T0: {d.coverage?.fys_visible ?? 0}.</p>}
@@ -92,9 +103,9 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
                   {!d.transcript && !d.transcript_error && <div className="empty">not ingested yet (<span className="mono">uv run vi ingest</span>)</div>}
                   {d.transcript && (
                     <div className="transcript">
-                      {d.transcript.segments.map((s, i) => (
-                        <div className="seg" key={i}><span className="ts">{ts(s.start_seconds ?? (s.offset_ms != null ? s.offset_ms / 1000 : null))}</span><span>{s.text}</span></div>
-                      ))}
+                      {d.transcript.segments.map((s, i) => { const st = s.start_seconds ?? (s.offset_ms != null ? s.offset_ms / 1000 : null); const ch = d.chunks.find((c) => c.start_seconds != null && st != null && st >= c.start_seconds && (c.end_seconds == null || st < c.end_seconds)); const id = ch && (i === 0 || !d.transcript!.segments.slice(0, i).some((p) => { const ps = p.start_seconds ?? (p.offset_ms != null ? p.offset_ms / 1000 : null); return ps != null && ps >= (ch.start_seconds ?? 0); })) ? `chunk-${ch.chunk_id}` : ''; return (
+                        <div className={'seg ' + ((id && hl === id) || (st != null && hl === String(st)) ? 'hl' : '')} key={i} id={id || undefined} data-start={st ?? undefined}><span className="ts">{ts(st)}</span><span>{s.text}</span></div>
+                      ); })}
                     </div>
                   )}
                 </div>

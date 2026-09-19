@@ -1,0 +1,311 @@
+{
+ "key": "7GTuZZPtRhc:35c9eaa4fcca:v2:a33445f38391",
+ "eval": {
+  "video_id": "7GTuZZPtRhc",
+  "ticker": "MELI",
+  "t0": "2026-06-07",
+  "title": "MELI - MERCADOLIBRE STOCK ANALYSIS",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 13.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "I personally will compare it to other opportunities that I have when it comes cheaper."
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": null,
+    "quote": "I have taken the earnings per share based on the lower last quarter net profit margin"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.25,
+     "g_y6_10": 0.15,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 1000.0,
+     "quote": "on that intrinsic value is 1,000 still far from the current levels for a 10% expected return"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.3,
+     "g_y6_10": null,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "we have 30% growth per year the next five years. Then 20 terminal multiple 20 and then yes, Marcado Lib\u00e9 is priced now even at an 11% likely return"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.15,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "Worst case scenario, just 15% growth rate, low terminal multiple and that would be the extreme downside"
+    }
+   ],
+   "iv_weighted_stated": 1000.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 1000.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 1000.0,
+    "upside_pct": -37.8,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 1607.800048828125,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "In his conservative base case the stock's intrinsic value of 1,000 is still far below the current price for a 10% return.",
+    "quote": "on that intrinsic value is 1,000 still far from the current levels for a 10% expected return",
+    "chunk_id": "chunk:7GTuZZPtRhc:3",
+    "start_s": 223.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "intrinsic value",
+      "value": 1000.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "expected return",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: intrinsic value, expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "If growth is shortened to a burst of 40% for two years and then continues, the stock is priced for a 10-15% return.",
+    "quote": "if you do that and you start with a 60% earnings per share and then go forward then you can see that immediately with the low estimations it is priced right for a 10% return",
+    "chunk_id": "chunk:7GTuZZPtRhc:4",
+    "start_s": 299.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "growth rate",
+      "value": 40.0,
+      "unit": "pct",
+      "period": "2 years"
+     },
+     {
+      "name": "expected return",
+      "value": 15.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.4,
+     "value_as_of": 0.04537012470151236,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 0.4, as-of 0.0453701 (FY2025); annual vs TTM or a different definition; not in our data: expected return"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "MercadoLibre is building an Amazon-plus-fintech ecosystem across a huge underpenetrated Latin American market, which is a strong long-term growth driver.",
+    "quote": "So it looks like the Amazon of Latin America, they are investing and therefore their profitability is declining a little bit",
+    "chunk_id": "chunk:7GTuZZPtRhc:1",
+    "start_s": 77.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "population",
+      "value": 500.0,
+      "unit": "million",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: population"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Latin America is highly cyclical and the stock could fall 40-60% in a downturn, so risk is elevated at the current (upper) part of the cycle.",
+    "quote": "there are many risks starting with Latin America. Everything goes up and down, up and down there, up and down",
+    "chunk_id": "chunk:7GTuZZPtRhc:4",
+    "start_s": 299.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "potential drawdown",
+      "value": 60.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 0.6,
+     "value_as_of": -0.3848401950860816,
+     "agrees": false,
+     "formula": "close / 5-year high \u2212 1",
+     "as_of_period": "5y",
+     "gap_note": "he says 0.6, as-of -0.38484 (5y); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "management",
+    "claim": "Management can flexibly dial margins up or down as opportunities evolve, unlike Wall Street's linear worry about margin suppression.",
+    "quote": "We have the ability to dial the margins up and down and circumstances and opportunities evolve",
+    "chunk_id": "chunk:7GTuZZPtRhc:1",
+    "start_s": 77.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Michael Burry has a significant position in MELI and is considered to be waiting for lower prices",
+   "Competition from Temu, Shein and Amazon in Latin American e-commerce",
+   "Latin America has roughly 500 million people and significant GDP opportunity"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 1607.800048828125,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 1,
+    "derived": 1,
+    "external": 3,
+    "judgement": 0
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 1000.0,
+   "iv_upside_pct": -37.8,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "0fc24431-10b8-44f8-ad73-ea540ebd8f46",
+   "transcript_sha256": "35c9eaa4fcca820275edfbdefbd4f98f63d0c9fb68e00179688f13e760050107",
+   "extracted_at": "2026-09-19T11:55:08+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "57bad0cf-b518-451d-8406-5ef0f21ed9e5"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0498788,
+   "session_id": "0fc24431-10b8-44f8-ad73-ea540ebd8f46",
+   "input_tokens": 6583,
+   "output_tokens": 3418
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.058121,
+   "session_id": "57bad0cf-b518-451d-8406-5ef0f21ed9e5",
+   "input_tokens": 5010,
+   "output_tokens": 434
+  }
+ }
+}

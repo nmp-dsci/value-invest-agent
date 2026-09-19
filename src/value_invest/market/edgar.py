@@ -26,7 +26,7 @@ from typing import Any
 import httpx
 import pandas as pd
 
-from value_invest.config import settings
+from value_invest.config import ROOT, settings
 
 TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
 FACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
@@ -65,6 +65,8 @@ CONCEPTS: dict[tuple[str, str], list[str]] = {
     ("balance", "Long Term Debt"): ["LongTermDebtNoncurrent", "LongTermDebt"],
     ("balance", "Current Debt"): ["DebtCurrent", "LongTermDebtCurrent"],
     ("balance", "Shares Outstanding"): ["CommonStockSharesOutstanding"],
+    # Class-B-equivalent count for dual-class filers (Berkshire's balance-sheet row is class A).
+    ("income", "Diluted Average Shares"): ["WeightedAverageNumberOfDilutedSharesOutstanding"],
     ("cashflow", "Operating Cash Flow"): ["NetCashProvidedByUsedInOperatingActivities"],
     ("cashflow", "Capital Expenditure"): [
         "PaymentsToAcquirePropertyPlantAndEquipment",
@@ -110,6 +112,18 @@ DERIVED_DEPENDS = {
 
 class EdgarError(RuntimeError):
     pass
+
+
+OVERRIDES_PATH = ROOT / "data" / "edgar_cik_overrides.json"
+
+
+def cik_overrides() -> dict[str, int]:
+    """Tickers whose SEC ticker-map entry is missing or points at the wrong registrant
+    (XOM's 2026 holding-company CIK holds only 10-Q facts; FI is absent from the map)."""
+    if not OVERRIDES_PATH.exists():
+        return {}
+    data = json.loads(OVERRIDES_PATH.read_text())
+    return {k.upper(): int(v) for k, v in data.items() if not k.startswith("_")}
 
 
 class Edgar:
@@ -158,8 +172,11 @@ class Edgar:
         return {str(v["ticker"]).upper(): int(v["cik_str"]) for v in data.values()}
 
     def cik_for(self, ticker: str) -> int | None:
-        m = self.cik_map()
         t = ticker.upper()
+        override = cik_overrides().get(t)
+        if override:
+            return override
+        m = self.cik_map()
         return m.get(t) or m.get(
             t.replace("-", ".")
         )  # BRK-B is BRK-B on SEC's list; keep both forms
@@ -252,8 +269,27 @@ def annual_statements(ticker: str, facts: dict[str, Any], since_year: int = 2010
     )
 
 
+FILER_CONCEPTS = (
+    "Assets",
+    "Revenues",
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "SalesRevenueNet",
+    "SalesRevenueGoodsNet",
+    "RevenueFromContractWithCustomerIncludingAssessedTax",
+    "SalesRevenueServicesNet",
+    "RevenuesNetOfInterestExpense",
+    "NetIncomeLoss",
+    "ProfitLoss",
+)
+
+
 def check_filer(ticker: str, client: Edgar | None = None) -> tuple[int | None, bool]:
-    """(CIK, files 10-K with us-gaap facts). 20-F/IFRS filers and non-US listings are False."""
+    """(CIK, has annual us-gaap statements on EDGAR).
+
+    The point of the filter is having the financial reports with filing dates
+    (D13), not nationality: a 20-F / 40-F filer that reports in us-gaap (JD, PDD,
+    ASML …) qualifies like a 10-K filer. IFRS-only filers and exchange-suffixed
+    (non-US-listed) tickers are False — no us-gaap facts to load."""
     client = client or Edgar()
     if "." in ticker:  # exchange-suffixed: not a US listing
         return None, False
@@ -262,12 +298,12 @@ def check_filer(ticker: str, client: Edgar | None = None) -> tuple[int | None, b
         return None, False
     facts = client.companyfacts(cik)
     gaap = ((facts or {}).get("facts") or {}).get("us-gaap") or {}
-    has_10k = any(
-        e.get("form", "").startswith("10-K")
-        for concept in ("Assets", "Revenues", "NetIncomeLoss")
+    has_annual = any(
+        e.get("form", "") in ANNUAL_FORMS and e.get("fp") == "FY" and _full_year(e)
+        for concept in FILER_CONCEPTS
         for e in ((gaap.get(concept) or {}).get("units") or {}).get("USD", [])
     )
-    return cik, bool(gaap) and has_10k
+    return cik, bool(gaap) and has_annual
 
 
 def fetch_edgar_statements(ticker: str, client: Edgar | None = None) -> pd.DataFrame | None:

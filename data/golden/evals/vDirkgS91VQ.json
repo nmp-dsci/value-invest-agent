@@ -1,0 +1,349 @@
+{
+ "key": "vDirkgS91VQ:7d9e4e9b49a3:v2:a33445f38391",
+ "eval": {
+  "video_id": "vDirkgS91VQ",
+  "ticker": "AAPL",
+  "t0": "2025-01-21",
+  "title": "Apple Stock Intrinsic Value is $105",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 0.0,
+   "horizon_years": 10.0,
+   "conviction": "high",
+   "headline_quote": "I don't think over the next 10 years there is a positive return for Apple shareholders"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 6.0,
+    "quote": "earnings per share $6"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.05,
+     "g_y6_10": 0.05,
+     "terminal_multiple": 20.0,
+     "probability": 0.7,
+     "iv_stated": 80.0,
+     "quote": "if earnings per share grow at five% and the multiple gets lower not to a p ratio 40 like we have seen last month but to a normal 20 for a slow growing company like apple the intrinsic value if I expect a 10% return a 10% discount rate the intrinsic value is 80"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.07,
+     "g_y6_10": 0.07,
+     "terminal_multiple": 25.0,
+     "probability": 0.15,
+     "iv_stated": null,
+     "quote": "let's put 7% this means no recessions no China Hanky Panky nothing happening for a 10% return maybe the market is just happy with a 6% return from Apple and then we put a 25 valuation here and still it doesn't cut the current stock price"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.0,
+     "g_y6_10": 0.0,
+     "terminal_multiple": 12.0,
+     "probability": 0.15,
+     "iv_stated": 34.0,
+     "quote": "in that scenario the present value of Apple is 34"
+    }
+   ],
+   "iv_weighted_stated": 100.0,
+   "price_mentioned": 228.0,
+   "what_is_priced_in": {
+    "growth": 0.12,
+    "multiple": 40.0,
+    "quote": "the market is then pricing a 40p ratio so 12 and 10% growth rate going forward"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 82.98,
+     "iv_stated": 80.0,
+     "error": 0.037,
+     "ok": true
+    },
+    {
+     "name": "best",
+     "iv_model": 122.17,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": 33.75,
+     "iv_stated": 34.0,
+     "error": -0.007,
+     "ok": true
+    }
+   ],
+   "within_band": true,
+   "n_compared": 2,
+   "n_ok": 2,
+   "iv_weighted_model": 81.47,
+   "iv_weighted_ok": false,
+   "expected_return_at_price": -0.7,
+   "base_metric": {
+    "name": "eps",
+    "stated": 6.0,
+    "as_of": 6.08,
+    "period": "FY2024",
+    "gap_pct": -1.3
+   },
+   "comparable": {
+    "iv_stated": 100.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 100.0,
+    "upside_pct": -55.1,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 222.63999938964844,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "The probability-weighted intrinsic value of $100 is far below the $228 stock price, making Apple significantly overvalued.",
+    "quote": "so intrinsic value is 100. the stock is significantly overvalued for that situation",
+    "chunk_id": "chunk:vDirkgS91VQ:6",
+    "start_s": 520.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "intrinsic value",
+      "value": 100.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "stock price",
+      "value": 228.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS",
+      "close"
+     ],
+     "value_stated": 100.0,
+     "value_as_of": 81.47,
+     "agrees": false,
+     "formula": "valuation.two_stage_iv on his inputs",
+     "as_of_period": "T0",
+     "gap_note": "he says 100, as-of 81.47 (T0); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Buffett calls buybacks at a premium to value stupid, and Apple has spent hundreds of billions buying back stock at a 10x price while earnings only doubled.",
+    "quote": "when the stock is a 10x while earnings are a 2X that is stupid according to Warren Buffett",
+    "chunk_id": "chunk:vDirkgS91VQ:3",
+    "start_s": 265.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buyback yield",
+      "value": 3.1,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "buyback spend",
+      "value": 110.0,
+      "unit": "usd_bn",
+      "period": "annual"
+     },
+     {
+      "name": "cumulative buybacks",
+      "value": 800.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 0.031,
+     "value_as_of": 0.02821160132453047,
+     "agrees": true,
+     "formula": "|Repurchase| / market cap",
+     "as_of_period": "FY2024",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Apple's actual earnings growth is near zero or declining, propped up only by buybacks, contrary to Wall Street's assumption of steady 10-12% growth.",
+    "quote": "this is the reality one two three years of practically no growth actually decline if it wouldn't be for BuyBacks that's just a few percentage points per year",
+    "chunk_id": "chunk:vDirkgS91VQ:1",
+    "start_s": 81.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Tim Cook keeps pushing buybacks regardless of price mainly to push the stock higher and benefit his own compensation, not to create shareholder value.",
+    "quote": "Tim Cook's goal is just to push the stock price higher even if it might destroy Apple going forward no matter the price he just wants to push it higher and higher but to get paid",
+    "chunk_id": "chunk:vDirkgS91VQ:3",
+    "start_s": 265.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Nearly a fifth of Apple's sales come from a declining China market, a geographic risk that markets seem to be irrationally overlooking.",
+    "quote": "19% of sales are from China and despite the market hating China that factor I don't think it's even related to Apple therefore it shows also the markets irrationality",
+    "chunk_id": "chunk:vDirkgS91VQ:1",
+    "start_s": 81.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "China sales share",
+      "value": 19.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: China sales share"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Berkshire Hathaway shareholder letter commentary on Apple and other buybacks (Coke, Moody's)",
+   "Warren Buffett selling large amounts of Apple stock",
+   "iPhone/China sales decline versus overall smartphone market growth of about 4%",
+   "Wall Street analyst consensus growth estimates for Apple (10% then 12%)"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 4,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok. Rank 2 quote slightly altered ('when' vs 'now that'); rank 1 only differs by punctuation. Stance avoid matches: overvalued, no positive 10-year return expected, wants P/E 10."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 222.63999938964844,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 2,
+   "iv_ok": 2,
+   "iv_within_band": true,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 100.0,
+   "iv_upside_pct": -55.1,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": -1.3,
+   "expected_return_at_price": -0.7,
+   "quote_scores": [
+    0.927,
+    0.848,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 0.8
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "618b9a06-7a67-4e20-95c1-ffbae5bb63b2",
+   "transcript_sha256": "7d9e4e9b49a312cd4db82a6d4bcf300d4dfbf00f06e34909bb0a502a54ff5a2d",
+   "extracted_at": "2026-09-19T11:53:20+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "649cfd54-21e6-4eb8-ae83-a8e95bb26a57"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0631438,
+   "session_id": "618b9a06-7a67-4e20-95c1-ffbae5bb63b2",
+   "input_tokens": 7213,
+   "output_tokens": 4450
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.071021,
+   "session_id": "649cfd54-21e6-4eb8-ae83-a8e95bb26a57",
+   "input_tokens": 5845,
+   "output_tokens": 595
+  }
+ }
+}

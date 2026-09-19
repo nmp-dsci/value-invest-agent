@@ -1,0 +1,337 @@
+{
+ "key": "e8AJe8wF_2Q:c50cf94e94e4:v2:a33445f38391",
+ "eval": {
+  "video_id": "e8AJe8wF_2Q",
+  "ticker": "JD",
+  "t0": "2021-06-27",
+  "title": "JD Stock Is A Good Stock To Buy Now + VIE & Delisting Risks Discussion",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "so you are let's say fairly priced for a stock market return of 10 plus i'm not including jd logistics here huge value"
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 1.9,
+    "quote": "i have started with net income here so 1.9 billion adjusted for the asset balances there"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": 0.2,
+     "g_y6_10": 0.2,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 57.0,
+     "quote": "if i assume a growth rate of 20 of net income on 15 revenue growth this is perhaps a little bit more conservative but okay let's just take conservative and then a 20 terminal multiple this is in billions the intrinsic value is 57 billion"
+    },
+    {
+     "name": "normal",
+     "g_y1_5": 0.25,
+     "g_y6_10": 0.25,
+     "terminal_multiple": 25.0,
+     "probability": null,
+     "iv_stated": 115.0,
+     "quote": "net income and growing a 25 rate because the margin expands from 2 to 4 so that's 15 revenue growth and then even faster margin and net profit growth as they scale... and then a terminal multiple of 25 for such a strong and good business and then you're already above the current market valuation 115 billion compared to 111 billion"
+    }
+   ],
+   "iv_weighted_stated": 115.0,
+   "price_mentioned": 111.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "worst",
+     "iv_model": 90.71,
+     "iv_stated": 57.0,
+     "error": 0.591,
+     "ok": false
+    },
+    {
+     "name": "normal",
+     "iv_model": 170.56,
+     "iv_stated": 115.0,
+     "error": 0.483,
+     "ok": false
+    }
+   ],
+   "within_band": false,
+   "n_compared": 2,
+   "n_ok": 0,
+   "expected_return_at_price": 18.9,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 1.9,
+    "as_of": 7.561,
+    "period": "FY2020",
+    "gap_pct": -74.9
+   },
+   "comparable": {
+    "iv_stated": 115.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 115.0,
+    "upside_pct": 47.0,
+    "position_iv": "BUY"
+   }
+  },
+  "price_at_t0": 78.2300033569336,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Even at conservative growth assumptions net income growth and a modest terminal multiple already justify the current market cap, making JD fairly priced for a 10% return with logistics, health, and other businesses excluded for free.",
+    "quote": "then you're already above the current market valuation 115 billion compared to 111 billion so you are let's say fairly priced for a stock market return of 10 plus",
+    "chunk_id": "chunk:e8AJe8wF_2Q:7",
+    "start_s": 543.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "intrinsic value normal",
+      "value": 115.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 111.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS",
+      "close"
+     ],
+     "value_stated": 115.0,
+     "value_as_of": 170.56,
+     "agrees": false,
+     "formula": "valuation.two_stage_iv on his inputs",
+     "as_of_period": "T0",
+     "gap_note": "he says 115, as-of 170.56 (T0); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "JD's five percentage point margin advantage over competitors like Costco and Walmart is huge in retail and could drive large profitability gains as they scale.",
+    "quote": "jd's core business retail advantage is what they say that they have a five percentage point margin advantage compared to other retailers like koskov walmart five percent in retail is not big it's huge is incr insane",
+    "chunk_id": "chunk:e8AJe8wF_2Q:3",
+    "start_s": 232.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "margin advantage vs competitors",
+      "value": 5.0,
+      "unit": "pct_points",
+      "period": null
+     },
+     {
+      "name": "current profit margin",
+      "value": 2.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "potential profit margin",
+      "value": 6.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income",
+      "Total Revenue"
+     ],
+     "value_stated": 0.02,
+     "value_as_of": 0.06615328864241674,
+     "agrees": false,
+     "formula": "Net Income / Revenue",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 0.02, as-of 0.0661533 (FY2020); annual vs TTM or a different definition; not in our data: margin advantage vs competitors"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "The negative working capital model gives JD float from suppliers it can reinvest, similar to Buffett's insurance float, removing fundamental concerns.",
+    "quote": "it's a negative negative working capital business model because when you buy something online you pay immediately but jd and others pay the suppliers 45 days down the road so they have let's say a month and a half of cash that they can use like float",
+    "chunk_id": "chunk:e8AJe8wF_2Q:5",
+    "start_s": 382.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "supplier payment terms",
+      "value": 45.0,
+      "unit": "days",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: supplier payment terms"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "VIE structure fears and potential US delisting are overhyped risks that create negative sentiment but are unlikely to materially harm the investment given China's rational self-interest and the ability to own the stock in Hong Kong.",
+    "quote": "there is a lot of discussion about the variable interest entity structure because jd is a cayman island entity and it has a contractual agreement with the jd com in china",
+    "chunk_id": "chunk:e8AJe8wF_2Q:1",
+    "start_s": 80.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "The stock will remain volatile depending on the e-commerce cycle, Chinese economic conditions, margins and competition, and negative sentiment toward Chinese stocks could push the price lower before it becomes more interesting.",
+    "quote": "i'm feeling negative sentiment you will see in the comments with china a lot of negative sentiment which might create an opportunity and i'm looking for of course if it goes down 30 40 percent more it will become just more more interesting",
+    "chunk_id": "chunk:e8AJe8wF_2Q:9",
+    "start_s": 695.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "desired further price decline",
+      "value": 35.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 35.0,
+     "value_as_of": 78.2300033569336,
+     "agrees": false,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2021-06-25",
+     "gap_note": "he says 35, as-of 78.23 (2021-06-25); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Pinduoduo's logistics strategy to cut out middlemen like JD",
+   "Morningstar fair value estimate implying 40% upside",
+   "JD active buyer count of 500 million over the year"
+  ],
+  "critic": {
+   "faithful": false,
+   "quotes_total": 5,
+   "quotes_verbatim": 4,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [
+    1
+   ],
+   "notes": "Reason 1 misframes: the conservative scenario (20% growth, 20x) gives 57B, i.e. ~50% overvalued; fair pricing at 115B comes from the 25%/25x case, not conservative assumptions. Reason 4 labeled for_sell though content is reassuring."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 78.2300033569336,
+   "latest_fy_visible": 2020,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 1,
+    "derived": 2,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 2,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 115.0,
+   "iv_upside_pct": 47.0,
+   "position_iv": "BUY",
+   "base_metric_gap_pct": -74.9,
+   "expected_return_at_price": 18.9,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    0.879,
+    1.0
+   ],
+   "faithful_share": 0.8
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "c2e89f55-e5a0-4bc6-a328-15177343b543",
+   "transcript_sha256": "c50cf94e94e4229e489d5ae4c94b4edc9578c508e3f7d1aa620f304dc96d4e1b",
+   "extracted_at": "2026-09-19T12:53:11+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "3b9769dd-34c2-46ff-bd09-e7f1ead0acfe"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.043976799999999996,
+   "session_id": "c2e89f55-e5a0-4bc6-a328-15177343b543",
+   "input_tokens": 8304,
+   "output_tokens": 2005
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.088206,
+   "session_id": "3b9769dd-34c2-46ff-bd09-e7f1ead0acfe",
+   "input_tokens": 6935,
+   "output_tokens": 810
+  }
+ }
+}

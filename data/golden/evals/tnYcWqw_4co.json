@@ -1,0 +1,319 @@
+{
+ "key": "tnYcWqw_4co:d819b8ff206c:v2:a33445f38391",
+ "eval": {
+  "video_id": "tnYcWqw_4co",
+  "ticker": "LNG",
+  "t0": "2020-11-05",
+  "title": "Stock Analysis Cheniere LNG Stock - A Bet on Asia (LNG Demand to Double)",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 14.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "cheniere looks like a good bet on long-term us lng prices"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "if i estimate cash flows free cash flows all in and those cash flows that are used to lower the debt as those cash flows arise"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": 0.75,
+     "iv_stated": 100.0,
+     "quote": "this company could be debt-free by 2030 which should leave 4.3 billion in cash flows as free cash flows to be paid out as dividends from 2030 onward"
+    },
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 70.0,
+     "quote": "assuming a 5 required yield if the lng market outlook remains good then you can price this as a bond five percent dividend then the market valuation would be 70 billion"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": 0.25,
+     "iv_stated": null,
+     "quote": "i have given it a 75 chance that it works out as planned and 25 chance that it doesn't work out as planned"
+    }
+   ],
+   "iv_weighted_stated": 70.0,
+   "price_mentioned": 30.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 70.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 70.0,
+    "upside_pct": 41.4,
+    "position_iv": "BUY"
+   }
+  },
+  "price_at_t0": 49.5,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "If debt is paid down and cash flows are priced as a bond-like 5% yield, the combined market cap could re-rate from 30 billion to 70-100 billion, giving a large annualized return.",
+    "quote": "if it goes to 70 billion for the whole company from the current 30 billion combining the partners and cheniere the corporation that would give you a 14 14.5 yearly return",
+    "chunk_id": "chunk:tnYcWqw_4co:8",
+    "start_s": 686.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "target market cap",
+      "value": 70.0,
+      "unit": "usd_bn",
+      "period": "2027"
+     },
+     {
+      "name": "expected return",
+      "value": 14.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: target market cap, expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Cheniere's debt load is huge relative to equity, creating refinancing risk and stock volatility whenever concerns rise.",
+    "quote": "long-term net debt is 31 30.8 billion that is a lot and total assets are 45.8 billion equities just 422 million that's that to equity of about 80",
+    "chunk_id": "chunk:tnYcWqw_4co:4",
+    "start_s": 332.0,
+    "feeds": "discount",
+    "metrics": [
+     {
+      "name": "net debt",
+      "value": 30.8,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "total assets",
+      "value": 45.8,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "equity",
+      "value": 422.0,
+      "unit": "usd_mn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Debt",
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 30800000000.0,
+     "value_as_of": 28300000000.0,
+     "agrees": true,
+     "formula": "Total Debt \u2212 Cash",
+     "as_of_period": "FY2019",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "cyclicality",
+    "claim": "85% of future production is under long-term contracts, giving safety and stable cash flows regardless of commodity swings.",
+    "quote": "85 of future production is contracted which gives safety for the company",
+    "chunk_id": "chunk:tnYcWqw_4co:3",
+    "start_s": 247.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "contracted production",
+      "value": 85.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: contracted production"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "US LNG producers sit high on the global cost curve, so if demand disappoints or competitors like Russia and Shell increase output, US producers could be squeezed out over the long term.",
+    "quote": "u.s producers are really on the high end end on that cost curve so when you're on high end any changes in demand that are different than expected might be very detrimental for you",
+    "chunk_id": "chunk:tnYcWqw_4co:4",
+    "start_s": 332.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "As investing spend subsides and free cash flow ramps up, it will be used to pay down debt and raise dividends, which typically lifts the stock price.",
+    "quote": "that is expected to subdue over the next year two years which should lead into high cash flows high positive cash flows that will be used to lower the debt and increase dividends and as we all know when dividends go up so does the stock price",
+    "chunk_id": "chunk:tnYcWqw_4co:6",
+    "start_s": 510.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "investing cash outflow",
+      "value": 4.0,
+      "unit": "usd_bn",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: investing cash outflow"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Seth Klarman owned Cheniere from 2014 to 2018",
+   "management's target of a 14% return",
+   "Sabine Pass is 50% owned by Cheniere and 50% by Blackstone via listed entity Cheniere Energy Partners (CQP)",
+   "Train 6 under construction at Sabine Pass and Train 3 commissioning at Corpus Christi",
+   "average 5.5% interest rate on debt",
+   "18-year contracted production horizon"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 49.5,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.2,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 1,
+    "external": 3,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 70.0,
+   "iv_upside_pct": 41.4,
+   "position_iv": "BUY",
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "f5e947e1-9b63-4c95-a4eb-2c4d711b5009",
+   "transcript_sha256": "d819b8ff206c78144a7876c57c9e467471e55e275fd3c9a4491e9bb55d92923c",
+   "extracted_at": "2026-09-19T12:50:19+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "7de9bb0b-c3f0-4644-b6b0-74b25f5535ab"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0414948,
+   "session_id": "f5e947e1-9b63-4c95-a4eb-2c4d711b5009",
+   "input_tokens": 7866,
+   "output_tokens": 1966
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.073266,
+   "session_id": "7de9bb0b-c3f0-4644-b6b0-74b25f5535ab",
+   "input_tokens": 6483,
+   "output_tokens": 405
+  }
+ }
+}

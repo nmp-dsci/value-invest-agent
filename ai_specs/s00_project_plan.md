@@ -1,6 +1,6 @@
 # Spec: S00 Project plan — value·invest agent
 
-Status: ready (rev 3 — scope cut to M1 data + app, M2 golden + review)
+Status: ready (rev 4 — M1 delivered; M2 detailed in s02_m2_golden_extraction.md)
 Date: 2026-09-17
 Review page: `.lavish/s00_value-invest-agent-plan.html` (architecture drawings live there)
 
@@ -118,7 +118,8 @@ assume period_end + 45 (quarterly) / 90 (annual) days.
   grows arrive as `auto` and are reported separately until reviewed.
 - Inter-extractor κ on stance over the reviewed core; κ < 0.7 means the taxonomy
   is wrong. 3-way collapse (bullish/neutral/bearish) is the fallback headline.
-- Splits by video date: train = years 1–2 (20 calls), test = year 3 (10), holdout = year 4 (10, sealed). Gate is McNemar on paired calls.
+- Splits: superseded by D15 (seeded within-year train/test, per-horizon holdout) —
+  see `ai_specs/s02_m2_golden_extraction.md`. Gate is McNemar on paired calls.
 
 ## Market data
 
@@ -192,11 +193,12 @@ Milestone 1 · data + app
 - S3 app: Corpus · Video (transcript beside price chart at T0 and as-of annual
   statements) · Market (coverage). Local only.
 
-Milestone 2 · golden set + eval summary
-- S4 golden extraction → `vi.calls`, price-mention cross-check, κ, splits recorded.
-- S5 Golden-calls tab with review control + summary panel (stance mix per year,
-  IV vs price, coverage per call). **Review checkpoint: does the golden set make
-  sense?**
+Milestone 2 · golden evals + validation (see `ai_specs/s02_m2_golden_extraction.md`)
+- S4 golden extraction → `vi.evals` (BUY / HOLD / SELL, IV inputs, 3–5 reasons with
+  data checks), critic κ, seed checkpoint; S4.4 grows the sample to 20 / yr × 6 = 120.
+- S5 Golden Evals tab: forward-return validation on top (moved here from M3),
+  every eval below, review control; Video tab shows the eval. **Review checkpoint:
+  does the golden set make sense, and were the calls any good?**
 
 Deferred until the M2 review passes: forward-return validator + scoreboard,
 analyst agent v0 + baselines, the error loop, EDGAR / quarterlies / sample
@@ -225,6 +227,9 @@ expansion, demo deploy + CI eval gate.
 - D4 learning: **decided** — Claude Agent SDK on subscription; DABStep agent
   shape (Python sandbox + `system.md`/`helper.py` versions); optimiser edits
   only those two files; McNemar gate.
+- D8–D14 (M2): recorded in `ai_specs/s02_m2_golden_extraction.md` — 3-way
+  position, TTM gap recorded, seed v0 = 14 read videos, FRED rates in, 20 / yr ×
+  6 years, US = 10-K filer, HOLD band ±10 pp.
 
 ## Acceptance criteria for this spec
 

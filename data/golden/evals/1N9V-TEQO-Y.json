@@ -1,0 +1,286 @@
+{
+ "key": "1N9V-TEQO-Y:3aa92dbb2cad:v2:a33445f38391",
+ "eval": {
+  "video_id": "1N9V-TEQO-Y",
+  "ticker": "NKE",
+  "t0": "2024-07-17",
+  "title": "Is Nike Stock Crash A 2X Opportunity Like Adidas Was in 2022?",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "much better now to buy Nike to conclude but not yet a great value investing opportunity"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 5000000000.0,
+    "quote": "let's say Nike's current earnings potential is 5 billion"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 11.0,
+     "probability": null,
+     "iv_stated": 55000000000.0,
+     "quote": "if I add the p ratio of 10 12 to it then we are at a market capitalization of 50 60 billion"
+    }
+   ],
+   "iv_weighted_stated": 55000000000.0,
+   "price_mentioned": 72.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 20.0,
+    "quote": "now Nike is still at a p ratio of 20 that is twice what Adidas had when it was hitting rock bottom"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 55000000000.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 5000000000.0,
+    "as_of": 5070000000.0,
+    "period": "FY2023",
+    "gap_pct": -1.4
+   },
+   "comparable": {
+    "iv_stated": 55000000000.0,
+    "basis": "total",
+    "shares_used": 1569800000.0,
+    "split_factor": 1.0,
+    "iv_comparable": 35.04,
+    "upside_pct": -52.1,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 73.06999969482422,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Nike's P/E of 20 is still twice as high as Adidas's P/E of 10 at its bottom, so Nike is not yet as cheap as that comparable opportunity.",
+    "quote": "now Nike is still at a p ratio of 20 that is twice what Adidas had when it was hitting rock bottom",
+    "chunk_id": "chunk:1N9V-TEQO-Y:4",
+    "start_s": 343.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 20.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "adidas pe ratio at bottom",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 20.0,
+     "value_as_of": 22.62229092719016,
+     "agrees": true,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2023",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Guidance now shows declining mid-single-digit revenue and profitability after years of flat results, which is why the market re-rated the stock down.",
+    "quote": "revenues have flaten for let's say the last year and a half net income already flat over the last few years and now their guidance is for declining revenues thus also declining profitability",
+    "chunk_id": "chunk:1N9V-TEQO-Y:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Nike destroyed value by doing large buybacks at much higher prices, which he sees as a red flag on capital allocation discipline.",
+    "quote": "they were spending billions on repurchases at much higher stock prices so that's thrown money",
+    "chunk_id": "chunk:1N9V-TEQO-Y:5",
+    "start_s": 433.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Nike's global brand strength means it is unlikely to go out of business and will likely find its way back to growth, similar to Adidas.",
+    "quote": "they have this Global Market presence Global brand everyone knows it so they will likely find their ways of grow",
+    "chunk_id": "chunk:1N9V-TEQO-Y:4",
+    "start_s": 343.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Fashion and consumer preferences are fickle and hard to predict, adding risk to when or if growth returns.",
+    "quote": "customer preferences in the fash world are always very very fickle and you never know what these kids will want to buy going forward",
+    "chunk_id": "chunk:1N9V-TEQO-Y:6",
+    "start_s": 519.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "News reports on Nike sales/guidance miss and consumer demand concerns in North America and China",
+   "CEO statement that fiscal 2025 will be a transition year with mid-single-digit revenue decline in first half",
+   "Analyst estimates from a few months prior projecting continuous EPS growth",
+   "Adidas stock history: fell to \u20ac99 with P/E of 10 on \u20ac2 billion earnings, then rose to \u20ac237"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": false,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "He personally passes ('wake me up when 40% down') but says 'you won't lose money long term if you buy now... looks okay' and 'much better now to buy' \u2014 a fair_hold, not avoid."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 73.06999969482422,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 1,
+    "external": 0,
+    "judgement": 2
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "total",
+   "iv_comparable": 35.04,
+   "iv_upside_pct": -52.1,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": -1.4,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "cb63c5e0-bb73-41db-9d04-e5e1d98c9374",
+   "transcript_sha256": "3aa92dbb2cad484910df2ed7959a39a270aaf7a2bf9176814c794acde4a9c9cb",
+   "extracted_at": "2026-09-19T13:00:32+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "2677aa4f-0cae-4b10-a8e4-e979c29b4c9f"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0319688,
+   "session_id": "cb63c5e0-bb73-41db-9d04-e5e1d98c9374",
+   "input_tokens": 6811,
+   "output_tokens": 1519
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.063479,
+   "session_id": "2677aa4f-0cae-4b10-a8e4-e979c29b4c9f",
+   "input_tokens": 5152,
+   "output_tokens": 590
+  }
+ }
+}

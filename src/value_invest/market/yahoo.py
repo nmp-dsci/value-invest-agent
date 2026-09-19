@@ -82,6 +82,26 @@ def fetch_prices(ticker: str, refresh: bool = False) -> pd.DataFrame:
     return df
 
 
+def fetch_splits(ticker: str, refresh: bool = False) -> pd.DataFrame:
+    """Long frame: ticker, date, ratio — every split Yahoo knows (e.g. AMZN 20:1 on 2022-06-06)."""
+    path = _dir(ticker) / "splits.parquet"
+    if path.exists() and not refresh:
+        return pd.read_parquet(path)
+    import yfinance as yf
+
+    sp = yf.Ticker(ticker).splits
+    df = pd.DataFrame(
+        {
+            "ticker": ticker,
+            "date": [d.date() for d in sp.index],
+            "ratio": [float(r) for r in sp.values],
+        }
+    )
+    df = df[df["ratio"] > 0]
+    df.to_parquet(path, index=False)
+    return df
+
+
 def fetch_statements(ticker: str, refresh: bool = False) -> pd.DataFrame:
     """Long frame: ticker, period_end, kind, freq, line_item, value, filed_at, available_from, source."""
     path = _dir(ticker) / "statements_annual.parquet"

@@ -1,0 +1,264 @@
+{
+ "key": "acarEBE7_-s:8d51d9c52ad5:v2:a33445f38391",
+ "eval": {
+  "video_id": "acarEBE7_-s",
+  "ticker": "VZ",
+  "t0": "2022-10-06",
+  "title": "Verizon is Still Verizon - Dividend Approaching 7% !!!",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "it is a strong Contender for the YouTube portfolio and I'll put it alongside hpq and Disney for now on the contender list"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 37.84000015258789,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "Higher interest rates make Verizon's dividend less attractive relative to now-competitive risk-free government yields, and raise Verizon's own debt costs.",
+    "quote": "now you can lend money to the US government at four percent and then you say okay four percent risk class assets",
+    "chunk_id": "chunk:acarEBE7_-s:2",
+    "start_s": 171.0,
+    "feeds": "discount",
+    "metrics": [
+     {
+      "name": "10-year treasury yield",
+      "value": 4.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "DGS10"
+     ],
+     "value_stated": 0.04,
+     "value_as_of": 0.0383,
+     "agrees": true,
+     "formula": "FRED DGS10 \u2264 T0",
+     "as_of_period": "FY2021",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Despite headwinds, cash flows still support the dividend and the yield has risen as the stock has fallen.",
+    "quote": "cash flows still very good 3 billion cap Capital expenditures higher on inflation and expected at these small changes already change the free cash flows down by 25 percent",
+    "chunk_id": "chunk:acarEBE7_-s:0",
+    "start_s": 0.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "dividend yield",
+      "value": 6.67,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "free cash flow decline",
+      "value": 25.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding",
+      "close"
+     ],
+     "value_stated": 0.0667,
+     "value_as_of": 0.06651341066940743,
+     "agrees": true,
+     "formula": "DPS / close",
+     "as_of_period": "FY2021",
+     "gap_note": "not in our data: free cash flow decline"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Verizon carries huge debt, which becomes a bigger issue as interest rates rise, raising its cost of capital.",
+    "quote": "despite the fact that they have huge huge amounts of debt and with that if interest rates go higher then you have an itsy bitsy issue because of higher costs",
+    "chunk_id": "chunk:acarEBE7_-s:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt",
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Morgan Stanley and Wall Street see no near-term catalyst to push the stock higher, which is why sentiment is negative.",
+    "quote": "notes a lack of catalyst so what will push the stock higher nothing so let's sell or let's put it into the negative basket",
+    "chunk_id": "chunk:acarEBE7_-s:1",
+    "start_s": 86.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Verizon remains an essential, hard-to-replace business (network/connectivity), which underpins the long-term investment case as the stock falls further.",
+    "quote": "it is an essential business that keeps everything and keeps you watching now over your online connection this is getting very very interesting",
+    "chunk_id": "chunk:acarEBE7_-s:3",
+    "start_s": 249.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Morgan Stanley note citing a lack of near-term catalysts for the stock",
+   "Verizon's recent dividend increase",
+   "5G capital expenditure plans"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 37.84000015258789,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "e2fe5a9d-2be4-49e0-a084-735b15e65818",
+   "transcript_sha256": "8d51d9c52ad53f41c6b025de346295c70d4c504eb88b80bf7b24fc820a7eb45b",
+   "extracted_at": "2026-09-19T11:50:36+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "bf4b8708-1359-4a6e-8920-5b71c5e43d22"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0255568,
+   "session_id": "e2fe5a9d-2be4-49e0-a084-735b15e65818",
+   "input_tokens": 5923,
+   "output_tokens": 1299
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.03744,
+   "session_id": "bf4b8708-1359-4a6e-8920-5b71c5e43d22",
+   "input_tokens": 3926,
+   "output_tokens": 77
+  }
+ }
+}

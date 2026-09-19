@@ -1,0 +1,312 @@
+{
+ "key": "NvUK53srVyU:f909961d6a0a:v2:a33445f38391",
+ "eval": {
+  "video_id": "NvUK53srVyU",
+  "ticker": "GOOGL",
+  "t0": "2021-04-18",
+  "title": "Google Stock Analysis - Great Business At Fair Price",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "HOLD",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 7.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "so if it crashes 20 25 you can expect a 10 return now we are at around 7 8 from google which is still great still a great business so nothing wrong with that"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "we did just a quick valuation on free cash flows that are reinvested for growth"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.15,
+     "g_y6_10": 0.1,
+     "terminal_multiple": 25.0,
+     "probability": 0.5,
+     "iv_stated": 1100000000000.0,
+     "quote": "let's say that they grow at 15 over the next five years perhaps a little bit faster but let's say 15 then slow down to 10 discount rate terminal multiple 25 so a 4 cash flow yield could be higher will do that in the best case scenario and the intrinsic value is 1.1 trillion"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.2,
+     "g_y6_10": 0.15,
+     "terminal_multiple": 30.0,
+     "probability": 0.25,
+     "iv_stated": 2000000000000.0,
+     "quote": "the market is still exuberant with the terminal multiple of 30 for 3 dividend yield if they pay out all the cash flows then the value in trillions is 2 trillion"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.1,
+     "g_y6_10": 0.05,
+     "terminal_multiple": 20.0,
+     "probability": 0.25,
+     "iv_stated": 750000000000.0,
+     "quote": "in the worst case scenario let's say that they grow at just 10 then 5 and on the terminal multiple is just 20 for a great business like this then the valuation is half of the current market cap"
+    }
+   ],
+   "iv_weighted_stated": 1200000000000.0,
+   "price_mentioned": 1500000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 34.0,
+    "quote": "the forward price to earnings ratio is 34"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 1200000000000.0,
+    "basis": "total",
+    "shares_used": 675222000.0,
+    "split_factor": 20.0,
+    "iv_comparable": 88.86,
+    "upside_pct": -22.1,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 114.13749694824219,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At a $1.5 trillion market cap versus a $1.2 trillion probability-weighted intrinsic value, google only offers a high single-digit return rather than his required 10%.",
+    "quote": "the intrinsic value for a 10 return is 1.2 trillion compare that to the market capitalization and let's say that now the return from expected from google is seven eight percent over the next ten years",
+    "chunk_id": "chunk:NvUK53srVyU:8",
+    "start_s": 635.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "intrinsic value",
+      "value": 1.2,
+      "unit": "usd_trn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 1.5,
+      "unit": "usd_trn",
+      "period": null
+     },
+     {
+      "name": "expected return",
+      "value": 7.5,
+      "unit": "pct",
+      "period": "10 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 1.5,
+     "value_as_of": 77068148964.38599,
+     "agrees": false,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 1.5, as-of 7.70681e+10 (FY2020); annual vs TTM or a different definition; not in our data: intrinsic value, expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Google is a great business with high return on invested capital, a strengthening moat and a long growth runway, per Li Lu's framework.",
+    "quote": "google has all of that emote high returns on invested capital profitability and a longer runway",
+    "chunk_id": "chunk:NvUK53srVyU:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "return on invested capital",
+      "value": 19.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "net margin",
+      "value": 22.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income",
+      "Stockholders Equity"
+     ],
+     "value_stated": 0.19,
+     "value_as_of": 0.18094848659141563,
+     "agrees": true,
+     "formula": "Net Income / Equity",
+     "as_of_period": "FY2020",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Cloud is a fast-growing, underappreciated segment with an exploding backlog that adds upside not priced in.",
+    "quote": "the backlog is exploding as all those companies that they have mentioned here are ordering and buying more and more especially as more businesses are moving into cloud operations",
+    "chunk_id": "chunk:NvUK53srVyU:5",
+    "start_s": 398.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Various moonshot/other bets could unexpectedly generate billions in future revenue and are essentially free optionality not priced into the stock.",
+    "quote": "you never know how will other other projects other bets like excess fiber calico capital ig gv verily waymo and x among others develop and when will reach 5 10 15 20 billion in revenues that's unknown however i don't think that is priced in",
+    "chunk_id": "chunk:NvUK53srVyU:5",
+    "start_s": 398.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "competence",
+    "claim": "Tech businesses carry inherent uncertainty (competition, regulation) so he would never put 100% of his portfolio into Google despite its quality.",
+    "quote": "it's always tech it's always uncertain so i would never put 100 of my money in google",
+    "chunk_id": "chunk:NvUK53srVyU:6",
+    "start_s": 478.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Li Lu's interview framework on investing in great businesses (ROIC, moat, runway)",
+   "Analyst/bank target prices up to $3000, median $2400",
+   "Morningstar forward P/E of 34, ROE 19%, five-star bargain price of $1500",
+   "Cloud segment's first detailed investor presentation by the cloud CEO and market growth projections"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 114.13749694824219,
+   "latest_fy_visible": 2020,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 2,
+    "external": 0,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 20.0,
+   "iv_basis": "total",
+   "iv_comparable": 88.86,
+   "iv_upside_pct": -22.1,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "eb92b126-97ea-4b5d-bb67-7d2d2bf0c6a1",
+   "transcript_sha256": "f909961d6a0a79fb8614aa9369ab32fe7269ee0ac8c16b9f94eb3394e8c4ebd2",
+   "extracted_at": "2026-09-19T12:52:42+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "63626c71-d7d8-4578-94e7-0d9c7d7cb38c"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0427158,
+   "session_id": "eb92b126-97ea-4b5d-bb67-7d2d2bf0c6a1",
+   "input_tokens": 8061,
+   "output_tokens": 1988
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.07499299999999999,
+   "session_id": "63626c71-d7d8-4578-94e7-0d9c7d7cb38c",
+   "input_tokens": 6780,
+   "output_tokens": 343
+  }
+ }
+}

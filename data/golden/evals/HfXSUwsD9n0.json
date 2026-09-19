@@ -1,0 +1,286 @@
+{
+ "key": "HfXSUwsD9n0:3f7c6a0f3c35:v2:a33445f38391",
+ "eval": {
+  "video_id": "HfXSUwsD9n0",
+  "ticker": "INTC",
+  "t0": "2022-03-13",
+  "title": "Intel Is A Stock To Buy + Research Platform Example",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": "BUY",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "intel is priced for a 10 11 expected return which makes it a relatively good buy"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "zero free cash flows for a few years and then dividends buybacks and growth for the free cash flows"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "intel is priced for a 10 11 expected return which makes it a relatively good buy"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 800.0,
+     "quote": "the current market cap is 200 if it goes to 800 in 10 years that's a great return and that is definitely a possibility"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "range of returns is between zero of course in five to ten years zero not that likely but possibly"
+    }
+   ],
+   "iv_weighted_stated": 800.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "intel is priced for a 10 11 expected return"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 800.0,
+    "basis": "per_share_implausible",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 800.0,
+    "upside_pct": 1645.6,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 45.83000183105469,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At current prices Intel is priced for a solid double-digit return, making it a relatively good buy, and cheaper still if the price drops.",
+    "quote": "intel is priced for a 10 11 expected return which makes it a relatively good buy",
+    "chunk_id": "chunk:HfXSUwsD9n0:5",
+    "start_s": 379.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "expected return",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Growth is not expected until 2025-2026, and Intel has a history of missing its own timing promises, so a further delay would hurt the stock badly.",
+    "quote": "the growth should come only from 2025 2026 which is again a risk if the growth comes only in 2027 then it will be ugly even uglier for the stock price",
+    "chunk_id": "chunk:HfXSUwsD9n0:4",
+    "start_s": 299.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Intel's large operating cash flow relative to its investment plans means it is unlikely to go bust even in a downside scenario.",
+    "quote": "will intel go bust with 20 30 billion of operating cash flows just 40 billion of that",
+    "chunk_id": "chunk:HfXSUwsD9n0:5",
+    "start_s": 379.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "operating cash flow",
+      "value": 25.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": 25000000000.0,
+     "value_as_of": 29991000000.0,
+     "agrees": false,
+     "formula": "Operating Cash Flow FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 2.5e+10, as-of 2.9991e+10 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Competition, execution risk, and sector cyclicality are the key risks weighed against the price.",
+    "quote": "the risks where it comes the competition execution cyclicality of the sector and that's something you have to then pricing and then see how it fits your risk and reward",
+    "chunk_id": "chunk:HfXSUwsD9n0:5",
+    "start_s": 379.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "sentiment",
+    "claim": "A well-known value investor also owns Intel at current levels, supporting the margin-of-safety case.",
+    "quote": "that's why you also see seth clarman owning intel as a buy now",
+    "chunk_id": "chunk:HfXSUwsD9n0:6",
+    "start_s": 463.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Intel's own guidance that gross margins decline before growth accelerates from 2025-2026",
+   "Intel plans to invest $200 billion over the current decade",
+   "Seth Klarman owns Intel"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 45.83000183105469,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 0,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share_implausible",
+   "iv_comparable": 800.0,
+   "iv_upside_pct": 1645.6,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "12d3b558-86c8-4c80-8d34-119c47298c14",
+   "transcript_sha256": "3f7c6a0f3c35224e504abc6f6001ef4be79f3d2fcb7f18cca3810f90c248b26c",
+   "extracted_at": "2026-09-19T12:54:41+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "2bb39f9f-c31a-419c-8d95-f197d04f3f65"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0352568,
+   "session_id": "12d3b558-86c8-4c80-8d34-119c47298c14",
+   "input_tokens": 7404,
+   "output_tokens": 1557
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.061793999999999995,
+   "session_id": "2bb39f9f-c31a-419c-8d95-f197d04f3f65",
+   "input_tokens": 5762,
+   "output_tokens": 255
+  }
+ }
+}

@@ -1,0 +1,348 @@
+{
+ "key": "I20PUELJA9Q:4d91ed4c1cf8:v2:a33445f38391",
+ "eval": {
+  "video_id": "I20PUELJA9Q",
+  "ticker": "NFLX",
+  "t0": "2022-04-21",
+  "title": "Netflix Crashes On Bad Guidance And Bill Ackman SOLD (Discussing the situation)",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "netflix is now giving likely a 10 return on investment for the long term"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "other",
+    "value_stated": 5.0,
+    "quote": "i have used free cash flows of 5 billion expecting some buybacks over the years that will likely come over the years"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.1,
+     "g_y6_10": 0.1,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 140.0,
+     "quote": "a growth rate in free cash flows of 10 doesn't mean subscriber growth terminal multiple of 20 and then the intrinsic value is 140 billion"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.15,
+     "g_y6_10": 0.15,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 267.0,
+     "quote": "in a positive case scenario with 15 percent growth a good growth stock terminal multiple then the value is 267 billion"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.06,
+     "g_y6_10": 0.06,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 90.0,
+     "quote": "with slow growths just six percent on the free cash flow a terminal multiple of just 15 the present value sum is 90 billion"
+    }
+   ],
+   "iv_weighted_stated": 140.0,
+   "price_mentioned": 100.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 100.0,
+     "iv_stated": 140.0,
+     "error": -0.286,
+     "ok": false
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 267.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": 51.78,
+     "iv_stated": 90.0,
+     "error": -0.425,
+     "ok": false
+    }
+   ],
+   "within_band": false,
+   "n_compared": 2,
+   "n_ok": 0,
+   "expected_return_at_price": 28.1,
+   "comparable": {
+    "iv_stated": 140.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 10.0,
+    "iv_comparable": 14.0,
+    "upside_pct": -35.8,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 21.82200050354004,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The current $100 billion market cap sits between his worst-case ($90B) and normal-case ($140B) intrinsic values, implying roughly a 10% return that could be higher if the business improves.",
+    "quote": "remember here is the market capitalization is now close to the bare thesis in my valuation so if they can reach 5 billion in free cash flows to distribute back to shareholders and then grow that steadily over time then netflix is now giving likely a 10 return on investment for the long term",
+    "chunk_id": "chunk:I20PUELJA9Q:7",
+    "start_s": 535.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "market cap",
+      "value": 100.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "worst case iv",
+      "value": 90.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "normal case iv",
+      "value": 140.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 100000000000.0,
+     "value_as_of": 9688163144.5072,
+     "agrees": false,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 1e+11, as-of 9.68816e+09 (FY2021); annual vs TTM or a different definition; not in our data: worst case iv, normal case iv"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "The total addressable market has effectively shrunk because password-sharing already inflates the real user base by 50%, and it is uncertain whether Netflix can convert those free users into payers without a strong moat.",
+    "quote": "netflix says that the actual number of users is 50 higher than it actually is i share it with other two households which brings the total addressable market as saturated already",
+    "chunk_id": "chunk:I20PUELJA9Q:2",
+    "start_s": 159.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "password sharing uplift",
+      "value": 50.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: password sharing uplift"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Despite the crash, revenue still grew about 9.7% and the company posted its first meaningful positive free cash flow quarter, supporting the $5 billion FCF assumption used in the valuation.",
+    "quote": "revenues actually grew 9.7 forecast 9.8 in the quarter is not stellar as it was but it is still revenue growth and also first time we see free cash flows 800 million we made an approximate 5 billion yearly free cash flow potential",
+    "chunk_id": "chunk:I20PUELJA9Q:3",
+    "start_s": 237.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 9.7,
+      "unit": "pct",
+      "period": "quarter"
+     },
+     {
+      "name": "quarterly free cash flow",
+      "value": 800.0,
+      "unit": "usd_mn",
+      "period": "quarter"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.09699999999999999,
+     "value_as_of": 0.1881011948444986,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 0.097, as-of 0.188101 (FY2021); annual vs TTM or a different definition; not in our data: quarterly free cash flow"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Wall Street analysts are reactively slashing price targets after the stock already fell, showing they simply chase price rather than value, which he treats as noise rather than a reason to change his view.",
+    "quote": "piper here slashed from 562 the stock price target to 293 so they're always analysts always follow the stock price so here they had a high stock price target now they slash it because the stock is down",
+    "chunk_id": "chunk:I20PUELJA9Q:3",
+    "start_s": 237.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "piper old target",
+      "value": 562.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "piper new target",
+      "value": 293.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: piper old target, piper new target"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "competence",
+    "claim": "Because certainty about Netflix's long-term position is limited, he says exposure should be sized to that uncertainty rather than treated as a high-conviction buy.",
+    "quote": "if you want to invest in netflix but you're not that certain then just go with small portfolio exposures and then if it turns out well you will get a good return to your portfolio",
+    "chunk_id": "chunk:I20PUELJA9Q:9",
+    "start_s": 699.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Bill Ackman's Netflix thesis and his sale/loss of $400 million",
+   "Analyst price target changes from Piper and JPMorgan (Doug Anmuth)",
+   "Netflix's stated plan to spend $18 billion on content this year",
+   "Netflix management's estimate that ~100 million households use passwords from paying accounts",
+   "TV time usage data over the last 10 months"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok. Minor: external_facts mentions Ackman's ~$400M loss/sale, which is not in the transcript, but it is not used as a reason. Stance ~10% return, no position, small exposure if uncertain = fair_hold."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 21.82200050354004,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 2,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 2,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "split_factor": 10.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 14.0,
+   "iv_upside_pct": -35.8,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": 28.1,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "3a03b717-c5f3-463a-8777-b6b4f258063e",
+   "transcript_sha256": "4d91ed4c1cf8f6706c2556e1e2dfd1212a2f18619ae476b2cc93a549686efc46",
+   "extracted_at": "2026-09-19T12:55:05+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "1a13d045-61b6-4c2b-aebe-6c3df63ff6c2"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.054464799999999994,
+   "session_id": "3a03b717-c5f3-463a-8777-b6b4f258063e",
+   "input_tokens": 7569,
+   "output_tokens": 3407
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.07515000000000001,
+   "session_id": "1a13d045-61b6-4c2b-aebe-6c3df63ff6c2",
+   "input_tokens": 6296,
+   "output_tokens": 565
+  }
+ }
+}

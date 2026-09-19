@@ -1,0 +1,356 @@
+{
+ "key": "toZesfTSfx4:0fcc5ab012e6:v2:a33445f38391",
+ "eval": {
+  "video_id": "toZesfTSfx4",
+  "ticker": "ADM",
+  "t0": "2022-08-16",
+  "title": "ADM Q2 2022 Earnings Update - No Clouds In The Sky!!!!",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 10.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "still offering an average 10 return discount rate expected return for the investment so nothing bad there so i'll just keep it in the portfolio at current levels"
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 2.5,
+    "quote": "to be conservative and if margins return to normal i will increase the earnings here for archer daniels to 2.5 billion"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.05,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 43.0,
+     "quote": "the intrinsic value on a lower valuation is around 43"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.05,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 45.0,
+     "quote": "if the market is more exuberant 45"
+    }
+   ],
+   "iv_weighted_stated": 43.0,
+   "price_mentioned": 48.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": 43.0,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 45.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 2.5,
+    "as_of": 2.709,
+    "period": "FY2021",
+    "gap_pct": -7.7
+   },
+   "comparable": {
+    "iv_stated": 43.0,
+    "basis": "per_share",
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": 43.0,
+    "upside_pct": -50.3,
+    "position_iv": "SELL"
+   }
+  },
+  "price_at_t0": 86.58000183105469,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Current record margins and net income are cyclically elevated and may revert to the historical mean rather than persist.",
+    "quote": "net income over the years was around 1.5 2 billion 2 billion and now it exploded to 3.5 billion now things are really good and the question is will it revert to the mean here or it will stabilize at a higher level",
+    "chunk_id": "chunk:toZesfTSfx4:2",
+    "start_s": 162.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "historical net income",
+      "value": 2.0,
+      "unit": "usd_bn",
+      "period": "past years"
+     },
+     {
+      "name": "current net income",
+      "value": 3.5,
+      "unit": "usd_bn",
+      "period": "TTM"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 2000000000.0,
+     "value_as_of": 2709000000.0,
+     "agrees": false,
+     "formula": "Net Income FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 2e+09, as-of 2.709e+09 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Operating cash flow implies a single-digit cash-flow P/E and double-digit cash flow yield relative to market cap, which is attractive.",
+    "quote": "operation cash flows in half a year 3 billion that's something we have to compare to the market capitalization which is now 48 billion but if they make 6 billion in cash flows that's a single digit cash flow pe ratio so a double digit cash flow yield there",
+    "chunk_id": "chunk:toZesfTSfx4:1",
+    "start_s": 81.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "operating cash flow",
+      "value": 3.0,
+      "unit": "usd_bn",
+      "period": "half year"
+     },
+     {
+      "name": "market cap",
+      "value": 48.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": 3000000000.0,
+     "value_as_of": 6595000000.0,
+     "agrees": false,
+     "formula": "Operating Cash Flow FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 3e+09, as-of 6.595e+09 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Buybacks plus dividend growth deliver a 5-6% direct shareholder return, on top of business growth.",
+    "quote": "one billion in share buybacks to be done in 2022 plus the 90-year dividend eight percent increase in dividend that's two percent buyback yield two percent dividend so that's again a rewarding to shareholders of about five six percent from these levels",
+    "chunk_id": "chunk:toZesfTSfx4:1",
+    "start_s": 81.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buyback amount",
+      "value": 1.0,
+      "unit": "usd_bn",
+      "period": "2022"
+     },
+     {
+      "name": "dividend increase",
+      "value": 8.0,
+      "unit": "pct",
+      "period": "yearly"
+     },
+     {
+      "name": "shareholder yield",
+      "value": 5.5,
+      "unit": "pct",
+      "period": "yearly"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 1000000000.0,
+     "value_as_of": -0.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 1e+09, as-of -0 (FY2021); annual vs TTM or a different definition; not in our data: shareholder yield"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At $6.5 EPS guidance the stock trades at 12-13x earnings, still below market multiples and attractive.",
+    "quote": "the expected full year earnings are at 6.5 dollars per share so that is a p e ratio of 12 13 still below market still very attractive",
+    "chunk_id": "chunk:toZesfTSfx4:1",
+    "start_s": 81.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "EPS guidance",
+      "value": 6.5,
+      "unit": "usd",
+      "period": "full year 2022"
+     },
+     {
+      "name": "pe ratio",
+      "value": 12.5,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 12.5,
+     "value_as_of": 18.075156958466533,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 12.5, as-of 18.0752 (FY2021); annual vs TTM or a different definition; not in our data: EPS guidance"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "ADM is an essential, diversified, 90-year dividend-growing business, adjacent-diversifying into new products, fit for a diversified portfolio.",
+    "quote": "it is an essential business it brings food to your table the constantly investing new things now have bought some probiotics companies so they are constantly structuring adjacent businesses on their products",
+    "chunk_id": "chunk:toZesfTSfx4:4",
+    "start_s": 327.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "years of dividend increases",
+      "value": 90.0,
+      "unit": "years",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding"
+     ],
+     "value_stated": 90.0,
+     "value_as_of": 1.4734982332155477,
+     "agrees": false,
+     "formula": "|Cash Dividends Paid| / shares",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 90, as-of 1.4735 (FY2021); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "ADM management guidance of $6.5 EPS for full year 2022",
+   "ADM conference call commentary of 'no significant clouds on the horizon'",
+   "ADM's 90-year history of dividend increases",
+   "ADM's acquisitions of probiotics companies"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 86.58000183105469,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 1.0,
+   "reproducible_counts": {
+    "statements": 3,
+    "prices": 0,
+    "derived": 2,
+    "external": 0,
+    "judgement": 0
+   },
+   "metrics_compared": 5,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "per_share",
+   "iv_comparable": 43.0,
+   "iv_upside_pct": -50.3,
+   "position_iv": "SELL",
+   "base_metric_gap_pct": -7.7,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "512b9303-8703-4ae0-9bd5-77cae75f6690",
+   "transcript_sha256": "0fcc5ab012e6ff5c4bad6ccddcc1dda8315f1ab62cd2bda17e7d5edb4ef9e436",
+   "extracted_at": "2026-09-19T12:56:25+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "e2ed3ddb-f9c2-421d-a22c-934d2849ff8d"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0313778,
+   "session_id": "512b9303-8703-4ae0-9bd5-77cae75f6690",
+   "input_tokens": 5852,
+   "output_tokens": 1911
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.04119500000000001,
+   "session_id": "e2ed3ddb-f9c2-421d-a22c-934d2849ff8d",
+   "input_tokens": 4268,
+   "output_tokens": 77
+  }
+ }
+}

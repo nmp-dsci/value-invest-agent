@@ -1,0 +1,329 @@
+{
+ "key": "CMvfDofK0Xc:47a75c9131d4:v2:a33445f38391",
+ "eval": {
+  "video_id": "CMvfDofK0Xc",
+  "ticker": "BIDU",
+  "t0": "2021-04-06",
+  "title": "Baidu Stock Is A Buy Now | Margin Call Crash Creates Opportunity (Full Nasdaq:BIDU Analysis)",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": "BUY",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 10.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "i have bought a little bit for my large portfolio so in a 20 position portfolio i see baidu as a fit i have put a smaller position if it goes down we'll add more"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "i have taken the free cash flows that they are making now put them into a valuation"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": 0.07,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 35000000000.0,
+     "quote": "with just a conservative 7 growth rate i get to 35 billion in value"
+    },
+    {
+     "name": "normal",
+     "g_y1_5": 0.12,
+     "g_y6_10": 0.09,
+     "terminal_multiple": 25.0,
+     "probability": null,
+     "iv_stated": 59000000000.0,
+     "quote": "if they grow at 12 and then nine percent with the 25 cash flow multiple i get to 59 billion in value"
+    }
+   ],
+   "iv_weighted_stated": 89000000000.0,
+   "price_mentioned": 77000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 25.0,
+    "quote": "you can say i'm buying baidu for 77 billion for a price to cash flow of 25 30 and getting everything else for free"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "comparable": {
+    "iv_stated": 89000000000.0,
+    "basis": "total_implausible",
+    "shares_used": 34917835.0,
+    "split_factor": 1.0,
+    "iv_comparable": 2548.84,
+    "upside_pct": 1025.1,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 226.5500030517578,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The core cash-flow business alone is cheap (~25-30x FCF) while all growth optionality (cloud, AI, robotaxis, iQiyi stake) is thrown in for free.",
+    "quote": "you can say i'm buying baidu for 77 billion for a price to cash flow of 25 30 and getting everything else for free",
+    "chunk_id": "chunk:CMvfDofK0Xc:13",
+    "start_s": 1708.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "price to cash flow",
+      "value": 27.5,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 77.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": 27.5,
+     "value_as_of": 3709000000.0,
+     "agrees": false,
+     "formula": "Operating Cash Flow FY2020",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 27.5, as-of 3.709e+09 (FY2020); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "balance_sheet",
+    "claim": "The company holds a very large net cash and investment position relative to market cap, providing a margin of safety.",
+    "quote": "25 billion on a 77 billion market capitalization is a significant margin of safety",
+    "chunk_id": "chunk:CMvfDofK0Xc:11",
+    "start_s": 865.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "cash",
+      "value": 25.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "net cash",
+      "value": 12.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 25000000000.0,
+     "value_as_of": 5484000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2020",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 2.5e+10, as-of 5.484e+09 (FY2020); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Baidu's dominant and stable search market share strengthens its moat over time as competitors have failed to take share.",
+    "quote": "baidu still has 72 and that is a stable which increases the mode over time the longer you hold the strong position the bigger your mode is",
+    "chunk_id": "chunk:CMvfDofK0Xc:6",
+    "start_s": 466.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "search market share",
+      "value": 72.5,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: search market share"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Huge addressable markets in AI, cloud and autonomous driving give large optional upside beyond the core search business.",
+    "quote": "the total addressable market is 30 times the current market if they just get 10 of this 5.5 trillion market that's 550 billion remember in revenues",
+    "chunk_id": "chunk:CMvfDofK0Xc:9",
+    "start_s": 697.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "cloud market growth",
+      "value": 37.2,
+      "unit": "pct",
+      "period": "annual"
+     },
+     {
+      "name": "TAM in 5 years",
+      "value": 5.5,
+      "unit": "usd_tn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 5.5,
+     "value_as_of": 0.24116586077276536,
+     "agrees": false,
+     "formula": "close / close 5 years ago \u2212 1",
+     "as_of_period": "5y",
+     "gap_note": "he says 5.5, as-of 0.241166 (5y); annual vs TTM or a different definition; not in our data: cloud market growth"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Short-seller reports allege fraud and inflated revenue/user numbers at acquired/related entities, an unresolved risk.",
+    "quote": "wolfpac research made a short argument again and they are a short seller that iq inflate ikea we inflated its revenue by 27 to 44 and overstating his user numbers by 42.60",
+    "chunk_id": "chunk:CMvfDofK0Xc:15",
+    "start_s": 1192.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "alleged revenue inflation",
+      "value": 44.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "alleged user overstatement",
+      "value": 60.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.44,
+     "value_as_of": 0.06358156717868946,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 0.44, as-of 0.0635816 (FY2020); annual vs TTM or a different definition; not in our data: alleged user overstatement"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "price targets of $360-370 from Asian value investors",
+   "ARK Invest holds Baidu as third-largest position, ~5% of portfolio",
+   "Charlie Munger's Daily Journal invested 19% of portfolio in Alibaba",
+   "Muddy Waters short report alleging YY Live is 90% fraudulent",
+   "Wolfpack Research short report on iQiyi revenue/user inflation",
+   "Baidu Hong Kong listing prospectus data",
+   "Baidu partnership with Geely on EV development"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "absolute_buy",
+   "invented_reasons": [],
+   "notes": "ok \u2014 he explicitly calls it a buy, cites a cash margin of safety, a conservative 10% return with growth options free, and bought for his portfolio; relative_buy vs absolute_buy both map to BUY."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 226.5500030517578,
+   "latest_fy_visible": 2020,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 1,
+    "derived": 1,
+    "external": 1,
+    "judgement": 0
+   },
+   "metrics_compared": 4,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": "total_implausible",
+   "iv_comparable": 2548.84,
+   "iv_upside_pct": 1025.1,
+   "position_iv": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "3351653f-465f-4b6b-99e7-a28fa8629bd4",
+   "transcript_sha256": "47a75c9131d4d163e47be0e51d014d50dbd3ad9fc0304a3011568aa386ff7575",
+   "extracted_at": "2026-09-19T12:52:26+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "912362bd-d6e4-4923-9076-9570c3b9ee17"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0533558,
+   "session_id": "3351653f-465f-4b6b-99e7-a28fa8629bd4",
+   "input_tokens": 10425,
+   "output_tokens": 1939
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.10183199999999999,
+   "session_id": "912362bd-d6e4-4923-9076-9570c3b9ee17",
+   "input_tokens": 8863,
+   "output_tokens": 526
+  }
+ }
+}

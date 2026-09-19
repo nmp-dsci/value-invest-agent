@@ -1,0 +1,290 @@
+{
+ "key": "olF27VxbH2c:c7db719d06ba:v2:a33445f38391",
+ "eval": {
+  "video_id": "olF27VxbH2c",
+  "ticker": "KSS",
+  "t0": "2022-10-02",
+  "title": "KSS Stock - Quick Take - Cheap Retail",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "it is not a contender for my YouTube portfolio because as we discussed with eBay as was discussed with Cole there is not that positive line of future that will give value"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 4.0,
+    "quote": "coal making one dollar per quarter that's three four per year"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 75.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 10.0,
+    "quote": "with coal making one dollar per quarter that's three four per year it gets to an average p ratio of 10"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 4.0,
+    "as_of": 6.32,
+    "period": "FY2022",
+    "gap_pct": -36.7
+   },
+   "comparable": {
+    "iv_stated": null,
+    "basis": null,
+    "shares_used": null,
+    "split_factor": 1.0,
+    "iv_comparable": null,
+    "upside_pct": null,
+    "position_iv": null
+   }
+  },
+  "price_at_t0": 25.149999618530273,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Department stores are a structurally bad, undifferentiated business with no moat and ruthless competition.",
+    "quote": "there is no differentiation there is no mode the competition is ruthless margins are thin which makes it a risky highly volatile environment",
+    "chunk_id": "chunk:olF27VxbH2c:3",
+    "start_s": 229.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Comparable and net sales are falling sharply while margins compress, showing the business is deteriorating in the current macro environment.",
+    "quote": "comparable sales decreased 7.7 percent and net sales decreased eight percent and that is huge because in retail you have extremely thin margins",
+    "chunk_id": "chunk:olF27VxbH2c:1",
+    "start_s": 76.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "comparable sales decline",
+      "value": 7.7,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "net sales decline",
+      "value": 8.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "gross margin decline",
+      "value": 290.0,
+      "unit": "bps",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.077,
+     "value_as_of": 0.21798809150736442,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 0.077, as-of 0.217988 (FY2022); annual vs TTM or a different definition; not in our data: gross margin decline"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Inventory has ballooned, driving negative free cash flow and requiring more working capital, which is risky with existing long-term debt.",
+    "quote": "even inventory boomed 48 which means that you need more cash flow you need more working capital you need more cash",
+    "chunk_id": "chunk:olF27VxbH2c:1",
+    "start_s": 76.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "inventory growth",
+      "value": 48.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "long-term debt",
+      "value": 1.7,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.48,
+     "value_as_of": -6.962264150943396,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 0.48, as-of -6.96226 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Earnings per share have collapsed 60-70% year over year, undermining the cheap-looking valuation.",
+    "quote": "the earnings per share from booming a year ago went to busting so that's a 60 70 percent decline",
+    "chunk_id": "chunk:olF27VxbH2c:1",
+    "start_s": 76.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "EPS decline",
+      "value": 65.0,
+      "unit": "pct",
+      "period": "yoy"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 65.0,
+     "value_as_of": 6.32,
+     "agrees": false,
+     "formula": "Diluted EPS FY2022",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 65, as-of 6.32 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Even in the best case the reward is a 2x with no positive line of future value, so the risk/reward does not justify the bet given uncertain downside.",
+    "quote": "the risk is zero the rebound is a 2X with some dividends or BuyBacks and it's simply not a game that I want to play",
+    "chunk_id": "chunk:olF27VxbH2c:3",
+    "start_s": 229.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Charlie Munger's comment that being in the department store business would be very unpleasant",
+   "Kohl's Sephora partnership and accelerated share repurchase program"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 25.149999618530273,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "split_factor": 1.0,
+   "iv_basis": null,
+   "iv_comparable": null,
+   "iv_upside_pct": null,
+   "position_iv": null,
+   "base_metric_gap_pct": -36.7,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "fbdfd731-1687-43b2-92db-1c710acfbc53",
+   "transcript_sha256": "c7db719d06baee1e9506875c295d7d46d32b7a9895b808cde36ee20b1bea7fde",
+   "extracted_at": "2026-09-19T12:56:59+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "cc5c2527-bf46-47e2-ae57-92d5fe269948"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0264688,
+   "session_id": "fbdfd731-1687-43b2-92db-1c710acfbc53",
+   "input_tokens": 5861,
+   "output_tokens": 1419
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.03746000000000001,
+   "session_id": "cc5c2527-bf46-47e2-ae57-92d5fe269948",
+   "input_tokens": 3928,
+   "output_tokens": 75
+  }
+ }
+}
