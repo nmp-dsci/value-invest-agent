@@ -11,6 +11,7 @@ import csv
 import io
 import time
 from datetime import date
+from typing import Any
 
 import duckdb
 import httpx
@@ -38,7 +39,7 @@ def fetch_series(series: str, max_age_days: int = 7) -> list[tuple[date, float]]
     return rows
 
 
-def load_rates(con: duckdb.DuckDBPyConnection, series: tuple[str, ...] = SERIES) -> dict:
+def load_rates(con: duckdb.DuckDBPyConnection, series: tuple[str, ...] = SERIES) -> dict[str, Any]:
     out = {}
     for s in series:
         rows = fetch_series(s)

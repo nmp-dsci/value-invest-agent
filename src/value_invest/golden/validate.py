@@ -48,7 +48,10 @@ def validate_all(
     con: duckdb.DuckDBPyConnection, video_ids: list[str] | None = None
 ) -> dict[str, Any]:
     s = settings()
-    last = con.execute("SELECT max(date) FROM vi.prices").fetchone()[0]
+    last_row = con.execute("SELECT max(date) FROM vi.prices").fetchone()
+    last = last_row[0] if last_row else None
+    if last is None:
+        return {"rows_written": 0, "n_evals": 0}
     rows = con.execute(
         """SELECT e.video_id, e.ticker, e.t0, e.position, e.iv_weighted_stated, coalesce(t.benchmark, ?)
            FROM vi.evals e LEFT JOIN vi.tickers t ON t.ticker = e.ticker ORDER BY e.t0""",
@@ -75,15 +78,16 @@ def validate_all(
             ex = ret - bret
             iv_hit = None
             if iv:
-                lo, hi = con.execute(
+                lohi = con.execute(
                     "SELECT min(close), max(close) FROM vi.prices WHERE ticker = ? AND date > ? AND date <= ?",
                     [ticker, t0, t1],
                 ).fetchone()
-                if lo is not None:
-                    at0 = con.execute(
-                        "SELECT close FROM vi.prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT 1",
-                        [ticker, t0],
-                    ).fetchone()[0]
+                at0_row = con.execute(
+                    "SELECT close FROM vi.prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT 1",
+                    [ticker, t0],
+                ).fetchone()
+                if lohi and lohi[0] is not None and at0_row:
+                    lo, hi, at0 = lohi[0], lohi[1], at0_row[0]
                     iv_hit = (hi >= iv) if iv >= at0 else (lo <= iv)
             con.execute(
                 """INSERT OR REPLACE INTO vi.validations (video_id, horizon_m, t0, t1, ret, bench_ret, excess, verdict, verdict_hold_alt, iv_hit)
@@ -160,5 +164,6 @@ def validation_summary(con: duckdb.DuckDBPyConnection) -> dict[str, Any]:
             }
     splits = con.execute("SELECT split, count(*) FROM vi.evals GROUP BY 1").fetchall()
     out["splits"] = {k: n for k, n in splits}
-    out["n_evals"] = con.execute("SELECT count(*) FROM vi.evals").fetchone()[0]
+    n_row = con.execute("SELECT count(*) FROM vi.evals").fetchone()
+    out["n_evals"] = n_row[0] if n_row else 0
     return out

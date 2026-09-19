@@ -11,6 +11,7 @@ import statistics
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timezone
+from pathlib import Path
 from typing import Any
 
 import duckdb
@@ -68,7 +69,9 @@ def _model_calls(
     t: Transcript, row: dict[str, Any], version: ExtractorVersion, critic: bool
 ) -> tuple[GoldenEvalDraft, dict[str, Any], Critic | None, dict[str, Any], list[float]]:
     draft, usage = run_extract(t, row["ticker"], str(row["t0"]), row.get("description"), version)
-    crit, cusage, scores = (None, {}, [])
+    crit: Critic | None = None
+    cusage: dict[str, Any] = {}
+    scores: list[float] = []
     if critic:
         crit, cusage, scores = run_critic(draft, t, model=version.critic_model)
     else:
@@ -138,7 +141,9 @@ def assemble(
 
 
 def upsert_eval(con: duckdb.DuckDBPyConnection, ev: GoldenEval) -> None:
-    j = lambda x: json.dumps(x, default=str)  # noqa: E731
+    def j(x: Any) -> str:
+        return json.dumps(x, default=str)
+
     con.execute(
         """INSERT OR REPLACE INTO vi.evals (video_id, ticker, t0, position, stance_detail, personal_action,
              expected_return_pct, horizon_years, conviction, rule_sensitive, title_says_buy, headline_quote,
@@ -184,7 +189,7 @@ def upsert_eval(con: duckdb.DuckDBPyConnection, ev: GoldenEval) -> None:
     )
 
 
-def _cache_path(video_id: str):
+def _cache_path(video_id: str) -> Path:
     EVALS_DIR.mkdir(parents=True, exist_ok=True)
     return EVALS_DIR / f"{video_id}.json"
 
@@ -241,7 +246,9 @@ def process_all(
             continue
         todo.append((row, t, key))
 
-    def work(item):
+    def work(
+        item: tuple[dict[str, Any], Transcript, str],
+    ) -> tuple[tuple[dict[str, Any], Transcript, str], Any, str | None]:
         row, t, key = item
         try:
             return item, _model_calls(t, row, version, critic), None
@@ -281,7 +288,8 @@ def process_all(
                 f"  {row['ticker']:6} {row['t0']}  {ev.position:4} {ev.call.stance_detail:13} iv={ev.valuation.iv_weighted_stated} repro={ev.checks['reproducible_share']} faithful={ev.checks['faithful_share']} {agree}",
                 flush=True,
             )
-    report["in_evals"] = con.execute("SELECT count(*) FROM vi.evals").fetchone()[0]
+    n_row = con.execute("SELECT count(*) FROM vi.evals").fetchone()
+    report["in_evals"] = n_row[0] if n_row else 0
     return report
 
 
@@ -384,10 +392,10 @@ def seed_eval(con: duckdb.DuckDBPyConnection, version_name: str = "v0") -> dict[
             }
         )
 
-    def acc(rs, key):
+    def acc(rs: list[dict[str, Any]], key: str) -> float | None:
         return round(sum(r[key] for r in rs) / len(rs), 3) if rs else None
 
-    def balanced(rs):
+    def balanced(rs: list[dict[str, Any]]) -> dict[str, Any]:
         per = {}
         for cls in ("BUY", "HOLD", "SELL"):
             sub = [r for r in rs if r["seed_position"] == cls]
@@ -447,19 +455,19 @@ def kappa(con: duckdb.DuckDBPyConnection) -> dict[str, Any]:
 def method_summary(con: duckdb.DuckDBPyConnection) -> dict[str, Any]:
     """What the 40 (→ 120) evals say about how he values: the distilled parameters."""
     evals = _evals(con)
-    disc: Counter = Counter()
-    base_names: Counter = Counter()
-    methods: Counter = Counter()
+    disc: Counter[str] = Counter()
+    base_names: Counter[str] = Counter()
+    methods: Counter[str] = Counter()
     terminal: dict[str, list[float]] = defaultdict(list)
     terminal_by_growth: dict[str, list[float]] = defaultdict(list)
     probs: dict[str, list[float]] = defaultdict(list)
     growth: dict[str, list[float]] = defaultdict(list)
-    cats: dict[str, Counter] = {"for_buy": Counter(), "for_sell": Counter()}
-    feeds: Counter = Counter()
-    repro_by_cat: dict[str, Counter] = defaultdict(Counter)
+    cats: dict[str, Counter[str]] = {"for_buy": Counter(), "for_sell": Counter()}
+    feeds: Counter[str] = Counter()
+    repro_by_cat: dict[str, Counter[str]] = defaultdict(Counter)
     er_by_stance: dict[str, list[float]] = defaultdict(list)
-    stance_mix: Counter = Counter()
-    position_mix: Counter = Counter()
+    stance_mix: Counter[str] = Counter()
+    position_mix: Counter[str] = Counter()
     for e in evals:
         v = e["valuation"] or {}
         methods[v.get("method", "none")] += 1

@@ -792,12 +792,12 @@ def recompute_valuation(draft: GoldenEvalDraft, a: AsOf) -> dict[str, Any]:
         ),
         None,
     )
-    if normal and a.price:
-        g2 = normal.g_y6_10 if normal.g_y6_10 is not None else normal.g_y1_5
+    if normal and a.price and normal.g_y1_5 is not None and normal.terminal_multiple is not None:
+        g2n: float = normal.g_y6_10 if normal.g_y6_10 is not None else normal.g_y1_5
         try:
             out["expected_return_at_price"] = round(
                 val.expected_return(
-                    a.price, base, normal.g_y1_5, g2, normal.terminal_multiple, payout
+                    a.price, base, normal.g_y1_5, g2n, normal.terminal_multiple, payout
                 )
                 * 100,
                 1,

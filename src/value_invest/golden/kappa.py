@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Sequence
+from typing import Any
 
 from value_invest.golden.models import THREE_WAY
 
 
-def cohen_kappa(a: list[str], b: list[str]) -> float | None:
+def cohen_kappa(a: Sequence[str], b: Sequence[str]) -> float | None:
     if len(a) != len(b) or not a:
         return None
     n = len(a)
@@ -19,7 +21,7 @@ def cohen_kappa(a: list[str], b: list[str]) -> float | None:
     return round((po - pe) / (1 - pe), 4)
 
 
-def kappa_report(pairs: list[tuple[str, str]]) -> dict:
+def kappa_report(pairs: list[tuple[str, str]]) -> dict[str, Any]:
     """``pairs`` are (extractor stance_detail, critic stance_detail)."""
     six_a = [p[0] for p in pairs]
     six_b = [p[1] for p in pairs]
