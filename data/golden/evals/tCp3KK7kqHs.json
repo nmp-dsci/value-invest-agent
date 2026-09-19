@@ -116,12 +116,12 @@
      "line_items": [
       "Free Cash Flow"
      ],
-     "value_stated": 1000000000.0,
+     "value_stated": 1.0,
      "value_as_of": -1497960000.0,
      "agrees": false,
      "formula": "Free Cash Flow FY2019",
      "as_of_period": "FY2019",
-     "gap_note": "he says 1e+09, as-of -1.49796e+09 (FY2019); annual vs TTM or a different definition"
+     "gap_note": "he says 1, as-of -1.49796e+09 (FY2019); annual vs TTM or a different definition"
     }
    },
    {

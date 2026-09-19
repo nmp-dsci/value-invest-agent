@@ -254,7 +254,7 @@
    "notes": "ok"
   },
   "checks": {
-   "price_check": true,
+   "price_check": false,
    "price_at_t0": 333.7099914550781,
    "latest_fy_visible": 2025,
    "reproducible_share": 0.2,

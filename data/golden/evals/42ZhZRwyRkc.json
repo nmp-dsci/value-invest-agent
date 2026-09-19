@@ -91,7 +91,6 @@
    "within_band": false,
    "n_compared": 2,
    "n_ok": 1,
-   "expected_return_at_price": 100.0,
    "base_metric": {
     "name": "net_income",
     "stated": 45000000000.0,
@@ -274,7 +273,7 @@
    "iv_ok": 1,
    "iv_within_band": false,
    "base_metric_gap_pct": -32.8,
-   "expected_return_at_price": 100.0,
+   "expected_return_at_price": null,
    "quote_scores": [
     1.0,
     1.0,

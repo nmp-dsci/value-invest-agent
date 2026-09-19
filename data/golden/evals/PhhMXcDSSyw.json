@@ -90,6 +90,7 @@
    "n_compared": 0,
    "n_ok": 0,
    "iv_weighted_model": 28.51,
+   "iv_weighted_ok": false,
    "base_metric": {
     "name": "dps",
     "stated": 2.6,

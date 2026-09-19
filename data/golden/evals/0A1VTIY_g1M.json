@@ -58,8 +58,7 @@
    ],
    "within_band": false,
    "n_compared": 1,
-   "n_ok": 0,
-   "expected_return_at_price": 100.0
+   "n_ok": 0
   },
   "price_at_t0": 45.04999923706055,
   "reasons": [
@@ -243,7 +242,7 @@
    "iv_ok": 0,
    "iv_within_band": false,
    "base_metric_gap_pct": null,
-   "expected_return_at_price": 100.0,
+   "expected_return_at_price": null,
    "quote_scores": [
     1.0,
     1.0,

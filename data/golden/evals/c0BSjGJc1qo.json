@@ -104,7 +104,7 @@
       "Shares Outstanding"
      ],
      "value_stated": 179000000000.0,
-     "value_as_of": 179225999450.6836,
+     "value_as_of": 177334169456.48193,
      "agrees": true,
      "formula": "close \u00d7 shares",
      "as_of_period": "FY2022",
