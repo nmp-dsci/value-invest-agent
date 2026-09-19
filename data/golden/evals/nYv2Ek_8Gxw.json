@@ -1,0 +1,342 @@
+{
+ "key": "nYv2Ek_8Gxw:73fe1029b976:v2:a33445f38391",
+ "eval": {
+  "video_id": "nYv2Ek_8Gxw",
+  "ticker": "FMC",
+  "t0": "2023-12-17",
+  "title": "FMC Stock is a Stock To Buy!",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 12.0,
+   "horizon_years": null,
+   "conviction": "low",
+   "headline_quote": "from the risk and reward perspective this looks like uh by when that Returns the EIT returns it could be a 2X over the long term"
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 500.0,
+    "quote": "on average they are making 500 million per year that should then grow over time"
+   },
+   "discount_rate": null,
+   "payout_ratio": 0.4,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.05,
+     "g_y6_10": null,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "the stock and the business has collapsed in 2023 as a result of global inventory destocking at around 50 the company trades around its intrinsic value 5% growth 5 years 10% margin 40% profit distributions 1% BuyBacks 15 terminal multiple"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 10.0,
+     "probability": null,
+     "iv_stated": 15.0,
+     "quote": "so 1 Point 5 billion ibita compared to the current market cap of 7 billion these companies often go for 10 times iita so the potential for this company is to be at 15 billion so that's a 2X from where we are plus the dividend"
+    }
+   ],
+   "iv_weighted_stated": 15.0,
+   "price_mentioned": 7.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 6272.43,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 15.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "expected_return_at_price": 100.0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 500.0,
+    "as_of": 0.737,
+    "period": "FY2022",
+    "gap_pct": 67788.7
+   }
+  },
+  "price_at_t0": 59.5099983215332,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The market cap of 7 billion is well below the 15 billion the business could be worth once the targeted 1.5 billion EBITDA is reached at a typical 10x multiple, implying a roughly 2x return.",
+    "quote": "so 1 Point 5 billion ibita compared to the current market cap of 7 billion these companies often go for 10 times iita so the potential for this company is to be at 15 billion so that's a 2X from where we are plus the dividend",
+    "chunk_id": "chunk:nYv2Ek_8Gxw:4",
+    "start_s": 326.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "target EBITDA",
+      "value": 1.5,
+      "unit": "usd_bn",
+      "period": "2026"
+     },
+     {
+      "name": "EBITDA multiple",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 7.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 10.0,
+     "value_as_of": 10.24268473692482,
+     "agrees": true,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": "not in our data: target EBITDA"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "cyclicality",
+    "claim": "The 2023 collapse is a temporary destocking-driven headwind against a structurally positive long-term demand trend for crop protection, so the drop is a buying opportunity rather than a permanent impairment.",
+    "quote": "this might be a situation when we have a temporary headwinds creating a long-term buying opportunity for us investors",
+    "chunk_id": "chunk:nYv2Ek_8Gxw:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "historic crop protection demand growth",
+      "value": 3.0,
+      "unit": "pct",
+      "period": "40 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.03,
+     "value_as_of": 0.019298245614034926,
+     "agrees": true,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2022",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Falling EBITDA pushed leverage against debt covenants, a real risk though management secured an amendment to give room.",
+    "quote": "we have financial leverage problem as their iita went down their covenants got broken but they have had a deal they have made an amendment to the credit agreement",
+    "chunk_id": "chunk:nYv2Ek_8Gxw:5",
+    "start_s": 409.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "covenant leverage limit",
+      "value": 6.5,
+      "unit": "ratio",
+      "period": "through June 2024"
+     },
+     {
+      "name": "covenant leverage limit",
+      "value": 3.75,
+      "unit": "ratio",
+      "period": "thereafter"
+     },
+     {
+      "name": "total debt",
+      "value": 3.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt"
+     ],
+     "value_stated": 6.5,
+     "value_as_of": 3274000000.0,
+     "agrees": false,
+     "formula": "Total Debt FY2022",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 6.5, as-of 3.274e+09 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "A well-covered, growing dividend plus buybacks make FMC an attractive income and capital-return story alongside the growth case.",
+    "quote": "so if they can keep that 300 million for dividends that's a 4% so this is also an interesting dividend investment",
+    "chunk_id": "chunk:nYv2Ek_8Gxw:6",
+    "start_s": 490.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "dividend budget",
+      "value": 300.0,
+      "unit": "usd_mn",
+      "period": "year"
+     },
+     {
+      "name": "dividend yield",
+      "value": 4.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "buybacks",
+      "value": 181.0,
+      "unit": "usd_mn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding"
+     ],
+     "value_stated": 300.0,
+     "value_as_of": 2.138104715560776,
+     "agrees": false,
+     "formula": "|Cash Dividends Paid| / shares",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 300, as-of 2.1381 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "competence",
+    "claim": "Despite the attractive setup he will not personally cover or invest in FMC because agrochemicals are outside what he enjoys following.",
+    "quote": "herbicides insecticides is not really a thing I'm a fan of",
+    "chunk_id": "chunk:nYv2Ek_8Gxw:9",
+    "start_s": 758.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Company cut 2023 guidance while raising 2026 guidance",
+   "Investor day target of 1.5 billion EBITDA by 2024-2026 with high return on invested capital",
+   "Credit agreement amendment setting leverage covenants of 6.5x through June 2024 and 3.75x thereafter",
+   "1999/2019 spin-off of Livent, now worth about 3 billion in market cap",
+   "FMC named one of America's most responsible companies"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok \u2014 he calls it a good business at fair price with ~12% return and 'could be a good buy', but personally passes; watchlist/diversified-portfolio candidate fits fair_hold."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 59.5099983215332,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 3,
+    "external": 0,
+    "judgement": 1
+   },
+   "metrics_compared": 4,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": 67788.7,
+   "expected_return_at_price": 100.0,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "1bbd793b-d8f6-4ee4-9201-48c83ae3b49a",
+   "transcript_sha256": "73fe1029b97644d04bc54651a734c09bfa154d28d47ea8773b1b3e46e6a6eb72",
+   "extracted_at": "2026-09-19T12:58:58+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "007032ec-abbd-44ea-90b7-cb6cb33ea18a"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.08318479999999999,
+   "session_id": "1bbd793b-d8f6-4ee4-9201-48c83ae3b49a",
+   "input_tokens": 7963,
+   "output_tokens": 6082
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.075968,
+   "session_id": "007032ec-abbd-44ea-90b7-cb6cb33ea18a",
+   "input_tokens": 6567,
+   "output_tokens": 474
+  }
+ }
+}

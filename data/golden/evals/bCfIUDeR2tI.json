@@ -1,0 +1,310 @@
+{
+ "key": "bCfIUDeR2tI:10cf26909ef4:v2:a33445f38391",
+ "eval": {
+  "video_id": "bCfIUDeR2tI",
+  "ticker": "BRK-B",
+  "t0": "2020-11-09",
+  "title": "Buffett Stock To Buy = Berkshire - Q3 Earnings Report & Buyback Impact",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "HOLD",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "so the answer whether berkshire is a buy or not it is about you not about whether the stock will go up or down"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 30000000000.0,
+    "quote": "you compare this cash flows earnings of 30 billion per year you compare it to the stock price of 500 billion"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.02,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "30 billion divided by 500 billion is 6 that is what you can expect from investing in berkshire now perhaps two percent growth inflation reinvesting we are at eight percent"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": 500000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 221.5,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Free cash flow of about 30 billion against a 500 billion market cap gives a 6% yield, plus ~2% growth, for roughly 8% expected return.",
+    "quote": "30 billion divided by 500 billion is 6 that is what you can expect from investing in berkshire now perhaps two percent growth inflation reinvesting we are at eight percent",
+    "chunk_id": "chunk:bCfIUDeR2tI:5",
+    "start_s": 425.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "operating cash flow",
+      "value": 30.0,
+      "unit": "usd_bn",
+      "period": "9 months annualized"
+     },
+     {
+      "name": "market cap",
+      "value": 500.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "cash flow yield",
+      "value": 6.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "expected return",
+      "value": 8.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": 30000000000.0,
+     "value_as_of": 38687000000.0,
+     "agrees": false,
+     "formula": "Operating Cash Flow FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 3e+10, as-of 3.8687e+10 (FY2019); annual vs TTM or a different definition; not in our data: market cap, cash flow yield, expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Buffett's large and accelerating buybacks (9.3 billion in Q3, plus 2.3 billion in October) confirm he believes Berkshire is undervalued.",
+    "quote": "warren buffett spent 9.3 billion on buybacks which is almost double what we he spent in q2 and much more than what he usually spent on berkshire buybacks",
+    "chunk_id": "chunk:bCfIUDeR2tI:1",
+    "start_s": 72.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "Q3 buybacks",
+      "value": 9.3,
+      "unit": "usd_bn",
+      "period": "Q3 2020"
+     },
+     {
+      "name": "October buybacks",
+      "value": 2.3,
+      "unit": "usd_bn",
+      "period": "October 2020"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 2300000000.0,
+     "value_as_of": -4850000000.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 2.3e+09, as-of -4.85e+09 (FY2019); annual vs TTM or a different definition; not in our data: Q3 buybacks"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "sentiment",
+    "claim": "Because Berkshire's shares are heavily held by long-term index funds and Buffett himself, the stock is inelastic to supply, so large buybacks push the price higher.",
+    "quote": "because berkshire is heavily owned by funds mutual funds just vanguard blackrock and others own 20 20 something percent of berkshire other funds plus warren buffett owns 30 something so berkshire is a very inelastic stock",
+    "chunk_id": "chunk:bCfIUDeR2tI:3",
+    "start_s": 249.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "fund ownership",
+      "value": 20.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "Buffett ownership",
+      "value": 30.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: fund ownership, Buffett ownership"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Operating profits are still strong despite the covid recession and should rise further once the economy recovers.",
+    "quote": "operating profits are strong and high at around 5 billion when the recession passes when there is again economic growth this will again go higher higher and higher",
+    "chunk_id": "chunk:bCfIUDeR2tI:4",
+    "start_s": 344.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "operating profit",
+      "value": 5.0,
+      "unit": "usd_bn",
+      "period": "quarterly"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 5000000000.0,
+     "value_as_of": 81417000000.0,
+     "agrees": false,
+     "formula": "Net Income FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 5e+09, as-of 8.1417e+10 (FY2019); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Buffett will slow buybacks once the stock is fairly valued, which limits further upside from that source and signals the price level to watch.",
+    "quote": "he is really pushing on buybacks and we'll see when will he stop because when he stops it will mean that berkshire is let's say fairly valued",
+    "chunk_id": "chunk:bCfIUDeR2tI:1",
+    "start_s": 72.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Q3 2020 earnings report figures (buybacks, cash flows, operating profit)",
+   "Ownership breakdown: Vanguard/BlackRock and other funds own ~20%+, Buffett owns ~30%",
+   "Upcoming 13F report (mid-November) disclosing stock purchases/sales",
+   "Reference to his separate video on the inelastic market hypothesis"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 4,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 221.5,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 4,
+    "prices": 0,
+    "derived": 0,
+    "external": 1,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    0.893,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 0.8
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "25f9f683-8cc6-4787-ae4f-e79d72699f90",
+   "transcript_sha256": "10cf26909ef4a36063fb976b56dd2d5fb11c9b2e923921c9cdabac37a325ead3",
+   "extracted_at": "2026-09-19T12:50:27+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "88355cc8-7279-413d-bc55-27358cdd9991"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.035086799999999994,
+   "session_id": "25f9f683-8cc6-4787-ae4f-e79d72699f90",
+   "input_tokens": 6734,
+   "output_tokens": 1865
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.05886799999999999,
+   "session_id": "88355cc8-7279-413d-bc55-27358cdd9991",
+   "input_tokens": 5133,
+   "output_tokens": 414
+  }
+ }
+}

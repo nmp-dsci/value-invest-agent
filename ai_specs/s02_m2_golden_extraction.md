@@ -1,6 +1,6 @@
 # Spec: S02 Milestone 2 — golden extraction + Golden Evals tab
 
-Status: ready (rev 1 — all decisions taken in review)
+Status: built (rev 2 — S4.0–S4.4 and S5 delivered 2026-09-19; results in README §M2 results and `.lavish/s03_m2-walkthrough.html`)
 Date: 2026-09-19
 Review page: `.lavish/s02_m2-golden-extraction-plan.html` (method figure, schema, pipeline, mocks, decisions)
 Branch: `m2-golden`

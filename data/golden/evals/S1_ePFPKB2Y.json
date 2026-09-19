@@ -1,0 +1,281 @@
+{
+ "key": "S1_ePFPKB2Y:cf632a4ae3e7:v2:a33445f38391",
+ "eval": {
+  "video_id": "S1_ePFPKB2Y",
+  "ticker": "GOOGL",
+  "t0": "2023-12-20",
+  "title": "Google Stock is A Buy - Cheapest of Magnificent 7!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "low",
+   "headline_quote": "which makes it something not that I'm going to put my money into but just as a fun fact it is cheaper than many of the other top S&P 500 companies"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": {
+    "name": "other",
+    "value_stated": null,
+    "quote": "the p ratio is below 30 in line with the S&P 500"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 2000000000000.0,
+     "quote": "the yield there it could go to 2 trillion which is 20% for 20 something perc up going forward not bad"
+    }
+   ],
+   "iv_weighted_stated": 2000000000000.0,
+   "price_mentioned": 1600000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 26.0,
+    "quote": "yes absolutely Google is overvalued with a p ra of 26 but relatively it is cheap"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 138.33999633789062,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Google's P/E is roughly in line with the S&P 500 yet the business is higher quality, making it relatively cheap versus peers.",
+    "quote": "the p ratio is below 30 in line with the S&P 500 but given the quality of Google Business it is let's say relatively cheap compared to other things",
+    "chunk_id": "chunk:S1_ePFPKB2Y:0",
+    "start_s": 0.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 30.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 30.0,
+     "value_as_of": 30.337718495151456,
+     "agrees": true,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "60 billion per year in buybacks is a persistent force that should push the stock higher regardless of other factors.",
+    "quote": "they are spending 60 billion per year on repurchases and just on that 60 billion spending on repurchases the stock all else equal could go higher and higher because you cannot fight 60 billion of repurchases per year",
+    "chunk_id": "chunk:S1_ePFPKB2Y:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buyback spend",
+      "value": 60.0,
+      "unit": "usd_bn",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 60000000000.0,
+     "value_as_of": -59296000000.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2022",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 6e+10, as-of -5.9296e+10 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Analyst estimates for earnings doubling in 4-5 years, aided by AI, support upside.",
+    "quote": "estimates for earnings those are expected to double over the next four five years with AI I think Google could do it",
+    "chunk_id": "chunk:S1_ePFPKB2Y:1",
+    "start_s": 81.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "earnings growth",
+      "value": 100.0,
+      "unit": "pct",
+      "period": "4-5 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 1.0,
+     "value_as_of": -0.9593582887700535,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 1, as-of -0.959358 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "balance_sheet",
+    "claim": "A huge cash pile and very little long-term debt mean bankruptcy risk is essentially off the table.",
+    "quote": "having huge amounts of cash 120 billion very little long-term that if you don't have that you cannot go bankrupt",
+    "chunk_id": "chunk:S1_ePFPKB2Y:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "cash",
+      "value": 120.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 120000000000.0,
+     "value_as_of": 21879000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2022",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 1.2e+11, as-of 2.1879e+10 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "On an absolute basis Google's P/E of 26 makes it overvalued, so a strict value investor should not look at it.",
+    "quote": "yes absolutely Google is overvalued with a p ra of 26 but relatively it is cheap so if you're an absolute investor value investor you don't look at Google",
+    "chunk_id": "chunk:S1_ePFPKB2Y:1",
+    "start_s": 81.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 26.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 26.0,
+     "value_as_of": 30.337718495151456,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 26, as-of 30.3377 (FY2022); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Analyst estimates for Google earnings doubling over the next four to five years",
+   "Gemini reportedly compared as better than GPT-4"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok \u2014 he calls it absolutely overvalued, says a value investor doesn't look at it, and explicitly won't put his money in; relative cheapness is only a 'fun fact'."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 138.33999633789062,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 1.0,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 3,
+    "external": 0,
+    "judgement": 0
+   },
+   "metrics_compared": 5,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "8f6d77f7-8802-4696-9695-868585f06e50",
+   "transcript_sha256": "cf632a4ae3e797d2c40e6fff413985bf7981a49f9a12d58253eacbd71936ed08",
+   "extracted_at": "2026-09-19T12:58:58+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "11b46b13-a648-4733-a74a-fefa0fc1601b"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0426038,
+   "session_id": "8f6d77f7-8802-4696-9695-868585f06e50",
+   "input_tokens": 5244,
+   "output_tokens": 3329
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.04165300000000001,
+   "session_id": "11b46b13-a648-4733-a74a-fefa0fc1601b",
+   "input_tokens": 3522,
+   "output_tokens": 417
+  }
+ }
+}

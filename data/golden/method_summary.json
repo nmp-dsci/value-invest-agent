@@ -1,225 +1,241 @@
 {
- "n_evals": 40,
+ "n_evals": 120,
  "position_mix": {
-  "BUY": 7,
-  "SELL": 23,
-  "HOLD": 10
+  "BUY": 22,
+  "HOLD": 29,
+  "SELL": 69
  },
  "stance_mix": {
-  "relative_buy": 7,
-  "avoid": 20,
-  "fair_hold": 10,
-  "short": 1,
-  "too_hard": 2
+  "absolute_buy": 1,
+  "fair_hold": 29,
+  "avoid": 60,
+  "relative_buy": 21,
+  "too_hard": 8,
+  "short": 1
  },
  "methods": {
-  "eps_multiple": 19,
-  "none": 10,
-  "fcf": 7,
-  "dividend": 2,
-  "net_income": 2
+  "net_income": 17,
+  "fcf": 31,
+  "none": 28,
+  "eps_multiple": 39,
+  "dividend": 5
  },
  "base_metric": {
-  "eps": 19,
-  "other": 4,
-  "fcf_per_share": 7,
-  "net_income": 3,
-  "dps": 2
+  "net_income": 20,
+  "fcf_per_share": 30,
+  "eps": 36,
+  "dps": 5,
+  "other": 16
  },
  "discount_rate": {
-  "7 %": 1,
-  "10 %": 15
+  "8 %": 1,
+  "7 %": 2,
+  "10 %": 34,
+  "12 %": 1
  },
  "growth_y1_5": {
   "normal": {
-   "n": 13,
-   "median": 0.08,
-   "min": 0.04,
+   "n": 41,
+   "median": 0.07,
+   "min": 0.0,
    "max": 0.25
   },
   "best": {
-   "n": 8,
-   "median": 0.14,
-   "min": 0.07,
+   "n": 31,
+   "median": 0.12,
+   "min": 0.04,
    "max": 0.3
   },
   "worst": {
-   "n": 9,
+   "n": 31,
    "median": 0.05,
-   "min": 0.0,
-   "max": 0.15
+   "min": -0.05,
+   "max": 0.2
   }
  },
  "terminal_multiple": {
   "normal": {
-   "n": 17,
-   "median": 15.0,
-   "min": 10.0,
-   "max": 25.0
+   "n": 46,
+   "median": 18.0,
+   "min": 2.0,
+   "max": 50.0
   },
   "worst": {
-   "n": 12,
+   "n": 29,
    "median": 12.0,
-   "min": 10.0,
-   "max": 17.0
+   "min": 2.0,
+   "max": 30.0
   },
   "best": {
-   "n": 8,
-   "median": 22.5,
-   "min": 20.0,
-   "max": 30.0
+   "n": 28,
+   "median": 25.0,
+   "min": 10.0,
+   "max": 45.0
   }
  },
  "terminal_multiple_by_growth_bucket": {
-  "5\u201310 %": {
+  "\u226520 %": {
    "n": 13,
+   "median": 25.0,
+   "min": 2.0,
+   "max": 45.0
+  },
+  "10\u201320 %": {
+   "n": 19,
+   "median": 20.0,
+   "min": 15.0,
+   "max": 50.0
+  },
+  "5\u201310 %": {
+   "n": 31,
    "median": 15.0,
    "min": 10.0,
    "max": 25.0
   },
-  "10\u201320 %": {
-   "n": 4,
-   "median": 20.0,
-   "min": 20.0,
-   "max": 20.0
-  },
   "<5 %": {
-   "n": 5,
-   "median": 12.0,
+   "n": 12,
+   "median": 12.25,
    "min": 10.0,
-   "max": 12.5
-  },
-  "\u226520 %": {
-   "n": 4,
-   "median": 20.0,
-   "min": 15.0,
-   "max": 25.0
+   "max": 20.0
   }
  },
  "scenario_probability": {
-  "normal": {
-   "n": 3,
-   "median": 0.5,
-   "min": 0.4,
-   "max": 0.7
-  },
   "best": {
-   "n": 3,
+   "n": 8,
    "median": 0.25,
    "min": 0.15,
-   "max": 0.4
+   "max": 0.75
   },
   "worst": {
-   "n": 3,
-   "median": 0.2,
+   "n": 8,
+   "median": 0.225,
    "min": 0.15,
-   "max": 0.25
+   "max": 0.3
+  },
+  "normal": {
+   "n": 7,
+   "median": 0.5,
+   "min": 0.3,
+   "max": 0.7
   }
  },
  "expected_return_by_stance": {
-  "relative_buy": {
-   "n": 5,
+  "fair_hold": {
+   "n": 21,
    "median": 10.0,
-   "min": 6.0,
-   "max": 10.0
+   "min": 5.0,
+   "max": 14.0
   },
   "avoid": {
-   "n": 10,
-   "median": 7.0,
+   "n": 20,
+   "median": 7.5,
    "min": 0.0,
-   "max": 10.0
+   "max": 12.0
   },
-  "fair_hold": {
-   "n": 6,
+  "relative_buy": {
+   "n": 13,
    "median": 10.0,
-   "min": 7.0,
-   "max": 13.0
+   "min": 5.0,
+   "max": 11.0
+  },
+  "too_hard": {
+   "n": 2,
+   "median": 15.0,
+   "min": 10.0,
+   "max": 20.0
   }
  },
  "reason_categories": {
   "for_buy": {
-   "capital_allocation": 20,
-   "valuation": 16,
-   "moat": 15,
-   "growth": 10,
-   "balance_sheet": 2,
-   "sentiment": 1,
-   "cyclicality": 1,
-   "management": 1
+   "valuation": 53,
+   "capital_allocation": 48,
+   "moat": 40,
+   "growth": 40,
+   "balance_sheet": 11,
+   "sentiment": 10,
+   "cyclicality": 6,
+   "management": 3,
+   "macro_rates": 1
   },
   "for_sell": {
-   "cyclicality": 31,
-   "valuation": 28,
-   "management": 14,
-   "capital_allocation": 14,
-   "growth": 11,
-   "moat": 10,
-   "macro_rates": 9,
-   "balance_sheet": 8,
-   "sentiment": 7,
-   "competence": 2
+   "cyclicality": 79,
+   "valuation": 71,
+   "capital_allocation": 44,
+   "moat": 34,
+   "sentiment": 34,
+   "growth": 34,
+   "balance_sheet": 28,
+   "management": 26,
+   "macro_rates": 19,
+   "competence": 16
   }
  },
  "reason_feeds": {
-  "none": 68,
-  "g_y1_5": 41,
-  "terminal": 29,
-  "probability": 24,
-  "g_y6_10": 19,
-  "base": 18,
-  "discount": 1
+  "none": 213,
+  "g_y1_5": 114,
+  "terminal": 75,
+  "probability": 68,
+  "base": 65,
+  "g_y6_10": 52,
+  "discount": 10
  },
  "reproducible_by_category": {
-  "capital_allocation": {
-   "derived": 8,
-   "statements": 18,
-   "external": 7,
-   "prices": 1
-  },
   "valuation": {
-   "derived": 29,
-   "external": 7,
-   "judgement": 4,
-   "prices": 2,
-   "statements": 2
-  },
-  "macro_rates": {
-   "external": 6,
-   "derived": 3
-  },
-  "moat": {
-   "external": 4,
-   "judgement": 18,
-   "derived": 3
-  },
-  "cyclicality": {
-   "judgement": 16,
-   "external": 5,
-   "derived": 5,
-   "statements": 5,
-   "prices": 1
-  },
-  "growth": {
-   "statements": 7,
-   "derived": 10,
-   "external": 4
+   "external": 17,
+   "derived": 74,
+   "statements": 17,
+   "prices": 7,
+   "judgement": 9
   },
   "balance_sheet": {
-   "statements": 6,
-   "external": 4
+   "statements": 30,
+   "derived": 3,
+   "external": 6
+  },
+  "capital_allocation": {
+   "statements": 50,
+   "external": 17,
+   "derived": 21,
+   "prices": 4
+  },
+  "moat": {
+   "derived": 12,
+   "external": 17,
+   "judgement": 42,
+   "prices": 3
+  },
+  "cyclicality": {
+   "external": 17,
+   "statements": 12,
+   "judgement": 36,
+   "prices": 5,
+   "derived": 15
+  },
+  "macro_rates": {
+   "external": 9,
+   "derived": 11
   },
   "sentiment": {
-   "external": 7,
-   "statements": 1
+   "external": 38,
+   "derived": 4,
+   "statements": 2
+  },
+  "growth": {
+   "statements": 27,
+   "external": 17,
+   "derived": 29,
+   "prices": 1
   },
   "management": {
-   "external": 15
+   "external": 26,
+   "derived": 2,
+   "statements": 1
   },
   "competence": {
-   "judgement": 2
+   "judgement": 16
   }
  },
- "reproducible_share": 0.505,
- "base_metric_gap_over_15pct": 9,
+ "reproducible_share": 0.552,
+ "base_metric_gap_over_15pct": 26,
  "generated_at": "2026-09-19"
 }

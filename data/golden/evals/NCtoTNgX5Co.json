@@ -1,0 +1,340 @@
+{
+ "key": "NCtoTNgX5Co:70a573712aae:v2:a33445f38391",
+ "eval": {
+  "video_id": "NCtoTNgX5Co",
+  "ticker": "ADM",
+  "t0": "2024-03-13",
+  "title": "ADM Stock Still A Buy - 30 to 50% Upside",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "I'm not adding ADM to the covered stock on my research platform yet"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 2.5,
+    "quote": "the average cycle cash flows let's say to .5 billion and compared to the market cap that is an 8% return"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 30.0,
+     "quote": "cyclicals are to be bought at 20 to 25% cash flow yield from average cycle Point yield the average cycle cash flows let's say to .5 billion and compared to the market cap that is an 8% return"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 16.0,
+     "quote": "maybe 20% is for miners 15% for ADM that's a market cap of 16 billion"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 20.0,
+     "quote": "given the quality let me be at 20 billion so let's say 30% down from the current level is around 30 or 40"
+    }
+   ],
+   "iv_weighted_stated": 20.0,
+   "price_mentioned": 52.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": 30.0,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 16.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 20.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 58.27000045776367,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At the current $30 billion market cap the normalized cash flow yield is only about 8%, well below the 20-25% he requires from cyclicals.",
+    "quote": "the average cycle cash flows let's say to .5 billion and compared to the market cap that is an 8% return",
+    "chunk_id": "chunk:NCtoTNgX5Co:5",
+    "start_s": 441.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "normalized cash flow yield",
+      "value": 8.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "average cycle cash flow",
+      "value": 2.5,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 30.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Free Cash Flow",
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 0.08,
+     "value_as_of": 0.09305480403114234,
+     "agrees": true,
+     "formula": "FCF / market cap",
+     "as_of_period": "FY2023",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "The food cycle is reverting negatively and 2025 could bring a more pessimistic market view and lower earnings.",
+    "quote": "the food cycle is reverting on the negative and therefore we will see how will 2025 look like",
+    "chunk_id": "chunk:NCtoTNgX5Co:4",
+    "start_s": 355.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "guidance EPS",
+      "value": 5.5,
+      "unit": "usd",
+      "period": "2024"
+     },
+     {
+      "name": "prior EPS",
+      "value": 7.0,
+      "unit": "usd",
+      "period": "2023"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 7.0,
+     "value_as_of": 6.43,
+     "agrees": true,
+     "formula": "Diluted EPS FY2023",
+     "as_of_period": "FY2023",
+     "gap_note": "not in our data: guidance EPS"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "A long dividend history and continued increasing buybacks despite weaker guidance support shareholder returns.",
+    "quote": "Juan Luciano discusses how they had 92 years of dividends 51 years of increased dividends",
+    "chunk_id": "chunk:NCtoTNgX5Co:2",
+    "start_s": 180.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "years of dividends",
+      "value": 92.0,
+      "unit": "years",
+      "period": null
+     },
+     {
+      "name": "years of dividend increases",
+      "value": 51.0,
+      "unit": "years",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding"
+     ],
+     "value_stated": 92.0,
+     "value_as_of": 1.7861060329067642,
+     "agrees": false,
+     "formula": "|Cash Dividends Paid| / shares",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 92, as-of 1.78611 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "He wants the market cap around $20 billion, about 30-40% below current levels, before it becomes a true value-investing buy.",
+    "quote": "let me be at 20 billion so let's say 30% down from the current level is around 30 or 40 and we have seen those levels these are the really great opportunities from a value investing standpoint",
+    "chunk_id": "chunk:NCtoTNgX5Co:6",
+    "start_s": 532.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "target market cap",
+      "value": 20.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "downside",
+      "value": 30.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: target market cap, downside"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Management's optimism about improving margins is largely aspirational since they cannot admit to buyers that prices will stay low.",
+    "quote": "we hope revers and cycle nutrition growth but it is all about Hope",
+    "chunk_id": "chunk:NCtoTNgX5Co:4",
+    "start_s": 355.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Wilmar joint venture, 25% owned, in Asia showing weakness",
+   "Goldman Sachs analyst Adam Samuelson's question on the earnings call",
+   "CEO Juan Luciano's comments on the earnings call about margins and dividends",
+   "guidance range of $5-6 EPS for 2024 versus $7-8 in prior years"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": false,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "He sees 30-50% relative upside, ~8% absolute return, quality business 'unlikely to lose money' in a portfolio, but wants ~30% lower for a true value buy and isn't covering it yet \u2014 fair_hold/watch, not avoid."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 58.27000045776367,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "6e5495c4-4f8f-4076-acb2-658d16ace51d",
+   "transcript_sha256": "70a573712aae31e850aadcdeec642e53ea6996b93ea227d95f12778efe416edb",
+   "extracted_at": "2026-09-19T12:59:41+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "6c38fb6e-fc11-4f59-823c-d2d59624ba60"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.06231779999999999,
+   "session_id": "6e5495c4-4f8f-4076-acb2-658d16ace51d",
+   "input_tokens": 6784,
+   "output_tokens": 4565
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.066073,
+   "session_id": "6c38fb6e-fc11-4f59-823c-d2d59624ba60",
+   "input_tokens": 5293,
+   "output_tokens": 632
+  }
+ }
+}

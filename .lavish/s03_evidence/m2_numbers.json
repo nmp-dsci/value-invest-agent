@@ -1,0 +1,6819 @@
+{
+ "since": "2020-09-17",
+ "until": "2026-09-17",
+ "per_year": 20,
+ "tables": {
+  "evals": 120,
+  "fiscal_years": 1228,
+  "prices": 274110,
+  "rates": 27424,
+  "statements": 85330,
+  "tickers": 189,
+  "title_labels": 1353,
+  "validations": 290,
+  "videos": 2071
+ },
+ "funnel": [
+  {
+   "year_bucket": "2020/21",
+   "videos": 152,
+   "single": 47,
+   "sampled": 20,
+   "indexed": 20
+  },
+  {
+   "year_bucket": "2021/22",
+   "videos": 167,
+   "single": 39,
+   "sampled": 20,
+   "indexed": 20
+  },
+  {
+   "year_bucket": "2022/23",
+   "videos": 170,
+   "single": 48,
+   "sampled": 20,
+   "indexed": 20
+  },
+  {
+   "year_bucket": "2023/24",
+   "videos": 172,
+   "single": 57,
+   "sampled": 20,
+   "indexed": 20
+  },
+  {
+   "year_bucket": "2024/25",
+   "videos": 270,
+   "single": 75,
+   "sampled": 20,
+   "indexed": 20
+  },
+  {
+   "year_bucket": "2025/26",
+   "videos": 381,
+   "single": 106,
+   "sampled": 20,
+   "indexed": 20
+  }
+ ],
+ "evals": [
+  {
+   "video_id": "yfRR_kk9Ask",
+   "ticker": "BRK-B",
+   "t0": "2020-09-30",
+   "title": "Berkshire Hathaway Stock UNDER valuation - A Stock To Buy",
+   "year_bucket": "2020/21",
+   "position": "BUY",
+   "stance_detail": "absolute_buy",
+   "personal_action": "holding",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 845.0,
+   "price_at_t0": 212.94000244140625,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "absolute_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "the total market valuation perspective on berkshire hathaway would be 845 billion dollars compare that to the market valuation current of 514 billion and you see a huge discrepancy",
+   "validations": {
+    "6": {
+     "excess": 0.007326804279782939,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.01771734650991319,
+     "verdict": "indeterminate"
+    },
+    "24": {
+     "excess": 0.1560181760820174,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "HKRdDA1i2UA",
+   "ticker": "FCX",
+   "t0": "2020-11-02",
+   "title": "Copper Investing Strategy & FCX Stock Analysis",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 50000000000.0,
+   "price_at_t0": 18.239999771118164,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": false,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so we can say that now compared to others freeport is fairly priced",
+   "validations": {
+    "6": {
+     "excess": 0.8509178649488023,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.708551672098324,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.5723364503157109,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "tnYcWqw_4co",
+   "ticker": "LNG",
+   "t0": "2020-11-05",
+   "title": "Stock Analysis Cheniere LNG Stock - A Bet on Asia (LNG Demand to Double)",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 14.0,
+   "iv_weighted_stated": 70.0,
+   "price_at_t0": 49.5,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.2,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "cheniere looks like a good bet on long-term us lng prices",
+   "validations": {
+    "6": {
+     "excess": 0.4190881676582179,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.828442891602098,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 2.400787468224003,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "bCfIUDeR2tI",
+   "ticker": "BRK-B",
+   "t0": "2020-11-09",
+   "title": "Buffett Stock To Buy = Berkshire - Q3 Earnings Report & Buyback Impact",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 221.5,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 0.8,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so the answer whether berkshire is a buy or not it is about you not about whether the stock will go up or down",
+   "validations": {
+    "6": {
+     "excess": 0.1321154244321625,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.04398993775865678,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.21690854101761214,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "W-qm76F-0ZE",
+   "ticker": "XOM",
+   "t0": "2020-12-02",
+   "title": "Oil Stocks Update - Exxon's (XOM) Announcements",
+   "year_bucket": "2020/21",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 39.939998626708984,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "however over the long term i've been negative on exxon expecting perhaps not a dividend cut but not a good situation and that's exactly what has happened",
+   "validations": {
+    "6": {
+     "excess": 0.41968176233558907,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.3640458472625092,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 1.893559862196836,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "Wum8OS1hUC4",
+   "ticker": "IBM",
+   "t0": "2020-12-06",
+   "title": "IBM Stock Analysis - 5.2% Dividend - Hybrid Cloud Growth, but...",
+   "year_bucket": "2020/21",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 121.60611724853516,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "i personally will not invest in ibm and really not even follow it because because it's ugly and i think i can find better",
+   "validations": {
+    "6": {
+     "excess": 0.03631734753670579,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.22228566365948743,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.24096380613337676,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "TP-DfIHLb50",
+   "ticker": "AMZN",
+   "t0": "2020-12-15",
+   "title": "How To Calculate Intrinsic Value (AMZN Stock Example + Excel Template)",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 8.0,
+   "iv_weighted_stated": 2776.0,
+   "price_at_t0": 158.25599670410156,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.75,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 1,
+   "iv_compared": 3,
+   "base_gap": 48.4,
+   "headline_quote": "we could say that if the growth rates are reached that amazon stock is closed to being fairly valued for an eight percent return",
+   "validations": {
+    "6": {
+     "excess": -0.08831063968945796,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.19608309513263245,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.5263449594179417,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "WHJEYsNsazQ",
+   "ticker": "T",
+   "t0": "2020-12-18",
+   "title": "AT&T Stock Analysis - High Dividend Makes It Undervalued But Sell When Things Look Good",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 22.2054386138916,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "as soon as it Looks good that to that is invaluable am not going to follow it Cause we have Company with their Hands of a single pageview",
+   "validations": {
+    "6": {
+     "excess": -0.11110890867703893,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.37243363919899164,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.08476311265293968,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "tCp3KK7kqHs",
+   "ticker": "NIO",
+   "t0": "2021-01-29",
+   "title": "NIO Stock Full Analysis | Bull (Tesla of China) & Bear (China) Thesis",
+   "year_bucket": "2020/21",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 5.0,
+   "iv_weighted_stated": 60.0,
+   "price_at_t0": 57.0,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 2,
+   "base_gap": null,
+   "headline_quote": "buying neo now is a very risky or we can say stupid think because of all the risks",
+   "validations": {
+    "6": {
+     "excess": -0.40884864361508144,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.8434857719819727,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.9058764634138935,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "W8uszym1Ex4",
+   "ticker": "BRK-B",
+   "t0": "2021-02-28",
+   "title": "Buffett Letter Key Takeaways + Berkshire Earnings + BRK Stock Valuation (Always A Buy)",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 8.0,
+   "iv_weighted_stated": 727.0,
+   "price_at_t0": 240.50999450683594,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -75.4,
+   "headline_quote": "so so what you can expect van workshop and great business margin of safety men het donker mindset buff het mindset en dat we like i continue to do better and everybody en that's it",
+   "validations": {
+    "6": {
+     "excess": 0.00012516695186826077,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.1732942711919947,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.19607066420869357,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "gPCKmXwfEdY",
+   "ticker": "VZ",
+   "t0": "2021-03-08",
+   "title": "Verizon Stock - A Dividend Stock To Buy (Cheaper Now Than What Buffett Paid)",
+   "year_bucket": "2020/21",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 58.0,
+   "price_at_t0": 56.790000915527344,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "you can see how the intrinsic value is slightly above the current stock price of 56 for a 10 return",
+   "validations": {
+    "6": {
+     "excess": -0.19709075997736691,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.12352857358683678,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.34393101174205065,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "bjGe6wh23Fs",
+   "ticker": "TSLA",
+   "t0": "2021-03-25",
+   "title": "Tesla Stock Serious Discussion - TESLA IS A REMARKABLE BUSINESS!!!",
+   "year_bucket": "2020/21",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 213.4633331298828,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "tesla for me is just an amazing business but a risky investment and that's it",
+   "validations": {
+    "6": {
+     "excess": 0.032235777366601326,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": 0.4012395761373817,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.15431701141122112,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "J5dbZ1fZwag",
+   "ticker": "INTC",
+   "t0": "2021-03-26",
+   "title": "Intel Stock Update - Businesses Are Dynamic And Constantly Change",
+   "year_bucket": "2020/21",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "holding",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 235000000000.0,
+   "price_at_t0": 64.87000274658203,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "absolute_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so that's why i invested in intel back in september and there is a lot to share and learn when it comes to this situation",
+   "validations": {
+    "6": {
+     "excess": -0.28187382384257886,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.33729747029389134,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.544029374770944,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "CMvfDofK0Xc",
+   "ticker": "BIDU",
+   "t0": "2021-04-06",
+   "title": "Baidu Stock Is A Buy Now | Margin Call Crash Creates Opportunity (Full Nasdaq:BIDU Analysis)",
+   "year_bucket": "2020/21",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 89000000000.0,
+   "price_at_t0": 226.5500030517578,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "absolute_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "i have bought a little bit for my large portfolio so in a 20 position portfolio i see baidu as a fit i have put a smaller position if it goes down we'll add more",
+   "validations": {
+    "6": {
+     "excess": -0.4121275593712831,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.4959814784124488,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.3981224149733309,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "NvUK53srVyU",
+   "ticker": "GOOGL",
+   "t0": "2021-04-18",
+   "title": "Google Stock Analysis - Great Business At Fair Price",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 7.0,
+   "iv_weighted_stated": 1200000000000.0,
+   "price_at_t0": 114.13749694824219,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so if it crashes 20 25 you can expect a 10 return now we are at around 7 8 from google which is still great still a great business so nothing wrong with that",
+   "validations": {
+    "6": {
+     "excess": 0.1630795798755973,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.05517424681445804,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.10723125260091604,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "GIVRZdOX6sw",
+   "ticker": "BYND",
+   "t0": "2021-06-03",
+   "title": "BYND Stock Analysis - Beyond Meat Investing Outlook (+ Valuation)",
+   "year_bucket": "2020/21",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 3.6,
+   "price_at_t0": 4291.7998046875,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": null,
+   "headline_quote": "so be very very careful when investing in this because the fundamentals are simply not there from a fundamental perspective",
+   "validations": {
+    "6": {
+     "excess": -0.6284789036431073,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.8180069067960108,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.9785327865370478,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "PbeQ_jn81tc",
+   "ticker": "BRK-B",
+   "t0": "2021-06-12",
+   "title": "I Sold My Berkshire Stock",
+   "year_bucket": "2020/21",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 322000000000.0,
+   "price_at_t0": 286.82000732421875,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 2,
+   "base_gap": 8.2,
+   "headline_quote": "unfortunately for me for an expected return of 10 berkshire on a conservative basis is 50 over valued or 100 percent over valued and should crash 50",
+   "validations": {
+    "6": {
+     "excess": -0.11170409894317901,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.08629183145624675,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.10972983758628585,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "e8AJe8wF_2Q",
+   "ticker": "JD",
+   "t0": "2021-06-27",
+   "title": "JD Stock Is A Good Stock To Buy Now + VIE & Delisting Risks Discussion",
+   "year_bucket": "2020/21",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 115.0,
+   "price_at_t0": 78.2300033569336,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 0.8,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 2,
+   "base_gap": -74.9,
+   "headline_quote": "so you are let's say fairly priced for a stock market return of 10 plus i'm not including jd logistics here huge value",
+   "validations": {
+    "6": {
+     "excess": -0.23299664867721748,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.06385770714413641,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.5783161928191296,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "Dy-jxlDToS0",
+   "ticker": "BABA",
+   "t0": "2021-07-17",
+   "title": "Alibaba Stock Analysis (40% a 10X, 50% a 5x, 10% a 1x)",
+   "year_bucket": "2020/21",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "holding",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 212.10000610351562,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.5,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "i think it's an easy 2x to 10x investment over the next decade let's say i give it a 90 chance",
+   "validations": {
+    "6": {
+     "excess": -0.46431503454082734,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.42258384897790535,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.636973746048209,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "EPRSELLPmUI",
+   "ticker": "PLTR",
+   "t0": "2021-08-19",
+   "title": "Palantir Stock Discussion & Peter Thiel Zero To One",
+   "year_bucket": "2020/21",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 24.15999984741211,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.25,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "for this is not an investment would look Deeper into",
+   "validations": {
+    "6": {
+     "excess": -0.5131507995392068,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.6211245451035994,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.4268793939642125,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "c3RYivReVrU",
+   "ticker": "AAPL",
+   "t0": "2022-02-05",
+   "title": "APPLE STOCK ANALYSIS 2022 - A BUY, SELL or HOLD FOR YOU? (Valuation & Expected Returns)",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 100.0,
+   "price_at_t0": 172.38999938964844,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 1,
+   "iv_compared": 1,
+   "base_gap": null,
+   "headline_quote": "i don't own it but it's a great business nothing wrong with it a little bit high valuation but the greatness of the business might be worth it might be worth it to pay a premium for such a good business",
+   "validations": {
+    "6": {
+     "excess": 0.033566045021992785,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.03361913220497459,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.03275786507129608,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "aqrHi5TLhYY",
+   "ticker": "PYPL",
+   "t0": "2022-02-06",
+   "title": "Paypal Stock Analysis - NOT A BARGAIN",
+   "year_bucket": "2021/22",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 70.0,
+   "price_at_t0": 126.08000183105469,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.2,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": null,
+   "headline_quote": "so i would not invest in paypal because i don't think the strength of the business is there to justify investing in that",
+   "validations": {
+    "6": {
+     "excess": -0.17231213409442359,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.2751917941363855,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.6304641273876104,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "pgveWHGLwKU",
+   "ticker": "META",
+   "t0": "2022-02-11",
+   "title": "FB Stock Analysis 2022 - Growth To VALUE !?!?!",
+   "year_bucket": "2021/22",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "holding",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 219.5500030517578,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 0.8,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -1.2,
+   "headline_quote": "it's not even close to my top five and that's why i'm not going to add facebook here because yes there is risk and reward but it hasn't improved",
+   "validations": {
+    "6": {
+     "excess": -0.1547459142206179,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.14821106551552643,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.9581970459914735,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "R-r2ynBm3nI",
+   "ticker": "AMZN",
+   "t0": "2022-02-13",
+   "title": "AMZN Stock Analysis For 2022 - Risk And Reward! (Will it get too big?)",
+   "year_bucket": "2021/22",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 6.0,
+   "iv_weighted_stated": 1.9,
+   "price_at_t0": 153.2935028076172,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": null,
+   "headline_quote": "the risk and reward simply doesn't suit me",
+   "validations": {
+    "6": {
+     "excess": -0.04044316654870017,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.3031329300758019,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.0571480908680686,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "OWC8w_VEIQ8",
+   "ticker": "GOOGL",
+   "t0": "2022-02-20",
+   "title": "Google Stock Valuation - Great Business At A Fair Price",
+   "year_bucket": "2021/22",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 3179.0,
+   "price_at_t0": 130.4029998779297,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": -0.2,
+   "headline_quote": "thus google is undervalued at current levels",
+   "validations": {
+    "6": {
+     "excess": -0.08056159998821322,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.2295796153758103,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.09804765975900298,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "kQGUcpryq5E",
+   "ticker": "BRK-B",
+   "t0": "2022-02-26",
+   "title": "Berkshire 2022 Stock Valuation (Earnings, Buffett's Letter, Outlook)",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 7.0,
+   "iv_weighted_stated": 211.0,
+   "price_at_t0": 319.239990234375,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 1,
+   "iv_compared": 1,
+   "base_gap": -61.7,
+   "headline_quote": "you could expect this to double over the next decade so seven six seven percent long-term return which is nothing bad of course",
+   "validations": {
+    "6": {
+     "excess": -0.024500014104762324,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.03214018802409602,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.08911282626577055,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "HfXSUwsD9n0",
+   "ticker": "INTC",
+   "t0": "2022-03-13",
+   "title": "Intel Is A Stock To Buy + Research Platform Example",
+   "year_bucket": "2021/22",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 800.0,
+   "price_at_t0": 45.83000183105469,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "intel is priced for a 10 11 expected return which makes it a relatively good buy",
+   "validations": {
+    "6": {
+     "excess": -0.2762745862402787,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.3181002954715626,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.2238083883064137,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "I20PUELJA9Q",
+   "ticker": "NFLX",
+   "t0": "2022-04-21",
+   "title": "Netflix Crashes On Bad Guidance And Bill Ackman SOLD (Discussing the situation)",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 140.0,
+   "price_at_t0": 21.82200050354004,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 2,
+   "base_gap": null,
+   "headline_quote": "netflix is now giving likely a 10 return on investment for the long term",
+   "validations": {
+    "6": {
+     "excess": 0.3876520694187613,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.5460693181399638,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 1.37734396648585,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "A9SQ5uzHGeI",
+   "ticker": "NFLX",
+   "t0": "2022-04-21",
+   "title": "Bill Ackman Sells Netflix - MY TAKE",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 21.82200050354004,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.2,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "the opportunity of a good business at a good price might be there but also you don't have to rush anywhere you have the time to learn to get to that high degree of certainty and to buy if it fits you",
+   "validations": {
+    "6": {
+     "excess": 0.3876520694187613,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.5460693181399638,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 1.37734396648585,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "Vr778FwXMkU",
+   "ticker": "ADBE",
+   "t0": "2022-05-24",
+   "title": "Adobe Stock Down 41% - A Buy Now? (Stock Valuation With Template)",
+   "year_bucket": "2021/22",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 238.0,
+   "price_at_t0": 398.4100036621094,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": 39.7,
+   "headline_quote": "for me definitely this is still too risky",
+   "validations": {
+    "6": {
+     "excess": -0.19333116151271912,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.1433002365533005,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.1644872879723811,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "zKbMChedCSg",
+   "ticker": "DIS",
+   "t0": "2022-05-30",
+   "title": "If Disney Pushes Margins Back To 18% It Can Really Boom!",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 136.0,
+   "price_at_t0": 109.31999969482422,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": null,
+   "headline_quote": "at the current price the lower you buy it of course it's better for now it looks like a good business at an okay price",
+   "validations": {
+    "6": {
+     "excess": -0.08613407303933729,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.22566148481689408,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.3812358474410734,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "0A1VTIY_g1M",
+   "ticker": "CSCO",
+   "t0": "2022-05-31",
+   "title": "CSCO Stock Analysis - Back To Value Again (Risk And Reward)",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 12.0,
+   "iv_weighted_stated": 198000000000.0,
+   "price_at_t0": 45.04999923706055,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": null,
+   "headline_quote": "cisco is let's say fairly priced for a return but there are better and i own what i think from a conservative valuation is still better",
+   "validations": {
+    "6": {
+     "excess": 0.12616928721402498,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.11122280340230217,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.21396849214931613,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "Ac3U1IFHOoI",
+   "ticker": "BBY",
+   "t0": "2022-06-05",
+   "title": "Best Buy Stock Analysis - Is It Really The BEST BUY NOW?",
+   "year_bucket": "2021/22",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 18000000000.0,
+   "price_at_t0": 80.38999938964844,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": null,
+   "headline_quote": "i personally think there is better no matter the valuation ... i don't like it i will not dig deeper or follow it",
+   "validations": {
+    "6": {
+     "excess": 0.10431211872248769,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.10831251000850373,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.12436616322775329,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "sSBEIF1kQkE",
+   "ticker": "WBD",
+   "t0": "2022-06-28",
+   "title": "AT&T Dividend Holders Dumping WBD Stock Make It A Strong Buy (added to YT portfolio)",
+   "year_bucket": "2021/22",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 80.0,
+   "price_at_t0": 13.65999984741211,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "that is what makes this a spin-off buy from a value perspective but you have to keep in mind also the risk",
+   "validations": {
+    "6": {
+     "excess": -0.33501080690256657,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.25373464005240787,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.9411372899862861,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "vpcDpYjfWoc",
+   "ticker": "TSLA",
+   "t0": "2022-07-07",
+   "title": "Am I Making a Huge Mistake With Tesla?",
+   "year_bucket": "2021/22",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 244.5433349609375,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "i really want to see tesla succeed but i'm not investing in it",
+   "validations": {
+    "6": {
+     "excess": -0.5325899806790869,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.023602962004109607,
+     "verdict": "indeterminate"
+    },
+    "24": {
+     "excess": -0.4408705512851554,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "rgZ5IwNM4PY",
+   "ticker": "NEM",
+   "t0": "2022-07-18",
+   "title": "Newmont Stock Analysis And Portfolio Addition (Watch The Strategy)",
+   "year_bucket": "2021/22",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 5.0,
+   "iv_weighted_stated": 20000000000.0,
+   "price_at_t0": 54.810001373291016,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so 15 000 buy now transmit and we have to see whether the order is filled there we go order filled at 55.18",
+   "validations": {
+    "6": {
+     "excess": -0.035701637855045876,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.35062324115873633,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.5500662184552302,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "kUyvv7CSXA0",
+   "ticker": "INMD",
+   "t0": "2022-07-20",
+   "title": "INMODE STOCK HAS IT ALL!!!!",
+   "year_bucket": "2021/22",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 29.540000915527344,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "this is not a value investment this is nothing even close to what i do even if the fundamentals look good but reward me as a shareholder and then we can talk about good fundamentals",
+   "validations": {
+    "6": {
+     "excess": 0.1740020673349103,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.3676899435107497,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.8342875596621643,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "toZesfTSfx4",
+   "ticker": "ADM",
+   "t0": "2022-08-16",
+   "title": "ADM Q2 2022 Earnings Update - No Clouds In The Sky!!!!",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 43.0,
+   "price_at_t0": 86.58000183105469,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -7.7,
+   "headline_quote": "still offering an average 10 return discount rate expected return for the investment so nothing bad there so i'll just keep it in the portfolio at current levels",
+   "validations": {
+    "6": {
+     "excess": -0.014893487253367366,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.07067671266405695,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.615518341867343,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "LusYRR-0QvI",
+   "ticker": "META",
+   "t0": "2022-08-19",
+   "title": "Zuck Won't Tell Us That Time Spent Is Declining",
+   "year_bucket": "2021/22",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 153.0,
+   "price_at_t0": 167.9600067138672,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 1,
+   "iv_compared": 1,
+   "base_gap": -11.4,
+   "headline_quote": "that was the risk and reward still looks okay still a hold for me",
+   "validations": {
+    "6": {
+     "excess": 0.05613049732288855,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.6355110488262707,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 1.793401177316264,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "Oqw7IRMVqSY",
+   "ticker": "NEM",
+   "t0": "2022-09-12",
+   "title": "Newmont Stock Down 25% - Adding To The YT Portfolio (GOLD ALL-WEATHER STRATEGY)",
+   "year_bucket": "2021/22",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 43.95000076293945,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "now it is time to add to the position because when it falls that was the strategy as already explained if it falls more i'll add more",
+   "validations": {
+    "6": {
+     "excess": 0.10275566945609704,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.18223079278613863,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.15192252333975098,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "MsIkq0gh9xs",
+   "ticker": "AAPL",
+   "t0": "2022-09-20",
+   "title": "Apple is a GREAT BUSINESS at a ???? PRICE!!! (Adding to YT Portfolio)",
+   "year_bucket": "2022/23",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 8.4,
+   "iv_weighted_stated": 130.0,
+   "price_at_t0": 156.89999389648438,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 1,
+   "iv_compared": 1,
+   "base_gap": 8.7,
+   "headline_quote": "well I will buy just a little bit because of the valuation and of the risks and if a great business like apple declines like it did today for uh five percent which is insane but if it declines more I will just keep adding more till we get a full position over time",
+   "validations": {
+    "6": {
+     "excess": -0.028930312713902895,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.03488333984205583,
+     "verdict": "indeterminate"
+    },
+    "24": {
+     "excess": -0.05085731893336454,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "M3Qj7pS2fnA",
+   "ticker": "GOOGL",
+   "t0": "2022-09-25",
+   "title": "Google Stock Is The BEST Business / At What Price It Fits Your Portfolio?",
+   "year_bucket": "2022/23",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 199.0,
+   "price_at_t0": 98.73999786376953,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 1,
+   "iv_compared": 2,
+   "base_gap": -95.3,
+   "headline_quote": "I'll take this opportunity to buy Google for the YouTube portfolio because of the PE ratio of the quality of the business I'm going to start with the full position",
+   "validations": {
+    "6": {
+     "excess": -0.0167612065105176,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": 0.13464058786081434,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.04925392602389311,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "x6kQ90GL3SI",
+   "ticker": "EBAY",
+   "t0": "2022-10-02",
+   "title": "Ebay Stock Quick Take (Turnaround)",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 36.810001373291016,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 0.8,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -80.5,
+   "headline_quote": "eBay is not even a contender here because I want businesses that have something of an educational purpose",
+   "validations": {
+    "6": {
+     "excess": 0.06251891430160361,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.005693265583735618,
+     "verdict": "indeterminate"
+    },
+    "24": {
+     "excess": 0.22851329871973625,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "olF27VxbH2c",
+   "ticker": "KSS",
+   "t0": "2022-10-02",
+   "title": "KSS Stock - Quick Take - Cheap Retail",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 25.149999618530273,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -36.7,
+   "headline_quote": "it is not a contender for my YouTube portfolio because as we discussed with eBay as was discussed with Cole there is not that positive line of future that will give value",
+   "validations": {
+    "6": {
+     "excess": -0.18237419217159934,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.32456867533499834,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.6620523778021993,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "LAvR5pqutag",
+   "ticker": "HPQ",
+   "t0": "2022-10-02",
+   "title": "HPQ Stock Quick Take - Will the business grow?",
+   "year_bucket": "2022/23",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 24.920000076293945,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -25.0,
+   "headline_quote": "hpq is definitely a contender because what I like about businesses I like that buying them at a fair cheap price but I also like that that in 10 years the business is likely to going to be bigger and better which gives me less risk a margin of safety and I'm looking forward to following hpq",
+   "validations": {
+    "6": {
+     "excess": 0.04375221580132127,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.147357266122635,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.1429130585300391,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "XCzSziAJqEU",
+   "ticker": "ADBE",
+   "t0": "2022-10-03",
+   "title": "ADBE Stock Quick Take - Another 20% down!",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 285.239990234375,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -0.2,
+   "headline_quote": "therefore also I will not add the Dolby to our YouTube portfolio because it's simply too risky",
+   "validations": {
+    "6": {
+     "excess": 0.20210058171795087,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.6094839652780044,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.17586248504019442,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "bkks1qVA4fE",
+   "ticker": "KALU",
+   "t0": "2022-10-03",
+   "title": "Kaiser Aluminum KALU Getting Interesting Due To Temporary Issues",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 66.62000274658203,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -1071.8,
+   "headline_quote": "these Industrials are simply not my passion because the risks are there the upside is there likely stable and then depending on the economy so nothing where I can have an edge on other analysts well covered all here so it's simply not for me",
+   "validations": {
+    "6": {
+     "excess": 0.014131750863244141,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.0720647145984743,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.4217226820512403,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "f8FVBfZiEUA",
+   "ticker": "V",
+   "t0": "2022-10-04",
+   "title": "VISA Stock Quick Take!",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 185.64999389648438,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so if I look at my YouTube portfolio Visa is not a candidate because I prefer Google at 18 with similar growth projections ahead then Visa at 27.",
+   "validations": {
+    "6": {
+     "excess": 0.14110037188558233,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.11426988615621769,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.03143473331650881,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "a0oZKrV7rN8",
+   "ticker": "SWK",
+   "t0": "2022-10-05",
+   "title": "SWK Stock Quick Take - Good Industrial! (Stanley Black & Decker)",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 60.0,
+   "price_at_t0": 82.30000305175781,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -40.9,
+   "headline_quote": "so it's not a stock that I'm going to follow long term",
+   "validations": {
+    "6": {
+     "excess": -0.16761825107056005,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.16518037427867138,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.15973255862076252,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "acarEBE7_-s",
+   "ticker": "VZ",
+   "t0": "2022-10-06",
+   "title": "Verizon is Still Verizon - Dividend Approaching 7% !!!",
+   "year_bucket": "2022/23",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 37.84000015258789,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "it is a strong Contender for the YouTube portfolio and I'll put it alongside hpq and Disney for now on the contender list",
+   "validations": {
+    "6": {
+     "excess": -0.028393654901762266,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.2939275928327224,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.26430418112309795,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "fMJbiAX_67Y",
+   "ticker": "AMZN",
+   "t0": "2022-11-08",
+   "title": "Amazon Stock Is Another Better & Better Buy (Risk & Reward Valuation)",
+   "year_bucket": "2022/23",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 89.9800033569336,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 64.8,
+   "headline_quote": "I think that it is a medium short term but low long-term risk if you invest in Amazon now",
+   "validations": {
+    "6": {
+     "excess": 0.10013298990280162,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.4163648412996923,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.7292580442885779,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "lUSBBozs7bA",
+   "ticker": "TSLA",
+   "t0": "2022-11-23",
+   "title": "I'm Going Short Tesla",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "short",
+   "personal_action": "short",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 183.1999969482422,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "short",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so I'm going short",
+   "validations": {
+    "6": {
+     "excess": -0.03178998670335165,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": 0.1299296423752654,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.4010100627657207,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "a1aelPNt0qk",
+   "ticker": "BRK-B",
+   "t0": "2023-01-07",
+   "title": "Berkshire Stock Valuation 2023 - A Financial Fortress Made To Compound!",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 6.0,
+   "iv_weighted_stated": 351000000000.0,
+   "price_at_t0": 318.69000244140625,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 1,
+   "iv_compared": 2,
+   "base_gap": -59.9,
+   "headline_quote": "which means I would not invest in Berkshire now",
+   "validations": {
+    "6": {
+     "excess": -0.06888536929657474,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.07689128464823414,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.1609558606450434,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "Pn6ujD2oIVc",
+   "ticker": "GOOG",
+   "t0": "2023-02-24",
+   "title": "Google Is A Better Business Than Retailer Amazon",
+   "year_bucket": "2022/23",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 89.3499984741211,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "of course I also consider Google a little bit overvalued wait for buying but I'm just saying that it might be better by down the road",
+   "validations": {
+    "6": {
+     "excess": 0.3443296052925584,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.3253840876596008,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.4832732404321025,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "slZUUVqnbEE",
+   "ticker": "MU",
+   "t0": "2023-03-03",
+   "title": "Micron Stock Analysis - Good, but not great yet!",
+   "year_bucket": "2022/23",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 56.779998779296875,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "in my opinion it's not a great buy it's a good one",
+   "validations": {
+    "6": {
+     "excess": 0.11983549987548625,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.39925682579484123,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.15597557939161466,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "qUOLQtBFaGo",
+   "ticker": "MBUU",
+   "t0": "2023-03-26",
+   "title": "Malibu Boats Stock Analysis",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 54.099998474121094,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.2,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "no point in making the valuation of something that we can not know what happens to margin and revenues if hits the fan",
+   "validations": {
+    "6": {
+     "excess": -0.22026547820614384,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.58119771719669,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.9488304967417868,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "c0BSjGJc1qo",
+   "ticker": "DIS",
+   "t0": "2023-04-22",
+   "title": "I don't think Bog Iger Can Swing His Mickey Mouse And Turn Disney....",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 99.56999969482422,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 154.4,
+   "headline_quote": "therefore it doesn't even fit our portfolio because I need a clear positive risk and reward something undervalued to even take a position",
+   "validations": {
+    "6": {
+     "excess": -0.19915374010490305,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.08400790528104962,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.4267768790025007,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "lw4oorrNbwc",
+   "ticker": "TSN",
+   "t0": "2023-07-03",
+   "title": "Tyson Foods Stock Analysis 2023",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "none",
+   "expected_return_pct": 20.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 51.810001373291016,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "too_hard",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -7.4,
+   "headline_quote": "I personally am not going to look deeper here because even if it might be a good investment it's just a sector that I now don't have the will nor the time not nor am I attracted to learn all the mechanics of it",
+   "validations": {
+    "6": {
+     "excess": -0.021469010104289366,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.10825136125058932,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.24642388082983668,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "Y9XzG_VH0kw",
+   "ticker": "INTC",
+   "t0": "2023-09-07",
+   "title": "Intel Stock Discussion End 2023",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 38.18000030517578,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.2,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "too many maybes to make this a long-term hold for people investing into it",
+   "validations": {
+    "6": {
+     "excess": 0.05022041913575026,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.7286555685084652,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.8415252082146093,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "dzJFXhTmuro",
+   "ticker": "DG",
+   "t0": "2023-09-14",
+   "title": "Dollar General Stock Looks More Like An Opportunity, but is Always Retail",
+   "year_bucket": "2022/23",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 20.0,
+   "price_at_t0": 117.79000091552734,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -17.2,
+   "headline_quote": "not for me I'm not going to follow",
+   "validations": {
+    "6": {
+     "excess": 0.13455475946964568,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.5326770783934596,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.5719257154045733,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "PEnIdTq0cM0",
+   "ticker": "CPNG",
+   "t0": "2023-11-30",
+   "title": "Coupang Stock Analysis - Korea e-commerce!",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 30.0,
+   "price_at_t0": 15.279999732971191,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "in this case cang is still risky there is still room for downside but there is still room for total disaster if they can't keep margins up",
+   "validations": {
+    "6": {
+     "excess": 0.36700313440230325,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.32160959815187207,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.30688482335604417,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "nYv2Ek_8Gxw",
+   "ticker": "FMC",
+   "t0": "2023-12-17",
+   "title": "FMC Stock is a Stock To Buy!",
+   "year_bucket": "2023/24",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 12.0,
+   "iv_weighted_stated": 15.0,
+   "price_at_t0": 59.5099983215332,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 67788.7,
+   "headline_quote": "from the risk and reward perspective this looks like uh by when that Returns the EIT returns it could be a 2X over the long term",
+   "validations": {
+    "6": {
+     "excess": -0.22222620769623558,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.3994381368546549,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -1.2348092816059972,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "S1_ePFPKB2Y",
+   "ticker": "GOOGL",
+   "t0": "2023-12-20",
+   "title": "Google Stock is A Buy - Cheapest of Magnificent 7!",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 2000000000000.0,
+   "price_at_t0": 138.33999633789062,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 1.0,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "which makes it something not that I'm going to put my money into but just as a fun fact it is cheaper than many of the other top S&P 500 companies",
+   "validations": {
+    "6": {
+     "excess": 0.09212664563275674,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.10413853842909249,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.7477273579680259,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "6QCcyknY76E",
+   "ticker": "META",
+   "t0": "2023-12-21",
+   "title": "META STOCK ANALYSIS FOR 2024",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 354.0899963378906,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "in my eyes Facebook is simply meta too risky now",
+   "validations": {
+    "6": {
+     "excess": 0.2590052874714268,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.39251844034982764,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 0.398068915765186,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "Y0Bl0v4EhOw",
+   "ticker": "LYB",
+   "t0": "2024-02-09",
+   "title": "LyondellBasell NYSE: LYB Stock Analysis",
+   "year_bucket": "2023/24",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 95.4000015258789,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "a good business good price everything looks good but there is always the recession scenario here that makes the fear",
+   "validations": {
+    "6": {
+     "excess": -0.02800719172818078,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.3647036411518413,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.7409633900486162,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "TUzhCL4r2GY",
+   "ticker": "IBKR",
+   "t0": "2024-02-10",
+   "title": "IBKR STOCK IS A BUY! Great broker, better stock! (Interactive Brokers)",
+   "year_bucket": "2023/24",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 24.514999389648438,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so relative buy absolutely absolute not yet",
+   "validations": {
+    "6": {
+     "excess": 0.1218167308486755,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 1.1576549612494287,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 1.816812653599362,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "4AE_qtqsa34",
+   "ticker": "BRK-B",
+   "t0": "2024-02-25",
+   "title": "7 Lessons & 4 Warnings From Buffett's Letter And Berkshire's Earnings",
+   "year_bucket": "2023/24",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 417.2200012207031,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "absolute_buy",
+   "critic_agrees": false,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -358203013691.0,
+   "headline_quote": "however if you are are asking the question is Burkshire a value investment now and that depends on the price purchased then I would say not now",
+   "validations": {
+    "6": {
+     "excess": -0.027234349696603433,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.003579575368678256,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.20165963069165826,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "NCtoTNgX5Co",
+   "ticker": "ADM",
+   "t0": "2024-03-13",
+   "title": "ADM Stock Still A Buy - 30 to 50% Upside",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "iv_weighted_stated": 20.0,
+   "price_at_t0": 58.27000045776367,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I'm not adding ADM to the covered stock on my research platform yet",
+   "validations": {
+    "6": {
+     "excess": -0.051808501201996204,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.24083419901784942,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.011955605666668978,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "ClxBG4toY40",
+   "ticker": "SBUX",
+   "t0": "2024-03-31",
+   "title": "Is SBUX Stock A Great Business At A Fair Price Now?",
+   "year_bucket": "2023/24",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 91.38999938964844,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so Starbucks yes it is a relative buy it is an okay absolute buy it is not a value investing bargain",
+   "validations": {
+    "6": {
+     "excess": -0.019522914297418925,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": 0.017614784828464236,
+     "verdict": "indeterminate"
+    },
+    "24": {
+     "excess": -0.24054978464465715,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "dGZqmtIo4x8",
+   "ticker": "AMZN",
+   "t0": "2024-04-07",
+   "title": "AMZN To Effectively Manage Dilution ???",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 185.07000732421875,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "now is Amazon a relative buy no at a p ratio of 60 with the delution yes they're growing 10% but they're also diluting I would say no with those numbers absolutely by",
+   "validations": {
+    "6": {
+     "excess": -0.10440729108939917,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.03828858260128509,
+     "verdict": "indeterminate"
+    },
+    "24": {
+     "excess": -0.14743952301714702,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "tTzF1KFLPjU",
+   "ticker": "HSY",
+   "t0": "2024-04-22",
+   "title": "Hershey Stock Analysis NYSE: HSY",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 186.3300018310547,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so not a relative buy it is not an absolute buy for just a 3% dividend",
+   "validations": {
+    "6": {
+     "excess": -0.17053112697880213,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.14226695137642265,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.38221657229588923,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "liCXPLuRCVM",
+   "ticker": "INTC",
+   "t0": "2024-05-03",
+   "title": "Intel Stock Is Back To Value, Again...",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 25.0,
+   "price_at_t0": 30.899999618530273,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 525.0,
+   "headline_quote": "to invest for my Diversified research platform portfolio I need an itsy bitsy bigger margin of safety I would need this to be 10% so I'm saying it here at 25",
+   "validations": {
+    "6": {
+     "excess": -0.36526025537530094,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.44832373659927227,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 1.8138012961654588,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "X0jZ9n4i4H4",
+   "ticker": "CVS",
+   "t0": "2024-05-06",
+   "title": "CVS Health Stock Looks Like A Buy - My Added Value",
+   "year_bucket": "2023/24",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 55.970001220703125,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so then you know okay I might start accumulating and have a good return over the next three to 5 years if I am patient and I know what I own",
+   "validations": {
+    "6": {
+     "excess": -0.11157457622971945,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.14249877529324362,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.2278779045570405,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "kYG9Fr30-JE",
+   "ticker": "CHTR",
+   "t0": "2024-06-11",
+   "title": "Charter Communications (NASDAQ: CHTR) Risk And Reward Analysis",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 276.8299865722656,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so 2x versus ugly versus losing everything not the value investment not a bet I will continue following",
+   "validations": {
+    "6": {
+     "excess": 0.23560095941663284,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.3099616988050755,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.9048026659580088,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "LSygQdEGILw",
+   "ticker": "ULTA",
+   "t0": "2024-06-15",
+   "title": "ULTA Stock - Great Businesses Always Climb A Wall Of Worry!",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 390.82000732421875,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I don't think it's a value investment margin of safety it's not cheap even if you would say send a p ratio of 15",
+   "validations": {
+    "6": {
+     "excess": -0.03501340789461027,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": 0.06099680450911982,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.21769710887178695,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "K1EPymWPsU0",
+   "ticker": "LULU",
+   "t0": "2024-06-20",
+   "title": "Lululemon Stock Analysis NASDAQ: LULU",
+   "year_bucket": "2023/24",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 310.7699890136719,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 14.8,
+   "headline_quote": "I think relatively speaking it is a much better buy than Nike",
+   "validations": {
+    "6": {
+     "excess": 0.12374765141359756,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.37155914154781644,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -1.0423263782221621,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "JdmDMJXvXiI",
+   "ticker": "PYPL",
+   "t0": "2024-06-22",
+   "title": "PAYPAL Stock Analysis (PYPL Stock Risk & Reward)",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 5.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 60.61000061035156,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so I would maybe there will be a high reward but there is also significant risk if they just start slowing down next quarters next year this stock is 50% down which is a huge risk so anything can happen I'm out of PayPal",
+   "validations": {
+    "6": {
+     "excess": 0.34490118022627136,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.05075285884357017,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": -0.6948316200933699,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "1N9V-TEQO-Y",
+   "ticker": "NKE",
+   "t0": "2024-07-17",
+   "title": "Is Nike Stock Crash A 2X Opportunity Like Adidas Was in 2022?",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 55000000000.0,
+   "price_at_t0": 73.06999969482422,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -1.4,
+   "headline_quote": "much better now to buy Nike to conclude but not yet a great value investing opportunity",
+   "validations": {
+    "6": {
+     "excess": -0.08925579344718759,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.12152449917319097,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": -0.7376865804545603,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "zswOV-TONy4",
+   "ticker": "WBD",
+   "t0": "2024-07-20",
+   "title": "Reward From Investment While You Wait For 2X! WBD Example Investing Hints #2",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 8.670000076293945,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I'm always watching and looking at this as a bit too risky for my taste because I'm not getting paid to own it hold it or wait",
+   "validations": {
+    "6": {
+     "excess": 0.0025175532696253278,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": 0.3131961676787063,
+     "verdict": "wrong"
+    },
+    "24": {
+     "excess": 1.5989618469706275,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "psqWIzrygUA",
+   "ticker": "AAPL",
+   "t0": "2024-08-31",
+   "title": "Value Investing Is Hard In This Crazy Market (Buffett Lost Big On Apple)",
+   "year_bucket": "2023/24",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 110.0,
+   "price_at_t0": 229.0,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "train",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so the key question with value investing is can I lose with Apple stock NOW Warren Buffett said yes you can",
+   "validations": {
+    "6": {
+     "excess": -0.0025063485964631482,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.14017836640849524,
+     "verdict": "correct"
+    },
+    "24": {
+     "excess": 0.002194522585695191,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "t1hzmQIIta4",
+   "ticker": "MSFT",
+   "t0": "2024-10-17",
+   "title": "Microsoft Too Risky From Value Investing Perspective",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 2000000000000.0,
+   "price_at_t0": 416.7200012207031,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 1.0,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I think that here even a little bit changing from Buffett a bird in the hand is much more worth than two Microsoft birds in the bush five years down the road",
+   "validations": {
+    "6": {
+     "excess": -0.02361305525584767,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": 0.08693905436313587,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "_XAH6C8PW8c",
+   "ticker": "TSLA",
+   "t0": "2024-11-02",
+   "title": "TESLA Stock UP On New Promises",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 100000000000.0,
+   "price_at_t0": 248.97999572753906,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "short",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -33.3,
+   "headline_quote": "it is very risky because it's based on a promise and it's very expensive on the current capacity cash value creation so simply Tesla is not something to follow on this value investing Channel",
+   "validations": {
+    "6": {
+     "excess": 0.15470546439188504,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.6247832479827609,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "aQ2K4w18ezU",
+   "ticker": "MCD",
+   "t0": "2024-11-17",
+   "title": "McDonald's Are Always Full (MCD Stock Up)",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 5.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 292.6300048828125,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "the key is the price to earnings ratio we are now at 26 in case it reverts to normal prices like 1 then you are 50% down",
+   "validations": {
+    "6": {
+     "excess": 0.08075262885754864,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": -0.0840084240109995,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "JC5Kd2IN0LM",
+   "ticker": "DG",
+   "t0": "2024-11-19",
+   "title": "Dollar General Stock A Buy Now Below Long Term Trend (DG Stock)",
+   "year_bucket": "2024/25",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "watching",
+   "expected_return_pct": 11.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 76.5,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 0.8,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "Dollar General stock looks like a strong relative buy at the moment",
+   "validations": {
+    "6": {
+     "excess": 0.3443778123167629,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.19988997566494748,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "XundJttz6Zc",
+   "ticker": "GOOGL",
+   "t0": "2024-12-08",
+   "title": "Google Stock Update - Key Risk is HuuuuAIuuuge!",
+   "year_bucket": "2024/25",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 5.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 174.7100067138672,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": false,
+   "reproducible_share": 0.2,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "for now for Value investors watch it as I say always watch it before it becomes too late",
+   "validations": {
+    "6": {
+     "excess": 0.004361400182861019,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.6663426751747239,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "BAYrXDYBIng",
+   "ticker": "XOM",
+   "t0": "2025-01-07",
+   "title": "I've watched this Exxon (NYSE:XOM) movie already...",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 108.75,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I'm sorry I'm not buying it because as I said oil prices higher benefited for exons Last 5 Years and current cash printing situation",
+   "validations": {
+    "6": {
+     "excess": 0.009006424916000677,
+     "verdict": "indeterminate"
+    },
+    "12": {
+     "excess": -0.055705399442627535,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "PhhMXcDSSyw",
+   "ticker": "VZ",
+   "t0": "2025-01-20",
+   "title": "Verizon Stock (VZ) Intrinsic Value",
+   "year_bucket": "2024/25",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 38.35,
+   "price_at_t0": 38.779998779296875,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 1.0,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -0.9,
+   "headline_quote": "fairly priced at the moment for a 10% return",
+   "validations": {
+    "6": {
+     "excess": 0.07278789527095864,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.07046256502423365,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "vDirkgS91VQ",
+   "ticker": "AAPL",
+   "t0": "2025-01-21",
+   "title": "Apple Stock Intrinsic Value is $105",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 0.0,
+   "iv_weighted_stated": 100.0,
+   "price_at_t0": 222.63999938964844,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 0.8,
+   "price_check": "true",
+   "iv_ok": 2,
+   "iv_compared": 2,
+   "base_gap": -1.3,
+   "headline_quote": "I don't think over the next 10 years there is a positive return for Apple shareholders",
+   "validations": {
+    "6": {
+     "excess": -0.08371547312059302,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.032537819186480244,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "5Ezze4dZcC0",
+   "ticker": "DAC",
+   "t0": "2025-01-27",
+   "title": "Danaos - A story about investing in shipping stocks!",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 77.81999969482422,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "now it looks great but simply not value investing I cannot know where will this be in 2027",
+   "validations": {
+    "6": {
+     "excess": 0.15301404722165857,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.16868042826788177,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "LrUeME3d6dw",
+   "ticker": "HSY",
+   "t0": "2025-01-29",
+   "title": "Hershey Stock Analysis - Too Much Love For Chocolate...",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 75.0,
+   "price_at_t0": 149.22999572753906,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -44.8,
+   "headline_quote": "p ratio of 22 is just too high call me when it gets to 15 on perhaps even lower earnings and a dividend yield of four five%",
+   "validations": {
+    "6": {
+     "excess": 0.22645628820752428,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.1518912898906124,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "IuZ0_IGeLT4",
+   "ticker": "CNH",
+   "t0": "2025-02-09",
+   "title": "CNH Industrial Stock Analysis - Deep Dive NYSE: CNH",
+   "year_bucket": "2024/25",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 11.0,
+   "iv_weighted_stated": 113.0,
+   "price_at_t0": 12.399999618530273,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": -34.1,
+   "headline_quote": "likely to give a 10 11% long-term return at the moment there are dividends buyback there is the food cycle food sector long-term growth",
+   "validations": {
+    "6": {
+     "excess": -0.04576371114874345,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.15241751375807988,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "vrScW0GCm10",
+   "ticker": "SPGI",
+   "t0": "2025-02-25",
+   "title": "SPGI Stock Represents A Wonderful Business...",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 504.6168518066406,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "we'll keep looking for the same businesses but as Buffett did at P ratios of 10",
+   "validations": {
+    "6": {
+     "excess": -0.05105530482536391,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.3782143286133207,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "2Fpz6GopAUA",
+   "ticker": "IBKR",
+   "t0": "2025-03-18",
+   "title": "Interactive Brokers Stock & Broker Analysis",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 100.0,
+   "price_at_t0": 43.17250061035156,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 1.0,
+   "headline_quote": "this is really too bubbly for me but if it comes slower to 100 and then I know that earnings will go from 4 to seven and then likely nine in the future then that is something that I look",
+   "validations": {
+    "6": {
+     "excess": 0.26782701911276274,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.40079986078494545,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "R4KPiRkbukU",
+   "ticker": "OXY",
+   "t0": "2025-03-29",
+   "title": "Buffett Keeps Buying Occidental Stock + Oil Price Outlook!",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "iv_weighted_stated": 51.0,
+   "price_at_t0": 48.83000183105469,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 1.0,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "it has not yet triggered the okay now we can start with a position",
+   "validations": {
+    "6": {
+     "excess": -0.2150855205943556,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": 0.21244475586813394,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "wa9Y4Mi2UVI",
+   "ticker": "TROW",
+   "t0": "2025-04-02",
+   "title": "TROW Stock Cheap, But T Rowe Price Has Deteriorating Business Model",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 93.9000015258789,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "To me that is too risky despite the 10% let's say free cash flow yield gained from an exuberant market last year.",
+   "validations": {
+    "6": {
+     "excess": -0.08661190744622416,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.16294825421086623,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "4HPITYUfSA4",
+   "ticker": "UNH",
+   "t0": "2025-05-15",
+   "title": "My Take on UNH Stock Crash = Too Hard Pile",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 274.3500061035156,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "too_hard",
+   "critic_agrees": true,
+   "reproducible_share": 0.0,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "United Health Insurance usually goes to the two hard pile for me.",
+   "validations": {
+    "6": {
+     "excess": 0.08364015066958697,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.20985057833986032,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "I6zQdECj3-g",
+   "ticker": "ALB",
+   "t0": "2025-05-30",
+   "title": "Lithium Stocks Look Ugly = Time to BUY? Albemarle stock analysis.",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 55.7599983215332,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "too_hard",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "That's a risk that simply puts lithium out of the value investing question and that's it.",
+   "validations": {
+    "6": {
+     "excess": 1.1930435165950626,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 1.9212473104134222,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "--TKtCkK2YE",
+   "ticker": "VALE",
+   "t0": "2025-06-11",
+   "title": "Vale Stock Analysis 2025 (Iron ore supply & demand outlook)",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 9.609999656677246,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "So val yes it is cheaper but still not cheap enough for an absolute value investment purchase.",
+   "validations": {
+    "6": {
+     "excess": 0.2484566628451368,
+     "verdict": "wrong"
+    },
+    "12": {
+     "excess": 0.5001313031158954,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "vPLeDPRLmD4",
+   "ticker": "KHC",
+   "t0": "2025-06-18",
+   "title": "Kraft Heinz Stock Analysis KHC Stock",
+   "year_bucket": "2024/25",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 8.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 25.68000030517578,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I just don't want to take that bet",
+   "validations": {
+    "6": {
+     "excess": -0.13678169597584044,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.31923871703414697,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "hmEWuCkqI7c",
+   "ticker": "BRK-B",
+   "t0": "2025-09-04",
+   "title": "Berkshire BRK Stock Analysis 2H 2025",
+   "year_bucket": "2024/25",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 7.0,
+   "iv_weighted_stated": 390000000000.0,
+   "price_at_t0": 506.9100036621094,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "test",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 1,
+   "iv_compared": 1,
+   "base_gap": -61.8,
+   "headline_quote": "This might be blasphemy but I don't think Birkshshire is such a great buy nor a hold at the moment. Perhaps a hold.",
+   "validations": {
+    "6": {
+     "excess": -0.0684527064808318,
+     "verdict": "correct"
+    },
+    "12": {
+     "excess": -0.2013970736049252,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "PShdBZPW_bs",
+   "ticker": "CROX",
+   "t0": "2025-09-23",
+   "title": "Crocs Stock Crash - Buy When Ugly?",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "too_hard",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 78.1500015258789,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": false,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "fashion is simply not for me. So, I will not be following it.",
+   "validations": {
+    "6": {
+     "excess": 0.03306009069664151,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "2vaFKRfSyoM",
+   "ticker": "BLK",
+   "t0": "2025-10-16",
+   "title": "Buy BlackRock Stock For a Quick 2x!",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 1171.3599853515625,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 0.8,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -0.1,
+   "headline_quote": "However, I have just this value investing thing in me that doesn't allow me to make money on that.",
+   "validations": {
+    "6": {
+     "excess": -0.1839764221430863,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "zCrY21C7DE4",
+   "ticker": "NKE",
+   "t0": "2025-11-10",
+   "title": "Nike Stock is A Strong Buy On Relative Risk Reward!",
+   "year_bucket": "2025/26",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 80.0,
+   "price_at_t0": 60.79999923706055,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -6.8,
+   "headline_quote": "that's an 80 billion bottom apart from disastrous scenarios so the downside is 10 20% maybe while the upside is 2x which makes Nike a strong risk andreward buy.",
+   "validations": {
+    "6": {
+     "excess": -0.38477353801572434,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "AhPtgB9nvxg",
+   "ticker": "DECK",
+   "t0": "2025-11-13",
+   "title": "Deckers Outdoor Stock NYSE: DECK",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 12.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 83.0999984741211,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "so nothing wrong with the company just not my cup of tea",
+   "validations": {
+    "6": {
+     "excess": 0.023219098104246827,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "8HKA0wH87lA",
+   "ticker": "CPB",
+   "t0": "2026-01-03",
+   "title": "Campbell's CPB Cash Flow Stock",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 6.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 27.709999084472656,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "that's why I think it's best to leave this to pension funds.",
+   "validations": {
+    "6": {
+     "excess": -0.21187387738984298,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "mwFnq-8E_Qw",
+   "ticker": "CALM",
+   "t0": "2026-01-07",
+   "title": "CAL-MAINE FOODS NASDAQ: CALM STOCK",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 7.0,
+   "iv_weighted_stated": 120.0,
+   "price_at_t0": 77.80999755859375,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 20391.0,
+   "headline_quote": "To follow and wait is my plan.",
+   "validations": {
+    "6": {
+     "excess": 0.021328501733565375,
+     "verdict": "indeterminate"
+    }
+   }
+  },
+  {
+   "video_id": "xaiENctxhXk",
+   "ticker": "PYPL",
+   "t0": "2026-02-05",
+   "title": "PayPal Stock A Buy On $6 Billion Of Buybacks in 2026! Stock Up 40%!",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 39.900001525878906,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 0.6,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "if there is the potential that this might be a value trap that's enough that's all you need to know as a value investment",
+   "validations": {
+    "6": {
+     "excess": 0.3675030399834813,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "i6YZPSoa81g",
+   "ticker": "MSTR",
+   "t0": "2026-02-18",
+   "title": "Don't Fall Into Wall Street's Traps! (Micro)Strategy Example!",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 125.19999694824219,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.0,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "you have to be able to read what is a trap, what is just the 2% fee and what is not",
+   "validations": {
+    "6": {
+     "excess": -0.2938924413730156,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "xJHP43izznA",
+   "ticker": "AMZN",
+   "t0": "2026-02-27",
+   "title": "Amazon A Buy as Everybody Is Buying!",
+   "year_bucket": "2025/26",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "iv_weighted_stated": 180.0,
+   "price_at_t0": 210.0,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 1,
+   "iv_compared": 1,
+   "base_gap": 0.0,
+   "headline_quote": "given the big guys buying it, it's not a bad addition to a portfolio now depending on how diversified you are",
+   "validations": {
+    "6": {
+     "excess": 0.1412363662956455,
+     "verdict": "wrong"
+    }
+   }
+  },
+  {
+   "video_id": "yj2MQQ_o_4g",
+   "ticker": "HPQ",
+   "t0": "2026-03-12",
+   "title": "HP Stock Is A Fundamental Buy! 6.5% YIELD",
+   "year_bucket": "2025/26",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "holding",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 18.950000762939453,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I am long HP in my diversified portfolio.",
+   "validations": {
+    "6": {
+     "excess": 0.6213680413331906,
+     "verdict": "correct"
+    }
+   }
+  },
+  {
+   "video_id": "jRID7jvp6KM",
+   "ticker": "PDD",
+   "t0": "2026-06-04",
+   "title": "PDD Stock Analysis - $77 Billion in Cash, $12 Profit on $120 Market Cap...",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 85.87999725341797,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "It looks good longterm but it doesn't have that quality that I would want to see in a business mode to consider it for my portfolios.",
+   "validations": {}
+  },
+  {
+   "video_id": "7GTuZZPtRhc",
+   "ticker": "MELI",
+   "t0": "2026-06-07",
+   "title": "MELI - MERCADOLIBRE STOCK ANALYSIS",
+   "year_bucket": "2025/26",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 13.0,
+   "iv_weighted_stated": 1000.0,
+   "price_at_t0": 1607.800048828125,
+   "rule_sensitive": true,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "I personally will compare it to other opportunities that I have when it comes cheaper.",
+   "validations": {}
+  },
+  {
+   "video_id": "42ZhZRwyRkc",
+   "ticker": "BRK-B",
+   "t0": "2026-06-08",
+   "title": "How Much Will You Make From Buying BRK? - Berkshire BRK Stock Analysis",
+   "year_bucket": "2025/26",
+   "position": "BUY",
+   "stance_detail": "relative_buy",
+   "personal_action": "holding",
+   "expected_return_pct": 6.0,
+   "iv_weighted_stated": 700000000000.0,
+   "price_at_t0": 487.0,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "relative_buy",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 1,
+   "iv_compared": 2,
+   "base_gap": -32.8,
+   "headline_quote": "It's even much better than the S&P 500.",
+   "validations": {}
+  },
+  {
+   "video_id": "hLYihR3u2UE",
+   "ticker": "ADBE",
+   "t0": "2026-06-18",
+   "title": "Adobe ADBE Stock - Time To Power Up Excel!!!",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 9.0,
+   "iv_weighted_stated": 175.0,
+   "price_at_t0": 195.16000366210938,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 1,
+   "base_gap": 1.8,
+   "headline_quote": "Therefore, on our quadrant, I put and I'll keep Adobe on a bet because it's too much of a bet for me.",
+   "validations": {}
+  },
+  {
+   "video_id": "rGlAwzMBqOk",
+   "ticker": "PEP",
+   "t0": "2026-06-21",
+   "title": "PepsiCo PEP Dividend Stock Analysis",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 5.0,
+   "iv_weighted_stated": 83.0,
+   "price_at_t0": 142.02000427246094,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.8,
+   "faithful_share": 1.0,
+   "price_check": "false",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 4.9,
+   "headline_quote": "So, the reward is low. The risk is relatively high compared to others.",
+   "validations": {}
+  },
+  {
+   "video_id": "5L8THbcY0Yk",
+   "ticker": "NVDA",
+   "t0": "2026-06-26",
+   "title": "Nvidia Stock Intrinsic Value - P/E Just 30!",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": 275.0,
+   "price_at_t0": 192.52999877929688,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.4,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 2,
+   "iv_compared": 2,
+   "base_gap": 33.3,
+   "headline_quote": "Therefore, not something for the value investor.",
+   "validations": {}
+  },
+  {
+   "video_id": "QRQu4u0NY1o",
+   "ticker": "AAPL",
+   "t0": "2026-07-02",
+   "title": "Apple Stock is Very Risky",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 308.6300048828125,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "short",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": 10.7,
+   "headline_quote": "Therefore, no value now in Apple.",
+   "validations": {}
+  },
+  {
+   "video_id": "J2ZqFVpMb5M",
+   "ticker": "CPRT",
+   "t0": "2026-07-24",
+   "title": "CPRT Copart Stock - Stock Crash Makes it a Better Buy!",
+   "year_bucket": "2025/26",
+   "position": "HOLD",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "iv_weighted_stated": 27.0,
+   "price_at_t0": 27.940000534057617,
+   "rule_sensitive": true,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "fair_hold",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 1,
+   "iv_compared": 3,
+   "base_gap": 1.3,
+   "headline_quote": "It is again fairly priced for a 10% return.",
+   "validations": {}
+  },
+  {
+   "video_id": "yAtpMMC3aiw",
+   "ticker": "GOOGL",
+   "t0": "2026-07-28",
+   "title": "Capex, D&A, $707 Billion in Commitments Make Google a Very RISKY Stock to Buy!",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 5.0,
+   "iv_weighted_stated": null,
+   "price_at_t0": 333.7099914550781,
+   "rule_sensitive": false,
+   "title_says_buy": true,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.2,
+   "faithful_share": 1.0,
+   "price_check": "true",
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": -16.7,
+   "headline_quote": "Google doesn't offer margin of safety. It is very risky for the low return.",
+   "validations": {}
+  },
+  {
+   "video_id": "ktY0IrrdSM8",
+   "ticker": "ORCL",
+   "t0": "2026-08-04",
+   "title": "Oracle Stock Can Give You A 5X!",
+   "year_bucket": "2025/26",
+   "position": "SELL",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "iv_weighted_stated": null,
+   "price_at_t0": 145.74000549316406,
+   "rule_sensitive": false,
+   "title_says_buy": false,
+   "split": "holdout",
+   "curation_status": "auto",
+   "extractor_version": "v2",
+   "critic_stance": "avoid",
+   "critic_agrees": true,
+   "reproducible_share": 0.6,
+   "faithful_share": 1.0,
+   "price_check": null,
+   "iv_ok": 0,
+   "iv_compared": 0,
+   "base_gap": null,
+   "headline_quote": "And then Oracle is just a gamble like most of the market. Therefore, I would not touch it.",
+   "validations": {}
+  }
+ ],
+ "reasons": [
+  {
+   "category": "valuation",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 41
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_sell",
+   "reproducible": "judgement",
+   "n": 34
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "derived",
+   "n": 33
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 29
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 26
+  },
+  {
+   "category": "moat",
+   "direction": "for_sell",
+   "reproducible": "judgement",
+   "n": 25
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 24
+  },
+  {
+   "category": "management",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 23
+  },
+  {
+   "category": "balance_sheet",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 19
+  },
+  {
+   "category": "growth",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 18
+  },
+  {
+   "category": "growth",
+   "direction": "for_buy",
+   "reproducible": "derived",
+   "n": 17
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "judgement",
+   "n": 17
+  },
+  {
+   "category": "competence",
+   "direction": "for_sell",
+   "reproducible": "judgement",
+   "n": 16
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 16
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_buy",
+   "reproducible": "derived",
+   "n": 15
+  },
+  {
+   "category": "growth",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 13
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 13
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 12
+  },
+  {
+   "category": "growth",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 12
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 12
+  },
+  {
+   "category": "macro_rates",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 11
+  },
+  {
+   "category": "valuation",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 11
+  },
+  {
+   "category": "valuation",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 11
+  },
+  {
+   "category": "balance_sheet",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 11
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "derived",
+   "n": 10
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 9
+  },
+  {
+   "category": "growth",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 9
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 9
+  },
+  {
+   "category": "macro_rates",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 8
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 8
+  },
+  {
+   "category": "balance_sheet",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 6
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 6
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 6
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 6
+  },
+  {
+   "category": "moat",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 5
+  },
+  {
+   "category": "valuation",
+   "direction": "for_sell",
+   "reproducible": "judgement",
+   "n": 5
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 4
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 4
+  },
+  {
+   "category": "valuation",
+   "direction": "for_buy",
+   "reproducible": "judgement",
+   "n": 4
+  },
+  {
+   "category": "capital_allocation",
+   "direction": "for_sell",
+   "reproducible": "prices",
+   "n": 4
+  },
+  {
+   "category": "growth",
+   "direction": "for_sell",
+   "reproducible": "external",
+   "n": 4
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_sell",
+   "reproducible": "prices",
+   "n": 4
+  },
+  {
+   "category": "management",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 3
+  },
+  {
+   "category": "valuation",
+   "direction": "for_sell",
+   "reproducible": "prices",
+   "n": 3
+  },
+  {
+   "category": "balance_sheet",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 3
+  },
+  {
+   "category": "moat",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 2
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_buy",
+   "reproducible": "judgement",
+   "n": 2
+  },
+  {
+   "category": "management",
+   "direction": "for_sell",
+   "reproducible": "derived",
+   "n": 2
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_buy",
+   "reproducible": "derived",
+   "n": 2
+  },
+  {
+   "category": "moat",
+   "direction": "for_sell",
+   "reproducible": "prices",
+   "n": 2
+  },
+  {
+   "category": "macro_rates",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 1
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_buy",
+   "reproducible": "external",
+   "n": 1
+  },
+  {
+   "category": "moat",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 1
+  },
+  {
+   "category": "management",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 1
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_buy",
+   "reproducible": "statements",
+   "n": 1
+  },
+  {
+   "category": "sentiment",
+   "direction": "for_sell",
+   "reproducible": "statements",
+   "n": 1
+  },
+  {
+   "category": "growth",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 1
+  },
+  {
+   "category": "cyclicality",
+   "direction": "for_buy",
+   "reproducible": "prices",
+   "n": 1
+  }
+ ],
+ "validation": {
+  "by_year": {
+   "2025/26": {
+    "6": {
+     "n": 10,
+     "mix": {
+      "BUY": 2,
+      "HOLD": 1,
+      "SELL": 7
+     },
+     "hits": {
+      "BUY": [
+       1,
+       2
+      ],
+      "HOLD": [
+       0,
+       1
+      ],
+      "SELL": [
+       3,
+       7
+      ]
+     },
+     "mean_excess": {
+      "BUY": 11.8,
+      "HOLD": 14.1,
+      "SELL": -3.5
+     },
+     "verdict": {
+      "correct": 4,
+      "wrong": 3,
+      "indeterminate": 3
+     },
+     "verdict_hold_alt": {
+      "correct": 5,
+      "wrong": 2,
+      "indeterminate": 3
+     },
+     "iv_hit": [
+      0,
+      3
+     ]
+    }
+   },
+   "2024/25": {
+    "12": {
+     "n": 20,
+     "mix": {
+      "BUY": 1,
+      "HOLD": 4,
+      "SELL": 15
+     },
+     "hits": {
+      "BUY": [
+       1,
+       1
+      ],
+      "HOLD": [
+       1,
+       4
+      ],
+      "SELL": [
+       5,
+       15
+      ]
+     },
+     "mean_excess": {
+      "BUY": 20.0,
+      "HOLD": 6.1,
+      "SELL": 21.6
+     },
+     "verdict": {
+      "correct": 7,
+      "wrong": 12,
+      "indeterminate": 1
+     },
+     "verdict_hold_alt": {
+      "correct": 7,
+      "wrong": 12,
+      "indeterminate": 1
+     },
+     "iv_hit": [
+      1,
+      9
+     ]
+    },
+    "6": {
+     "n": 20,
+     "mix": {
+      "BUY": 1,
+      "HOLD": 4,
+      "SELL": 15
+     },
+     "hits": {
+      "BUY": [
+       1,
+       1
+      ],
+      "HOLD": [
+       4,
+       4
+      ],
+      "SELL": [
+       5,
+       15
+      ]
+     },
+     "mean_excess": {
+      "BUY": 34.4,
+      "HOLD": -0.9,
+      "SELL": 12.1
+     },
+     "verdict": {
+      "correct": 10,
+      "wrong": 8,
+      "indeterminate": 2
+     },
+     "verdict_hold_alt": {
+      "correct": 9,
+      "wrong": 9,
+      "indeterminate": 2
+     },
+     "iv_hit": [
+      0,
+      9
+     ]
+    }
+   },
+   "2023/24": {
+    "24": {
+     "n": 20,
+     "mix": {
+      "BUY": 4,
+      "HOLD": 3,
+      "SELL": 13
+     },
+     "hits": {
+      "BUY": [
+       2,
+       4
+      ],
+      "HOLD": [
+       0,
+       3
+      ],
+      "SELL": [
+       6,
+       13
+      ]
+     },
+     "mean_excess": {
+      "BUY": 19.0,
+      "HOLD": -72.6,
+      "SELL": 13.8
+     },
+     "verdict": {
+      "correct": 8,
+      "wrong": 10,
+      "indeterminate": 2
+     },
+     "verdict_hold_alt": {
+      "correct": 8,
+      "wrong": 10,
+      "indeterminate": 2
+     },
+     "iv_hit": [
+      3,
+      7
+     ]
+    },
+    "12": {
+     "n": 20,
+     "mix": {
+      "BUY": 4,
+      "HOLD": 3,
+      "SELL": 13
+     },
+     "hits": {
+      "BUY": [
+       2,
+       4
+      ],
+      "HOLD": [
+       1,
+       3
+      ],
+      "SELL": [
+       5,
+       13
+      ]
+     },
+     "mean_excess": {
+      "BUY": 23.7,
+      "HOLD": -25.4,
+      "SELL": 3.2
+     },
+     "verdict": {
+      "correct": 8,
+      "wrong": 10,
+      "indeterminate": 2
+     },
+     "verdict_hold_alt": {
+      "correct": 8,
+      "wrong": 10,
+      "indeterminate": 2
+     },
+     "iv_hit": [
+      1,
+      7
+     ]
+    },
+    "6": {
+     "n": 20,
+     "mix": {
+      "BUY": 4,
+      "HOLD": 3,
+      "SELL": 13
+     },
+     "hits": {
+      "BUY": [
+       2,
+       4
+      ],
+      "HOLD": [
+       2,
+       3
+      ],
+      "SELL": [
+       5,
+       13
+      ]
+     },
+     "mean_excess": {
+      "BUY": 2.9,
+      "HOLD": -9.2,
+      "SELL": 3.7
+     },
+     "verdict": {
+      "correct": 9,
+      "wrong": 7,
+      "indeterminate": 4
+     },
+     "verdict_hold_alt": {
+      "correct": 9,
+      "wrong": 7,
+      "indeterminate": 4
+     },
+     "iv_hit": [
+      1,
+      7
+     ]
+    }
+   },
+   "2022/23": {
+    "24": {
+     "n": 20,
+     "mix": {
+      "BUY": 4,
+      "HOLD": 3,
+      "SELL": 13
+     },
+     "hits": {
+      "BUY": [
+       2,
+       4
+      ],
+      "HOLD": [
+       0,
+       3
+      ],
+      "SELL": [
+       9,
+       13
+      ]
+     },
+     "mean_excess": {
+      "BUY": 22.1,
+      "HOLD": 2.5,
+      "SELL": -28.2
+     },
+     "verdict": {
+      "correct": 11,
+      "wrong": 7,
+      "indeterminate": 2
+     },
+     "verdict_hold_alt": {
+      "correct": 12,
+      "wrong": 6,
+      "indeterminate": 2
+     },
+     "iv_hit": [
+      1,
+      5
+     ]
+    },
+    "12": {
+     "n": 20,
+     "mix": {
+      "BUY": 4,
+      "HOLD": 3,
+      "SELL": 13
+     },
+     "hits": {
+      "BUY": [
+       3,
+       4
+      ],
+      "HOLD": [
+       0,
+       3
+      ],
+      "SELL": [
+       9,
+       13
+      ]
+     },
+     "mean_excess": {
+      "BUY": 22.9,
+      "HOLD": -3.9,
+      "SELL": -14.0
+     },
+     "verdict": {
+      "correct": 12,
+      "wrong": 6,
+      "indeterminate": 2
+     },
+     "verdict_hold_alt": {
+      "correct": 13,
+      "wrong": 5,
+      "indeterminate": 2
+     },
+     "iv_hit": [
+      1,
+      5
+     ]
+    },
+    "6": {
+     "n": 20,
+     "mix": {
+      "BUY": 4,
+      "HOLD": 3,
+      "SELL": 13
+     },
+     "hits": {
+      "BUY": [
+       2,
+       4
+      ],
+      "HOLD": [
+       2,
+       3
+      ],
+      "SELL": [
+       5,
+       13
+      ]
+     },
+     "mean_excess": {
+      "BUY": 4.4,
+      "HOLD": 12.0,
+      "SELL": -2.2
+     },
+     "verdict": {
+      "correct": 9,
+      "wrong": 6,
+      "indeterminate": 5
+     },
+     "verdict_hold_alt": {
+      "correct": 10,
+      "wrong": 5,
+      "indeterminate": 5
+     },
+     "iv_hit": [
+      1,
+      5
+     ]
+    }
+   },
+   "2021/22": {
+    "24": {
+     "n": 20,
+     "mix": {
+      "BUY": 5,
+      "HOLD": 8,
+      "SELL": 7
+     },
+     "hits": {
+      "BUY": [
+       0,
+       5
+      ],
+      "HOLD": [
+       2,
+       8
+      ],
+      "SELL": [
+       6,
+       7
+      ]
+     },
+     "mean_excess": {
+      "BUY": -39.3,
+      "HOLD": 42.4,
+      "SELL": -18.5
+     },
+     "verdict": {
+      "correct": 8,
+      "wrong": 12,
+      "indeterminate": 0
+     },
+     "verdict_hold_alt": {
+      "correct": 11,
+      "wrong": 9,
+      "indeterminate": 0
+     },
+     "iv_hit": [
+      2,
+      15
+     ]
+    },
+    "12": {
+     "n": 20,
+     "mix": {
+      "BUY": 5,
+      "HOLD": 8,
+      "SELL": 7
+     },
+     "hits": {
+      "BUY": [
+       0,
+       5
+      ],
+      "HOLD": [
+       3,
+       8
+      ],
+      "SELL": [
+       5,
+       7
+      ]
+     },
+     "mean_excess": {
+      "BUY": -26.7,
+      "HOLD": 19.3,
+      "SELL": -9.1
+     },
+     "verdict": {
+      "correct": 8,
+      "wrong": 11,
+      "indeterminate": 1
+     },
+     "verdict_hold_alt": {
+      "correct": 11,
+      "wrong": 8,
+      "indeterminate": 1
+     },
+     "iv_hit": [
+      2,
+      15
+     ]
+    },
+    "6": {
+     "n": 20,
+     "mix": {
+      "BUY": 5,
+      "HOLD": 8,
+      "SELL": 7
+     },
+     "hits": {
+      "BUY": [
+       1,
+       5
+      ],
+      "HOLD": [
+       5,
+       8
+      ],
+      "SELL": [
+       4,
+       7
+      ]
+     },
+     "mean_excess": {
+      "BUY": -12.5,
+      "HOLD": 10.8,
+      "SELL": -11.6
+     },
+     "verdict": {
+      "correct": 10,
+      "wrong": 8,
+      "indeterminate": 2
+     },
+     "verdict_hold_alt": {
+      "correct": 12,
+      "wrong": 6,
+      "indeterminate": 2
+     },
+     "iv_hit": [
+      2,
+      15
+     ]
+    }
+   },
+   "2020/21": {
+    "24": {
+     "n": 20,
+     "mix": {
+      "BUY": 5,
+      "HOLD": 8,
+      "SELL": 7
+     },
+     "hits": {
+      "BUY": [
+       1,
+       5
+      ],
+      "HOLD": [
+       1,
+       8
+      ],
+      "SELL": [
+       4,
+       7
+      ]
+     },
+     "mean_excess": {
+      "BUY": -35.3,
+      "HOLD": 26.1,
+      "SELL": -3.2
+     },
+     "verdict": {
+      "correct": 6,
+      "wrong": 14,
+      "indeterminate": 0
+     },
+     "verdict_hold_alt": {
+      "correct": 9,
+      "wrong": 11,
+      "indeterminate": 0
+     },
+     "iv_hit": [
+      3,
+      13
+     ]
+    },
+    "12": {
+     "n": 20,
+     "mix": {
+      "BUY": 5,
+      "HOLD": 8,
+      "SELL": 7
+     },
+     "hits": {
+      "BUY": [
+       0,
+       5
+      ],
+      "HOLD": [
+       3,
+       8
+      ],
+      "SELL": [
+       4,
+       7
+      ]
+     },
+     "mean_excess": {
+      "BUY": -27.9,
+      "HOLD": 13.6,
+      "SELL": -23.6
+     },
+     "verdict": {
+      "correct": 7,
+      "wrong": 12,
+      "indeterminate": 1
+     },
+     "verdict_hold_alt": {
+      "correct": 9,
+      "wrong": 10,
+      "indeterminate": 1
+     },
+     "iv_hit": [
+      3,
+      13
+     ]
+    },
+    "6": {
+     "n": 20,
+     "mix": {
+      "BUY": 5,
+      "HOLD": 8,
+      "SELL": 7
+     },
+     "hits": {
+      "BUY": [
+       0,
+       5
+      ],
+      "HOLD": [
+       2,
+       8
+      ],
+      "SELL": [
+       4,
+       7
+      ]
+     },
+     "mean_excess": {
+      "BUY": -27.0,
+      "HOLD": 14.2,
+      "SELL": -16.8
+     },
+     "verdict": {
+      "correct": 6,
+      "wrong": 11,
+      "indeterminate": 3
+     },
+     "verdict_hold_alt": {
+      "correct": 9,
+      "wrong": 8,
+      "indeterminate": 3
+     },
+     "iv_hit": [
+      3,
+      13
+     ]
+    }
+   }
+  },
+  "overall": {
+   "6": {
+    "n": 110,
+    "mix": {
+     "BUY": 21,
+     "HOLD": 27,
+     "SELL": 62
+    },
+    "hits": {
+     "BUY": [
+      7,
+      21
+     ],
+     "HOLD": [
+      15,
+      27
+     ],
+     "SELL": [
+      26,
+      62
+     ]
+    },
+    "mean_excess": {
+     "BUY": -5.3,
+     "HOLD": 8.1,
+     "SELL": -0.4
+    },
+    "verdict": {
+     "correct": 48,
+     "wrong": 43,
+     "indeterminate": 19
+    },
+    "verdict_hold_alt": {
+     "correct": 54,
+     "wrong": 37,
+     "indeterminate": 19
+    },
+    "iv_hit": [
+     7,
+     52
+    ]
+   },
+   "12": {
+    "n": 100,
+    "mix": {
+     "BUY": 19,
+     "HOLD": 26,
+     "SELL": 55
+    },
+    "hits": {
+     "BUY": [
+      6,
+      19
+     ],
+     "HOLD": [
+      8,
+      26
+     ],
+     "SELL": [
+      28,
+      55
+     ]
+    },
+    "mean_excess": {
+     "BUY": -3.5,
+     "HOLD": 7.7,
+     "SELL": -0.8
+    },
+    "verdict": {
+     "correct": 42,
+     "wrong": 51,
+     "indeterminate": 7
+    },
+    "verdict_hold_alt": {
+     "correct": 48,
+     "wrong": 45,
+     "indeterminate": 7
+    },
+    "iv_hit": [
+     8,
+     49
+    ]
+   },
+   "24": {
+    "n": 80,
+    "mix": {
+     "BUY": 18,
+     "HOLD": 22,
+     "SELL": 40
+    },
+    "hits": {
+     "BUY": [
+      5,
+      18
+     ],
+     "HOLD": [
+      3,
+      22
+     ],
+     "SELL": [
+      25,
+      40
+     ]
+    },
+    "mean_excess": {
+     "BUY": -11.6,
+     "HOLD": 15.4,
+     "SELL": -8.5
+    },
+    "verdict": {
+     "correct": 33,
+     "wrong": 43,
+     "indeterminate": 4
+    },
+    "verdict_hold_alt": {
+     "correct": 40,
+     "wrong": 36,
+     "indeterminate": 4
+    },
+    "iv_hit": [
+     9,
+     40
+    ]
+   }
+  },
+  "splits": {
+   "train": 80,
+   "test": 20,
+   "holdout": 20
+  },
+  "n_evals": 120
+ },
+ "mix": [
+  {
+   "year_bucket": "2020/21",
+   "split": "train",
+   "n": 20,
+   "buy": 5,
+   "hold": 8,
+   "sell": 7,
+   "rule_sensitive": 3
+  },
+  {
+   "year_bucket": "2021/22",
+   "split": "train",
+   "n": 20,
+   "buy": 5,
+   "hold": 8,
+   "sell": 7,
+   "rule_sensitive": 9
+  },
+  {
+   "year_bucket": "2022/23",
+   "split": "train",
+   "n": 20,
+   "buy": 4,
+   "hold": 3,
+   "sell": 13,
+   "rule_sensitive": 2
+  },
+  {
+   "year_bucket": "2023/24",
+   "split": "train",
+   "n": 20,
+   "buy": 4,
+   "hold": 3,
+   "sell": 13,
+   "rule_sensitive": 2
+  },
+  {
+   "year_bucket": "2024/25",
+   "split": "test",
+   "n": 20,
+   "buy": 1,
+   "hold": 4,
+   "sell": 15,
+   "rule_sensitive": 2
+  },
+  {
+   "year_bucket": "2025/26",
+   "split": "holdout",
+   "n": 20,
+   "buy": 3,
+   "hold": 3,
+   "sell": 14,
+   "rule_sensitive": 6
+  }
+ ],
+ "tickers": [
+  {
+   "filers": 98,
+   "non_filers": 86,
+   "unchecked": 5
+  }
+ ],
+ "seed_eval_v0": {
+  "version": "v0",
+  "n_seed": 37,
+  "n_scored": 36,
+  "n_full": 17,
+  "position_accuracy_full": 0.765,
+  "stance_accuracy_full": 0.765,
+  "position_accuracy_all": 0.778,
+  "stance_accuracy_all": 0.778,
+  "balanced_full": {
+   "per_class": {
+    "BUY": {
+     "n": 2,
+     "recall": 1.0
+    },
+    "HOLD": {
+     "n": 5,
+     "recall": 0.8
+    },
+    "SELL": {
+     "n": 10,
+     "recall": 0.7
+    }
+   },
+   "balanced_accuracy": 0.833
+  },
+  "balanced_all": {
+   "per_class": {
+    "BUY": {
+     "n": 9,
+     "recall": 0.778
+    },
+    "HOLD": {
+     "n": 7,
+     "recall": 0.714
+    },
+    "SELL": {
+     "n": 20,
+     "recall": 0.8
+    }
+   },
+   "balanced_accuracy": 0.764
+  },
+  "reason_recall": 0.746,
+  "faithful_share_mean": 0.989,
+  "disagreements": [
+   {
+    "video_id": "f8FVBfZiEUA",
+    "ticker": "V",
+    "read": "full",
+    "seed_stance": "fair_hold",
+    "eval_stance": "avoid",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "qUOLQtBFaGo",
+    "ticker": "MBUU",
+    "read": "end",
+    "seed_stance": "fair_hold",
+    "eval_stance": "too_hard",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "4AE_qtqsa34",
+    "ticker": "BRK-B",
+    "read": "end",
+    "seed_stance": "absolute_buy",
+    "eval_stance": "fair_hold",
+    "seed_position": "BUY",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "aQ2K4w18ezU",
+    "ticker": "MCD",
+    "read": "full",
+    "seed_stance": "avoid",
+    "eval_stance": "fair_hold",
+    "seed_position": "SELL",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 3,
+    "reasons_matched": 2,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "IuZ0_IGeLT4",
+    "ticker": "CNH",
+    "read": "end",
+    "seed_stance": "relative_buy",
+    "eval_stance": "fair_hold",
+    "seed_position": "BUY",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": 113.0,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "R4KPiRkbukU",
+    "ticker": "OXY",
+    "read": "end",
+    "seed_stance": "avoid",
+    "eval_stance": "fair_hold",
+    "seed_position": "SELL",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "hmEWuCkqI7c",
+    "ticker": "BRK-B",
+    "read": "full",
+    "seed_stance": "avoid",
+    "eval_stance": "fair_hold",
+    "seed_position": "SELL",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 4,
+    "reasons_matched": 2,
+    "iv_stated_seed": 390,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "2vaFKRfSyoM",
+    "ticker": "BLK",
+    "read": "full",
+    "seed_stance": "avoid",
+    "eval_stance": "absolute_buy",
+    "seed_position": "SELL",
+    "eval_position": "BUY",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 4,
+    "reasons_matched": 2,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   }
+  ]
+ },
+ "seed_eval_v1": {
+  "version": "v1",
+  "n_seed": 37,
+  "n_scored": 36,
+  "n_full": 17,
+  "position_accuracy_full": 0.824,
+  "stance_accuracy_full": 0.824,
+  "position_accuracy_all": 0.806,
+  "stance_accuracy_all": 0.806,
+  "balanced_full": {
+   "per_class": {
+    "BUY": {
+     "n": 2,
+     "recall": 1.0
+    },
+    "HOLD": {
+     "n": 5,
+     "recall": 0.4
+    },
+    "SELL": {
+     "n": 10,
+     "recall": 1.0
+    }
+   },
+   "balanced_accuracy": 0.8
+  },
+  "balanced_all": {
+   "per_class": {
+    "BUY": {
+     "n": 9,
+     "recall": 0.778
+    },
+    "HOLD": {
+     "n": 7,
+     "recall": 0.286
+    },
+    "SELL": {
+     "n": 20,
+     "recall": 1.0
+    }
+   },
+   "balanced_accuracy": 0.688
+  },
+  "reason_recall": 0.73,
+  "faithful_share_mean": 0.989,
+  "disagreements": [
+   {
+    "video_id": "M3Qj7pS2fnA",
+    "ticker": "GOOGL",
+    "read": "end",
+    "seed_stance": "relative_buy",
+    "eval_stance": "fair_hold",
+    "seed_position": "BUY",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": 199.0,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "f8FVBfZiEUA",
+    "ticker": "V",
+    "read": "full",
+    "seed_stance": "fair_hold",
+    "eval_stance": "avoid",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "Pn6ujD2oIVc",
+    "ticker": "GOOG",
+    "read": "end",
+    "seed_stance": "fair_hold",
+    "eval_stance": "avoid",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "qUOLQtBFaGo",
+    "ticker": "MBUU",
+    "read": "end",
+    "seed_stance": "fair_hold",
+    "eval_stance": "too_hard",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 0.8
+   },
+   {
+    "video_id": "PhhMXcDSSyw",
+    "ticker": "VZ",
+    "read": "full",
+    "seed_stance": "fair_hold",
+    "eval_stance": "relative_buy",
+    "seed_position": "HOLD",
+    "eval_position": "BUY",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 5,
+    "reasons_matched": 3,
+    "iv_stated_seed": 38.35,
+    "iv_stated_eval": 38.35,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "IuZ0_IGeLT4",
+    "ticker": "CNH",
+    "read": "end",
+    "seed_stance": "relative_buy",
+    "eval_stance": "fair_hold",
+    "seed_position": "BUY",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": 113.0,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "xJHP43izznA",
+    "ticker": "AMZN",
+    "read": "full",
+    "seed_stance": "fair_hold",
+    "eval_stance": "avoid",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 4,
+    "reasons_matched": 2,
+    "iv_stated_seed": 180,
+    "iv_stated_eval": 180.0,
+    "faithful_share": 1.0
+   }
+  ]
+ },
+ "seed_eval_v2": {
+  "version": "v2",
+  "n_seed": 37,
+  "n_scored": 36,
+  "n_full": 17,
+  "position_accuracy_full": 0.882,
+  "stance_accuracy_full": 0.882,
+  "position_accuracy_all": 0.861,
+  "stance_accuracy_all": 0.861,
+  "balanced_full": {
+   "per_class": {
+    "BUY": {
+     "n": 2,
+     "recall": 1.0
+    },
+    "HOLD": {
+     "n": 5,
+     "recall": 0.8
+    },
+    "SELL": {
+     "n": 10,
+     "recall": 0.9
+    }
+   },
+   "balanced_accuracy": 0.9
+  },
+  "balanced_all": {
+   "per_class": {
+    "BUY": {
+     "n": 9,
+     "recall": 0.778
+    },
+    "HOLD": {
+     "n": 7,
+     "recall": 0.714
+    },
+    "SELL": {
+     "n": 20,
+     "recall": 0.95
+    }
+   },
+   "balanced_accuracy": 0.814
+  },
+  "reason_recall": 0.714,
+  "faithful_share_mean": 0.989,
+  "disagreements": [
+   {
+    "video_id": "f8FVBfZiEUA",
+    "ticker": "V",
+    "read": "full",
+    "seed_stance": "fair_hold",
+    "eval_stance": "avoid",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "qUOLQtBFaGo",
+    "ticker": "MBUU",
+    "read": "end",
+    "seed_stance": "fair_hold",
+    "eval_stance": "too_hard",
+    "seed_position": "HOLD",
+    "eval_position": "SELL",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "4AE_qtqsa34",
+    "ticker": "BRK-B",
+    "read": "end",
+    "seed_stance": "absolute_buy",
+    "eval_stance": "fair_hold",
+    "seed_position": "BUY",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": null,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "IuZ0_IGeLT4",
+    "ticker": "CNH",
+    "read": "end",
+    "seed_stance": "relative_buy",
+    "eval_stance": "fair_hold",
+    "seed_position": "BUY",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 0,
+    "reasons_matched": 0,
+    "iv_stated_seed": null,
+    "iv_stated_eval": 113.0,
+    "faithful_share": 1.0
+   },
+   {
+    "video_id": "hmEWuCkqI7c",
+    "ticker": "BRK-B",
+    "read": "full",
+    "seed_stance": "avoid",
+    "eval_stance": "fair_hold",
+    "seed_position": "SELL",
+    "eval_position": "HOLD",
+    "position_ok": false,
+    "stance_ok": false,
+    "seed_reasons": 4,
+    "reasons_matched": 2,
+    "iv_stated_seed": 390,
+    "iv_stated_eval": 390000000000.0,
+    "faithful_share": 1.0
+   }
+  ]
+ },
+ "kappa": {
+  "n": 120,
+  "kappa_6way": 0.7358,
+  "kappa_3way": 0.8033,
+  "agreement_6way": 0.825,
+  "agreement_3way": 0.883,
+  "disagreements": [
+   {
+    "extractor": "fair_hold",
+    "critic": "avoid"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "relative_buy",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "too_hard",
+    "critic": "avoid"
+   },
+   {
+    "extractor": "relative_buy",
+    "critic": "absolute_buy"
+   },
+   {
+    "extractor": "relative_buy",
+    "critic": "absolute_buy"
+   },
+   {
+    "extractor": "too_hard",
+    "critic": "avoid"
+   },
+   {
+    "extractor": "relative_buy",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "too_hard",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "too_hard",
+    "critic": "avoid"
+   },
+   {
+    "extractor": "fair_hold",
+    "critic": "absolute_buy"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "relative_buy",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "short"
+   },
+   {
+    "extractor": "fair_hold",
+    "critic": "avoid"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "too_hard",
+    "critic": "fair_hold"
+   },
+   {
+    "extractor": "avoid",
+    "critic": "short"
+   }
+  ]
+ },
+ "method_summary": {
+  "n_evals": 120,
+  "position_mix": {
+   "BUY": 22,
+   "HOLD": 29,
+   "SELL": 69
+  },
+  "stance_mix": {
+   "absolute_buy": 1,
+   "fair_hold": 29,
+   "avoid": 60,
+   "relative_buy": 21,
+   "too_hard": 8,
+   "short": 1
+  },
+  "methods": {
+   "net_income": 17,
+   "fcf": 31,
+   "none": 28,
+   "eps_multiple": 39,
+   "dividend": 5
+  },
+  "base_metric": {
+   "net_income": 20,
+   "fcf_per_share": 30,
+   "eps": 36,
+   "dps": 5,
+   "other": 16
+  },
+  "discount_rate": {
+   "8 %": 1,
+   "7 %": 2,
+   "10 %": 34,
+   "12 %": 1
+  },
+  "growth_y1_5": {
+   "normal": {
+    "n": 41,
+    "median": 0.07,
+    "min": 0.0,
+    "max": 0.25
+   },
+   "best": {
+    "n": 31,
+    "median": 0.12,
+    "min": 0.04,
+    "max": 0.3
+   },
+   "worst": {
+    "n": 31,
+    "median": 0.05,
+    "min": -0.05,
+    "max": 0.2
+   }
+  },
+  "terminal_multiple": {
+   "normal": {
+    "n": 46,
+    "median": 18.0,
+    "min": 2.0,
+    "max": 50.0
+   },
+   "worst": {
+    "n": 29,
+    "median": 12.0,
+    "min": 2.0,
+    "max": 30.0
+   },
+   "best": {
+    "n": 28,
+    "median": 25.0,
+    "min": 10.0,
+    "max": 45.0
+   }
+  },
+  "terminal_multiple_by_growth_bucket": {
+   "\u226520 %": {
+    "n": 13,
+    "median": 25.0,
+    "min": 2.0,
+    "max": 45.0
+   },
+   "10\u201320 %": {
+    "n": 19,
+    "median": 20.0,
+    "min": 15.0,
+    "max": 50.0
+   },
+   "5\u201310 %": {
+    "n": 31,
+    "median": 15.0,
+    "min": 10.0,
+    "max": 25.0
+   },
+   "<5 %": {
+    "n": 12,
+    "median": 12.25,
+    "min": 10.0,
+    "max": 20.0
+   }
+  },
+  "scenario_probability": {
+   "best": {
+    "n": 8,
+    "median": 0.25,
+    "min": 0.15,
+    "max": 0.75
+   },
+   "worst": {
+    "n": 8,
+    "median": 0.225,
+    "min": 0.15,
+    "max": 0.3
+   },
+   "normal": {
+    "n": 7,
+    "median": 0.5,
+    "min": 0.3,
+    "max": 0.7
+   }
+  },
+  "expected_return_by_stance": {
+   "fair_hold": {
+    "n": 21,
+    "median": 10.0,
+    "min": 5.0,
+    "max": 14.0
+   },
+   "avoid": {
+    "n": 20,
+    "median": 7.5,
+    "min": 0.0,
+    "max": 12.0
+   },
+   "relative_buy": {
+    "n": 13,
+    "median": 10.0,
+    "min": 5.0,
+    "max": 11.0
+   },
+   "too_hard": {
+    "n": 2,
+    "median": 15.0,
+    "min": 10.0,
+    "max": 20.0
+   }
+  },
+  "reason_categories": {
+   "for_buy": {
+    "valuation": 53,
+    "capital_allocation": 48,
+    "moat": 40,
+    "growth": 40,
+    "balance_sheet": 11,
+    "sentiment": 10,
+    "cyclicality": 6,
+    "management": 3,
+    "macro_rates": 1
+   },
+   "for_sell": {
+    "cyclicality": 79,
+    "valuation": 71,
+    "capital_allocation": 44,
+    "moat": 34,
+    "sentiment": 34,
+    "growth": 34,
+    "balance_sheet": 28,
+    "management": 26,
+    "macro_rates": 19,
+    "competence": 16
+   }
+  },
+  "reason_feeds": {
+   "none": 213,
+   "g_y1_5": 114,
+   "terminal": 75,
+   "probability": 68,
+   "base": 65,
+   "g_y6_10": 52,
+   "discount": 10
+  },
+  "reproducible_by_category": {
+   "valuation": {
+    "external": 17,
+    "derived": 74,
+    "statements": 17,
+    "prices": 7,
+    "judgement": 9
+   },
+   "balance_sheet": {
+    "statements": 30,
+    "derived": 3,
+    "external": 6
+   },
+   "capital_allocation": {
+    "statements": 50,
+    "external": 17,
+    "derived": 21,
+    "prices": 4
+   },
+   "moat": {
+    "derived": 12,
+    "external": 17,
+    "judgement": 42,
+    "prices": 3
+   },
+   "cyclicality": {
+    "external": 17,
+    "statements": 12,
+    "judgement": 36,
+    "prices": 5,
+    "derived": 15
+   },
+   "macro_rates": {
+    "external": 9,
+    "derived": 11
+   },
+   "sentiment": {
+    "external": 38,
+    "derived": 4,
+    "statements": 2
+   },
+   "growth": {
+    "statements": 27,
+    "external": 17,
+    "derived": 29,
+    "prices": 1
+   },
+   "management": {
+    "external": 26,
+    "derived": 2,
+    "statements": 1
+   },
+   "competence": {
+    "judgement": 16
+   }
+  },
+  "reproducible_share": 0.552,
+  "base_metric_gap_over_15pct": 26,
+  "generated_at": "2026-09-19"
+ },
+ "stated_ivs": {
+  "_note": "Intrinsic values the author states on camera, with the inputs he states, read from the transcripts on 2026-09-19. Used by tests/test_valuation.py and `vi valuation check`. tolerance = how precisely he stated the inputs.",
+  "cases": [
+   {
+    "video_id": "vDirkgS91VQ",
+    "ticker": "AAPL",
+    "t0": "2025-01-21",
+    "scenario": "normal",
+    "base": 6.0,
+    "g_y1_5": 0.05,
+    "g_y6_10": 0.05,
+    "terminal_multiple": 20,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.15,
+    "stated": 80,
+    "tolerance": 0.06
+   },
+   {
+    "video_id": "vDirkgS91VQ",
+    "ticker": "AAPL",
+    "t0": "2025-01-21",
+    "scenario": "best",
+    "base": 6.0,
+    "g_y1_5": 0.1,
+    "g_y6_10": 0.1,
+    "terminal_multiple": 40,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.15,
+    "stated": 228,
+    "tolerance": 0.12,
+    "quote": "then the current present value sum is okay (\u2248 price 228)"
+   },
+   {
+    "video_id": "vDirkgS91VQ",
+    "ticker": "AAPL",
+    "t0": "2025-01-21",
+    "scenario": "worst",
+    "base": 6.0,
+    "g_y1_5": 0.0,
+    "g_y6_10": 0.0,
+    "terminal_multiple": 12,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.15,
+    "stated": 34,
+    "tolerance": 0.06
+   },
+   {
+    "video_id": "PhhMXcDSSyw",
+    "ticker": "VZ",
+    "t0": "2025-01-20",
+    "scenario": "normal",
+    "base": 2.6,
+    "g_y1_5": 0.023,
+    "g_y6_10": 0.023,
+    "terminal_multiple": 15,
+    "discount_rate": 0.1,
+    "payout_ratio": 1.0,
+    "stated": 38.35,
+    "tolerance": 0.06,
+    "quote": "dividend $2.6, growth 2.3 %, terminal multiple on the dividend 100/15, 10 % discount \u2192 38.35"
+   },
+   {
+    "video_id": "5L8THbcY0Yk",
+    "ticker": "NVDA",
+    "t0": "2026-06-26",
+    "scenario": "normal",
+    "base": 6.53,
+    "g_y1_5": 0.28,
+    "g_y6_10": 0.1,
+    "terminal_multiple": 20,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.0,
+    "stated": 275,
+    "tolerance": 0.12,
+    "quote": "25 % growth\u2026 this is what is expected, perhaps 30 %; 10 % from 2031; P/E 20 \u2192 275"
+   },
+   {
+    "video_id": "5L8THbcY0Yk",
+    "ticker": "NVDA",
+    "t0": "2026-06-26",
+    "scenario": "worst",
+    "base": 6.53,
+    "g_y1_5": 0.05,
+    "g_y6_10": 0.05,
+    "terminal_multiple": 10,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.0,
+    "stated": 39,
+    "tolerance": 0.12,
+    "quote": "25 %, 25 %, then \u221215 % \u2192 5 % on average; terminal multiple 10 \u2192 39"
+   },
+   {
+    "video_id": "J2ZqFVpMb5M",
+    "ticker": "CPRT",
+    "t0": "2026-07-24",
+    "scenario": "normal",
+    "base": 1.61,
+    "g_y1_5": 0.08,
+    "g_y6_10": 0.05,
+    "terminal_multiple": 15,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.0,
+    "stated": 17,
+    "tolerance": 0.06
+   },
+   {
+    "video_id": "J2ZqFVpMb5M",
+    "ticker": "CPRT",
+    "t0": "2026-07-24",
+    "scenario": "best",
+    "base": 1.61,
+    "g_y1_5": 0.12,
+    "g_y6_10": 0.1,
+    "terminal_multiple": 25,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.0,
+    "stated": 40,
+    "tolerance": 0.12,
+    "quote": "12 % \u2026 10 % going forward, terminal multiple 20, perhaps 25 \u2192 40"
+   },
+   {
+    "video_id": "42ZhZRwyRkc",
+    "ticker": "BRK-B",
+    "t0": "2026-06-08",
+    "scenario": "normal",
+    "base": 45.0,
+    "g_y1_5": 0.06,
+    "g_y6_10": 0.06,
+    "terminal_multiple": 25,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.0,
+    "stated": 700,
+    "tolerance": 0.12,
+    "unit": "USD bn (net income model)",
+    "quote": "net income 45 billion, 6 %, 10 % discount, terminal 25 \u2192 around 700 billion"
+   },
+   {
+    "video_id": "hmEWuCkqI7c",
+    "ticker": "BRK-B",
+    "t0": "2025-09-04",
+    "scenario": "normal",
+    "base": 36.0,
+    "g_y1_5": 0.06,
+    "g_y6_10": 0.06,
+    "terminal_multiple": 15,
+    "discount_rate": 0.1,
+    "payout_ratio": 0.0,
+    "stated": 390,
+    "tolerance": 0.06,
+    "unit": "USD bn (net income model)",
+    "quote": "net income a little higher than 34 billion, 6 %, terminal 15, 10 % \u2192 390 billion"
+   }
+  ]
+ }
+}

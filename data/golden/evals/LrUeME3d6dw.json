@@ -1,0 +1,305 @@
+{
+ "key": "LrUeME3d6dw:f1d907118384:v2:a33445f38391",
+ "eval": {
+  "video_id": "LrUeME3d6dw",
+  "ticker": "HSY",
+  "t0": "2025-01-29",
+  "title": "Hershey Stock Analysis - Too Much Love For Chocolate...",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "p ratio of 22 is just too high call me when it gets to 15 on perhaps even lower earnings and a dividend yield of four five%"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 5.0,
+    "quote": "which then would lead to maybe five earnings per share p ratio 15 and and that's 75 stock price"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 75.0,
+     "quote": "which then would lead to maybe five earnings per share p ratio 15 and and that's 75 stock price so that is still a potential for 50% down here"
+    }
+   ],
+   "iv_weighted_stated": 75.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 22.0,
+    "quote": "p ratio of 22 is just too high"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 75.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 5.0,
+    "as_of": 9.06,
+    "period": "FY2023",
+    "gap_pct": -44.8
+   }
+  },
+  "price_at_t0": 149.22999572753906,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "A P/E of 22 is too high for this business and he wants a much lower multiple and higher yield before buying.",
+    "quote": "p ratio of 22 is just too high call me when it gets to 15 on perhaps even lower earnings and a dividend yield of four five%",
+    "chunk_id": "chunk:LrUeME3d6dw:3",
+    "start_s": 242.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 22.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "target pe ratio",
+      "value": 15.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "target dividend yield",
+      "value": 4.5,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 22.0,
+     "value_as_of": 16.471301956682016,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 22, as-of 16.4713 (FY2023); annual vs TTM or a different definition; not in our data: target pe ratio, target dividend yield"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Margins are still above normal after a pandemic-driven boom, so a two-year normalization could push earnings and the stock down materially.",
+    "quote": "there was this boom Global expansion growth this and that and pandemic home and buying more of that and now maybe we are just looking for a two-year return to normality for margins",
+    "chunk_id": "chunk:LrUeME3d6dw:3",
+    "start_s": 242.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Guidance has been lowered to 6% growth but recent revenue is actually declining, making the target hard to reach.",
+    "quote": "they have lowered their guidance to down mid single digits down is not 6% growth and if you go down let's say 5% you need a lot of work to catch up to the 6% growth",
+    "chunk_id": "chunk:LrUeME3d6dw:1",
+    "start_s": 71.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "long-term eps growth target",
+      "value": 6.0,
+      "unit": "pct",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: long-term eps growth target"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "The Q2 collapse in sales and EPS shows the classic Delta-of-the-Delta double whammy of falling earnings and contracting multiple.",
+    "quote": "perhaps the biggest shock was Q2 when sales decreased 16% and adjusted earnings per share decreased 36% which was insane",
+    "chunk_id": "chunk:LrUeME3d6dw:2",
+    "start_s": 156.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "sales decline",
+      "value": 16.0,
+      "unit": "pct",
+      "period": "Q2"
+     },
+     {
+      "name": "adjusted eps decline",
+      "value": 36.0,
+      "unit": "pct",
+      "period": "Q2"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.16,
+     "value_as_of": 0.07156895659149276,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 0.16, as-of 0.071569 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "The prior run-up in the stock was a sign of exuberance and it may still be above its long-term trend, and the current yield does not compensate for the risk.",
+    "quote": "3.6% yield is not enough for taking the risks that have been disclosed",
+    "chunk_id": "chunk:LrUeME3d6dw:3",
+    "start_s": 242.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "dividend yield",
+      "value": 3.6,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding",
+      "close"
+     ],
+     "value_stated": 0.036000000000000004,
+     "value_as_of": 0.029148382310077353,
+     "agrees": true,
+     "formula": "DPS / close",
+     "as_of_period": "FY2023",
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Talk of a Mondelez takeover of Hershey",
+   "Hershey charitable trust's uncertainty about what to do with its stake",
+   "Company's long-term guidance of net sales and adjusted EPS growth lowered to 6%",
+   "Company presentation showing 4% chocolate segment growth per year target and expansion into Emerging Markets"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 149.22999572753906,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 3,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": -44.8,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "32381f19-f2e2-4230-876e-491cd9a83d9b",
+   "transcript_sha256": "f1d907118384680c832a11fdfb66ea28b9a0e2c3c7a3651607d37084ee2bc13a",
+   "extracted_at": "2026-09-19T13:01:20+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "6f6af8e7-eb64-49b0-9289-3c5b9a5764a1"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0282498,
+   "session_id": "32381f19-f2e2-4230-876e-491cd9a83d9b",
+   "input_tokens": 5673,
+   "output_tokens": 1687
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.042726999999999994,
+   "session_id": "6f6af8e7-eb64-49b0-9289-3c5b9a5764a1",
+   "input_tokens": 4010,
+   "output_tokens": 250
+  }
+ }
+}

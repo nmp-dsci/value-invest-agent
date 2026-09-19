@@ -1,0 +1,268 @@
+{
+ "key": "6QCcyknY76E:bb6808bf8b74:v2:a33445f38391",
+ "eval": {
+  "video_id": "6QCcyknY76E",
+  "ticker": "META",
+  "t0": "2023-12-21",
+  "title": "META STOCK ANALYSIS FOR 2024",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "in my eyes Facebook is simply meta too risky now"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": null,
+    "quote": "now the p ratio is 31 and the market cap is 885 billion"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 344.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 31.0,
+    "quote": "now the p ratio is 31 and the market cap is 885 billion for me I told you to buy here but for me now it is simply too expensive"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 354.0899963378906,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At a P/E of 31 the stock is simply too expensive versus when it was cheap at a P/E around 10.",
+    "quote": "at the p ratio of 10 I was saying you are getting that for free that bet at a p ratio of 30 you are risking too much on a bet",
+    "chunk_id": "chunk:6QCcyknY76E:0",
+    "start_s": 0.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 31.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 885.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 31.0,
+     "value_as_of": 41.22118700091858,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 31, as-of 41.2212 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "30 billion a year poured into Reality Labs is too big a bet for shareholders to be forced to take at this valuation, especially since its revenue is shrinking not gaining traction.",
+    "quote": "they are investing 30 billion per year in the reality Labs revenue and everything and that is not gaining traction actually it's going lower and lower",
+    "chunk_id": "chunk:6QCcyknY76E:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "reality labs investment",
+      "value": 30.0,
+      "unit": "usd_bn",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: reality labs investment"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Cutting expenses to please Wall Street and push net income higher now sets up the normal Facebook cycle of a future scandal from underinvestment.",
+    "quote": "as they cut on expenses you can expect a scandal going forward and then that's the normal cycle of Facebook cutting expenses lowering Investments delaying investment in Ai and the metaverse",
+    "chunk_id": "chunk:6QCcyknY76E:1",
+    "start_s": 95.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Facebook's implausible 4 billion monthly active people figure shows the company is overstating growth to please Wall Street.",
+    "quote": "every person out there that has an internet connection is using Facebook okay double accounts but they say they have complex techniques algorithms and machine learning models",
+    "chunk_id": "chunk:6QCcyknY76E:1",
+    "start_s": 95.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "monthly active people",
+      "value": 4.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: monthly active people"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Heavy buybacks push the stock higher but 26-30 billion is not enough relative to an 800 billion market cap to justify the risk taken.",
+    "quote": "30 billion on market cap of 800 billion is significant but in my eyes Facebook is simply meta too risky now",
+    "chunk_id": "chunk:6QCcyknY76E:2",
+    "start_s": 176.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buybacks 2021",
+      "value": 50.0,
+      "unit": "usd_bn",
+      "period": "year"
+     },
+     {
+      "name": "buybacks current",
+      "value": 26.0,
+      "unit": "usd_bn",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 50000000000.0,
+     "value_as_of": -27956000000.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2022",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 5e+10, as-of -2.7956e+10 (FY2022); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "World internet population estimate (~4.8 billion) compared to Facebook's stated 4 billion monthly active people"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 354.0899963378906,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 1,
+    "external": 3,
+    "judgement": 0
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "436cd268-4168-49c9-8eea-0e5debfe271a",
+   "transcript_sha256": "bb6808bf8b7477c4b52b6cd875593325658ce9ee94d2e7393733a6df401e36f9",
+   "extracted_at": "2026-09-19T12:59:07+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "74136835-0507-4770-86dd-088e7ebc23c2"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0240738,
+   "session_id": "436cd268-4168-49c9-8eea-0e5debfe271a",
+   "input_tokens": 5240,
+   "output_tokens": 1477
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.038964,
+   "session_id": "74136835-0507-4770-86dd-088e7ebc23c2",
+   "input_tokens": 3421,
+   "output_tokens": 355
+  }
+ }
+}

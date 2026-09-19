@@ -57,7 +57,7 @@ def main() -> None:
     out["mix"] = rows(
         con,
         """SELECT v.year_bucket, e.split, count(*) n, count(*) FILTER (WHERE position='BUY') buy,
-        count(*) FILTER (WHERE position='HOLD') hold, count(*) FILTER (WHERE position='SELL') sell, count(*) FILTER (WHERE rule_sensitive) rule_sensitive
+        count(*) FILTER (WHERE position='HOLD') AS "hold", count(*) FILTER (WHERE position='SELL') sell, count(*) FILTER (WHERE rule_sensitive) rule_sensitive
         FROM vi.evals e JOIN vi.videos v USING (video_id) GROUP BY 1,2 ORDER BY 1""",
     )
     out["tickers"] = rows(

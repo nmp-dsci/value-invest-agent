@@ -1,10 +1,46 @@
 {
- "n": 40,
- "kappa_6way": 0.8488,
- "kappa_3way": 0.8738,
- "agreement_6way": 0.9,
- "agreement_3way": 0.925,
+ "n": 120,
+ "kappa_6way": 0.7358,
+ "kappa_3way": 0.8033,
+ "agreement_6way": 0.825,
+ "agreement_3way": 0.883,
  "disagreements": [
+  {
+   "extractor": "fair_hold",
+   "critic": "avoid"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "relative_buy",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "too_hard",
+   "critic": "avoid"
+  },
+  {
+   "extractor": "relative_buy",
+   "critic": "absolute_buy"
+  },
+  {
+   "extractor": "relative_buy",
+   "critic": "absolute_buy"
+  },
+  {
+   "extractor": "too_hard",
+   "critic": "avoid"
+  },
+  {
+   "extractor": "relative_buy",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "too_hard",
+   "critic": "fair_hold"
+  },
   {
    "extractor": "too_hard",
    "critic": "avoid"
@@ -20,6 +56,38 @@
   {
    "extractor": "avoid",
    "critic": "fair_hold"
+  },
+  {
+   "extractor": "relative_buy",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "short"
+  },
+  {
+   "extractor": "fair_hold",
+   "critic": "avoid"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "too_hard",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "short"
   }
  ]
 }

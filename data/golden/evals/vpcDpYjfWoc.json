@@ -1,0 +1,288 @@
+{
+ "key": "vpcDpYjfWoc:4a2de334c44a:v2:a33445f38391",
+ "eval": {
+  "video_id": "vpcDpYjfWoc",
+  "ticker": "TSLA",
+  "t0": "2022-07-07",
+  "title": "Am I Making a Huge Mistake With Tesla?",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "high",
+   "headline_quote": "i really want to see tesla succeed but i'm not investing in it"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 7000000000.0,
+    "quote": "we see the free cash flow for the trailing 12 months at 7 billion"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 700000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "this is betting that tesla will increase its current free cash flow 10 times over likely the next 10 years"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 244.5433349609375,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At 100x price-to-free-cash-flow, Tesla requires 5-6x more free cash flow to justify the valuation with certainty, which is not investing in what is already there.",
+    "quote": "price to free cash flow now is 100 yes tesla is growing extremely fast and it will likely continue to grow but from 10 billion or 7 billion to get to somewhere where a company gives certainty",
+    "chunk_id": "chunk:vpcDpYjfWoc:1",
+    "start_s": 74.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "price to free cash flow",
+      "value": 100.0,
+      "unit": "ratio",
+      "period": "trailing 12 months"
+     },
+     {
+      "name": "free cash flow",
+      "value": 7.0,
+      "unit": "usd_bn",
+      "period": "trailing 12 months"
+     },
+     {
+      "name": "market capitalization",
+      "value": 700.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Free Cash Flow"
+     ],
+     "value_stated": 100.0,
+     "value_as_of": 5015000000.0,
+     "agrees": false,
+     "formula": "Free Cash Flow FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 100, as-of 5.015e+09 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "The bull case relies on future production of Cybertruck, Tesla Semi and other unbuilt products, which is a bet rather than a certainty.",
+    "quote": "they say they will do it increase production cyber truck tesla semi roads their future products so all these factories increasing production selling already booked whatever they produce",
+    "chunk_id": "chunk:vpcDpYjfWoc:2",
+    "start_s": 147.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Bull cases assume robotaxis will make up 60% of expected value by 2026, an assumption he treats as highly uncertain speculation not yet materialized.",
+    "quote": "then they base those assumption on robot taxes that will make 60 of expected value in 2026 so that is the bet plus the growth plus everything",
+    "chunk_id": "chunk:vpcDpYjfWoc:3",
+    "start_s": 229.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "robotaxi share of expected value",
+      "value": 60.0,
+      "unit": "pct",
+      "period": "2026"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: robotaxi share of expected value"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Cathie Wood's own portfolio only allocates a small share to Tesla despite calling it a sure bet, which he finds inconsistent and undermines the bull thesis.",
+    "quote": "cathy wood portfolio i don't understand this if tesla is such a sure play why only 7.2 of the investment is in tesla",
+    "chunk_id": "chunk:vpcDpYjfWoc:3",
+    "start_s": 229.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "Cathie Wood Tesla portfolio weight",
+      "value": 7.2,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: Cathie Wood Tesla portfolio weight"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Many similarly speculative, story-driven stocks have collapsed 75-95% when their narratives failed to materialize, illustrating the risk of Tesla's bet not paying off.",
+    "quote": "teledoc down 81 so a lot of these businesses are severely severely down coinbase 80 down 75 draftkings robin hood 75",
+    "chunk_id": "chunk:vpcDpYjfWoc:3",
+    "start_s": 229.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "Teladoc decline",
+      "value": 81.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "Coinbase decline",
+      "value": 80.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "DraftKings decline",
+      "value": 75.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "Robinhood decline",
+      "value": 75.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: Teladoc decline, Coinbase decline, DraftKings decline, Robinhood decline"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Ark Invest bear case price target of $2,900 for Tesla by 2026",
+   "Cathie Wood's Ark portfolio allocation to Tesla (7.2%) and Zoom (6.2%)",
+   "Performance declines of other 'story' stocks (Teladoc, Coinbase, DraftKings, Robinhood) from their guru buy prices"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 244.5433349609375,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 0,
+    "external": 3,
+    "judgement": 0
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "ea1acf98-1aa2-4b2d-981d-ef3f587fcde2",
+   "transcript_sha256": "4a2de334c44a0902feca6f21085c7056ff6b5671f7abc20bef40bbb9e10ad7f2",
+   "extracted_at": "2026-09-19T12:56:25+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "d990eadc-2229-4d77-9f09-3cc454932202"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.032283799999999994,
+   "session_id": "ea1acf98-1aa2-4b2d-981d-ef3f587fcde2",
+   "input_tokens": 6319,
+   "output_tokens": 1785
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.04848299999999999,
+   "session_id": "d990eadc-2229-4d77-9f09-3cc454932202",
+   "input_tokens": 4567,
+   "output_tokens": 243
+  }
+ }
+}

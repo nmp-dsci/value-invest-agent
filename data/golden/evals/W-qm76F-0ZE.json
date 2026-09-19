@@ -1,0 +1,274 @@
+{
+ "key": "W-qm76F-0ZE:b3f6976c85f0:v2:a33445f38391",
+ "eval": {
+  "video_id": "W-qm76F-0ZE",
+  "ticker": "XOM",
+  "t0": "2020-12-02",
+  "title": "Oil Stocks Update - Exxon's (XOM) Announcements",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "however over the long term i've been negative on exxon expecting perhaps not a dividend cut but not a good situation and that's exactly what has happened"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 39.939998626708984,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Exxon's long-term investment case relies on $60 oil which he thinks is too high, making the fundamentals risky.",
+    "quote": "however i still think oil at 60 is a little bit too high and that's something very risky",
+    "chunk_id": "chunk:W-qm76F-0ZE:4",
+    "start_s": 303.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "assumed oil price",
+      "value": 60.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "his estimate of realistic long-term oil price",
+      "value": 50.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 60.0,
+     "value_as_of": 39.939998626708984,
+     "agrees": false,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2020-12-02",
+     "gap_note": "he says 60, as-of 39.94 (2020-12-02); annual vs TTM or a different definition; not in our data: his estimate of realistic long-term oil price"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Large impairments and a 15% workforce cut signal a company in retrenchment, cutting production capacity to preserve the dividend.",
+    "quote": "finally they do impairments of 17 to 20 billion something that they didn't do for a long time cost reduction commitment reliable dividend remains unchanged on top of everything the key of everything is of course workforce reduction of 15",
+    "chunk_id": "chunk:W-qm76F-0ZE:3",
+    "start_s": 228.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "impairments",
+      "value": 18.5,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "workforce reduction",
+      "value": 15.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "capex cut",
+      "value": 30.0,
+      "unit": "pct",
+      "period": "annually"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: impairments, workforce reduction, capex cut"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Shale assets (like Exxon's Permian holdings) have generated negative cash flow for a decade and need constant reinvestment to stay profitable, making them structurally weak.",
+    "quote": "the cash flows over the last 10 years have constantly been negative and people are still not giving up because it's always the short term bet",
+    "chunk_id": "chunk:W-qm76F-0ZE:6",
+    "start_s": 453.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "shale cash flow trend",
+      "value": null,
+      "unit": "text",
+      "period": "10 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": null,
+     "value_as_of": 29716000000.0,
+     "agrees": null,
+     "formula": "Operating Cash Flow FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "He views peers like Suncor and Shell as fundamentally better and lower risk than Exxon.",
+    "quote": "on the contrary i look when you look at the long-term fundamentals companies like suncor that we did a video exactly a month ago royal.shell how they are let's say better fundamentally just a little bit lower risk",
+    "chunk_id": "chunk:W-qm76F-0ZE:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "In the short term, if oil rebounds to 60 on production cuts, Exxon could see meaningful upside even though it is riskier long term.",
+    "quote": "but in the short term if covet is solved if they cut a little bit production we can still see 60 which still means 50 upside for even exxon or 100 or 200 for the other producers",
+    "chunk_id": "chunk:W-qm76F-0ZE:8",
+    "start_s": 600.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "potential short-term upside for Exxon",
+      "value": 50.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: potential short-term upside for Exxon"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Exxon investor-day assumptions of $60 Brent crude and $3 natural gas pre-COVID",
+   "Exxon impairments of $17-20 billion",
+   "Exxon 15% workforce reduction announcement",
+   "Exxon ~30% annual capital investment cut",
+   "OPEC production meeting dynamics",
+   "Comparison to prior videos on Suncor and Shell fundamentals"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok \u2014 long-term negative on Exxon, prefers Suncor/Shell/natural gas; short-term 50% upside is framed as speculative trade, not a recommendation."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 39.939998626708984,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 1,
+    "derived": 0,
+    "external": 3,
+    "judgement": 0
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "d78842e2-db53-4752-955c-7afafcb1d8cf",
+   "transcript_sha256": "b3f6976c85f060d17a8eb8ebc3c1a2e6fbc0c6cbfce058f169a55431a34a3894",
+   "extracted_at": "2026-09-19T12:50:50+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "0f451702-bedc-475d-bd99-4bd838d6e359"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0504138,
+   "session_id": "d78842e2-db53-4752-955c-7afafcb1d8cf",
+   "input_tokens": 7376,
+   "output_tokens": 3085
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.063716,
+   "session_id": "0f451702-bedc-475d-bd99-4bd838d6e359",
+   "input_tokens": 5592,
+   "output_tokens": 405
+  }
+ }
+}

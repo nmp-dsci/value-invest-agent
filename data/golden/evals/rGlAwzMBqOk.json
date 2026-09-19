@@ -1,0 +1,328 @@
+{
+ "key": "rGlAwzMBqOk:73b9c4d6f386:v2:a33445f38391",
+ "eval": {
+  "video_id": "rGlAwzMBqOk",
+  "ticker": "PEP",
+  "t0": "2026-06-21",
+  "title": "PepsiCo PEP Dividend Stock Analysis",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 5.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "So, the reward is low. The risk is relatively high compared to others."
+  },
+  "valuation": {
+   "method": "dividend",
+   "base_metric": {
+    "name": "dps",
+    "value_stated": 5.86,
+    "quote": "Dividend per share, 5.86 per year."
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "best",
+     "g_y1_5": 0.05,
+     "g_y6_10": 0.05,
+     "terminal_multiple": 25.0,
+     "probability": 0.4,
+     "iv_stated": null,
+     "quote": "If they keep on growing at, I don't know, 5%, which is lower than the 7% historically, but still 5% is more conservative, 10% discount rate, terminal multiple 25, which represents a 4% dividend yield, there you go."
+    },
+    {
+     "name": "normal",
+     "g_y1_5": 0.03,
+     "g_y6_10": 0.03,
+     "terminal_multiple": 20.0,
+     "probability": 0.3,
+     "iv_stated": null,
+     "quote": "Dividend per share, 5.86 per year. And then, if they keep on growing at, let's say three 3% per year, discount rate 10%, terminal multiple 20, which is a 5% dividend yield, then the intrinsic value is therefore a 10% return."
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.03,
+     "g_y6_10": -0.05,
+     "terminal_multiple": null,
+     "probability": 0.3,
+     "iv_stated": 83.0,
+     "quote": "if let's say they grow 3% in the first 5 years and then they decline the dividend by 5% per year, the dividend yield goes from 4 to 7% the terminal value is 83 down the road, which is 50% down over time."
+    }
+   ],
+   "iv_weighted_stated": 83.0,
+   "price_mentioned": 52.0,
+   "what_is_priced_in": {
+    "growth": 0.07,
+    "multiple": null,
+    "quote": "if they keep on growing at 7%, that should be also the return. But the market is thinking differently. What's priced in?"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "best",
+     "iv_model": 137.78,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "normal",
+     "iv_model": 102.27,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 83.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "iv_weighted_model": 122.56,
+   "expected_return_at_price": 5.6,
+   "base_metric": {
+    "name": "dps",
+    "stated": 5.86,
+    "as_of": 5.586,
+    "period": "FY2025",
+    "gap_pct": 4.9
+   }
+  },
+  "price_at_t0": 142.02000427246094,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Pepsi pays out about $2 billion more per year in dividends and buybacks than its free cash flow covers, funded by rising debt, making the payout unsustainable.",
+    "quote": "They're doing 1 billion on buybacks, 7 billion, so 8.7. They are in the red 2 billion per year. That's the dividend and the business is not sustainable.",
+    "chunk_id": "chunk:rGlAwzMBqOk:1",
+    "start_s": 72.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "free cash flow",
+      "value": 6.5,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "buybacks",
+      "value": 1.0,
+      "unit": "usd_bn",
+      "period": "year"
+     },
+     {
+      "name": "dividends",
+      "value": 7.0,
+      "unit": "usd_bn",
+      "period": "year"
+     },
+     {
+      "name": "shortfall",
+      "value": 2.0,
+      "unit": "usd_bn",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Free Cash Flow"
+     ],
+     "value_stated": 6500000000.0,
+     "value_as_of": 7672000000.0,
+     "agrees": false,
+     "formula": "Free Cash Flow FY2025",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 6.5e+09, as-of 7.672e+09 (FY2025); annual vs TTM or a different definition; not in our data: shortfall"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Organic revenue growth is only 1-2% and stagnating/declining, with reported growth propped up by acquisitions, so there is no real growth left in the business.",
+    "quote": "then I look at organic revenue growth, 1, 2% net revenue growth. They have to do some acquisitions.",
+    "chunk_id": "chunk:rGlAwzMBqOk:1",
+    "start_s": 72.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "organic revenue growth",
+      "value": 1.5,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.015,
+     "value_as_of": 0.022546650118666633,
+     "agrees": true,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2025",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Rising debt levels show the company is using more leverage to keep the business afloat rather than funding growth from operations.",
+    "quote": "something that's growing is the debt levels, which means that they are using more and more debt to keep the business afloat.",
+    "chunk_id": "chunk:rGlAwzMBqOk:1",
+    "start_s": 72.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt",
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "The business model now requires constant costly acquisitions and heavy marketing spend just to maintain growth, unlike the organic global expansion of prior decades.",
+    "quote": "They need to constantly acquire, pay a lot of money to acquire new brands, to develop, to push, to push, to marketing, to this, to that and that business model is not the same business model when they were expanding globally 10-20 years ago.",
+    "chunk_id": "chunk:rGlAwzMBqOk:3",
+    "start_s": 226.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At best flat growth for a decade only yields a ~4% return, and blending scenarios the stock offers no margin of safety, valued for just a 5-6% return.",
+    "quote": "the stock price now doesn't offer a margin of safety. It's valued for a 5-6% return.",
+    "chunk_id": "chunk:rGlAwzMBqOk:3",
+    "start_s": 226.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "expected return",
+      "value": 5.5,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: expected return"
+    }
+   }
+  ],
+  "external_facts_used": [],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 142.02000427246094,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 3,
+    "prices": 0,
+    "derived": 1,
+    "external": 1,
+    "judgement": 0
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": 4.9,
+   "expected_return_at_price": 5.6,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "0e8ea54e-dd99-486d-a115-75baf2f1c1a2",
+   "transcript_sha256": "73b9c4d6f38635db4017579ed8a9041e59fa2c326ea3c8a84a6a9b8aa0f61fbd",
+   "extracted_at": "2026-09-19T13:03:24+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "e7699ee7-8e67-462c-8b05-1538f9eb75ec"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0329188,
+   "session_id": "0e8ea54e-dd99-486d-a115-75baf2f1c1a2",
+   "input_tokens": 6125,
+   "output_tokens": 1931
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.052712,
+   "session_id": "e7699ee7-8e67-462c-8b05-1538f9eb75ec",
+   "input_tokens": 4718,
+   "output_tokens": 340
+  }
+ }
+}

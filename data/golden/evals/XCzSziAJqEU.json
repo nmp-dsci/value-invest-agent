@@ -1,0 +1,308 @@
+{
+ "key": "XCzSziAJqEU:11f61fdead16:v2:a33445f38391",
+ "eval": {
+  "video_id": "XCzSziAJqEU",
+  "ticker": "ADBE",
+  "t0": "2022-10-03",
+  "title": "ADBE Stock Quick Take - Another 20% down!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": 5.0,
+   "conviction": "medium",
+   "headline_quote": "therefore also I will not add the Dolby to our YouTube portfolio because it's simply too risky"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 10.0,
+    "quote": "we have reached 5 billion or 10 earnings per share"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "let's say that they grow from the current 10 to 20 over time and that is still let's say in five years a peer ratio of 15 approximately"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": 281.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 15.0,
+    "quote": "Adobe will be at a p ratio of 15. so there is the risk and reward from evaluation perspective"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 10.0,
+    "as_of": 10.02,
+    "period": "FY2021",
+    "gap_pct": -0.2
+   }
+  },
+  "price_at_t0": 285.239990234375,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Even assuming EPS grows to 20 in five years, a fair P/E of 15 makes the risk/reward unattractive versus the current situation.",
+    "quote": "let's say that they grow from the current 10 to 20 over time and that is still let's say in five years a peer ratio of 15 approximately",
+    "chunk_id": "chunk:XCzSziAJqEU:3",
+    "start_s": 243.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "eps",
+      "value": 10.0,
+      "unit": "usd",
+      "period": "current"
+     },
+     {
+      "name": "eps target",
+      "value": 20.0,
+      "unit": "usd",
+      "period": "5y"
+     },
+     {
+      "name": "pe ratio",
+      "value": 15.0,
+      "unit": "ratio",
+      "period": "5y"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 10.0,
+     "value_as_of": 10.02,
+     "agrees": true,
+     "formula": "Diluted EPS FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "not in our data: eps target"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Adobe overpaid enormously for Figma, paying 50x revenues in cash and stock, which signals possible weakness.",
+    "quote": "they paid 50 times revenues for a small business that has 400 million in revenues that's Insanity",
+    "chunk_id": "chunk:XCzSziAJqEU:1",
+    "start_s": 79.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "figma deal size",
+      "value": 20.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "revenue multiple paid",
+      "value": 50.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "figma revenue",
+      "value": 400.0,
+      "unit": "usd_mn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 50.0,
+     "value_as_of": 28.4670648936502,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 50, as-of 28.4671 (FY2021); annual vs TTM or a different definition; not in our data: figma deal size"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Despite the crash, revenues and earnings have kept growing at a double-digit rate, which supports the current price to some extent.",
+    "quote": "Adobe is Adobe and still has been growing 13 year over year the earnings if you look at the Gap or non-gaap are still there so compared to the stock price should be okay",
+    "chunk_id": "chunk:XCzSziAJqEU:1",
+    "start_s": 79.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 13.0,
+      "unit": "pct",
+      "period": "yoy"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.13,
+     "value_as_of": 0.22668635374572577,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 0.13, as-of 0.226686 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "He questions Adobe's moat since he personally no longer uses the product now that he already has it installed, implying weak recurring need.",
+    "quote": "the question is what is adobe's mode I'm not using it anymore because I have it already on my computer",
+    "chunk_id": "chunk:XCzSziAJqEU:2",
+    "start_s": 166.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "cumulative installations",
+      "value": 2.6,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: cumulative installations"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "The broader tech boom that fueled Adobe's growth appears to be slowing, adding risk to future growth assumptions.",
+    "quote": "that boom Tech boom seems like slowing down and for me it's just simply too risky",
+    "chunk_id": "chunk:XCzSziAJqEU:3",
+    "start_s": 243.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Adobe's cumulative software installations of 2.6 billion",
+   "Figma acquisition price and Figma's revenue of 400 million",
+   "Google's current and projected P/E ratio for comparison"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 285.239990234375,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": -0.2,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "92e8e18d-6d29-42b3-a7a9-16e9286e695d",
+   "transcript_sha256": "11f61fdead16204cf156b1296b5c3686eff86fa6ddacd11574cd422001616674",
+   "extracted_at": "2026-09-19T12:57:09+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "484e56c9-3229-4a16-afc9-526305f4a879"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0279988,
+   "session_id": "92e8e18d-6d29-42b3-a7a9-16e9286e695d",
+   "input_tokens": 5740,
+   "output_tokens": 1628
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.04706,
+   "session_id": "484e56c9-3229-4a16-afc9-526305f4a879",
+   "input_tokens": 3942,
+   "output_tokens": 452
+  }
+ }
+}

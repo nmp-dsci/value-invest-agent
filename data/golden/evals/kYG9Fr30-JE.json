@@ -1,0 +1,279 @@
+{
+ "key": "kYG9Fr30-JE:0f8374f326c3:v2:a33445f38391",
+ "eval": {
+  "video_id": "kYG9Fr30-JE",
+  "ticker": "CHTR",
+  "t0": "2024-06-11",
+  "title": "Charter Communications (NASDAQ: CHTR) Risk And Reward Analysis",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": 15.0,
+   "conviction": "medium",
+   "headline_quote": "so 2x versus ugly versus losing everything not the value investment not a bet I will continue following"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "6 billion in cash flow on 40 billion market cap that's a 15% free cash flow yield"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 40000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 276.8299865722656,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "The company carries about 97 billion in debt, more than some countries, that is backed mostly by goodwill and intangibles rather than tangible assets and must be refinanced at much higher rates.",
+    "quote": "they now have 97 billion in debt yes that is more than some countries have in debt",
+    "chunk_id": "chunk:kYG9Fr30-JE:2",
+    "start_s": 171.0,
+    "feeds": "discount",
+    "metrics": [
+     {
+      "name": "total debt",
+      "value": 97.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "average cost of debt",
+      "value": 5.3,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "incremental interest cost",
+      "value": 3.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt"
+     ],
+     "value_stated": 97000000000.0,
+     "value_as_of": 97777000000.0,
+     "agrees": true,
+     "formula": "Total Debt FY2023",
+     "as_of_period": "FY2023",
+     "gap_note": "not in our data: average cost of debt"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Charter spent tens of billions on buybacks at high prices, repurchasing 50% of shares yet the company is now worth only 40 billion, which he calls value destruction driven by CEO incentives.",
+    "quote": "this is exactly how you destroy value with BuyBacks",
+    "chunk_id": "chunk:kYG9Fr30-JE:3",
+    "start_s": 266.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "shares repurchased since 2016",
+      "value": 50.0,
+      "unit": "pct",
+      "period": "since September 2016"
+     },
+     {
+      "name": "current market cap",
+      "value": 40.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 40000000000.0,
+     "value_as_of": 40202761864.92111,
+     "agrees": true,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2023",
+     "gap_note": "not in our data: shares repurchased since 2016"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Cable no longer has the durable moat it once had because competition, especially T-Mobile's fixed wireless, is taking share, undermining the thesis that justified the debt-funded buybacks.",
+    "quote": "cable doesn't have a mode as it might have been a few years ago so I think it is a bet",
+    "chunk_id": "chunk:kYG9Fr30-JE:4",
+    "start_s": 357.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Despite the risks, the current 15% free cash flow yield on a stable cash-cow-like business is attractive enough to raise an eyebrow.",
+    "quote": "6 billion in cash flow on 40 billion market cap that's a 15% free cash flow yield which is something that raises an eyebrow or two",
+    "chunk_id": "chunk:kYG9Fr30-JE:1",
+    "start_s": 80.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "free cash flow yield",
+      "value": 15.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "cash flow",
+      "value": 6.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Free Cash Flow",
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 0.15,
+     "value_as_of": 0.0825316432524781,
+     "agrees": false,
+     "formula": "FCF / market cap",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 0.15, as-of 0.0825316 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "With so much debt against uncertain cash flows, the outcome is binary: if growth returns it's a 2x, but if it doesn't and a financial crisis hits, the company could go bankrupt, making it a gamble rather than a value investment.",
+    "quote": "so yes if things improve if they start growing again the market will like them and you have a 2X here but if things don't improve and there is financial crisis this goes bankrupt",
+    "chunk_id": "chunk:kYG9Fr30-JE:5",
+    "start_s": 441.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Charter is the most bought stock among 'super investors' per DataRoma",
+   "Warren Buffett/Berkshire owns a stake bought in 2016, sold some, now back near his buying price",
+   "T-Mobile fixed wireless competition taking market share"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 276.8299865722656,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 0,
+    "judgement": 2
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "0bfa8bb8-af17-4504-8e16-ccecf4660ca8",
+   "transcript_sha256": "0f8374f326c3cca2285e28a6884e12a26a40e9a73fa5e569596e26ad6619759d",
+   "extracted_at": "2026-09-19T13:00:16+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "a56452e4-f4c4-43f4-b9a7-52e19894dad3"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0306268,
+   "session_id": "0bfa8bb8-af17-4504-8e16-ccecf4660ca8",
+   "input_tokens": 6391,
+   "output_tokens": 1582
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.05039,
+   "session_id": "a56452e4-f4c4-43f4-b9a7-52e19894dad3",
+   "input_tokens": 4628,
+   "output_tokens": 291
+  }
+ }
+}

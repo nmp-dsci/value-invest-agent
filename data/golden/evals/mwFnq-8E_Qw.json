@@ -1,0 +1,317 @@
+{
+ "key": "mwFnq-8E_Qw:3f72ef180fd5:v2:a33445f38391",
+ "eval": {
+  "video_id": "mwFnq-8E_Qw",
+  "ticker": "CALM",
+  "t0": "2026-01-07",
+  "title": "CAL-MAINE FOODS NASDAQ: CALM STOCK",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 7.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "To follow and wait is my plan."
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 250.0,
+    "quote": "maybe on average the fair value could be 200 to 300 million per year"
+   },
+   "discount_rate": null,
+   "payout_ratio": 0.333,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "we have to compare that to the market capitalization of 4 billion. So now we are at an average 5% return over time. Perhaps 3% growth over inflation."
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 120.0,
+     "quote": "Now you're risking upside 120 if egg prices go higher again on aven flu"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 40.0,
+     "quote": "then it will get revalued and it might get from 80 to 40 if there is no outlook for higher cash"
+    }
+   ],
+   "iv_weighted_stated": 120.0,
+   "price_mentioned": 80.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "I think the stock is not pricing in a significant dividend cut."
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 120.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 40.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 250.0,
+    "as_of": 1.22,
+    "period": "FY2025",
+    "gap_pct": 20391.0
+   }
+  },
+  "price_at_t0": 77.80999755859375,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Average-cycle net income of 200-300 million against a 4 billion market cap implies only about a 5-7% return, not compelling.",
+    "quote": "maybe on average the fair value could be 200 to 300 million per year",
+    "chunk_id": "chunk:mwFnq-8E_Qw:8",
+    "start_s": 696.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "average net income",
+      "value": 250.0,
+      "unit": "usd_mn",
+      "period": "year"
+     },
+     {
+      "name": "market capitalization",
+      "value": 4.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "expected return",
+      "value": 7.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 250.0,
+     "value_as_of": 1220048000.0,
+     "agrees": false,
+     "formula": "Net Income FY2025",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 250, as-of 1.22005e+09 (FY2025); annual vs TTM or a different definition; not in our data: expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Egg prices and margins are highly cyclical, so the current high dividend yield and margins are not the moment to buy; the real opportunity comes when the business looks ugly.",
+    "quote": "The best time to buy commodity cyclicals is when it looks ugly, not when it looks great with a 10% dividend yield.",
+    "chunk_id": "chunk:mwFnq-8E_Qw:4",
+    "start_s": 371.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "dividend yield",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding",
+      "close"
+     ],
+     "value_stated": 0.1,
+     "value_as_of": 0.08753289811378016,
+     "agrees": true,
+     "formula": "DPS / close",
+     "as_of_period": "FY2025",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Eggs are an undifferentiated commodity, so there is no durable competitive advantage protecting margins.",
+    "quote": "There is no competitive advantage with eggs. An egg is an egg and everybody can produce different kinds of eggs.",
+    "chunk_id": "chunk:mwFnq-8E_Qw:2",
+    "start_s": 197.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "balance_sheet",
+    "claim": "The company carries no debt, which supports its ability to survive weak parts of the egg cycle and makes it interesting long-term.",
+    "quote": "I think they have no debt. That makes it very very interesting from a long-term investing perspective.",
+    "chunk_id": "chunk:mwFnq-8E_Qw:10",
+    "start_s": 851.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Debt",
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Management is disciplined, avoiding share repurchases at currently elevated prices.",
+    "quote": "Repurchases not doing those at these higher prices.",
+    "chunk_id": "chunk:mwFnq-8E_Qw:7",
+    "start_s": 615.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Food agency forecasts of 211-216 cents per dozen egg prices going forward",
+   "Industry estimate that one laying hen per American (about 340 million hens) is needed to meet demand",
+   "Reported avian flu situation in Wisconsin"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 77.80999755859375,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 3,
+    "prices": 0,
+    "derived": 1,
+    "external": 0,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": 20391.0,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "06e525b0-bcc0-4bbb-beda-c38a4c8a8324",
+   "transcript_sha256": "3f72ef180fd585d61a3c2c81446d52ad62587281a476732e29a1e9facbea09da",
+   "extracted_at": "2026-09-19T13:03:01+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "0dcad43d-8ec2-4d57-9c89-10f73e7eae53"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0708908,
+   "session_id": "06e525b0-bcc0-4bbb-beda-c38a4c8a8324",
+   "input_tokens": 8215,
+   "output_tokens": 4742
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.074531,
+   "session_id": "0dcad43d-8ec2-4d57-9c89-10f73e7eae53",
+   "input_tokens": 6556,
+   "output_tokens": 425
+  }
+ }
+}

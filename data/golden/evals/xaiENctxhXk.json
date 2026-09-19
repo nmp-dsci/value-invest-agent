@@ -1,0 +1,280 @@
+{
+ "key": "xaiENctxhXk:a37dc722ad34:v2:a33445f38391",
+ "eval": {
+  "video_id": "xaiENctxhXk",
+  "ticker": "PYPL",
+  "t0": "2026-02-05",
+  "title": "PayPal Stock A Buy On $6 Billion Of Buybacks in 2026! Stock Up 40%!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "if there is the potential that this might be a value trap that's enough that's all you need to know as a value investment"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 40.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 8.0,
+    "quote": "the key factor here is also the market's revaluation P ratio of 60 to now a P ratio of eight"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 39.900001525878906,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "The business is losing market share and its growth has deteriorated from 20% to single digits, signalling structural decline rather than temporary weakness.",
+    "quote": "This is a clear sign of business deterioration, lower growth margins and the key factor here is also the market's revaluation P ratio of 60 to now a P ratio of eight.",
+    "chunk_id": "chunk:xaiENctxhXk:4",
+    "start_s": 323.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 4.0,
+      "unit": "pct",
+      "period": "year"
+     },
+     {
+      "name": "pe ratio historical",
+      "value": 60.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "pe ratio current",
+      "value": 8.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.04,
+     "value_as_of": 0.04324307324590371,
+     "agrees": true,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2025",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Buybacks in a deteriorating business are cash destruction rather than shareholder value creation, regardless of low price.",
+    "quote": "In a deteriorating business, no matter the stock price, if you're doing buybacks and your business is going down, it's still destruction of money. Pure cash destruction.",
+    "chunk_id": "chunk:xaiENctxhXk:3",
+    "start_s": 247.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buyback amount",
+      "value": 6.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 40.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "buyback yield",
+      "value": 15.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 6000000000.0,
+     "value_as_of": -6052000000.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2025",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 6e+09, as-of -6.052e+09 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Constant management turnover and an unknown new CEO who could reverse the buyback strategy adds uncertainty that could hurt the stock further.",
+    "quote": "If the CEO changes the strategy and says less buybacks and we're going to invest... then the stock might go even lower because it increases the uncertainty of the guidance",
+    "chunk_id": "chunk:xaiENctxhXk:3",
+    "start_s": 247.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "CEO turnover",
+      "value": 4.0,
+      "unit": "count",
+      "period": "6 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: CEO turnover"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Weakness is spreading across formerly strong verticals like crypto, gaming, travel and ticketing as PayPal loses its old-school position to competition.",
+    "quote": "Competition from alternative payment methods... Deceleration. Guess what? crypto, gaming, travel, ticketing, all things that impact PayPal.",
+    "chunk_id": "chunk:xaiENctxhXk:2",
+    "start_s": 169.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "If PayPal executes six billion in buybacks while holding revenue and earnings to guidance, the reduced share count alone could push the stock up 30-40%.",
+    "quote": "If they do six billion on buybacks on the current market cap of 40 billion, keep revenues and earnings in line with the guidance, the stock goes up. You make 30 40% on just the buybacks.",
+    "chunk_id": "chunk:xaiENctxhXk:3",
+    "start_s": 247.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "expected return from buybacks",
+      "value": 35.0,
+      "unit": "pct",
+      "period": "12 months"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: expected return from buybacks"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Conference call commentary on US retail weakness and Germany macro softness",
+   "Venmo revenue of $2 billion",
+   "Terminated CEO's past compensation of $30 million",
+   "PayPal's app relaunch planned for 2026",
+   "419 million users figure",
+   "Interim CEO's statements during the earnings call Q&A"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 3,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok \u2014 reasons 3 and 4 use ellipsis-spliced fragments (verbatim pieces). Reason 4 slightly misframes: he says verticals aren't decelerating, PayPal is losing position. Stance avoid matches (value-trap risk, trade not his strategy)."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 39.900001525878906,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 1,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    0.727,
+    0.749,
+    1.0
+   ],
+   "faithful_share": 0.6
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "46b9e5f5-ea0a-4900-996a-366d9c1d422c",
+   "transcript_sha256": "a37dc722ad349872902d79924ffbe1c67256cb7cd96ae37ba8bf0df905459b23",
+   "extracted_at": "2026-09-19T13:03:01+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "4cbbac88-b799-4159-9eb6-69a88fddb71d"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.037455800000000004,
+   "session_id": "46b9e5f5-ea0a-4900-996a-366d9c1d422c",
+   "input_tokens": 7758,
+   "output_tokens": 1614
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.07594,
+   "session_id": "4cbbac88-b799-4159-9eb6-69a88fddb71d",
+   "input_tokens": 5942,
+   "output_tokens": 748
+  }
+ }
+}
