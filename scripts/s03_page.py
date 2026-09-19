@@ -198,7 +198,7 @@ def main() -> None:
 <div class="wrap">
 <header class="hero">
   <div class="eyebrow"><span>s03 · milestone 2 walkthrough</span><span class="tag good">S4 + S5 built · {n} golden evals · validated</span><span class="tag acc">branch m2-golden</span><span class="tag">{date.today().isoformat()}</span></div>
-  <h1>Milestone 2: every video now has a <em>golden eval</em> — and a verdict.</h1>
+  <h1>Milestone 2: <em>golden evals</em>, validated.</h1>
   <p class="lede">{n} single-stock videos from six window years ({N["since"]} → {N["until"]}, 20 per year) were read by the extractor and turned into a golden eval: his BUY / HOLD / SELL, the intrinsic-value inputs he typed into his template, the 3–5 reasons he gave — each quoted, anchored to a transcript timestamp, and checked against the financial data visible on the video date — plus what the stock did against the index 6, 12 and 24 months later. The extractor was iterated three times on a hand-labelled seed; a second model audits every eval. Everything on this page comes from the live database (<span class="k">scripts/m2_numbers.py</span>).</p>
   <div class="facts">
     <span><b>{n}</b> evals · <b>{mix["BUY"]}</b> BUY · <b>{mix["HOLD"]}</b> HOLD · <b>{mix["SELL"]}</b> SELL</span>
@@ -258,7 +258,7 @@ def main() -> None:
 
 <section id="validation">
   <div class="section-head"><span class="num">03</span><h2>Were his calls right? Recommendation vs the index at T0 + 6 / 12 / 24 months</h2></div>
-  <p>Benchmark SPY, adjusted closes to {N["validation"].get("last_price_date", "")}. A BUY is right if it beat the index by more than 5 pp, a SELL if it lagged by more than 5 pp, a HOLD if it stayed within ±10 pp (D14). 24-month verdicts exist only for videos before Sept 2024.</p>
+  <p>Benchmark SPY, adjusted closes to {N.get("last_price_date", "")}. A BUY is right if it beat the index by more than 5 pp, a SELL if it lagged by more than 5 pp, a HOLD if it stayed within ±10 pp (D14). 24-month verdicts exist only for videos before Sept 2024.</p>
   <div class="tablewrap"><table>
     <thead><tr><th>horizon</th><th class="r">n</th><th class="r">BUY / HOLD / SELL</th><th class="r">right: BUY · HOLD · SELL</th><th class="r">✓ · ✗ · ~</th><th class="r">mean excess pp: BUY · HOLD · SELL</th><th class="r">HOLD as "did not lag": ✓</th><th class="r">IV reached</th></tr></thead>
     <tbody>{"".join(f"<tr><td class=mono>+{h} m</td><td class=r>{ov[h]['n']}</td><td class=r>{ov[h]['mix']['BUY']} / {ov[h]['mix']['HOLD']} / {ov[h]['mix']['SELL']}</td>{bucket_cells(ov[h])}<td class=r>{ov[h]['verdict_hold_alt']['correct']}</td><td class=r>{ov[h]['iv_hit'][0]} / {ov[h]['iv_hit'][1]}</td></tr>" for h in H if h in ov)}</tbody>
