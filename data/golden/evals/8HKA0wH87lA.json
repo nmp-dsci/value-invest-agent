@@ -1,0 +1,272 @@
+{
+ "key": "8HKA0wH87lA:17ddf3f8fa36:v2:a33445f38391",
+ "eval": {
+  "video_id": "8HKA0wH87lA",
+  "ticker": "CPB",
+  "t0": "2026-01-03",
+  "title": "Campbell's CPB Cash Flow Stock",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 6.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "that's why I think it's best to leave this to pension funds."
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": {
+    "name": "other",
+    "value_stated": null,
+    "quote": ""
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 27.709999084472656,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Campbell's has spent more on acquisitions than its current market cap while trying to prop up growth perception with debt, a poor use of good cash flow.",
+    "quote": "I'm seeing here 1.8 billion, 6.7 billion, 2 and a.5 billion and the market cap is lower than what they spent on acquisitions.",
+    "chunk_id": "chunk:8HKA0wH87lA:1",
+    "start_s": 68.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "acquisition spend 1",
+      "value": 1.8,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "acquisition spend 2",
+      "value": 6.7,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "acquisition spend 3",
+      "value": 2.5,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: acquisition spend 1, acquisition spend 2, acquisition spend 3"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "The brands are losing relevance against private labels in a highly competitive food sector, driving long-term real declines.",
+    "quote": "these brands are not that popular anymore. private labels, high competition, and that's why you see these declines.",
+    "chunk_id": "chunk:8HKA0wH87lA:1",
+    "start_s": 68.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Adjusted for inflation, revenues and net income have declined in real terms over two decades, showing no real growth.",
+    "quote": "if you adjust for inflation it has been declining in real terms for the past 20 years.",
+    "chunk_id": "chunk:8HKA0wH87lA:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Stable cash flows support a high dividend yield and low P/E, giving some margin of safety and buyout appeal.",
+    "quote": "dividend yield 5%, good cash flows, good brands, everything looks good. If the stock goes lower, some private equity business will take it over.",
+    "chunk_id": "chunk:8HKA0wH87lA:1",
+    "start_s": 68.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "dividend yield",
+      "value": 5.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "P/E ratio",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding",
+      "close"
+     ],
+     "value_stated": 0.05,
+     "value_as_of": 0.055561061553367944,
+     "agrees": true,
+     "formula": "DPS / close",
+     "as_of_period": "FY2025",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "There is no visible catalyst worth more than the current market cap by 2030, so the upside case is weak.",
+    "quote": "if there would be something in it that would be a catalyst in 2030 that you know, okay, that's worth more than 8 billion, that would be something. But I can see that. Perhaps you can tell me in the comments, but I don't think so.",
+    "chunk_id": "chunk:8HKA0wH87lA:2",
+    "start_s": 144.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "market cap threshold",
+      "value": 8.0,
+      "unit": "usd_bn",
+      "period": "2030"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 8000000000.0,
+     "value_as_of": 8261181251.173859,
+     "agrees": true,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2025",
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Campbell's is doing another acquisition involving stakes"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 27.709999084472656,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "ce58a82e-0b23-4783-ac83-4549716188f7",
+   "transcript_sha256": "17ddf3f8fa36b808eca22178f6288954ddfb3cf9953bb7f15227dc745ba40032",
+   "extracted_at": "2026-09-19T11:54:29+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "c1aa64d9-b58d-485c-b471-2a414cbc2ba2"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0232728,
+   "session_id": "ce58a82e-0b23-4783-ac83-4549716188f7",
+   "input_tokens": 5314,
+   "output_tokens": 1362
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.037142,
+   "session_id": "c1aa64d9-b58d-485c-b471-2a414cbc2ba2",
+   "input_tokens": 3323,
+   "output_tokens": 323
+  }
+ }
+}

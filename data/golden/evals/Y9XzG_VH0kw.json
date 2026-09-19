@@ -1,0 +1,260 @@
+{
+ "key": "Y9XzG_VH0kw:2f96c32084f7:v2:a33445f38391",
+ "eval": {
+  "video_id": "Y9XzG_VH0kw",
+  "ticker": "INTC",
+  "t0": "2023-09-07",
+  "title": "Intel Stock Discussion End 2023",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "too many maybes to make this a long-term hold for people investing into it"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "the higher it goes the more it is a bet on promises instead of a value investment"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 38.18000030517578,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Intel's 2021 growth and margin targets were not met, and Wall Street framed the miss as a beat.",
+    "quote": "great quarter we did a great job that's Wall Street and that's something that we as investors analysts have to be very very careful about",
+    "chunk_id": "chunk:Y9XzG_VH0kw:2",
+    "start_s": 193.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "targeted revenue growth",
+      "value": 12.0,
+      "unit": "pct",
+      "period": "per year"
+     },
+     {
+      "name": "targeted revenue",
+      "value": 120.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: targeted revenue growth, targeted revenue"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Intel changed its depreciation method to add 5 billion, which he calls legally defrauding investors.",
+    "quote": "they change the depreciation method to gain 5 billion in the accounting standards which is for me not illegal fraud but legally defrauding investors",
+    "chunk_id": "chunk:Y9XzG_VH0kw:2",
+    "start_s": 193.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "depreciation accounting gain",
+      "value": 5.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: depreciation accounting gain"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Rising long-term debt shows cash flows are not working as planned, increasing risk.",
+    "quote": "over the last six months they have pushed long-term debt up almost 10 billion which means yes their cash flows are not working according to plan",
+    "chunk_id": "chunk:Y9XzG_VH0kw:3",
+    "start_s": 285.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "long-term debt increase",
+      "value": 10.0,
+      "unit": "usd_bn",
+      "period": "6 months"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: long-term debt increase"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "The semiconductor industry is extremely competitive with new strong players, making Intel's future win uncertain.",
+    "quote": "the semiconductor industry is extremely competitive we see it with the new players coming from nothing AMD Nvidia taking in those side maybe there will be someone else maybe not",
+    "chunk_id": "chunk:Y9XzG_VH0kw:4",
+    "start_s": 370.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At current higher prices the stock is a bet on promises rather than a value investment, unlike when it was cheap in the mid-20s.",
+    "quote": "if it would go back to the mid-20s I think that again a strategy could work well but now at these levels I don't really see it as good as it was in the 20s",
+    "chunk_id": "chunk:Y9XzG_VH0kw:4",
+    "start_s": 370.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "market cap",
+      "value": 155.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 155000000000.0,
+     "value_as_of": 157950661262.5122,
+     "agrees": true,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2022",
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Intel's 2021 investor meeting targets of 10-12% revenue growth per year to reach ~$120 billion revenue",
+   "Intel's change in depreciation accounting method adding $5 billion",
+   "Nvidia's stock jumping 300% giving semiconductor sector a tailwind",
+   "Intel's dividend cut",
+   "Historical stock prices at which he previously bought Intel (~27, down to 20)"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 38.18000030517578,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.2,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 1,
+    "external": 3,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "a4933f86-98e1-43d0-8cbe-f0c978784a37",
+   "transcript_sha256": "2f96c32084f75360491c1dc0b4cb75e509220cceca4f1f931cc3c8ae2013d9bf",
+   "extracted_at": "2026-09-19T11:51:19+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "4459aedd-4282-4bea-bfc0-ee1df7752f29"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0285178,
+   "session_id": "a4933f86-98e1-43d0-8cbe-f0c978784a37",
+   "input_tokens": 6227,
+   "output_tokens": 1452
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.045223,
+   "session_id": "4459aedd-4282-4bea-bfc0-ee1df7752f29",
+   "input_tokens": 4371,
+   "output_tokens": 197
+  }
+ }
+}

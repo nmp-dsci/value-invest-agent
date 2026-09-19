@@ -1,0 +1,306 @@
+{
+ "key": "xJHP43izznA:42f31da58c4e:v2:a33445f38391",
+ "eval": {
+  "video_id": "xJHP43izznA",
+  "ticker": "AMZN",
+  "t0": "2026-02-27",
+  "title": "Amazon A Buy as Everybody Is Buying!",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "HOLD",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 8.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "given the big guys buying it, it's not a bad addition to a portfolio now depending on how diversified you are"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 7.17,
+    "quote": "Earnings per share now is 717."
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.15,
+     "g_y6_10": 0.1,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 180.0,
+     "quote": "If I put 15% growth rates and then let's say it drops down to 10% going forward. If I expect a 10% discount rate P ratio goes down to 20 the intrinsic value is 179 180 not far from the current stock price."
+    }
+   ],
+   "iv_weighted_stated": 180.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "Amazon is not priced as the market is is priced at an 8 9% return likely and that is why they are buying."
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 179.09,
+     "iv_stated": 180.0,
+     "error": -0.005,
+     "ok": true
+    }
+   ],
+   "within_band": true,
+   "n_compared": 1,
+   "n_ok": 1,
+   "expected_return_at_price": 8.3,
+   "base_metric": {
+    "name": "eps",
+    "stated": 7.17,
+    "as_of": 7.17,
+    "period": "FY2025",
+    "gap_pct": 0.0
+   }
+  },
+  "price_at_t0": 210.0,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At a 25 P/E with 10-15% growth continuing, Amazon looks cheap relative to the market and its own history.",
+    "quote": "if the 10 to 15% growth continues, the P ratio of 25 is really cheap and that should bear fruit down the road",
+    "chunk_id": "chunk:xJHP43izznA:3",
+    "start_s": 242.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 25.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "growth",
+      "value": 12.5,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 25.0,
+     "value_as_of": 29.288702928870293,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 25, as-of 29.2887 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "AWS is reaccelerating and generating high operating margins, driving the growth thesis.",
+    "quote": "AWS 24% growth. High operating income, that's 30 something% margin.",
+    "chunk_id": "chunk:xJHP43izznA:2",
+    "start_s": 165.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "AWS revenue growth",
+      "value": 24.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "AWS operating margin",
+      "value": 30.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: AWS revenue growth, AWS operating margin"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Heavy current capex will normalize down the road, unlocking large free cash flow that justifies today's valuation.",
+    "quote": "let's say they hit 250 in 5 years the capex will not be 120 billion constantly maybe will fall to 70 and there you have 180 billion of profits that would justify the current valuation",
+    "chunk_id": "chunk:xJHP43izznA:3",
+    "start_s": 242.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "operating cash flow",
+      "value": 250.0,
+      "unit": "usd_bn",
+      "period": "5 years"
+     },
+     {
+      "name": "capex",
+      "value": 70.0,
+      "unit": "usd_bn",
+      "period": "5 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": 250000000000.0,
+     "value_as_of": 139514000000.0,
+     "agrees": false,
+     "formula": "Operating Cash Flow FY2025",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 2.5e+11, as-of 1.39514e+11 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Amazon is a great, essential business given its dominant cloud and e-commerce position.",
+    "quote": "It is a great business. It is an essential business now in the cloud AWS sector.",
+    "chunk_id": "chunk:xJHP43izznA:6",
+    "start_s": 492.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "US e-commerce market share is unusually high and likely to mean-revert lower as global competition grows, weighing on Amazon.",
+    "quote": "the US market has 63% of market share. I think that that overtime will mean revert to the 50s somewhere and therefore that is a weight on Amazon.",
+    "chunk_id": "chunk:xJHP43izznA:7",
+    "start_s": 571.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "US market share",
+      "value": 63.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: US market share"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Druckenmiller, Klarman, Ackman and Buffett/Berkshire buying or holding Amazon shares",
+   "Bill Ackman's investment presentation citing largest cloud business by market share and 14% capital allocation to Amazon",
+   "Amazon's ~$200 billion recent capex commitment already booked",
+   "Sven's own research platform runs on AWS and has experienced occasional uptime glitches",
+   "US e-commerce market share estimated at 63%"
+  ],
+  "critic": {
+   "faithful": false,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [
+    5
+   ],
+   "notes": "Reason 5 reframes his 'US market share of the global world 63%' (likely US share of global equity market) as US e-commerce market share; that interpretation is not in the transcript. Stance matches: 'not a bad addition', personally passes, watch list."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 210.0,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 1,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 1,
+   "iv_ok": 1,
+   "iv_within_band": true,
+   "base_metric_gap_pct": 0.0,
+   "expected_return_at_price": 8.3,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "8fd9513f-995f-4abd-8dd9-7cbcfd879802",
+   "transcript_sha256": "42f31da58c4e6061c3738b89980a212aabcdf934613946e93e6c43405d634172",
+   "extracted_at": "2026-09-19T11:54:35+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "f53716a9-96b1-48a1-a756-6d486ea4c7fd"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0464858,
+   "session_id": "8fd9513f-995f-4abd-8dd9-7cbcfd879802",
+   "input_tokens": 7508,
+   "output_tokens": 2642
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.07234800000000001,
+   "session_id": "f53716a9-96b1-48a1-a756-6d486ea4c7fd",
+   "input_tokens": 5825,
+   "output_tokens": 655
+  }
+ }
+}

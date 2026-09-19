@@ -1,0 +1,273 @@
+{
+ "key": "aQ2K4w18ezU:40729afef8ca:v2:a33445f38391",
+ "eval": {
+  "video_id": "aQ2K4w18ezU",
+  "ticker": "MCD",
+  "t0": "2024-11-17",
+  "title": "McDonald's Are Always Full (MCD Stock Up)",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 5.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "the key is the price to earnings ratio we are now at 26 in case it reverts to normal prices like 1 then you are 50% down"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": null,
+    "quote": ""
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "the long-term reward around 5% that's half from the dividend half from the growth"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 13.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if the stock crashes it goes to a p ratio 13 then yes then McDonald's would be here on the risk and reward quadrant"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 26.0,
+    "quote": "we are now at 26 in case it reverts to normal prices like 1 then you are 50% down"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 292.6300048828125,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "The P/E of 26 is elevated, and if it reverts to a normal multiple the stock would fall about 50%.",
+    "quote": "the key is the price to earnings ratio we are now at 26 in case it reverts to normal prices like 1 then you are 50% down",
+    "chunk_id": "chunk:aQ2K4w18ezU:1",
+    "start_s": 82.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 26.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "downside if reverts",
+      "value": 50.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 26.0,
+     "value_as_of": 25.31401426321907,
+     "agrees": true,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2023",
+     "gap_note": "not in our data: downside if reverts"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At the current elevated multiple it would take time for business growth to catch up with the valuation.",
+    "quote": "it would take some time for the growth of the business to catch up with this valuation",
+    "chunk_id": "chunk:aQ2K4w18ezU:1",
+    "start_s": 82.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "McDonald's stores are consistently full, showing strong ongoing demand and business quality.",
+    "quote": "whenever I pass in front of a McDonald's is always packed",
+    "chunk_id": "chunk:aQ2K4w18ezU:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "cyclicality",
+    "claim": "McDonald's is more resilient in a downturn since people keep visiting during a recession, lowering its risk.",
+    "quote": "if you also look at the last recession people don't stop going into McDonald's in a crisis",
+    "chunk_id": "chunk:aQ2K4w18ezU:1",
+    "start_s": 82.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Revenue and dividend still grew this quarter despite softer comparable sales, supporting continued growth.",
+    "quote": "revenues 3% growth a little bit the weakness here comparable sales",
+    "chunk_id": "chunk:aQ2K4w18ezU:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 3.0,
+      "unit": "pct",
+      "period": "quarter"
+     },
+     {
+      "name": "dividend increase",
+      "value": 6.0,
+      "unit": "pct",
+      "period": "quarter"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.03,
+     "value_as_of": 0.09969114767109821,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 0.03, as-of 0.0996911 (FY2023); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "McDonald's Q3 results: 3% revenue growth, comparable sales weaker than prior year's 8% growth in the US, 6% dividend increase"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 292.6300048828125,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 2,
+    "external": 0,
+    "judgement": 3
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "8cfabc2f-89e0-430a-86a7-36505c66af5e",
+   "transcript_sha256": "40729afef8cacab1f24629d6f1a93666c0b7a386b8e5334452a4691869cf22e2",
+   "extracted_at": "2026-09-19T11:52:33+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "50002131-f3e4-439d-8e61-3d6eb3961515"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0229638,
+   "session_id": "8cfabc2f-89e0-430a-86a7-36505c66af5e",
+   "input_tokens": 5062,
+   "output_tokens": 1451
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.036446000000000006,
+   "session_id": "50002131-f3e4-439d-8e61-3d6eb3961515",
+   "input_tokens": 3286,
+   "output_tokens": 312
+  }
+ }
+}

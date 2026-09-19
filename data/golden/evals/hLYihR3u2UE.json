@@ -1,0 +1,340 @@
+{
+ "key": "hLYihR3u2UE:1b6867b3e864:v2:a33445f38391",
+ "eval": {
+  "video_id": "hLYihR3u2UE",
+  "ticker": "ADBE",
+  "t0": "2026-06-18",
+  "title": "Adobe ADBE Stock - Time To Power Up Excel!!!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 9.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "Therefore, on our quadrant, I put and I'll keep Adobe on a bet because it's too much of a bet for me."
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 17.0,
+    "quote": "Let's start with the normal case scenario, 17 earnings per share, the GAAP earnings, not the non-GAAP crazy earnings."
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.08,
+     "g_y6_10": 0.06,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "Growth rate, if I estimate those earnings growing 8% over the next 5 years, 6% over the subsequent 5 years, I expect a 10% return, that's a discount rate of 10%. If I put a P/E ratio of 15, that's the intrinsic value, close to the stock price."
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.13,
+     "g_y6_10": 0.12,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "If we go to the best-case scenario, if we put 13% 12% growth rates, terminal multiple of 20 P ratio of 20, Adobe stock would need to double double just to give you a 10% return, which means that the true return is much higher."
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.04,
+     "g_y6_10": -0.04,
+     "terminal_multiple": 10.0,
+     "probability": null,
+     "iv_stated": 175.0,
+     "quote": "Let's say 4% growth, then 4% decline, discount rate 10%, P ratio where it is now of 10 down the road. Terminal value in 10 years, 175, so you lose money down the road."
+    }
+   ],
+   "iv_weighted_stated": 175.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 193.31,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": 425.63,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": 65.02,
+     "iv_stated": 175.0,
+     "error": -0.628,
+     "ok": false
+    }
+   ],
+   "within_band": false,
+   "n_compared": 1,
+   "n_ok": 0,
+   "expected_return_at_price": 9.9,
+   "base_metric": {
+    "name": "eps",
+    "stated": 17.0,
+    "as_of": 16.7,
+    "period": "FY2025",
+    "gap_pct": 1.8
+   }
+  },
+  "price_at_t0": 195.16000366210938,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Revenue and earnings growth are decelerating and Wall Street is scared by this trend.",
+    "quote": "The key factor is the deceleration is ongoing and that scares Wall Street.",
+    "chunk_id": "chunk:hLYihR3u2UE:2",
+    "start_s": 151.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 11.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "eps growth",
+      "value": 8.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.11,
+     "value_as_of": 0.10527784236224136,
+     "agrees": true,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2025",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Adobe is growing slower than the highly competitive market, meaning it is losing market share.",
+    "quote": "It's growing, but Adobe is growing slower, which means it's losing market share.",
+    "chunk_id": "chunk:hLYihR3u2UE:3",
+    "start_s": 237.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Reported stock-based compensation understates the true dilution cost, which cancels out most of the buyback benefit.",
+    "quote": "Adobe spending around 2 billion annually for stock-based compensation. And then, if we dig deeper, the dilution rate is 3% annually.",
+    "chunk_id": "chunk:hLYihR3u2UE:6",
+    "start_s": 490.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "stock-based compensation",
+      "value": 2.0,
+      "unit": "usd_bn",
+      "period": "annual"
+     },
+     {
+      "name": "dilution rate",
+      "value": 3.0,
+      "unit": "pct",
+      "period": "annual"
+     },
+     {
+      "name": "shares outstanding decline",
+      "value": 12.0,
+      "unit": "pct",
+      "period": "5 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 2.0,
+     "value_as_of": 195.16000366210938,
+     "agrees": false,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2026-06-18",
+     "gap_note": "he says 2, as-of 195.16 (2026-06-18); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "A recession scenario, unseen for 17 years, could collapse earnings and send the stock 40% lower.",
+    "quote": "Earnings collapse, go from 17 to 10. P/E ratio of 12. The stock price is 120, which is another, what is it, 40% down from here.",
+    "chunk_id": "chunk:hLYihR3u2UE:7",
+    "start_s": 568.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "recession-case eps",
+      "value": 10.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "recession-case pe",
+      "value": 12.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "downside",
+      "value": 40.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 10.0,
+     "value_as_of": 16.7,
+     "agrees": false,
+     "formula": "Diluted EPS FY2025",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 10, as-of 16.7 (FY2025); annual vs TTM or a different definition; not in our data: recession-case pe, downside"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Leadership turnover (CEO then CFO departures) adds uncertainty at a time the business is already decelerating.",
+    "quote": "They have lost the CEO, now the CFO, and things are changing a little bit. This is a question mark, but if it is a good business, then this shouldn't be an issue.",
+    "chunk_id": "chunk:hLYihR3u2UE:0",
+    "start_s": 0.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Michael Burry's Adobe full position and his seven-position portfolio strategy",
+   "Adobe's shift from user growth metrics to annualized recurring revenue disclosure, interpreted as a sign of pricing pressure",
+   "Comparison to Microsoft's valuation (from prior day's video)"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 195.16000366210938,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 1,
+    "derived": 1,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 1,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "base_metric_gap_pct": 1.8,
+   "expected_return_at_price": 9.9,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "b822a0bb-d6af-43d4-bbed-eeaa2534d547",
+   "transcript_sha256": "1b6867b3e86413ffd8c43ad67f5a4d810586c3e8354f08cf2e74a8457ce6df98",
+   "extracted_at": "2026-09-19T11:55:08+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "8687ed00-cb91-4481-857f-ec87e0779a48"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0406238,
+   "session_id": "b822a0bb-d6af-43d4-bbed-eeaa2534d547",
+   "input_tokens": 7710,
+   "output_tokens": 1957
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.068106,
+   "session_id": "8687ed00-cb91-4481-857f-ec87e0779a48",
+   "input_tokens": 6279,
+   "output_tokens": 289
+  }
+ }
+}

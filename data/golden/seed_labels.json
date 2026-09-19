@@ -1,120 +1,702 @@
 {
-  "_note": "Hand labels from reading the transcripts for the M2 plan (2026-09-19). read = full (end to end) | part (first half) | end (conclusion only). Labels with read=full are the seed headline; the rest are secondary. Reasons are listed only for videos read in full where they were noted. source=agent-read until confirmed in the Golden Evals tab (then source=human).",
-  "labels": [
-    {"video_id": "MsIkq0gh9xs", "ticker": "AAPL", "t0": "2022-09-20", "read": "end", "stance_detail": "relative_buy", "personal_action": "buying", "note": "buys 'just a little bit' for the YouTube portfolio"},
-    {"video_id": "M3Qj7pS2fnA", "ticker": "GOOGL", "t0": "2022-09-25", "read": "end", "stance_detail": "relative_buy", "personal_action": "buying", "note": "buys live on camera"},
-    {"video_id": "f8FVBfZiEUA", "ticker": "V", "t0": "2022-10-04", "read": "full", "stance_detail": "fair_hold", "personal_action": "none", "note": "fairly priced, the good is priced in, not for me"},
-    {"video_id": "acarEBE7_-s", "ticker": "VZ", "t0": "2022-10-06", "read": "full", "stance_detail": "fair_hold", "personal_action": "watching", "note": "strong contender for the portfolio; interest-rate issue; dividend 6.7 %",
-     "reasons": [
-       {"direction": "for_sell", "category": "macro_rates", "claim": "Higher rates raise the yield the market demands from Verizon and its cost of debt."},
-       {"direction": "for_buy", "category": "capital_allocation", "claim": "The dividend is covered and was just raised; forward yield 6.3–6.7 %."},
-       {"direction": "for_sell", "category": "balance_sheet", "claim": "Huge debt for 5G; higher rates hit refinancing cost."},
-       {"direction": "for_sell", "category": "growth", "claim": "Free cash flow down ~25 % on higher capex; guidance flat to down."}]},
-    {"video_id": "lUSBBozs7bA", "ticker": "TSLA", "t0": "2022-11-23", "read": "full", "stance_detail": "short", "personal_action": "short", "note": "shorts ~$100k in the YouTube portfolio; expects P/E 50 → 10 if growth stalls",
-     "reasons": [
-       {"direction": "for_sell", "category": "valuation", "claim": "Priced at a P/E of 50; if growth stagnates it gets a normal car-company multiple of 10."},
-       {"direction": "for_sell", "category": "growth", "claim": "Demand is peaking: early-adopter markets (Norway, Netherlands) are turning to other EVs."},
-       {"direction": "for_buy", "category": "growth", "claim": "Fundamentals still great: 55 % growth, industry-best gross margins, $12 B free cash flow."},
-       {"direction": "for_sell", "category": "management", "claim": "Management guides 50 % annual delivery growth as if demand were unlimited."}]},
-    {"video_id": "Pn6ujD2oIVc", "ticker": "GOOG", "t0": "2023-02-24", "read": "end", "stance_detail": "fair_hold", "personal_action": "watching", "note": "a little bit overvalued, wait for buying"},
-    {"video_id": "slZUUVqnbEE", "ticker": "MU", "t0": "2023-03-03", "read": "part", "stance_detail": "relative_buy", "personal_action": "buying", "note": "cyclical value investment; buys at the end"},
-    {"video_id": "qUOLQtBFaGo", "ticker": "MBUU", "t0": "2023-03-26", "read": "end", "stance_detail": "fair_hold", "personal_action": "watching", "note": "cyclical timing: buy when it looks ugly"},
-    {"video_id": "c0BSjGJc1qo", "ticker": "DIS", "t0": "2023-04-22", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "would not buy; would need P/E 15"},
-    {"video_id": "Y9XzG_VH0kw", "ticker": "INTC", "t0": "2023-09-07", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "a bet on promises, not a value investment"},
-    {"video_id": "PEnIdTq0cM0", "ticker": "CPNG", "t0": "2023-11-30", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "high risk, reward unclear at 30 B"},
-    {"video_id": "TUzhCL4r2GY", "ticker": "IBKR", "t0": "2024-02-10", "read": "full", "stance_detail": "relative_buy", "personal_action": "none", "note": "relative buy, absolute not yet",
-     "reasons": [
-       {"direction": "for_buy", "category": "valuation", "claim": "P/E 16 for 10–20 % growth is a good relative buy."},
-       {"direction": "for_buy", "category": "moat", "claim": "70 % profit margins: a quality business that keeps earning."},
-       {"direction": "for_sell", "category": "macro_rates", "claim": "Earnings are inflated by high rates; lower rates cut net interest income."},
-       {"direction": "for_sell", "category": "capital_allocation", "claim": "No buybacks and 7 % yearly dilution from employee compensation."}]},
-    {"video_id": "4AE_qtqsa34", "ticker": "BRK-B", "t0": "2024-02-25", "read": "end", "stance_detail": "absolute_buy", "personal_action": "none", "note": "absolute buy if you are an American investor"},
-    {"video_id": "tTzF1KFLPjU", "ticker": "HSY", "t0": "2024-04-22", "read": "part", "stance_detail": "avoid", "personal_action": "none", "note": "not a relative buy, not an absolute buy; margin-of-safety buy 50 % lower"},
-    {"video_id": "K1EPymWPsU0", "ticker": "LULU", "t0": "2024-06-20", "read": "end", "stance_detail": "relative_buy", "personal_action": "buying", "note": "risk and reward positive; puts $300 on it"},
-    {"video_id": "JdmDMJXvXiI", "ticker": "PYPL", "t0": "2024-06-22", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "red flags, moat eroding"},
-    {"video_id": "zswOV-TONy4", "ticker": "WBD", "t0": "2024-07-20", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "too risky for my taste; not paid to wait"},
-    {"video_id": "psqWIzrygUA", "ticker": "AAPL", "t0": "2024-08-31", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "sides with Buffett selling"},
-    {"video_id": "aQ2K4w18ezU", "ticker": "MCD", "t0": "2024-11-17", "read": "full", "stance_detail": "avoid", "personal_action": "none", "note": "5 % expected return; P/E 26 could revert to 15",
-     "reasons": [
-       {"direction": "for_sell", "category": "valuation", "claim": "P/E 26; a reversion to a normal 15 is 50 % downside."},
-       {"direction": "for_buy", "category": "moat", "claim": "Stable, always full, keeps growing and raising the dividend."},
-       {"direction": "for_sell", "category": "growth", "claim": "Comparable sales slightly down; growth is slow."}]},
-    {"video_id": "PhhMXcDSSyw", "ticker": "VZ", "t0": "2025-01-20", "read": "full", "stance_detail": "fair_hold", "personal_action": "none", "expected_return_pct": 7, "iv_stated": 38.35, "note": "fairly valued for a 10 % return; quadrant 7 %; interesting in a diversified dividend portfolio",
-     "reasons": [
-       {"direction": "for_sell", "category": "macro_rates", "claim": "Verizon is a pure interest-rate investment: higher rates raise the required dividend yield and the cost of debt."},
-       {"direction": "for_sell", "category": "balance_sheet", "claim": "~150 B of debt is the anchor; refinancing 0.85 % paper at 5 %."},
-       {"direction": "for_buy", "category": "capital_allocation", "claim": "Dividend has grown for two decades and is covered by free cash flow."},
-       {"direction": "for_sell", "category": "growth", "claim": "Revenue flat, operating cash flow down; only slow dividend growth."},
-       {"direction": "for_sell", "category": "balance_sheet", "claim": "Main risk is a dividend cut on lower margins or higher rates."}]},
-    {"video_id": "vDirkgS91VQ", "ticker": "AAPL", "t0": "2025-01-21", "read": "full", "stance_detail": "avoid", "personal_action": "none", "expected_return_pct": 0, "iv_stated": 100, "note": "IV ≈ 100 vs 228; no positive return over ten years",
-     "reasons": [
-       {"direction": "for_sell", "category": "valuation", "claim": "Weighted intrinsic value ≈ 100 against a price of 228 at a 10 % required return."},
-       {"direction": "for_sell", "category": "growth", "claim": "Three years of no growth ex-buybacks; Wall Street's 10–12 % is priced in."},
-       {"direction": "for_sell", "category": "capital_allocation", "claim": "$110 B of buybacks at a 3.1 % yield, at a premium to value."},
-       {"direction": "for_sell", "category": "cyclicality", "claim": "19 % of sales and all production in China; iPhone sales there declining."},
-       {"direction": "for_sell", "category": "sentiment", "claim": "Buffett has been the biggest seller and calls premium buybacks stupid."}]},
-    {"video_id": "IuZ0_IGeLT4", "ticker": "CNH", "t0": "2025-02-09", "read": "end", "stance_detail": "relative_buy", "personal_action": "watching", "expected_return_pct": 10.5, "note": "maybe a small position then increasing; 10–11 % long-term"},
-    {"video_id": "R4KPiRkbukU", "ticker": "OXY", "t0": "2025-03-29", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "interesting only 30 % lower"},
-    {"video_id": "wa9Y4Mi2UVI", "ticker": "TROW", "t0": "2025-04-02", "read": "full", "stance_detail": "avoid", "personal_action": "none", "note": "nothing to do there; deteriorating fee model",
-     "reasons": [
-       {"direction": "for_sell", "category": "moat", "claim": "Index funds cost a tenth of their fees; the competitive advantage is gone and the fee model cannot change."},
-       {"direction": "for_sell", "category": "growth", "claim": "Net outflows for four years even in up markets; fewer customers over time."},
-       {"direction": "for_sell", "category": "capital_allocation", "claim": "Bought back 1.1 B when the stock was high, nothing now that it is down."},
-       {"direction": "for_buy", "category": "valuation", "claim": "Low P/E, high dividend, ~10 % free cash flow yield — but from an exuberant year."}]},
-    {"video_id": "4HPITYUfSA4", "ticker": "UNH", "t0": "2025-05-15", "read": "full", "stance_detail": "too_hard", "personal_action": "none", "note": "insurance goes to the too-hard pile",
-     "reasons": [
-       {"direction": "for_sell", "category": "competence", "claim": "Insurance profits depend on estimated future costs; he will not spend years reading insurance reports."},
-       {"direction": "for_sell", "category": "management", "claim": "A 13–16 % growth target creates the wrong incentives, now surfacing in Medicare investigations."},
-       {"direction": "for_sell", "category": "macro_rates", "claim": "US healthcare spends 14,000 per person for Sri Lanka's life expectancy — long-term political risk."}]},
-    {"video_id": "vPLeDPRLmD4", "ticker": "KHC", "t0": "2025-06-18", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "does not want to take that bet"},
-    {"video_id": "hmEWuCkqI7c", "ticker": "BRK-B", "t0": "2025-09-04", "read": "full", "stance_detail": "avoid", "personal_action": "none", "expected_return_pct": 5, "iv_stated": 390, "note": "not a great buy nor a hold; IV 390 B vs 1 T market cap",
-     "reasons": [
-       {"direction": "for_sell", "category": "valuation", "claim": "Intrinsic value ≈ 390 B at 6 % growth and a 15 multiple against a 1 T market cap; 4 % earnings yield."},
-       {"direction": "for_sell", "category": "sentiment", "claim": "Buffett stopped buybacks and sits on 340 B of cash — he is saying it is expensive."},
-       {"direction": "for_sell", "category": "growth", "claim": "Size limits long-term returns; 340 B of cash cannot be deployed quickly."},
-       {"direction": "for_buy", "category": "moat", "claim": "Berkshire's DNA — no Wall Street chasing — keeps it an okay long-term compounder."}]},
-    {"video_id": "2vaFKRfSyoM", "ticker": "BLK", "t0": "2025-10-16", "read": "full", "stance_detail": "avoid", "personal_action": "none", "note": "title is ironic; puts it as high risk; his value investing does not allow him to make money on it",
-     "reasons": [
-       {"direction": "for_buy", "category": "growth", "claim": "Fees on ever-growing AUM: ETFs, private markets, tokenisation — 2x aspiration by 2030."},
-       {"direction": "for_sell", "category": "macro_rates", "claim": "The whole thesis rides the low-rates, money-printing party; if the party ends, no more growth."},
-       {"direction": "for_sell", "category": "valuation", "claim": "P/E ~30 (20 adjusted) already prices the growth; Buffett in cash, Icahn warned."},
-       {"direction": "for_sell", "category": "management", "claim": "GAAP vs adjusted earnings differ 20 %; growth via acquisitions and dilution."}]},
-    {"video_id": "8HKA0wH87lA", "ticker": "CPB", "t0": "2026-01-03", "read": "full", "stance_detail": "avoid", "personal_action": "none", "expected_return_pct": 6, "note": "leave it to pension funds; 5–7 %",
-     "reasons": [
-       {"direction": "for_sell", "category": "moat", "claim": "Food brands in a highly competitive space; real revenue and income declining for 20 years."},
-       {"direction": "for_sell", "category": "capital_allocation", "claim": "Debt-funded acquisitions worth more than the market cap, in a bad sector."},
-       {"direction": "for_buy", "category": "valuation", "claim": "P/E 10, 5 % dividend, stable cash flows — a small margin of safety from a possible buyout."}]},
-    {"video_id": "xJHP43izznA", "ticker": "AMZN", "t0": "2026-02-27", "read": "full", "stance_detail": "fair_hold", "personal_action": "none", "expected_return_pct": 8.5, "iv_stated": 180, "note": "not a bad addition; personally no",
-     "reasons": [
-       {"direction": "for_buy", "category": "growth", "claim": "AWS re-accelerating, 12 % revenue and 17 % operating income growth; capex is on booked demand."},
-       {"direction": "for_buy", "category": "valuation", "claim": "Lowest P/E in years (25 for 14 % growth); IV ≈ 180 for a 10 % return, priced at 8–9 %."},
-       {"direction": "for_buy", "category": "sentiment", "claim": "Druckenmiller, Klarman and Ackman bought; the stock is below their prices."},
-       {"direction": "for_sell", "category": "growth", "claim": "63 % US market share should mean-revert; free cash flow negative while capex peaks."}]},
-    {"video_id": "yj2MQQ_o_4g", "ticker": "HPQ", "t0": "2026-03-12", "read": "end", "stance_detail": "relative_buy", "personal_action": "holding", "note": "happy with a small position in the diversified portfolio"},
-    {"video_id": "42ZhZRwyRkc", "ticker": "BRK-B", "t0": "2026-06-08", "read": "full", "stance_detail": "relative_buy", "personal_action": "buying", "expected_return_pct": 6, "iv_stated": 700, "note": "buy and forget; 6 % very safe; dollar-cost averaging in",
-     "reasons": [
-       {"direction": "for_buy", "category": "moat", "claim": "Safer than 98 % of investments; protected from inflation once cash is deployed."},
-       {"direction": "for_sell", "category": "valuation", "claim": "IV ≈ 700 B at 6 % growth and a 25 multiple vs a 1 T market cap; 3–9 % return range."},
-       {"direction": "for_sell", "category": "growth", "claim": "390 B of cash earning 3.7 % drags returns; Abel may accept 6 %."},
-       {"direction": "for_buy", "category": "sentiment", "claim": "Buying Google at P/E 27 beats treasuries losing to inflation."}]},
-    {"video_id": "hLYihR3u2UE", "ticker": "ADBE", "t0": "2026-06-18", "read": "end", "stance_detail": "avoid", "personal_action": "none", "note": "too much of a bet for me; fairly priced for 9–10 % only if growth holds"},
-    {"video_id": "5L8THbcY0Yk", "ticker": "NVDA", "t0": "2026-06-26", "read": "full", "stance_detail": "avoid", "personal_action": "none", "iv_stated": 275, "note": "not something for the value investor",
-     "reasons": [
-       {"direction": "for_sell", "category": "cyclicality", "claim": "Semiconductors are clearly cyclical; when the capex boom reverts it gets very ugly (terminal P/E 10, −50 %)."},
-       {"direction": "for_buy", "category": "growth", "claim": "Revenue nearly doubled, margins rising, 200 B annualised free cash flow."},
-       {"direction": "for_sell", "category": "valuation", "claim": "Normal case IV 275 vs price only if 25–30 % growth continues; Wall Street's targets are exuberant."},
-       {"direction": "for_sell", "category": "sentiment", "claim": "7 % of the S&P; everything is in the AI boom; analysts all buys."}]},
-    {"video_id": "J2ZqFVpMb5M", "ticker": "CPRT", "t0": "2026-07-24", "read": "full", "stance_detail": "fair_hold", "personal_action": "watching", "expected_return_pct": 10, "iv_stated": 27, "note": "fairly priced for a 10 % return; not a margin-of-safety buy; start following",
-     "reasons": [
-       {"direction": "for_buy", "category": "moat", "claim": "Duopoly with 33 % net margins and 20 % ROE; unlikely to go bust."},
-       {"direction": "for_sell", "category": "growth", "claim": "Revenue growth fell to ~2 %; P/E de-rated from 43 to 16 because growth stopped."},
-       {"direction": "for_buy", "category": "capital_allocation", "claim": "1.6 B of buybacks when the stock was down — opportunistic, anti-cyclical."},
-       {"direction": "for_sell", "category": "cyclicality", "claim": "Post-pandemic booms reverted; CEO transition and insider selling."}]},
-    {"video_id": "yAtpMMC3aiw", "ticker": "GOOGL", "t0": "2026-07-28", "read": "full", "stance_detail": "avoid", "personal_action": "none", "iv_stated": 200, "note": "wake me up when it is down 50 %; an AI gamble",
-     "reasons": [
-       {"direction": "for_sell", "category": "capital_allocation", "claim": "Capex going from 10 % to 50 % of revenue; 205 B this year, 470 B of new commitments in a quarter."},
-       {"direction": "for_sell", "category": "growth", "claim": "Depreciation of 250 B of data centres will consume profits; needs > 15 % growth just to stand still."},
-       {"direction": "for_buy", "category": "growth", "claim": "24 % revenue growth, cloud +82 %, 514 B backlog."},
-       {"direction": "for_sell", "category": "valuation", "claim": "IV ≈ 200 at 12 % growth vs the price; lowering it further for uncertainty."}]}
-  ]
+ "_note": "Hand labels from reading the transcripts for the M2 plan (2026-09-19). read = full (end to end) | part (first half) | end (conclusion only). Labels with read=full are the seed headline; the rest are secondary. Reasons are listed only for videos read in full where they were noted. source=agent-read until confirmed in the Golden Evals tab (then source=human).",
+ "labels": [
+  {
+   "video_id": "MsIkq0gh9xs",
+   "ticker": "AAPL",
+   "t0": "2022-09-20",
+   "read": "end",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "note": "buys 'just a little bit' for the YouTube portfolio"
+  },
+  {
+   "video_id": "M3Qj7pS2fnA",
+   "ticker": "GOOGL",
+   "t0": "2022-09-25",
+   "read": "end",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "note": "buys live on camera"
+  },
+  {
+   "video_id": "f8FVBfZiEUA",
+   "ticker": "V",
+   "t0": "2022-10-04",
+   "read": "full",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "note": "fairly priced, the good is priced in, not for me"
+  },
+  {
+   "video_id": "acarEBE7_-s",
+   "ticker": "VZ",
+   "t0": "2022-10-06",
+   "read": "full",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "note": "strong contender for the portfolio; interest-rate issue; dividend 6.7 %",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "macro_rates",
+     "claim": "Higher rates raise the yield the market demands from Verizon and its cost of debt."
+    },
+    {
+     "direction": "for_buy",
+     "category": "capital_allocation",
+     "claim": "The dividend is covered and was just raised; forward yield 6.3–6.7 %."
+    },
+    {
+     "direction": "for_sell",
+     "category": "balance_sheet",
+     "claim": "Huge debt for 5G; higher rates hit refinancing cost."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Free cash flow down ~25 % on higher capex; guidance flat to down."
+    }
+   ]
+  },
+  {
+   "video_id": "lUSBBozs7bA",
+   "ticker": "TSLA",
+   "t0": "2022-11-23",
+   "read": "full",
+   "stance_detail": "short",
+   "personal_action": "short",
+   "note": "shorts ~$100k in the YouTube portfolio; expects P/E 50 → 10 if growth stalls",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "Priced at a P/E of 50; if growth stagnates it gets a normal car-company multiple of 10."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Demand is peaking: early-adopter markets (Norway, Netherlands) are turning to other EVs."
+    },
+    {
+     "direction": "for_buy",
+     "category": "growth",
+     "claim": "Fundamentals still great: 55 % growth, industry-best gross margins, $12 B free cash flow."
+    },
+    {
+     "direction": "for_sell",
+     "category": "management",
+     "claim": "Management guides 50 % annual delivery growth as if demand were unlimited."
+    }
+   ]
+  },
+  {
+   "video_id": "Pn6ujD2oIVc",
+   "ticker": "GOOG",
+   "t0": "2023-02-24",
+   "read": "end",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "note": "a little bit overvalued, wait for buying"
+  },
+  {
+   "video_id": "slZUUVqnbEE",
+   "ticker": "MU",
+   "t0": "2023-03-03",
+   "read": "part",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "note": "cyclical value investment; buys at the end"
+  },
+  {
+   "video_id": "qUOLQtBFaGo",
+   "ticker": "MBUU",
+   "t0": "2023-03-26",
+   "read": "end",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "note": "cyclical timing: buy when it looks ugly"
+  },
+  {
+   "video_id": "c0BSjGJc1qo",
+   "ticker": "DIS",
+   "t0": "2023-04-22",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "would not buy; would need P/E 15"
+  },
+  {
+   "video_id": "Y9XzG_VH0kw",
+   "ticker": "INTC",
+   "t0": "2023-09-07",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "a bet on promises, not a value investment"
+  },
+  {
+   "video_id": "PEnIdTq0cM0",
+   "ticker": "CPNG",
+   "t0": "2023-11-30",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "high risk, reward unclear at 30 B"
+  },
+  {
+   "video_id": "TUzhCL4r2GY",
+   "ticker": "IBKR",
+   "t0": "2024-02-10",
+   "read": "full",
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "note": "relative buy, absolute not yet",
+   "reasons": [
+    {
+     "direction": "for_buy",
+     "category": "valuation",
+     "claim": "P/E 16 for 10–20 % growth is a good relative buy."
+    },
+    {
+     "direction": "for_buy",
+     "category": "moat",
+     "claim": "70 % profit margins: a quality business that keeps earning."
+    },
+    {
+     "direction": "for_sell",
+     "category": "macro_rates",
+     "claim": "Earnings are inflated by high rates; lower rates cut net interest income."
+    },
+    {
+     "direction": "for_sell",
+     "category": "capital_allocation",
+     "claim": "No buybacks and 7 % yearly dilution from employee compensation."
+    }
+   ]
+  },
+  {
+   "video_id": "4AE_qtqsa34",
+   "ticker": "BRK-B",
+   "t0": "2024-02-25",
+   "read": "end",
+   "stance_detail": "absolute_buy",
+   "personal_action": "none",
+   "note": "absolute buy if you are an American investor"
+  },
+  {
+   "video_id": "tTzF1KFLPjU",
+   "ticker": "HSY",
+   "t0": "2024-04-22",
+   "read": "part",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "not a relative buy, not an absolute buy; margin-of-safety buy 50 % lower"
+  },
+  {
+   "video_id": "K1EPymWPsU0",
+   "ticker": "LULU",
+   "t0": "2024-06-20",
+   "read": "end",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "note": "risk and reward positive; puts $300 on it"
+  },
+  {
+   "video_id": "JdmDMJXvXiI",
+   "ticker": "PYPL",
+   "t0": "2024-06-22",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "red flags, moat eroding"
+  },
+  {
+   "video_id": "zswOV-TONy4",
+   "ticker": "WBD",
+   "t0": "2024-07-20",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "too risky for my taste; not paid to wait"
+  },
+  {
+   "video_id": "psqWIzrygUA",
+   "ticker": "AAPL",
+   "t0": "2024-08-31",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "sides with Buffett selling"
+  },
+  {
+   "video_id": "aQ2K4w18ezU",
+   "ticker": "MCD",
+   "t0": "2024-11-17",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "5 % expected return; P/E 26 could revert to 15",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "P/E 26; a reversion to a normal 15 is 50 % downside."
+    },
+    {
+     "direction": "for_buy",
+     "category": "moat",
+     "claim": "Stable, always full, keeps growing and raising the dividend."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Comparable sales slightly down; growth is slow."
+    }
+   ]
+  },
+  {
+   "video_id": "PhhMXcDSSyw",
+   "ticker": "VZ",
+   "t0": "2025-01-20",
+   "read": "full",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 7,
+   "iv_stated": 38.35,
+   "note": "fairly valued for a 10 % return; quadrant 7 %; interesting in a diversified dividend portfolio",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "macro_rates",
+     "claim": "Verizon is a pure interest-rate investment: higher rates raise the required dividend yield and the cost of debt."
+    },
+    {
+     "direction": "for_sell",
+     "category": "balance_sheet",
+     "claim": "~150 B of debt is the anchor; refinancing 0.85 % paper at 5 %."
+    },
+    {
+     "direction": "for_buy",
+     "category": "capital_allocation",
+     "claim": "Dividend has grown for two decades and is covered by free cash flow."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Revenue flat, operating cash flow down; only slow dividend growth."
+    },
+    {
+     "direction": "for_sell",
+     "category": "balance_sheet",
+     "claim": "Main risk is a dividend cut on lower margins or higher rates."
+    }
+   ]
+  },
+  {
+   "video_id": "vDirkgS91VQ",
+   "ticker": "AAPL",
+   "t0": "2025-01-21",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 0,
+   "iv_stated": 100,
+   "note": "IV ≈ 100 vs 228; no positive return over ten years",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "Weighted intrinsic value ≈ 100 against a price of 228 at a 10 % required return."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Three years of no growth ex-buybacks; Wall Street's 10–12 % is priced in."
+    },
+    {
+     "direction": "for_sell",
+     "category": "capital_allocation",
+     "claim": "$110 B of buybacks at a 3.1 % yield, at a premium to value."
+    },
+    {
+     "direction": "for_sell",
+     "category": "cyclicality",
+     "claim": "19 % of sales and all production in China; iPhone sales there declining."
+    },
+    {
+     "direction": "for_sell",
+     "category": "sentiment",
+     "claim": "Buffett has been the biggest seller and calls premium buybacks stupid."
+    }
+   ]
+  },
+  {
+   "video_id": "v1",
+   "ticker": "AAPL",
+   "t0": "2025-01-21",
+   "read": "app",
+   "stance_detail": "fair_hold",
+   "source": "human",
+   "curation_status": "reviewed",
+   "note": "ok"
+  },
+  {
+   "video_id": "IuZ0_IGeLT4",
+   "ticker": "CNH",
+   "t0": "2025-02-09",
+   "read": "end",
+   "stance_detail": "relative_buy",
+   "personal_action": "watching",
+   "expected_return_pct": 10.5,
+   "note": "maybe a small position then increasing; 10–11 % long-term"
+  },
+  {
+   "video_id": "R4KPiRkbukU",
+   "ticker": "OXY",
+   "t0": "2025-03-29",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "interesting only 30 % lower"
+  },
+  {
+   "video_id": "wa9Y4Mi2UVI",
+   "ticker": "TROW",
+   "t0": "2025-04-02",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "nothing to do there; deteriorating fee model",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "moat",
+     "claim": "Index funds cost a tenth of their fees; the competitive advantage is gone and the fee model cannot change."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Net outflows for four years even in up markets; fewer customers over time."
+    },
+    {
+     "direction": "for_sell",
+     "category": "capital_allocation",
+     "claim": "Bought back 1.1 B when the stock was high, nothing now that it is down."
+    },
+    {
+     "direction": "for_buy",
+     "category": "valuation",
+     "claim": "Low P/E, high dividend, ~10 % free cash flow yield — but from an exuberant year."
+    }
+   ]
+  },
+  {
+   "video_id": "4HPITYUfSA4",
+   "ticker": "UNH",
+   "t0": "2025-05-15",
+   "read": "full",
+   "stance_detail": "too_hard",
+   "personal_action": "none",
+   "note": "insurance goes to the too-hard pile",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "competence",
+     "claim": "Insurance profits depend on estimated future costs; he will not spend years reading insurance reports."
+    },
+    {
+     "direction": "for_sell",
+     "category": "management",
+     "claim": "A 13–16 % growth target creates the wrong incentives, now surfacing in Medicare investigations."
+    },
+    {
+     "direction": "for_sell",
+     "category": "macro_rates",
+     "claim": "US healthcare spends 14,000 per person for Sri Lanka's life expectancy — long-term political risk."
+    }
+   ]
+  },
+  {
+   "video_id": "vPLeDPRLmD4",
+   "ticker": "KHC",
+   "t0": "2025-06-18",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "does not want to take that bet"
+  },
+  {
+   "video_id": "hmEWuCkqI7c",
+   "ticker": "BRK-B",
+   "t0": "2025-09-04",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 5,
+   "iv_stated": 390,
+   "note": "not a great buy nor a hold; IV 390 B vs 1 T market cap",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "Intrinsic value ≈ 390 B at 6 % growth and a 15 multiple against a 1 T market cap; 4 % earnings yield."
+    },
+    {
+     "direction": "for_sell",
+     "category": "sentiment",
+     "claim": "Buffett stopped buybacks and sits on 340 B of cash — he is saying it is expensive."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Size limits long-term returns; 340 B of cash cannot be deployed quickly."
+    },
+    {
+     "direction": "for_buy",
+     "category": "moat",
+     "claim": "Berkshire's DNA — no Wall Street chasing — keeps it an okay long-term compounder."
+    }
+   ]
+  },
+  {
+   "video_id": "2vaFKRfSyoM",
+   "ticker": "BLK",
+   "t0": "2025-10-16",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "title is ironic; puts it as high risk; his value investing does not allow him to make money on it",
+   "reasons": [
+    {
+     "direction": "for_buy",
+     "category": "growth",
+     "claim": "Fees on ever-growing AUM: ETFs, private markets, tokenisation — 2x aspiration by 2030."
+    },
+    {
+     "direction": "for_sell",
+     "category": "macro_rates",
+     "claim": "The whole thesis rides the low-rates, money-printing party; if the party ends, no more growth."
+    },
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "P/E ~30 (20 adjusted) already prices the growth; Buffett in cash, Icahn warned."
+    },
+    {
+     "direction": "for_sell",
+     "category": "management",
+     "claim": "GAAP vs adjusted earnings differ 20 %; growth via acquisitions and dilution."
+    }
+   ]
+  },
+  {
+   "video_id": "8HKA0wH87lA",
+   "ticker": "CPB",
+   "t0": "2026-01-03",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 6,
+   "note": "leave it to pension funds; 5–7 %",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "moat",
+     "claim": "Food brands in a highly competitive space; real revenue and income declining for 20 years."
+    },
+    {
+     "direction": "for_sell",
+     "category": "capital_allocation",
+     "claim": "Debt-funded acquisitions worth more than the market cap, in a bad sector."
+    },
+    {
+     "direction": "for_buy",
+     "category": "valuation",
+     "claim": "P/E 10, 5 % dividend, stable cash flows — a small margin of safety from a possible buyout."
+    }
+   ]
+  },
+  {
+   "video_id": "xJHP43izznA",
+   "ticker": "AMZN",
+   "t0": "2026-02-27",
+   "read": "full",
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 8.5,
+   "iv_stated": 180,
+   "note": "not a bad addition; personally no",
+   "reasons": [
+    {
+     "direction": "for_buy",
+     "category": "growth",
+     "claim": "AWS re-accelerating, 12 % revenue and 17 % operating income growth; capex is on booked demand."
+    },
+    {
+     "direction": "for_buy",
+     "category": "valuation",
+     "claim": "Lowest P/E in years (25 for 14 % growth); IV ≈ 180 for a 10 % return, priced at 8–9 %."
+    },
+    {
+     "direction": "for_buy",
+     "category": "sentiment",
+     "claim": "Druckenmiller, Klarman and Ackman bought; the stock is below their prices."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "63 % US market share should mean-revert; free cash flow negative while capex peaks."
+    }
+   ]
+  },
+  {
+   "video_id": "yj2MQQ_o_4g",
+   "ticker": "HPQ",
+   "t0": "2026-03-12",
+   "read": "end",
+   "stance_detail": "relative_buy",
+   "personal_action": "holding",
+   "note": "happy with a small position in the diversified portfolio"
+  },
+  {
+   "video_id": "42ZhZRwyRkc",
+   "ticker": "BRK-B",
+   "t0": "2026-06-08",
+   "read": "full",
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 6,
+   "iv_stated": 700,
+   "note": "buy and forget; 6 % very safe; dollar-cost averaging in",
+   "reasons": [
+    {
+     "direction": "for_buy",
+     "category": "moat",
+     "claim": "Safer than 98 % of investments; protected from inflation once cash is deployed."
+    },
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "IV ≈ 700 B at 6 % growth and a 25 multiple vs a 1 T market cap; 3–9 % return range."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "390 B of cash earning 3.7 % drags returns; Abel may accept 6 %."
+    },
+    {
+     "direction": "for_buy",
+     "category": "sentiment",
+     "claim": "Buying Google at P/E 27 beats treasuries losing to inflation."
+    }
+   ]
+  },
+  {
+   "video_id": "hLYihR3u2UE",
+   "ticker": "ADBE",
+   "t0": "2026-06-18",
+   "read": "end",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "note": "too much of a bet for me; fairly priced for 9–10 % only if growth holds"
+  },
+  {
+   "video_id": "5L8THbcY0Yk",
+   "ticker": "NVDA",
+   "t0": "2026-06-26",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "iv_stated": 275,
+   "note": "not something for the value investor",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "cyclicality",
+     "claim": "Semiconductors are clearly cyclical; when the capex boom reverts it gets very ugly (terminal P/E 10, −50 %)."
+    },
+    {
+     "direction": "for_buy",
+     "category": "growth",
+     "claim": "Revenue nearly doubled, margins rising, 200 B annualised free cash flow."
+    },
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "Normal case IV 275 vs price only if 25–30 % growth continues; Wall Street's targets are exuberant."
+    },
+    {
+     "direction": "for_sell",
+     "category": "sentiment",
+     "claim": "7 % of the S&P; everything is in the AI boom; analysts all buys."
+    }
+   ]
+  },
+  {
+   "video_id": "J2ZqFVpMb5M",
+   "ticker": "CPRT",
+   "t0": "2026-07-24",
+   "read": "full",
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": 10,
+   "iv_stated": 27,
+   "note": "fairly priced for a 10 % return; not a margin-of-safety buy; start following",
+   "reasons": [
+    {
+     "direction": "for_buy",
+     "category": "moat",
+     "claim": "Duopoly with 33 % net margins and 20 % ROE; unlikely to go bust."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Revenue growth fell to ~2 %; P/E de-rated from 43 to 16 because growth stopped."
+    },
+    {
+     "direction": "for_buy",
+     "category": "capital_allocation",
+     "claim": "1.6 B of buybacks when the stock was down — opportunistic, anti-cyclical."
+    },
+    {
+     "direction": "for_sell",
+     "category": "cyclicality",
+     "claim": "Post-pandemic booms reverted; CEO transition and insider selling."
+    }
+   ]
+  },
+  {
+   "video_id": "yAtpMMC3aiw",
+   "ticker": "GOOGL",
+   "t0": "2026-07-28",
+   "read": "full",
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "iv_stated": 200,
+   "note": "wake me up when it is down 50 %; an AI gamble",
+   "reasons": [
+    {
+     "direction": "for_sell",
+     "category": "capital_allocation",
+     "claim": "Capex going from 10 % to 50 % of revenue; 205 B this year, 470 B of new commitments in a quarter."
+    },
+    {
+     "direction": "for_sell",
+     "category": "growth",
+     "claim": "Depreciation of 250 B of data centres will consume profits; needs > 15 % growth just to stand still."
+    },
+    {
+     "direction": "for_buy",
+     "category": "growth",
+     "claim": "24 % revenue growth, cloud +82 %, 514 B backlog."
+    },
+    {
+     "direction": "for_sell",
+     "category": "valuation",
+     "claim": "IV ≈ 200 at 12 % growth vs the price; lowering it further for uncertainty."
+    }
+   ]
+  }
+ ]
 }

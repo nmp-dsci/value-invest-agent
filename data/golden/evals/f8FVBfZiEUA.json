@@ -1,0 +1,253 @@
+{
+ "key": "f8FVBfZiEUA:cb5380c56232:v2:a33445f38391",
+ "eval": {
+  "video_id": "f8FVBfZiEUA",
+  "ticker": "V",
+  "t0": "2022-10-04",
+  "title": "VISA Stock Quick Take!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": 5.0,
+   "conviction": "medium",
+   "headline_quote": "so if I look at my YouTube portfolio Visa is not a candidate because I prefer Google at 18 with similar growth projections ahead then Visa at 27."
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 7.43,
+    "quote": "we are now at 7.43 from earnings per share and everything is expected to just keep on growing and likely double in five years"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 27.0,
+    "quote": "at the p ratio of 27 I'm not happy sitting in such a great business at a high valuation"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 185.64999389648438,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At a P/E of 27 the good news is already priced in, making the stock unattractive versus a cheaper alternative with similar growth.",
+    "quote": "so if I look at my YouTube portfolio Visa is not a candidate because I prefer Google at 18 with similar growth projections ahead then Visa at 27.",
+    "chunk_id": "chunk:f8FVBfZiEUA:2",
+    "start_s": 159.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 27.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "google pe ratio",
+      "value": 18.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: pe ratio, google pe ratio"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "If the market settles on a lower P/E of 18 in five years, the stock could go nowhere regardless of earnings growth, which is a big risk given the Delta of the Delta effect.",
+    "quote": "if in five years the market says okay I'm happy with Visa great business but I give it a p ratio of 18 then no matter the earnings growth the stock might go nowhere for five years and that's a significant risk",
+    "chunk_id": "chunk:f8FVBfZiEUA:0",
+    "start_s": 0.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "future pe scenario",
+      "value": 18.0,
+      "unit": "ratio",
+      "period": "5 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: future pe scenario"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Latest quarter showed huge growth across metrics as cash usage declines and Visa usage rises, expanding its moat.",
+    "quote": "if I look at the last quarter huge growth in whatever metric you look at so perfect for Visa it's expanding on its mode cash is used less which means that more Visa is used",
+    "chunk_id": "chunk:f8FVBfZiEUA:1",
+    "start_s": 78.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Strong free cash flow with low capex is largely returned to shareholders via buybacks, which he views positively since the business is likely to endure.",
+    "quote": "in nine months they made 14 billion by cash provided by operating activities very little Capital expenditures the business is so strong High free cash flows and everything is used to reward shareholders which share repurchases",
+    "chunk_id": "chunk:f8FVBfZiEUA:1",
+    "start_s": 78.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "cash from operating activities",
+      "value": 14.0,
+      "unit": "usd_bn",
+      "period": "9 months"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 14000000000.0,
+     "value_as_of": 16487000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 1.4e+10, as-of 1.6487e+10 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Rising digital payment competitors like Apple Pay and Google Pay could erode Visa's margin and moat, turning it into a legacy business.",
+    "quote": "I see more and more people just Apple pay Google pay this and that and I'm thinking can Visa become a legacy business okay it will likely grow but the margin the mode the pie might get taken by the digital payment systems",
+    "chunk_id": "chunk:f8FVBfZiEUA:2",
+    "start_s": 159.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 185.64999389648438,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 0,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "bdb74b28-44fd-4e98-a75e-15f019663378",
+   "transcript_sha256": "cb5380c56232d358b282b07290b846f86ad846967ba59ef02cb3a34d9e31a4a1",
+   "extracted_at": "2026-09-19T11:50:36+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "3ebafb3e-78ab-4b93-a910-612b83d4ac92"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.039285,
+   "session_id": "bdb74b28-44fd-4e98-a75e-15f019663378",
+   "input_tokens": 5535,
+   "output_tokens": 1505
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.046728,
+   "session_id": "3ebafb3e-78ab-4b93-a910-612b83d4ac92",
+   "input_tokens": 3734,
+   "output_tokens": 259
+  }
+ }
+}

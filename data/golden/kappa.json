@@ -1,0 +1,25 @@
+{
+ "n": 40,
+ "kappa_6way": 0.8488,
+ "kappa_3way": 0.8738,
+ "agreement_6way": 0.9,
+ "agreement_3way": 0.925,
+ "disagreements": [
+  {
+   "extractor": "too_hard",
+   "critic": "avoid"
+  },
+  {
+   "extractor": "fair_hold",
+   "critic": "absolute_buy"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "fair_hold"
+  },
+  {
+   "extractor": "avoid",
+   "critic": "fair_hold"
+  }
+ ]
+}

@@ -1,0 +1,290 @@
+{
+ "key": "c0BSjGJc1qo:8d9bd5113603:v2:a33445f38391",
+ "eval": {
+  "video_id": "c0BSjGJc1qo",
+  "ticker": "DIS",
+  "t0": "2023-04-22",
+  "title": "I don't think Bog Iger Can Swing His Mickey Mouse And Turn Disney....",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "therefore it doesn't even fit our portfolio because I need a clear positive risk and reward something undervalued to even take a position"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 8000000000.0,
+    "quote": "what if they make only 8 billion let's say in a good year that is still a 10 net profit margin that is still high"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 22.5,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "even if they reach 8 billion of profitability one day that is still just a p ratio of 22 23 somewhere down the road which makes even this risky"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": 179000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "this was just the exuberance on the streaming valuing it like Netflix then it crashed"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 8000000000.0,
+    "as_of": 3145000000.0,
+    "period": "FY2022",
+    "gap_pct": 154.4
+   }
+  },
+  "price_at_t0": 99.56999969482422,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Even in a good year of 8 billion in profit, the current 179 billion market cap implies a P/E of 22-23, which is still risky and not undervalued.",
+    "quote": "even if they reach 8 billion of profitability one day that is still just a p ratio of 22 23 somewhere down the road which makes even this risky",
+    "chunk_id": "chunk:c0BSjGJc1qo:5",
+    "start_s": 408.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "market cap",
+      "value": 179.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "net income",
+      "value": 8.0,
+      "unit": "usd_bn",
+      "period": "good year"
+     },
+     {
+      "name": "pe ratio",
+      "value": 22.5,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 179000000000.0,
+     "value_as_of": 179225999450.6836,
+     "agrees": true,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2022",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Munger's view that every Disney business has gotten tougher means the old high-margin, dominant-franchise days are over.",
+    "quote": "practically every business that Disney has has gotten tougher than it used to be",
+    "chunk_id": "chunk:c0BSjGJc1qo:0",
+    "start_s": 0.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Streaming is intensely competitive with six or seven well-funded rivals all fighting for the same subscribers and content, so profitability may never be durable, like the airline industry.",
+    "quote": "it might look like the airlines industry where nobody never made money",
+    "chunk_id": "chunk:c0BSjGJc1qo:3",
+    "start_s": 242.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Net margins that used to be 15% during the great times are unlikely to return, permanently lowering the profitability the stock deserves to be valued on.",
+    "quote": "this great times 15 net margins are likely over so we have to lower those net margins significantly",
+    "chunk_id": "chunk:c0BSjGJc1qo:5",
+    "start_s": 408.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "historical net margin",
+      "value": 15.0,
+      "unit": "pct",
+      "period": "2010s"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income",
+      "Total Revenue"
+     ],
+     "value_stated": 0.15,
+     "value_as_of": 0.03801890669954788,
+     "agrees": false,
+     "formula": "Net Income / Revenue",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 0.15, as-of 0.0380189 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Bob Iger's cocky, overconfident attitude in the earnings call, and his age, make Sven doubt he can turn the business around despite past M&A success.",
+    "quote": "I just feel that Bob Iger is a little bit over his head here or he has been called back like the Savior but he's 72 years old",
+    "chunk_id": "chunk:c0BSjGJc1qo:4",
+    "start_s": 319.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "Iger age",
+      "value": 72.0,
+      "unit": "years",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: Iger age"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Disney added 57 million streaming subscriptions for a total of more than 235 million, versus Netflix's ~229-290 million",
+   "about 900 million homes globally can afford Disney or Netflix subscriptions",
+   "Bob Iger's comments from the Morgan Stanley technology conference transcript about streaming competition and ESPN",
+   "Charlie Munger's public comment that practically every Disney business has gotten tougher",
+   "Buffett's remark that he made a mistake not buying Disney in the 1960s"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 99.56999969482422,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 2,
+    "external": 1,
+    "judgement": 2
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": 154.4,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "caa145e5-baf4-4fa3-ac54-f0648501e4f1",
+   "transcript_sha256": "8d9bd5113603c75ab4bc453f8fb47a5025de61b69bd51340267898e350b17b40",
+   "extracted_at": "2026-09-19T11:51:06+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "a39d39de-3d94-45e1-a557-8539cf5d791d"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0336088,
+   "session_id": "caa145e5-baf4-4fa3-ac54-f0648501e4f1",
+   "input_tokens": 6875,
+   "output_tokens": 1652
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.051735,
+   "session_id": "a39d39de-3d94-45e1-a557-8539cf5d791d",
+   "input_tokens": 5253,
+   "output_tokens": 75
+  }
+ }
+}

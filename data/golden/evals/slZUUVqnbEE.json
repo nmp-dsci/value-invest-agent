@@ -1,0 +1,306 @@
+{
+ "key": "slZUUVqnbEE:4fc53f2ac3b3:v2:a33445f38391",
+ "eval": {
+  "video_id": "slZUUVqnbEE",
+  "ticker": "MU",
+  "t0": "2023-03-03",
+  "title": "Micron Stock Analysis - Good, but not great yet!",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": "BUY",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 10.0,
+   "horizon_years": 7.0,
+   "conviction": "medium",
+   "headline_quote": "in my opinion it's not a great buy it's a good one"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "even if they make a hundred billion which is also a stretch then we are at 10 billion in free cash flows"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 12.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if they make 10 billion by 2030 fee ratio of 12 because the market will always think it is cyclical because it is that's a 10 return per year"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 12.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if they make 75 billion that's 7.5 billion in free cash flows that really changes the valuation down the road"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": 60.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "the p ratio isn't 10 anymore because there will be no profitability in q1 and down the road as they expect"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 56.779998779296875,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Even assuming $100B revenue and a 10% FCF margin, Micron only produces $10B free cash flow, giving a modest ~10% return at a 12x multiple, so it is a good buy but not a great one.",
+    "quote": "if they make 10 billion by 2030 fee ratio of 12 because the market will always think it is cyclical because it is that's a 10 return per year",
+    "chunk_id": "chunk:slZUUVqnbEE:14",
+    "start_s": 1180.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "fcf margin assumption",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "terminal pe",
+      "value": 12.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "expected return",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: fcf margin assumption, terminal pe, expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Micron is a fully cyclical business with brutal margin swings, and current high inventories suggest the downturn could last longer, so buying should be staggered as the price falls.",
+    "quote": "yes it is 100 cyclical even if the last two years yes this time is different but as I always said it's never different so q1 revenues down 49 47 and an absolute destruction in margins from 48 to 23",
+    "chunk_id": "chunk:slZUUVqnbEE:7",
+    "start_s": 585.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "revenue decline",
+      "value": 49.0,
+      "unit": "pct",
+      "period": "q1"
+     },
+     {
+      "name": "margin decline",
+      "value": 48.0,
+      "unit": "pct_pts",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.49,
+     "value_as_of": 0.11019671539433307,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 0.49, as-of 0.110197 (FY2022); annual vs TTM or a different definition; not in our data: margin decline"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Consolidation from twelve to three players could allow the industry to shift from a low-margin commodity business into a higher-margin, higher-cash-flow oligopoly over time.",
+    "quote": "so free players oligopoly so he thinks that now that there are just three players down from 12 a decade ago that there will be improved profits and improved margins",
+    "chunk_id": "chunk:slZUUVqnbEE:2",
+    "start_s": 155.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Samsung's continued heavy capex investment despite the downturn threatens the oligopoly discipline thesis and could prolong the price cycle for everyone.",
+    "quote": "Samsung said I'm going to keep my investments because I want to gain market share",
+    "chunk_id": "chunk:slZUUVqnbEE:8",
+    "start_s": 670.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "Samsung cash",
+      "value": 89.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 89000000000.0,
+     "value_as_of": 8262000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2022",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 8.9e+10, as-of 8.262e+09 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The stock is trading close to tangible book value, historically the point at which Micron has bottomed and been a good time to buy in a cyclical strategy.",
+    "quote": "the best time to buy more is when it comes close to tangible Book value so this won't grow likely go a little bit lower so around 40 bucks per share from the current closer to 60",
+    "chunk_id": "chunk:slZUUVqnbEE:16",
+    "start_s": 1354.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "book value estimate",
+      "value": 40.0,
+      "unit": "usd_per_share",
+      "period": null
+     },
+     {
+      "name": "current price",
+      "value": 60.0,
+      "unit": "usd_per_share",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 60.0,
+     "value_as_of": 56.779998779296875,
+     "agrees": true,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2023-03-03",
+     "gap_note": "not in our data: book value estimate"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Monish Pabrai's public commentary and thesis on Micron",
+   "13F-style holdings/purchase history of Pabrai, Li Lu, Seth Klarman",
+   "Samsung's $89 billion cash balance and capex guidance",
+   "Micron CEO commentary on industry supply/demand imbalance",
+   "Micron investor day projections of $330 billion market by year"
+  ],
+  "critic": {
+   "faithful": false,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [
+    5
+   ],
+   "notes": "Reason 5 claims the stock trades close to tangible book; transcript says \"now not yet so close to book\" and expects a drop to ~$40 from ~$60 before it becomes the best buy."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 56.779998779296875,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 1,
+    "derived": 1,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "a93161ea-5226-4958-9563-35afa2f60acb",
+   "transcript_sha256": "4fc53f2ac3b333c868277def8b08610017818dbf8af9a18e01ae51c472912d61",
+   "extracted_at": "2026-09-19T11:51:06+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "56576cc8-406f-4539-8d51-4211c3c7a0c2"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0577798,
+   "session_id": "a93161ea-5226-4958-9563-35afa2f60acb",
+   "input_tokens": 11439,
+   "output_tokens": 1887
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.112019,
+   "session_id": "56576cc8-406f-4539-8d51-4211c3c7a0c2",
+   "input_tokens": 9994,
+   "output_tokens": 441
+  }
+ }
+}

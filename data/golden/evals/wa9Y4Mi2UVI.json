@@ -1,0 +1,237 @@
+{
+ "key": "wa9Y4Mi2UVI:fc8d5cf04eb7:v2:a33445f38391",
+ "eval": {
+  "video_id": "wa9Y4Mi2UVI",
+  "ticker": "TROW",
+  "t0": "2025-04-02",
+  "title": "TROW Stock Cheap, But T Rowe Price Has Deteriorating Business Model",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "To me that is too risky despite the 10% let's say free cash flow yield gained from an exuberant market last year."
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "too risky despite the 10% let's say free cash flow yield gained from an exuberant market last year"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 93.9000015258789,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Cheap index funds have destroyed T Rowe Price's fee-based competitive advantage, and they cannot change that business model.",
+    "quote": "you can buy diversified index funds for a tenth even less 5% of what their fees are which means that their competitive advantage is gone",
+    "chunk_id": "chunk:wa9Y4Mi2UVI:2",
+    "start_s": 167.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Persistent negative net flows even in good markets mean the customer base is shrinking, which threatens long-term cash flows.",
+    "quote": "if we look at net flows even in positive situations over the last four years those have been negative",
+    "chunk_id": "chunk:wa9Y4Mi2UVI:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Buybacks are poorly timed, heavy when the stock is expensive and none when it is cheap, which is bad capital allocation.",
+    "quote": "when the stock price was higher they made 1.1 billion in repurchases which is here now they are not making any anymore",
+    "chunk_id": "chunk:wa9Y4Mi2UVI:1",
+    "start_s": 90.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "share repurchases",
+      "value": 1.1,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 1100000000.0,
+     "value_as_of": -337200000.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 1.1e+09, as-of -3.372e+08 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "If markets turn down, outflows worsen and the business could deteriorate to the point of being taken over.",
+    "quote": "You can be quickly on one then you have more outflows and then somebody will take them over and there will be no more troll price.",
+    "chunk_id": "chunk:wa9Y4Mi2UVI:2",
+    "start_s": 167.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Despite a cheap-looking P/E and high dividend yield, the risk/reward is unappealing given the deteriorating model.",
+    "quote": "the P ratio is low. The dividend yield is high and therefore I can understand your interest. However, quickly T row price has a declining business model",
+    "chunk_id": "chunk:wa9Y4Mi2UVI:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "net flows / assets under management trend data",
+   "share repurchase amounts by year",
+   "underlying fund expense ratios disclosed in fund materials"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 93.9000015258789,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 0,
+    "external": 0,
+    "judgement": 3
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "040bf207-bbda-4b83-8b55-3b1d43dd32d1",
+   "transcript_sha256": "fc8d5cf04eb71513cbe805fdfcce53a36a78a1a3b629019bccfe69067d495fd1",
+   "extracted_at": "2026-09-19T11:53:32+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "cf12ab57-482e-432d-8431-4175a9da94d2"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0228348,
+   "session_id": "040bf207-bbda-4b83-8b55-3b1d43dd32d1",
+   "input_tokens": 5484,
+   "output_tokens": 1235
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.033284,
+   "session_id": "cf12ab57-482e-432d-8431-4175a9da94d2",
+   "input_tokens": 3539,
+   "output_tokens": 75
+  }
+ }
+}

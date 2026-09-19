@@ -1,0 +1,245 @@
+{
+ "key": "Pn6ujD2oIVc:601c75b50d94:v2:a33445f38391",
+ "eval": {
+  "video_id": "Pn6ujD2oIVc",
+  "ticker": "GOOG",
+  "t0": "2023-02-24",
+  "title": "Google Is A Better Business Than Retailer Amazon",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": 5.0,
+   "conviction": "medium",
+   "headline_quote": "of course I also consider Google a little bit overvalued wait for buying but I'm just saying that it might be better by down the road"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "the stocks are already priced the same"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 89.3499984741211,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Google's search business scales without added cost per user, unlike Amazon which must ship and fulfill every order.",
+    "quote": "if you do a search here and you do another search and you do another search it doesn't cost Google much more to deliver on that promise",
+    "chunk_id": "chunk:Pn6ujD2oIVc:3",
+    "start_s": 257.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Google converts profits into real cash returned via buybacks, while Amazon reinvests nearly all profit into the business with little left for shareholders.",
+    "quote": "59 billion in net profits all used in BuyBacks thus return to shareholders practically no net profits here",
+    "chunk_id": "chunk:Pn6ujD2oIVc:3",
+    "start_s": 257.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "net profit",
+      "value": 59.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 59000000000.0,
+     "value_as_of": 59972000000.0,
+     "agrees": true,
+     "formula": "Net Income FY2022",
+     "as_of_period": "FY2022",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Amazon's retail business is low-margin and must constantly reinvest to defend its competitive position, unlike Google.",
+    "quote": "they have to constantly invest spend a lot of money to keep their position in the market",
+    "chunk_id": "chunk:Pn6ujD2oIVc:1",
+    "start_s": 86.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "net profit margin",
+      "value": 20.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "net profit margin (Amazon)",
+      "value": 5.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income",
+      "Total Revenue"
+     ],
+     "value_stated": 0.2,
+     "value_as_of": 0.2120380715326196,
+     "agrees": true,
+     "formula": "Net Income / Revenue",
+     "as_of_period": "FY2022",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "sentiment",
+    "claim": "Buffett and Munger view Amazon-type retail miracles skeptically, reinforcing that Google's steadier profitability is the better business.",
+    "quote": "he doesn't invest in Miracles and he calls that a miracle",
+    "chunk_id": "chunk:Pn6ujD2oIVc:3",
+    "start_s": 257.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Despite the better business, he still sees Google as a bit overvalued at the current price and would wait for a better entry.",
+    "quote": "I also consider Google a little bit overvalued wait for buying",
+    "chunk_id": "chunk:Pn6ujD2oIVc:4",
+    "start_s": 344.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Charlie Munger's comments on Alibaba being a retailer/competitive business",
+   "Warren Buffett's comment that not investing in Google was a mistake, and that he avoids 'miracles' like Amazon"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 89.3499984741211,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 1,
+    "external": 1,
+    "judgement": 2
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "0a74a9c0-e9a3-46c1-9cce-79f149b8fc5c",
+   "transcript_sha256": "601c75b50d9485e0505759daad2a15c2f44a69ac066d9563d9ca97cbf527ef94",
+   "extracted_at": "2026-09-19T11:50:46+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "8f97f2d8-24fc-44d1-8cff-97a5fa8f1247"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.024533799999999998,
+   "session_id": "0a74a9c0-e9a3-46c1-9cce-79f149b8fc5c",
+   "input_tokens": 5815,
+   "output_tokens": 1253
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.043081,
+   "session_id": "8f97f2d8-24fc-44d1-8cff-97a5fa8f1247",
+   "input_tokens": 3847,
+   "output_tokens": 337
+  }
+ }
+}

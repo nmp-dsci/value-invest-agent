@@ -1,0 +1,322 @@
+{
+ "key": "K1EPymWPsU0:ebcbf5334962:v2:a33445f38391",
+ "eval": {
+  "video_id": "K1EPymWPsU0",
+  "ticker": "LULU",
+  "t0": "2024-06-20",
+  "title": "Lululemon Stock Analysis NASDAQ: LULU",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "I think relatively speaking it is a much better buy than Nike"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 14.0,
+    "quote": "the EPS will go to 14 2024 let's say 16 2025 17 18 2026"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 30.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if the stock reaches 17 earnings per share in 202 6 with a p ratio of I don't know 20 that's 340 p ratio of 25 30 you are already at 50% up"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.05,
+     "g_y6_10": null,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if there is a recession the growth slows down to 5% p ratio 15 that's 2025 so that is the risk"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 24.0,
+    "quote": "the p ratio going from 40 to 24 below Nikes of 27"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": 131.88,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 14.0,
+    "as_of": 12.2,
+    "period": "FY2024",
+    "gap_pct": 14.8
+   }
+  },
+  "price_at_t0": 310.7699890136719,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The P/E dropped from an exuberant 40-80 range down to the bottom of its historical range, making the stock relatively cheap versus its own history and versus Nike.",
+    "quote": "the p ratio going from 40 to 24 below Nikes of 27",
+    "chunk_id": "chunk:K1EPymWPsU0:0",
+    "start_s": 0.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "p/e",
+      "value": 24.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "nike p/e",
+      "value": 27.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 24.0,
+     "value_as_of": 25.472949919153432,
+     "agrees": true,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2024",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "International sales, especially China and rest of world, are growing very fast and offer a long runway versus a saturated Nike.",
+    "quote": "China is growing 45% so the Chinese are going off Nike and more towards Lululemon rest of world 27% growth",
+    "chunk_id": "chunk:K1EPymWPsU0:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "China growth",
+      "value": 45.0,
+      "unit": "pct",
+      "period": "quarter"
+     },
+     {
+      "name": "rest of world growth",
+      "value": 27.0,
+      "unit": "pct",
+      "period": "quarter"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.27,
+     "value_as_of": 0.8263473053892216,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 0.27, as-of 0.826347 (FY2024); annual vs TTM or a different definition; not in our data: China growth"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Buybacks reduce share count and are more effective now that the stock price is lower, adding to shareholder returns.",
+    "quote": "they are doing BuyBacks with the net income lowering the number of shares and they have still 1.7 billion remaining on the market cap that is 4% buyback",
+    "chunk_id": "chunk:K1EPymWPsU0:1",
+    "start_s": 81.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "buyback authorization remaining",
+      "value": 1.7,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "buyback yield",
+      "value": 4.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock"
+     ],
+     "value_stated": 1700000000.0,
+     "value_as_of": -558652000.0,
+     "agrees": false,
+     "formula": "Repurchase Of Capital Stock FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 1.7e+09, as-of -5.58652e+08 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "High gross margin indicates a healthy, profitable business that can survive ups and downs.",
+    "quote": "gross profit 57.7% of Revenue that's a high gross profit margin healthy business thus profitable business Will Survive many ups and downs",
+    "chunk_id": "chunk:K1EPymWPsU0:1",
+    "start_s": 81.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "gross margin",
+      "value": 57.7,
+      "unit": "pct",
+      "period": "quarter"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Gross Profit",
+      "Total Revenue"
+     ],
+     "value_stated": 0.5770000000000001,
+     "value_as_of": 0.583141998806979,
+     "agrees": true,
+     "formula": "Gross Profit / Revenue",
+     "as_of_period": "FY2024",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "US sales are stagnating and there is risk of a recession slowing growth, which caps near-term upside and could push the multiple lower.",
+    "quote": "sales have been growing except for the United States where there is let's say a little bit of stagnation",
+    "chunk_id": "chunk:K1EPymWPsU0:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Analyst commentary that competitors like Yoga Warry are taking market share",
+   "Company's five-year plan to double revenue from 2021 to 2026, targeting 12.5 billion in revenue",
+   "Store count comparison between US and Europe/rest of world",
+   "Recent acquisition of stores in Mexico"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [],
+   "notes": "Stance agrees. Minor: personal_action 'buying' is unsupported \u2014 the '$300 on myself' line is a joke about buying yoga apparel, not the stock; he never states he bought shares."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 310.7699890136719,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 3,
+    "external": 0,
+    "judgement": 1
+   },
+   "metrics_compared": 4,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": 14.8,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "66654fa3-5771-4e09-a7b4-539321a880ea",
+   "transcript_sha256": "ebcbf53349626816af37fe053f38426a340f16ea248172549ad740a9dc31883b",
+   "extracted_at": "2026-09-19T11:52:10+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "3c3c713f-7ee6-444d-a4cb-0ce10e37b4d9"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0342208,
+   "session_id": "66654fa3-5771-4e09-a7b4-539321a880ea",
+   "input_tokens": 6831,
+   "output_tokens": 1728
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.061571999999999995,
+   "session_id": "3c3c713f-7ee6-444d-a4cb-0ce10e37b4d9",
+   "input_tokens": 5220,
+   "output_tokens": 480
+  }
+ }
+}

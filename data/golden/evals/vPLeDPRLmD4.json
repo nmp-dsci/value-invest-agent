@@ -1,0 +1,248 @@
+{
+ "key": "vPLeDPRLmD4:9666fae63164:v2:a33445f38391",
+ "eval": {
+  "video_id": "vPLeDPRLmD4",
+  "ticker": "KHC",
+  "t0": "2025-06-18",
+  "title": "Kraft Heinz Stock Analysis KHC Stock",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": 8.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "I just don't want to take that bet"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": {
+    "name": "other",
+    "value_stated": null,
+    "quote": "still there is three billion of cash return to shareholders. That's 10% buyback and dividend yield."
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 25.68000030517578,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "A roughly 10% combined buyback and dividend yield on shareholder cash returns makes the stock look like a 7-9% return proposition even assuming no growth.",
+    "quote": "still there is three billion of cash return to shareholders. That's 10% buyback and dividend yield.",
+    "chunk_id": "chunk:vPLeDPRLmD4:5",
+    "start_s": 408.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "cash returned to shareholders",
+      "value": 3.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "buyback and dividend yield",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 3000000000.0,
+     "value_as_of": 1334000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 3e+09, as-of 1.334e+09 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Ketchup and similar branded products are now easy for private label and competitors to replicate, eroding Kraft Heinz's brand advantage.",
+    "quote": "ketchup and all those things are easy to replicate and in this environment perhaps the market is changing",
+    "chunk_id": "chunk:vPLeDPRLmD4:6",
+    "start_s": 491.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "A sharp drop in organic net sales signals a structural, not just seasonal, problem with the business.",
+    "quote": "Organic net sales down 4.7%. That's a big big hit.",
+    "chunk_id": "chunk:vPLeDPRLmD4:2",
+    "start_s": 168.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "organic net sales growth",
+      "value": -4.7,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": -0.047,
+     "value_as_of": -0.029804804804804852,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2024",
+     "gap_note": "he says -0.047, as-of -0.0298048 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "competence",
+    "claim": "He is not confident enough about the long-term competitive trajectory of the business to take the bet on a turnaround.",
+    "quote": "I don't know I just don't want to take that bet",
+    "chunk_id": "chunk:vPLeDPRLmD4:7",
+    "start_s": 576.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Management's guidance cut, worse than the prior flat-to-down outlook, shocked analysts and shows the CEO's earlier positive commentary is not reflected in results.",
+    "quote": "If we look at the guidance cut, their outlook was flat to down and now it's for sure down.",
+    "chunk_id": "chunk:vPLeDPRLmD4:5",
+    "start_s": 408.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Analyst price targets were raised when the stock was high and cut now that it is low",
+   "CEO commentary on the Q1 earnings conference call about brand superiority and market pressures"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 25.68000030517578,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 1,
+    "external": 1,
+    "judgement": 2
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "b8c2562f-249b-4650-9747-801505122d54",
+   "transcript_sha256": "9666fae63164a076348f1ce1e75c3835510ab09028062c31c0e5992001644921",
+   "extracted_at": "2026-09-19T11:53:50+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "a2fbe8b9-1c8c-4964-a117-3f1031b023f8"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.040249799999999995,
+   "session_id": "b8c2562f-249b-4650-9747-801505122d54",
+   "input_tokens": 6992,
+   "output_tokens": 2258
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.060326000000000005,
+   "session_id": "a2fbe8b9-1c8c-4964-a117-3f1031b023f8",
+   "input_tokens": 4994,
+   "output_tokens": 530
+  }
+ }
+}

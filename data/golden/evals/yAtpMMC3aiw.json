@@ -1,0 +1,314 @@
+{
+ "key": "yAtpMMC3aiw:e37b18ca087c:v2:a33445f38391",
+ "eval": {
+  "video_id": "yAtpMMC3aiw",
+  "ticker": "GOOGL",
+  "t0": "2026-07-28",
+  "title": "Capex, D&A, $707 Billion in Commitments Make Google a Very RISKY Stock to Buy!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "SELL",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 5.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "Google doesn't offer margin of safety. It is very risky for the low return."
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 9.0,
+    "quote": "I have adjusted earnings per share from 861 to 9 because of the growth for the last quarter"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "best",
+     "g_y1_5": 0.15,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "In the exuberant raise case in the exuberant case scenario, 15% growth rate"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "I'm increasing the worst-case scenario, given the high investment, given the uncertainty there"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": 400.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "targets higher, you can make 42% upside on average target over the next 12 months as they do, but you can see here, they always just merrily follow the stock"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 9.0,
+    "as_of": 10.81,
+    "period": "FY2025",
+    "gap_pct": -16.7
+   }
+  },
+  "price_at_t0": 333.7099914550781,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Capex is exploding from about 10% of revenue to roughly 50%, a complete shift in the business model.",
+    "quote": "That means that CapEx will go from 10% of revenues to 50% of revenues. That's a huge change in the business in the business model",
+    "chunk_id": "chunk:yAtpMMC3aiw:4",
+    "start_s": 335.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "capex 2026 guidance",
+      "value": 205.0,
+      "unit": "usd_bn",
+      "period": "2026"
+     },
+     {
+      "name": "capex vs revenue",
+      "value": 50.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: capex 2026 guidance, capex vs revenue"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Rising depreciation and amortization from the capex boom will crush profits even as revenue grows strongly.",
+    "quote": "if they keep on spending 200 250 billion in CapEx by 2030, the depreciation amortization will be more than 250 billion per year",
+    "chunk_id": "chunk:yAtpMMC3aiw:6",
+    "start_s": 526.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "projected D&A",
+      "value": 250.0,
+      "unit": "usd_bn",
+      "period": "2030"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: projected D&A"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "If AI works and becomes a commoditized, cheaply-supplied technology, incumbents' returns on invested capital could collapse, as happened to internet infrastructure investors.",
+    "quote": "The key risk for Google is that AI works. Because if AI works, then it will be so smart. Everything can be done cheaper, as we have seen with Kimmy.",
+    "chunk_id": "chunk:yAtpMMC3aiw:5",
+    "start_s": 432.0,
+    "feeds": "terminal",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Google has taken on $470 billion in new commitments in a single quarter, a massive forward burden not matched by backlog growth.",
+    "quote": "470 billion in commitments in one quarter. 470 470 billion. Who's crazy here?",
+    "chunk_id": "chunk:yAtpMMC3aiw:5",
+    "start_s": 432.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "quarterly new commitments",
+      "value": 470.0,
+      "unit": "usd_bn",
+      "period": "quarter"
+     },
+     {
+      "name": "backlog",
+      "value": 514.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: quarterly new commitments, backlog"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Other-income gains from stakes in SpaceX and Anthropic inflate net income; he assigns them zero conservative value.",
+    "quote": "So I'm giving zero value to those stakes over the next 5 years from a conservative margin of safety investment perspective.",
+    "chunk_id": "chunk:yAtpMMC3aiw:2",
+    "start_s": 175.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "adjusted EPS",
+      "value": 2.67,
+      "unit": "usd",
+      "period": "quarter"
+     },
+     {
+      "name": "other income",
+      "value": 97.0,
+      "unit": "usd_mn",
+      "period": "quarter"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 2.67,
+     "value_as_of": 10.81,
+     "agrees": false,
+     "formula": "Diluted EPS FY2025",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 2.67, as-of 10.81 (FY2025); annual vs TTM or a different definition; not in our data: other income"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Google Gemini 950 million monthly active users and 82% cloud growth reported in earnings",
+   "Google cloud backlog of $514 billion",
+   "analyst average 12-month price targets implying 42% upside",
+   "Warren Buffett/Berkshire bought Google stock",
+   "comparison to Oracle's leveraged AI investment and market reaction"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 333.7099914550781,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.2,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 0,
+    "external": 3,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": -16.7,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "82f2488b-f785-48a5-94fa-f80e165c3128",
+   "transcript_sha256": "e37b18ca087cfaf3bb5600cf8ee3120d05e1bc27a019d45f925cd3b514d4b73f",
+   "extracted_at": "2026-09-19T11:55:51+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "9f28e221-2cde-42f1-a007-7dd28bf08b65"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0451538,
+   "session_id": "82f2488b-f785-48a5-94fa-f80e165c3128",
+   "input_tokens": 8986,
+   "output_tokens": 1793
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.074519,
+   "session_id": "9f28e221-2cde-42f1-a007-7dd28bf08b65",
+   "input_tokens": 7365,
+   "output_tokens": 75
+  }
+ }
+}
