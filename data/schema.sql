@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS vi.tickers (
   benchmark TEXT,
   yahoo_ok BOOLEAN,
   fundamentals_source TEXT,        -- yfinance | edgar
+  cik BIGINT,                      -- SEC registrant id, when the ticker is on EDGAR's list
+  edgar_filer BOOLEAN,             -- files 10-K with us-gaap facts (sample eligibility)
   first_price DATE,
   last_price DATE,
   fetched_at TIMESTAMP

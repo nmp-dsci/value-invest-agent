@@ -237,6 +237,24 @@ def annual_statements(ticker: str, facts: dict[str, Any], since_year: int = 2010
     )
 
 
+def check_filer(ticker: str, client: Edgar | None = None) -> tuple[int | None, bool]:
+    """(CIK, files 10-K with us-gaap facts). 20-F/IFRS filers and non-US listings are False."""
+    client = client or Edgar()
+    if "." in ticker:  # exchange-suffixed: not a US listing
+        return None, False
+    cik = client.cik_for(ticker)
+    if cik is None:
+        return None, False
+    facts = client.companyfacts(cik)
+    gaap = ((facts or {}).get("facts") or {}).get("us-gaap") or {}
+    has_10k = any(
+        e.get("form", "").startswith("10-K")
+        for concept in ("Assets", "Revenues", "NetIncomeLoss")
+        for e in ((gaap.get(concept) or {}).get("units") or {}).get("USD", [])
+    )
+    return cik, bool(gaap) and has_10k
+
+
 def fetch_edgar_statements(ticker: str, client: Edgar | None = None) -> pd.DataFrame | None:
     """None when the ticker is not an SEC filer with us-gaap facts."""
     client = client or Edgar()

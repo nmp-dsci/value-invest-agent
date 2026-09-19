@@ -41,6 +41,8 @@ class Settings:
     until: date = date(2026, 9, 17)
     sample_per_year: int = 10
     sample_seed: int = 42
+    # Restrict the sample to US stocks with SEC 10-K filings (EDGAR fundamentals).
+    sample_edgar_only: bool = True
     duckdb_path: Path = ROOT / "data" / "value_invest.duckdb"
     cache_dir: Path = ROOT / ".vi"
     transcript_lab_root: Path = ROOT.parent / "transcript-rag-agent"
@@ -75,6 +77,7 @@ def settings() -> Settings:
         until=d("VI_UNTIL", date(2026, 9, 17)),
         sample_per_year=int(e.get("VI_SAMPLE_PER_YEAR", "10")),
         sample_seed=int(e.get("VI_SAMPLE_SEED", "42")),
+        sample_edgar_only=e.get("VI_SAMPLE_EDGAR_ONLY", "1") not in {"0", "false", "False"},
         duckdb_path=Path(e.get("VI_DUCKDB_PATH", str(ROOT / "data" / "value_invest.duckdb"))),
         cache_dir=Path(e.get("VI_CACHE_DIR", str(ROOT / ".vi"))),
         transcript_lab_root=Path(

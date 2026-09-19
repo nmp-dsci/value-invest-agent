@@ -32,6 +32,47 @@ def _upsert_statements(con: duckdb.DuckDBPyConnection, df) -> int:
     return len(df)
 
 
+def check_edgar_candidates(con: duckdb.DuckDBPyConnection) -> dict:
+    """Mark every single-stock candidate's ticker as an EDGAR 10-K filer or not, so
+    the sample can be restricted to US stocks with SEC filings."""
+    from value_invest.market.edgar import Edgar, check_filer
+
+    client = Edgar()
+    tickers = [
+        r[0]
+        for r in con.execute(
+            """SELECT DISTINCT v.primary_ticker FROM vi.videos v
+               LEFT JOIN vi.tickers t ON t.ticker = v.primary_ticker
+               WHERE v.kind = 'single' AND v.year_bucket IS NOT NULL AND v.primary_ticker IS NOT NULL
+                 AND t.edgar_filer IS NULL ORDER BY 1"""
+        ).fetchall()
+    ]
+    filers, non = 0, 0
+    for t in tickers:
+        try:
+            cik, ok = check_filer(t, client)
+        except Exception as e:  # keep going; unknown stays NULL for a re-run
+            print(f"  {t}: {str(e)[:80]}", flush=True)
+            continue
+        con.execute(
+            """INSERT INTO vi.tickers (ticker, cik, edgar_filer) VALUES (?, ?, ?)
+               ON CONFLICT (ticker) DO UPDATE SET cik = excluded.cik, edgar_filer = excluded.edgar_filer""",
+            [t, cik, ok],
+        )
+        filers += ok
+        non += not ok
+    total = con.execute(
+        "SELECT count(*) FILTER (WHERE edgar_filer), count(*) FILTER (WHERE edgar_filer = FALSE) FROM vi.tickers"
+    ).fetchone()
+    return {
+        "checked": len(tickers),
+        "filers": filers,
+        "non_filers": non,
+        "edgar_calls": client.calls,
+        "totals": {"filers": total[0], "non_filers": total[1]},
+    }
+
+
 def load_edgar(con: duckdb.DuckDBPyConnection, tickers: list[str] | None = None) -> dict:
     """10+ years of annual statements with filing dates for the US filers among
     the sampled tickers (EDGAR companyfacts). Rows replace yfinance rows for the

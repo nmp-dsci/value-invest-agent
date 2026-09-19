@@ -65,12 +65,14 @@ def classify(
 
 
 @app.command()
-def sample(per_year: int | None = None, seed: int | None = None) -> None:
-    """S1c: pick N single-stock videos per window year, seeded → vi.videos.in_sample."""
+def sample(
+    per_year: int | None = None, seed: int | None = None, edgar_only: bool | None = None
+) -> None:
+    """S1c: pick N single-stock videos per window year, seeded → vi.videos.in_sample (US 10-K filers by default)."""
     from value_invest.sample import draw_sample
 
     con = db.connect()
-    rprint(draw_sample(con, per_year=per_year, seed=seed))
+    rprint(draw_sample(con, per_year=per_year, seed=seed, edgar_only=edgar_only))
 
 
 @app.command()
@@ -92,12 +94,13 @@ def market(only_missing: bool = True) -> None:
 
 
 @app.command()
-def edgar() -> None:
-    """S2b: 10+ years of annual statements with filing dates for US filers (SEC EDGAR) → vi.statements."""
-    from value_invest.market.load import load_edgar
+def edgar(check_candidates: bool = False) -> None:
+    """S2b: 10+ years of annual statements with filing dates for US filers (SEC EDGAR) → vi.statements.
+    --check-candidates instead marks every single-stock candidate ticker as an EDGAR 10-K filer or not."""
+    from value_invest.market.load import check_edgar_candidates, load_edgar
 
     con = db.connect()
-    rprint(load_edgar(con))
+    rprint(check_edgar_candidates(con) if check_candidates else load_edgar(con))
 
 
 @app.command()
