@@ -275,6 +275,55 @@ def process_all(
     return report
 
 
+def reground_all(con: duckdb.DuckDBPyConnection, version_name: str = "v0") -> dict[str, Any]:
+    """Re-run grounding + derived fields on every cached eval — no model calls.
+
+    For iterating ``ground.py``: the draft, critic and quote scores are kept
+    from the cache; the data checks, IV recompute, rules and split are rebuilt."""
+    version = load_version(version_name)
+    n, failed = 0, []
+    for p in sorted(EVALS_DIR.glob("*.json")):
+        d = json.loads(p.read_text())
+        old = d["eval"]
+        row = _video_row(con, old["video_id"])
+        t = load_transcript(old["video_id"])
+        if not row or t is None:
+            failed.append(old["video_id"])
+            continue
+        draft = GoldenEvalDraft.model_validate(
+            {
+                **old,
+                "call": old["call"],
+                "valuation": old["valuation"],
+                "reasons": [{**r, "data_check": None} for r in old["reasons"]],
+            }
+        )
+        crit = Critic.model_validate(old["critic"]) if old.get("critic") else None
+        scores = [float(x) for x in (old.get("checks") or {}).get("quote_scores", [])] or None
+        usage = (d.get("usage") or {}).get("extract") or {
+            "model": old["provenance"]["model"],
+            "session_id": old["provenance"].get("session_id"),
+        }
+        cusage = (d.get("usage") or {}).get("critic") or {}
+        if scores is None:
+            from value_invest.golden.critic import quote_scores
+
+            scores = quote_scores(draft, t)
+        ev = assemble(con, row, t, draft, usage, crit, cusage, scores, version)
+        ev.provenance = Provenance.model_validate(old["provenance"])
+        ev.curation_status = old.get("curation_status", "auto")
+        p.write_text(
+            json.dumps(
+                {"key": d["key"], "eval": ev.model_dump(mode="json"), "usage": d.get("usage")},
+                indent=1,
+                default=str,
+            )
+        )
+        upsert_eval(con, ev)
+        n += 1
+    return {"regrounded": n, "failed": failed}
+
+
 # ---------------------------------------------------------------- seed eval, κ, summary
 
 

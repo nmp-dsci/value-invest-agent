@@ -10,7 +10,7 @@ from __future__ import annotations
 from datetime import date
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import AliasChoices, BaseModel, ConfigDict, Field, field_validator
 
 Position = Literal["BUY", "HOLD", "SELL"]
 StanceDetail = Literal["absolute_buy", "relative_buy", "fair_hold", "avoid", "too_hard", "short"]
@@ -86,7 +86,9 @@ class DataCheck(BaseModel):
 
 
 class Reason(BaseModel):
-    rank: int = Field(ge=1, le=5)
+    model_config = ConfigDict(extra="ignore")
+
+    rank: int = Field(ge=1, le=6)
     direction: Literal["for_buy", "for_sell"]
     category: Category
     claim: str = Field(description="one sentence, his logic, no new facts")
@@ -101,6 +103,16 @@ class Reason(BaseModel):
     metrics: list[MetricMention] = Field(default_factory=list)
     data_check: DataCheck | None = None
 
+    @field_validator("metrics", mode="before")
+    @classmethod
+    def _metrics_list(cls, v: Any) -> Any:
+        if isinstance(v, dict):
+            return [
+                {"name": k, "value": val} if not isinstance(val, dict) else {"name": k, **val}
+                for k, val in v.items()
+            ]
+        return v or []
+
 
 class BaseMetric(BaseModel):
     name: Literal["eps", "dps", "fcf_per_share", "net_income", "other"]
@@ -109,7 +121,11 @@ class BaseMetric(BaseModel):
 
 
 class Scenario(BaseModel):
-    name: Literal["normal", "best", "worst"]
+    model_config = ConfigDict(extra="ignore", populate_by_name=True)
+
+    name: Literal["normal", "best", "worst"] = Field(
+        validation_alias=AliasChoices("name", "scenario", "case")
+    )
     g_y1_5: float | None = Field(default=None, description="fraction, 0.05 = 5 %")
     g_y6_10: float | None = None
     terminal_multiple: float | None = None
@@ -125,6 +141,8 @@ class PricedIn(BaseModel):
 
 
 class Valuation(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
     method: Method = "none"
     base_metric: BaseMetric | None = None
     discount_rate: float | None = Field(
@@ -136,8 +154,29 @@ class Valuation(BaseModel):
     price_mentioned: float | None = None
     what_is_priced_in: PricedIn | None = None
 
+    @field_validator("what_is_priced_in", mode="before")
+    @classmethod
+    def _priced_in_from_text(cls, v: Any) -> Any:
+        # the model sometimes answers with a sentence instead of the object
+        if isinstance(v, str):
+            return PricedIn(quote=v) if v.strip() else None
+        return v
+
+    @field_validator("scenarios", mode="before")
+    @classmethod
+    def _scenarios_list(cls, v: Any) -> Any:
+        if isinstance(v, dict):  # {"normal": {...}, "best": {...}}
+            return [
+                {"name": k, **(val or {})}
+                for k, val in v.items()
+                if k in ("normal", "best", "worst")
+            ]
+        return v or []
+
 
 class Call(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
     stance_detail: StanceDetail
     personal_action: PersonalAction = "none"
     expected_return_pct: float | None = Field(
@@ -150,6 +189,8 @@ class Call(BaseModel):
 
 class GoldenEvalDraft(BaseModel):
     """What the extractor returns. No market data, no position: those are derived."""
+
+    model_config = ConfigDict(extra="ignore")
 
     video_id: str
     ticker: str

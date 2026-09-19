@@ -72,6 +72,7 @@ MONEY = {
     "net_debt",
 }
 PCT = {
+    "implied_growth",
     "buyback_yield",
     "dividend_yield",
     "fcf_yield",
@@ -91,7 +92,7 @@ PCT = {
     "price_change_5y",
     "price_drawdown",
 }
-DERIVED_KEYS = PCT | {"pe", "dps", "market_cap", "net_debt", "debt_to_equity"}
+DERIVED_KEYS = PCT | {"pe", "dps", "market_cap", "net_debt", "debt_to_equity", "iv"}
 
 # his words → our metric key; first match wins, so specific phrases come first
 RULES: list[tuple[tuple[str, ...], str]] = [
@@ -567,14 +568,103 @@ def _to_comparable(key: str, stated: float, unit: str | None) -> float:
 
 def _agrees(key: str, stated: float, as_of: float) -> bool:
     floor = 0.015 if key in PCT else 1.5 if key == "pe" else 0.5 if key in ("eps", "dps") else 0.0
+    if key == "iv":
+        return abs(as_of / stated - 1) <= IV_TOL if stated else False
     return abs(as_of - stated) <= max(METRIC_REL_TOL * abs(stated), floor)
 
 
-def check_reason(reason: Reason, a: AsOf, iv_ok: bool | None) -> DataCheck:
+GROWTH_OF = {"revenue": "revenue_growth_1y", "eps": "eps_growth_1y", "net_income": "ni_growth_3y"}
+CHANGE_WORDS = (
+    "growth",
+    "decline",
+    "drop",
+    "fall",
+    "increase",
+    "decrease",
+    "down",
+    "up ",
+    "change",
+    "cagr",
+)
+
+
+def _special_metrics(reason: Reason, a: AsOf, ivr: dict[str, Any] | None) -> None:
+    """Register per-reason derived values: his intrinsic value (recomputed) and the
+    growth the price implies at the multiple he names ("what is priced in")."""
+    if ivr and ivr.get("scenarios"):
+        normal = next(
+            (x for x in ivr["scenarios"] if x["name"] == "normal" and x.get("iv_model")), None
+        )
+        v = ivr.get("iv_weighted_model") or (normal or {}).get("iv_model")
+        if v:
+            a.metrics["iv"] = {
+                "value": float(v),
+                "unit": "per_share",
+                "origin": "derived",
+                "formula": "valuation.two_stage_iv on his inputs",
+                "line_items": ["Diluted EPS", "close"],
+                "period": "T0",
+            }
+    if a.price and a.latest.get("eps"):
+        mult = next(
+            (
+                m.value
+                for m in reason.metrics
+                if m.value
+                and any(k in m.name.lower() for k in ("p/e", "pe", "multiple", "p ratio", "ratio"))
+            ),
+            None,
+        )
+        mult = mult or a.metrics.get("pe", {}).get("value")
+        if mult:
+            try:
+                g = val.implied_growth(
+                    a.price,
+                    a.latest["eps"],
+                    float(mult),
+                    val.DEFAULT_DISCOUNT,
+                    float(a.metrics.get("payout_ratio", {}).get("value", 0.0) or 0.0),
+                )
+                a.metrics["implied_growth"] = {
+                    "value": g,
+                    "unit": "pct",
+                    "origin": "derived",
+                    "formula": f"growth that makes IV = price at P/E {mult:g}",
+                    "line_items": ["Diluted EPS", "close"],
+                    "period": "T0",
+                }
+            except Exception:  # noqa: BLE001
+                pass
+
+
+def _resolve_for(mm: Any) -> str | None:
+    n = mm.name.lower()
+    if "intrinsic value" in n or "present value" in n or n.strip() in ("iv",):
+        return "iv"
+    if (
+        "implied" in n
+        or "priced in" in n
+        or "pricing in" in n
+        or "market expects" in n
+        or "market is pricing" in n
+    ):
+        return "implied_growth" if "growth" in n or "rate" in n else None
+    key = resolve_metric_name(mm.name)
+    if key in MONEY and (
+        (mm.unit or "").lower() in ("pct", "percent", "%") or any(w in n for w in CHANGE_WORDS)
+    ):
+        return GROWTH_OF.get(key)  # a percentage of a money line is a growth rate, not a level
+    return key
+
+
+def check_reason(
+    reason: Reason, a: AsOf, iv_ok: bool | None, ivr: dict[str, Any] | None = None
+) -> DataCheck:
+    _special_metrics(reason, a, ivr)
     resolved: list[tuple[str, float | None, float, dict[str, Any]]] = []
     unresolved: list[str] = []
     for mm in reason.metrics:
-        key = resolve_metric_name(mm.name)
+        key = _resolve_for(mm)
         if key and key in a.metrics:
             info = a.metrics[key]
             stated = _to_comparable(key, mm.value, mm.unit) if mm.value is not None else None
@@ -745,7 +835,7 @@ def ground(
     ivr = recompute_valuation(draft, a)
     iv_ok = ivr.get("within_band")
     for reason in draft.reasons:
-        reason.data_check = check_reason(reason, a, iv_ok)
+        reason.data_check = check_reason(reason, a, iv_ok, ivr)
     pm = draft.valuation.price_mentioned
     price_check = None
     if pm and a.closes_near_t0:

@@ -152,6 +152,7 @@ async def run_structured(
         model=model_id,
         tools=[],
         allowed_tools=[],
+        strict_mcp_config=True,  # no inherited connector tools: ~27k tokens a call otherwise
         permission_mode="bypassPermissions",
         max_turns=max_turns,
         env=subscription_env(),
@@ -199,7 +200,18 @@ async def run_structured(
             return schema.model_validate(data), usage
         except (StructuredCallError, ValidationError) as e:
             last = e
+            _dump_failed(final_text, e)
     raise StructuredCallError(str(last))
+
+
+def _dump_failed(text: str, err: Exception) -> None:
+    """Keep the reply that failed validation, so a schema mismatch can be read, not guessed."""
+    try:
+        d = settings().cache_dir / "llm_failed"
+        d.mkdir(parents=True, exist_ok=True)
+        (d / f"{datetime.now().strftime('%Y%m%d-%H%M%S')}.txt").write_text(f"{err}\n\n{text}")
+    except OSError:
+        pass
 
 
 def run_structured_sync(prompt: str, **kw: Any) -> tuple[Any, dict[str, Any]]:
