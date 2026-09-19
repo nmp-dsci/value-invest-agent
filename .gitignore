@@ -30,3 +30,4 @@ frontend/dist/
 .DS_Store
 
 # frontend build is produced by `npm run build`; the API serves it from frontend/dist
+data/*.wal
