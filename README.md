@@ -56,6 +56,12 @@ schema `vi`, and the walkthrough app.
 agent) makes for a video; a fiscal year becomes visible at `period_end + 90 d`.
 `tests/test_as_of.py` asserts nothing dated after `t0` can come back.
 
+## Pipeline (milestone 2, in progress — plan: `ai_specs/s02_m2_golden_extraction.md`)
+
+| Stage | Command | Writes | Notes |
+|---|---|---|---|
+| S4.0 template | `uv run vi valuation check` | — | `src/value_invest/valuation.py` is the author's intrinsic-value template (two-stage 10-year growth, terminal P/E, 10 % discount, scenario weights); `data/golden/stated_ivs.json` holds the values he states on camera and the check keeps the code within his rounding of them (10 / 10) |
+
 ### Data-source notes learned building M1
 
 - **Supadata's plan limit** was exhausted after 144 metadata calls

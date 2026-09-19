@@ -113,6 +113,25 @@ def coverage() -> None:
     rprint(json.dumps(rows, indent=1, default=str)[:4000])
 
 
+valuation_app = typer.Typer(help="The author's intrinsic-value template (S4.0)")
+app.add_typer(valuation_app, name="valuation")
+
+
+@valuation_app.command("check")
+def valuation_check() -> None:
+    """S4.0: recompute every intrinsic value he states on camera and show the error."""
+    from value_invest.valuation import fidelity
+
+    rows = fidelity()
+    for r in rows:
+        flag = "ok " if r["ok"] else "OUT"
+        rprint(
+            f"{flag} {r['ticker']:6} {r['t0']} {r['scenario']:7} stated {r['stated']:>8} "
+            f"model {r['model']:>8}  {r['error'] * 100:+.1f}% (±{r['tolerance'] * 100:.0f}%)"
+        )
+    rprint({"cases": len(rows), "within_tolerance": sum(r["ok"] for r in rows)})
+
+
 @app.command()
 def serve(host: str = "127.0.0.1", port: int = 8791, reload: bool = False) -> None:
     """S3: the walkthrough app (FastAPI + built React bundle)."""
