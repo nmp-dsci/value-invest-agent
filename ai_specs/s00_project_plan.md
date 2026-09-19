@@ -118,7 +118,8 @@ assume period_end + 45 (quarterly) / 90 (annual) days.
   grows arrive as `auto` and are reported separately until reviewed.
 - Inter-extractor κ on stance over the reviewed core; κ < 0.7 means the taxonomy
   is wrong. 3-way collapse (bullish/neutral/bearish) is the fallback headline.
-- Splits by video date: train = years 1–2 (20 calls), test = year 3 (10), holdout = year 4 (10, sealed). Gate is McNemar on paired calls.
+- Splits: superseded by D15 (seeded within-year train/test, per-horizon holdout) —
+  see `ai_specs/s02_m2_golden_extraction.md`. Gate is McNemar on paired calls.
 
 ## Market data
 
