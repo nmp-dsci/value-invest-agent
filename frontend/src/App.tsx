@@ -41,7 +41,10 @@ export default function App() {
   return (
     <div className="app">
       <div className="topbar">
-        <span className="brand">value·<em>invest</em></span>
+        <span className="brand">
+          <svg className="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--good-dim)" /><path d="M8.5 16.5l5 5 10-11" fill="none" stroke="var(--good)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          value·<em>invest</em>
+        </span>
         <nav className="nav">
           {TABS.map((t) => (
             <button key={t.id} className={(route.tab === t.id ? 'on ' : '') + (t.stub ? 'stub' : '')} onClick={() => go(t.id)}>{t.label}</button>

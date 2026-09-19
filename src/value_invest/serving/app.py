@@ -263,6 +263,10 @@ def create_app() -> FastAPI:
     if DIST.exists():
         app.mount("/assets", StaticFiles(directory=DIST / "assets"), name="assets")
 
+        @app.get("/favicon.svg")
+        def favicon() -> FileResponse:
+            return FileResponse(DIST / "favicon.svg", media_type="image/svg+xml")
+
         @app.get("/{path:path}")
         def spa(path: str) -> FileResponse:
             f = DIST / path
