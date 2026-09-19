@@ -8,13 +8,64 @@ record the segment count and status on ``vi.videos``."""
 
 from __future__ import annotations
 
+import json
 import subprocess
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 
 import duckdb
 
 from value_invest.config import settings
 from value_invest.ingest.corpus import Corpus
+
+
+def supadata_shaped_metadata(video_id: str) -> dict | None:
+    """The video's cached metadata in Supadata ``/metadata`` shape, or None.
+
+    transcript·lab's fetcher bills two Supadata credits per video — transcript
+    plus metadata — unless the caller supplies the metadata. We already hold it
+    from the catalog (Supadata cache or yt-dlp), so ``vi ingest`` always passes
+    it and pays one credit. Fetching metadata is transcript·lab's default; this
+    is the explicit override."""
+    from value_invest.catalog.supadata import Supadata
+    from value_invest.catalog.ytdlp import YtDlpMeta
+
+    supa_cache = Supadata()._cache_path(
+        "metadata", {"url": f"https://www.youtube.com/watch?v={video_id}"}
+    )
+    if supa_cache.exists():
+        try:
+            return json.loads(supa_cache.read_text())["payload"]
+        except (KeyError, json.JSONDecodeError):
+            pass
+    m = YtDlpMeta().cached(video_id)
+    if not m:
+        return None
+    created = None
+    if m.get("timestamp"):
+        created = datetime.fromtimestamp(int(m["timestamp"]), tz=timezone.utc).strftime(
+            "%Y-%m-%dT%H:%M:%S.000Z"
+        )
+    elif m.get("upload_date"):
+        u = str(m["upload_date"])
+        created = f"{u[:4]}-{u[4:6]}-{u[6:8]}T00:00:00.000Z"
+    return {
+        "platform": "youtube",
+        "type": "video",
+        "id": video_id,
+        "url": f"https://www.youtube.com/watch?v={video_id}",
+        "title": m.get("title"),
+        "description": m.get("description"),
+        "author": {
+            "displayName": settings().extra.get(
+                "channel_name", "Value Investing with Sven Carlin, Ph.D."
+            )
+        },
+        "stats": {"views": m.get("view_count")},
+        "media": {"type": "video", "duration": m.get("duration")},
+        "createdAt": created,
+        "additionalData": {"channelId": m.get("channel_id") or settings().channel_id},
+    }
 
 
 def _index_one(video_id: str, refresh: bool) -> tuple[str, int, str]:
@@ -23,6 +74,12 @@ def _index_one(video_id: str, refresh: bool) -> tuple[str, int, str]:
     argv = ["uv", "run", "python", "-m", "src.cli", "index-rag", url]
     if refresh:
         argv.append("--refresh")
+    meta = supadata_shaped_metadata(video_id)
+    if meta is not None:
+        path = s.cache_dir / "ingest_meta" / f"{video_id}.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(meta))
+        argv += ["--metadata-json", str(path)]
     proc = subprocess.run(
         argv, cwd=s.transcript_lab_root, capture_output=True, text=True, timeout=900
     )

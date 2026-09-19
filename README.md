@@ -47,7 +47,7 @@ schema `vi`, and the walkthrough app.
 | S1b classify | `uv run vi classify` · `--eval-seed` | `vi.title_labels` → `vi.videos.kind / primary_ticker` | Claude Agent SDK, 40 titles per call; 95 % kind / 95 % ticker agreement on the 40-title seed |
 | S1c sample | `uv run vi sample --per-year 10` | `vi.videos.in_sample / sample_rank` | seeded, quarter-stratified, extends without reshuffling |
 | S1a′ refine | `uv run vi refine-dates` | exact `published_at` for sampled videos | per-video yt-dlp |
-| S1d ingest | `uv run vi ingest` | transcript·lab's Chroma; `vi.videos.transcript_status` | runs `index-rag` in `../transcript-rag-agent` per sampled video (**Supadata credits**) |
+| S1d ingest | `uv run vi ingest` | transcript·lab's Chroma; `vi.videos.transcript_status` | runs `index-rag --metadata-json` in `../transcript-rag-agent` per sampled video, passing the cached metadata so each video costs **one** Supadata credit (transcript·lab's default is two: transcript + metadata) |
 | S2 market | `uv run vi market` · `uv run vi coverage` | `vi.tickers`, `vi.prices`, `vi.statements` (annual) | yfinance; benchmark per exchange |
 | S3 app | `uv run vi serve` → http://127.0.0.1:8791 | — | FastAPI over DuckDB + transcript·lab corpus; React in transcript·lab's tokens |
 
