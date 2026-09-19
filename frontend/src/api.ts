@@ -19,7 +19,7 @@ export type VideoDetail = {
   forward?: Record<string, { date: string; close: number } | null>;
   statements: Record<string, { headline: string[]; items: Record<string, Record<string, number>> }>;
   statement_periods: string[];
-  statement_period_info?: { period_end: string; n_items: number | null; complete: boolean }[];
+  statement_period_info?: { period_end: string; n_items: number | null; complete: boolean; from_edgar?: boolean }[];
   statements_hidden_after_t0?: { period_end: string; available_from: string }[];
   transcript: { segments: Segment[]; description?: string; title?: string } | null;
   transcript_error?: string;

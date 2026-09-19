@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api, type Coverage } from '../api';
 
-const C: Record<string, string> = { full: 'good', shallow: 'warn', prices_only: 'bad', no_prices: 'bad' };
+const C: Record<string, string> = { deep: 'good', full: 'good', shallow: 'warn', prices_only: 'bad', no_prices: 'bad' };
 
 export default function Market({ onOpen }: { onOpen: (id: string) => void }) {
   const [c, setC] = useState<Coverage | null>(null);
@@ -10,7 +10,7 @@ export default function Market({ onOpen }: { onOpen: (id: string) => void }) {
   return (
     <div className="scroll"><div className="pagewrap">
       <h1 className="h1">Market data — what the agent would be allowed to see at each T0</h1>
-      <p className="sub">yfinance daily prices from 2018 and <b>annual</b> statements (income · balance · cash flow). A fiscal year is visible at T0 once period_end + 90 days ≤ T0, and counts only when <em>complete</em> (yfinance's oldest column is a ~20-item stub with no revenue). <span className="mono">full</span> = 3+ fiscal years visible, <span className="mono">shallow</span> = 1–2, <span className="mono">prices_only</span> = 0.</p>
+      <p className="sub">yfinance daily prices from 2018 and <b>annual</b> statements (income · balance · cash flow). A fiscal year is visible at T0 once period_end + 90 days ≤ T0, and counts only when <em>complete</em> (yfinance's oldest column is a ~20-item stub with no revenue). <span className="mono">deep</span> = 5+ fiscal years visible (EDGAR, with real filing dates), <span className="mono">full</span> = 3–4, <span className="mono">shallow</span> = 1–2, <span className="mono">prices_only</span> = 0.</p>
       <div className="stats">
         {Object.entries(c.summary).map(([k, n]) => (<div className="stat" key={k}><div className="v">{n}</div><div className="l">{k}</div></div>))}
         <div className="stat"><div className="v">{c.tickers.filter((t) => t.benchmark).length}</div><div className="l">tickers</div><div className="d">{c.tickers.filter((t) => !t.benchmark).map((t) => String(t.ticker)).join(', ')} as benchmarks</div></div>

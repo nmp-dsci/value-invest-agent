@@ -174,15 +174,15 @@
 </div></nav>
 <div class="wrap">
 <header class="hero">
-  <div class="eyebrow"><span>s01 · milestone 1 walkthrough</span><span class="tag good">S1–S3 built</span><span class="tag acc">branch scope-build</span><span class="tag">2026-09-17</span></div>
-  <h1>Milestone 1: the data is in, <em>except</em> the transcripts.</h1>
-  <p class="lede">The catalog, the title classifier, the 40-video sample, four years of Yahoo prices and annual statements behind a point-in-time view, and the walkthrough app are built and running on real data. The one step that could not run is the transcript ingest: the Supadata plan is out of credits. Everything on this page comes from the live app at <span class="k">http://127.0.0.1:8791</span>.</p>
+  <div class="eyebrow"><span>s01 · milestone 1 walkthrough</span><span class="tag good">S1–S3 built · transcripts in</span><span class="tag acc">branch scope-build</span><span class="tag">rev 2 · 2026-09-19</span></div>
+  <h1>Milestone 1: the data is <em>all</em> in.</h1>
+  <p class="lede">The catalog, the title classifier, the 40-video sample, four years of Yahoo prices and annual statements behind a point-in-time view, and the walkthrough app are built and running on real data. Since rev 1: the Supadata plan was topped up and all 40 transcripts are in transcript·lab's Chroma; a two-credits-per-video cost in transcript·lab was found and fixed (PR #20, merged); the Video chart now spans five years before T0; and a SEC EDGAR loader is built for 10+ years of US statements with real filing dates — waiting only on a <span class="k">SEC_USER_AGENT</span>. Everything on this page comes from the live app at <span class="k">http://127.0.0.1:8791</span>.</p>
   <div class="facts">
     <span><b>2,071</b> videos catalogued · <b>993</b> in the window</span>
     <span><b>286</b> single-stock · classifier <b>95 % / 95 %</b> on the seed</span>
     <span><b>40</b> sampled · 10 per window year · <b>34</b> tickers</span>
-    <span><b>34</b> tickers + 5 benchmarks on Yahoo · <b>0</b> transcripts (blocked)</span>
-    <span><b>10</b> tests green</span>
+    <b>40</b> transcripts · 7,481 segments · 281 chunks</span>
+    <span><b>13</b> tests green</span>
   </div>
 </header>
 
@@ -194,9 +194,10 @@
       <tr><td class="mono">S1a catalog</td><td>Supadata id list + one metadata call per video</td><td>Supadata id list (cached) + <b>yt-dlp</b> dates: channel tab for all 2,071 (approximate), per-video for 587 (exact). <span class="k">date_source</span> recorded per row.</td><td><span class="tag good">done</span></td></tr>
       <tr><td class="mono">S1b classify</td><td>Agent SDK title → kind + ticker, ≥ 95 % on the seed</td><td>26 SDK sessions of 40 titles, 1,032 labelled, 0 errors. Seed: 95 % kind, 95 % ticker.</td><td><span class="tag good">done</span></td></tr>
       <tr><td class="mono">S1c sample</td><td>10 single-stock per window year, seeded</td><td>40 videos, quarter-stratified, exact dates only, extends without reshuffling (tested).</td><td><span class="tag good">done</span></td></tr>
-      <tr><td class="mono">S1d ingest</td><td>transcript·lab <span class="k">index-rag</span> per sampled video</td><td>Bridge + read-back written and exercised; Supadata returns <span class="k">limit-exceeded</span>.</td><td><span class="tag bad">blocked</span></td></tr>
+      <tr><td class="mono">S1d ingest</td><td>transcript·lab <span class="k">index-rag</span> per sampled video</td><td>All 40 through transcript·lab's <span class="k">index-rag</span>: 7,481 segments, 281 chunks. Now serial (a concurrency-2 run raced on Chroma) and passes cached metadata so each video costs <b>one</b> Supadata credit.</td><td><span class="tag good">done</span></td></tr>
       <tr><td class="mono">S2 market</td><td>yfinance prices + annual statements, as-of view, coverage</td><td>128k price rows, 37.5k statement rows, <span class="k">vi.prices_as_of</span> / <span class="k">vi.statements_as_of</span>, <span class="k">vi.fiscal_years</span> with a completeness flag, coverage per video.</td><td><span class="tag good">done</span></td></tr>
-      <tr><td class="mono">S3 app</td><td>Corpus · Video · Market in transcript·lab's tokens</td><td>FastAPI over DuckDB + Chroma; React 19 with the copied <span class="k">theme.css</span> tokens and fonts; M2 tabs stubbed.</td><td><span class="tag good">done</span></td></tr>
+      <tr><td class="mono">S2b EDGAR</td><td>— (D7 was "revisit after M2")</td><td>Requested early: <span class="k">vi edgar</span> loads 10+ fiscal years with real filing dates for US filers from SEC companyfacts; <span class="k">vi.fiscal_years</span> merges sources by year; "deep" coverage tier; 2 tests.</td><td><span class="tag warn">built · needs SEC_USER_AGENT</span></td></tr>
+      <tr><td class="mono">S3 app</td><td>Corpus · Video · Market in transcript·lab's tokens</td><td>FastAPI over DuckDB + Chroma; React 19 with the copied <span class="k">theme.css</span> tokens and fonts; M2 tabs stubbed. Since rev 1: green-tick logo + favicon, chart 5 y before T0 → today, transcript panel live.</td><td><span class="tag good">done</span></td></tr>
     </tbody>
   </table></div>
   <div class="cmds">
@@ -206,8 +207,9 @@ uv run vi catalog            <span class="c"># 2,071 videos, dates</span>
 uv run vi classify           <span class="c"># 26 Agent SDK calls</span>
 uv run vi refine-dates       <span class="c"># exact dates for singles</span>
 uv run vi sample             <span class="c"># 40, seed 42</span>
-uv run vi ingest             <span class="c"># needs Supadata credits</span>
+uv run vi ingest             <span class="c"># 1 Supadata credit / video</span>
 uv run vi market             <span class="c"># yfinance → DuckDB</span>
+uv run vi edgar              <span class="c"># SEC 10-K facts, US filers</span>
 uv run vi serve              <span class="c"># :8791</span></pre>
     <pre><span class="c"># what is on disk</span>
 data/value_invest.duckdb     <span class="c"># schema vi, gitignored</span>
@@ -249,7 +251,7 @@ frontend/dist/               <span class="c"># npm run build</span></pre>
 <section id="corpus">
   <div class="section-head"><span class="num">03</span><h2>Corpus tab</h2></div>
   <img class="shot" src="s01_evidence/corpus.jpg" alt="Corpus tab: funnel stats, per-year table, and the 40 sampled videos with kind, ticker, confidence and transcript status">
-  <p style="margin-top:10px">Funnel stats, the per-year table, and the sample. Every row opens the Video tab. "every video in window" switches to all 993 with the classifier's label and one-line rationale, which is how the labels get spot-checked.</p>
+  <p style="margin-top:10px">Funnel stats, the per-year table, and the sample — every row now shows <span class="k">indexed · N seg</span>. Every row opens the Video tab. "every video in window" switches to all 993 with the classifier's label and one-line rationale, which is how the labels get spot-checked.</p>
 </section>
 
 <section id="sample">
@@ -322,7 +324,7 @@ frontend/dist/               <span class="c"># npm run build</span></pre>
 <section id="app">
   <div class="section-head"><span class="num">06</span><h2>Video tab: transcript → price → statements, one video at a time</h2></div>
   <img class="shot" src="s01_evidence/video-aapl-2022.jpg" alt="Video tab for the September 2022 Apple video: price chart with T0 marker, forward returns, coverage, transcript placeholder">
-  <p style="margin-top:10px"><b>Apple, 2022-09-20.</b> The chart is adjusted close with SPY rebased at T0 (dashed); the red line is the video date; the shaded right side is validator-only, with +6 / 12 / 24 m closes (+1.5 %, +11.8 %, +45.9 %). Coverage says 0 complete fiscal years at T0 plus one stub — FY2021 is the yfinance stub column, and FY2022 (period end 30 Sep) is not visible until 29 Dec. The transcript panel shows the ingest is pending.</p>
+  <p style="margin-top:10px"><b>Apple, 2022-09-20.</b> The chart is adjusted close with SPY rebased at T0 (dashed); the red line is the video date; the shaded right side is validator-only, with +6 / 12 / 24 m closes (+1.5 %, +11.8 %, +45.9 %). Coverage says 0 complete fiscal years at T0 plus one stub — FY2021 is the yfinance stub column, and FY2022 (period end 30 Sep) is not visible until 29 Dec. The chart now runs five years back (2017-09) to the latest close, and the transcript panel shows the 347 timestamped segments from transcript·lab — the opening line already states the thesis ("Apple is a great business … if the stock drops below 150"), which is what M2's extractor will read.</p>
   <img class="shot" src="s01_evidence/video-hpq-2026-statements.jpg" alt="Statements panel for the March 2026 HP video: four complete fiscal years plus a labelled stub column" style="margin-top:14px">
   <p style="margin-top:10px"><b>HP, 2026-03-12.</b> The other end of the window: four complete fiscal years at T0 (FY2022–FY2025), headline items per statement with an "all line items" toggle, and the FY2021 stub labelled as such. Everything after T0 is listed as hidden with the date it would become visible.</p>
 </section>
@@ -334,16 +336,15 @@ frontend/dist/               <span class="c"># npm run build</span></pre>
   <div class="finding"><div class="w">data quality</div><div><h4>yfinance's oldest fiscal-year column is a stub</h4><p>It looked like 5 fiscal years; the oldest has ~20 items and no revenue, net income or total assets for 52 of 55 tickers. So Yahoo gives <b>four</b> complete years (FY2022–FY2025 today), and coverage is counted on complete years only. The app labels stub columns rather than hiding them.</p></div></div>
   <div class="finding"><div class="w">data quality</div><div><h4>Delisted names have no Yahoo history</h4><p>Foot Locker (FL, video 2023-09-15) was acquired in 2025; Yahoo returns nothing. One of 40, but the eventual validator has to treat "acquired" as an outcome, not a missing price.</p></div></div>
   <div class="finding"><div class="w">estimate</div><div><h4>Single-stock videos are 29 % of the window, not 50 %</h4><p>286 of 993. Macro/market commentary is 30 %. The seed's recent 40 titles over-represented stock analyses. 286 singles is still 7× the sample, so the per-year quota of 10 is easily met (48 / 57 / 75 / 106 eligible per year).</p></div></div>
+  <div class="finding"><div class="w">cost</div><div><h4>transcript·lab paid two Supadata credits per video</h4><p>Its fetcher calls <span class="k">/transcript</span> and then <span class="k">/metadata</span>; the 40-video ingest cost 80 credits although this project already held every video's title, date and description. Fixed upstream in <a href="https://github.com/nmp-dsci/transcript-rag-agent/pull/20">transcript-rag-agent #20</a> (merged): <span class="k">fetch(metadata=)</span> → <span class="k">index-rag --metadata-json</span>, default still fetches, the caller must override. <span class="k">vi ingest</span> now passes its cached metadata; verified live at one request per video.</p></div></div>
+  <div class="finding"><div class="w">ops</div><div><h4>Two index-rag processes race on Chroma</h4><p>transcript·lab's write lock is per process. At concurrency 2, four runs logged "Error finding id" and one video kept its transcript but lost its chunks. <span class="k">vi ingest</span> is serial by default and a transcript without chunks now counts as failed.</p></div></div>
   <div class="finding"><div class="w">ops</div><div><h4>DuckDB is single-writer</h4><p>A pipeline command and the server cannot hold the file at once; run the pipeline, then serve. Fine for M1; the demo snapshot pattern (read-only copy) solves it for a deployment.</p></div></div>
 </section>
 
 <section id="blocked">
-  <div class="section-head"><span class="num">08</span><h2>Blocked: the transcripts</h2></div>
-  <div class="note warn"><b><span class="k">uv run vi ingest</span> is ready and cannot run.</b> It drives transcript·lab's <span class="k">index-rag</span> for each of the 40 videos; transcript·lab fetches from Supadata, which answers <span class="k">429 limit-exceeded · Plan usage limit was exceeded</span>. Verified directly with one video. Nothing in either repo can work around an exhausted plan.</div>
-  <div class="cards">
-    <div class="card rec"><h4>A · Top up / wait for the Supadata reset <span class="tag acc">recommended</span></h4><p>40 transcript fetches is a small spend. Then <span class="k">uv run vi ingest</span> populates transcript·lab's Chroma and the Video tab's transcript panel fills in; nothing else changes.</p></div>
-    <div class="card"><h4>B · yt-dlp auto-captions as a second provider in transcript·lab</h4><p>Every sampled video has YouTube auto-captions. transcript·lab's fetcher is Supadata-only; adding a provider there is a small change in the sibling repo, but auto-captions are lower quality than Supadata's and it changes the corpus's provenance.</p></div>
-  </div>
+  <div class="section-head"><span class="num">08</span><h2>Was blocked, now resolved — and one new wait</h2></div>
+  <div class="note good"><b>Transcripts: done.</b> Supadata topped up (D5 answered as "A"); <span class="k">vi ingest</span> ran; all 40 sampled videos are in transcript·lab's Chroma and browsable in its workbench as well as here.</div>
+  <div class="note warn"><b>EDGAR: waiting on a User-Agent.</b> SEC's fair-access policy 403s any request without a "Name email@domain" User-Agent. The loader is built and tested; set <span class="k">SEC_USER_AGENT</span> in <span class="k">.env</span> and run <span class="k">uv run vi edgar</span>. Expected effect: the ~25 US filers gain 10+ complete fiscal years with exact filing dates (the "deep" tier); the 9 non-US names keep Yahoo's four.</div>
 </section>
 
 <section id="review">
@@ -356,25 +357,22 @@ frontend/dist/               <span class="c"># npm run build</span></pre>
       <tr><td>All 40 sampled videos fall inside the window with exact dates</td><td><span class="tag good">yes</span> — 2022-09-20 → 2026-08-25; 34 yt-dlp + 6 Supadata</td></tr>
       <tr><td>Every sampled ticker resolves on Yahoo</td><td><span class="tag warn">39 / 40</span> — FL delisted (recorded, not hidden)</td></tr>
       <tr><td>No agent-visible read bypasses the as-of macros</td><td><span class="tag good">yes</span> — the app reads statements only through <span class="k">vi.statements_as_of</span>; forward prices are a separate, labelled query for the validator</td></tr>
-      <tr><td>Tests</td><td><span class="tag good">10 passed</span> — keyless boot, billing guard, as-of leakage, window years, sample determinism, API</td></tr>
+      <tr><td>Tests</td><td><span class="tag good">13 passed</span> — keyless boot, billing guard, as-of leakage, window years, sample determinism, API, ingest metadata shape, EDGAR selection + fiscal-year merge</td></tr>
+      <tr><td>Every sampled video has a transcript <em>and</em> chunks in transcript·lab</td><td><span class="tag good">40 / 40</span> — checked after the re-index of the one video that lost its chunks</td></tr>
+      <tr><td>Supadata cost per ingested video</td><td><span class="tag good">1</span> — measured on the CLI path with request logging after PR #20</td></tr>
       <tr><td>Subscription billing for every SDK call</td><td><span class="tag good">yes</span> — <span class="k">subscription_env</span> blanks the API key; 27 sessions ran (1 seed eval + 26 batches); the SDK's reported "cost" is nominal, not billed</td></tr>
       <tr><td>Classifier seed disagreements are defensible</td><td><span class="tag good">yes</span> — BABA vs 9988.HK (listing choice), a "rates" video as other vs macro, a Flutter+Burry video as multi vs single</td></tr>
-      <tr><td>Things I would push back on</td><td>(1) 4 tickers repeat across years — decide below. (2) 2022/23 has effectively no fundamentals; if M2's golden calls from that year are to be reproduced by an agent, EDGAR or a paid source is needed for those 10. (3) Approximate dates remain on 406 non-single videos; harmless for M1, but they must be refined before any multi-stock expansion.</td></tr>
+      <tr><td>Things I would push back on</td><td>(1) 4 tickers repeat across years — decide below. (2) 2022/23 has effectively no fundamentals until EDGAR runs; 7 of those 10 are US filers and will be fixed by it, the 3 non-US (AD.AS, RACE, BATS.L) will not. (3) Approximate dates remain on 406 non-single videos; harmless for M1, but they must be refined before any multi-stock expansion.</td></tr>
     </tbody>
   </table></div>
 </section>
 
 <section id="next">
   <div class="section-head"><span class="num">10</span><h2>Next, and the decisions I need</h2></div>
-  <div class="slice"><div class="v">M1′</div><div><h4>Ingest the 40 transcripts</h4><p>Once Supadata has credits: <span class="k">uv run vi ingest</span>, then the Corpus "indexed" column and the Video transcript panel fill in. ~10 min.</p></div></div>
+  <div class="slice"><div class="v">M1′</div><div><h4>Run EDGAR</h4><p>Set <span class="k">SEC_USER_AGENT</span>, run <span class="k">uv run vi edgar</span>, re-check coverage: expect most US-name videos to move to "deep".</p></div></div>
   <div class="slice"><div class="v">M2</div><div><h4>Golden extraction + eval summary in the app</h4><p>S4 extractor (Agent SDK, one session per transcript, cached), price-mention cross-check against <span class="k">vi.prices</span>, κ between two passes, splits; S5 the Golden-calls tab with review control and summary panel. Review checkpoint follows.</p></div></div>
 
-  <form class="decision" data-lavish-question="transcripts" onsubmit="event.preventDefault(); const c=new FormData(this).get('tx'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Transcript source decision: '+c, {tag:'choice', text:'Transcripts: '+c, element:this, data:{question:'transcripts', answer:c}});">
-    <fieldset><legend>D5 · How to unblock the transcripts</legend>
-      <label><input type="radio" name="tx" value="Supadata credits topped up — run vi ingest as planned (recommended)" checked> <span>Top up Supadata, run <span class="k">vi ingest</span> <span class="why">Recommended. Keeps transcript·lab's provenance; 40 fetches.</span></span></label>
-      <label><input type="radio" name="tx" value="add a yt-dlp auto-caption provider to transcript-lab's fetcher and ingest with it"> <span>Add yt-dlp auto-captions as a provider in transcript·lab <span class="why">Works today; lower-quality text; touches the sibling repo.</span></span></label>
-    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
-  </form>
+    <div class="note good"><b>D5 · Transcripts — resolved:</b> Supadata topped up, ingest complete.</div>
 
   <form class="decision" data-lavish-question="repeats" onsubmit="event.preventDefault(); const c=new FormData(this).get('rp'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Sample repeat-ticker decision: '+c, {tag:'choice', text:'Repeats: '+c, element:this, data:{question:'repeats', answer:c}});">
     <fieldset><legend>D6 · Same ticker in more than one year</legend>
@@ -383,15 +381,11 @@ frontend/dist/               <span class="c"># npm run build</span></pre>
     </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
   </form>
 
-  <form class="decision" data-lavish-question="firstyear" onsubmit="event.preventDefault(); const c=new FormData(this).get('fy'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('First-year fundamentals decision: '+c, {tag:'choice', text:'2022/23 fundamentals: '+c, element:this, data:{question:'firstyear', answer:c}});">
-    <fieldset><legend>D7 · 2022/23 has no complete fiscal year at T0</legend>
-      <label><input type="radio" name="fy" value="accept for now; revisit after the M2 golden review (recommended)" checked> <span>Accept for now, revisit after the M2 review <span class="why">Recommended. Golden extraction does not need fundamentals; only the deferred agent does.</span></span></label>
-      <label><input type="radio" name="fy" value="add SEC EDGAR companyfacts for the US names now"> <span>Add EDGAR companyfacts for US names now <span class="why">Fixes 7 of the 10 first-year videos (AAPL, V, VZ, GOOG, MBUU, INTC, FL); the 3 non-US stay shallow.</span></span></label>
-    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
-  </form>
+    <div class="note good"><b>D7 · First-year fundamentals — decided (rev 2):</b> EDGAR now, not after M2. Loader built; runs as soon as <span class="k">SEC_USER_AGENT</span> is set. Non-US names stay at Yahoo's four years unless a paid source is added later.</div>
 </section>
 
 <footer>
+  <p><b>Rev 2 (2026-09-19):</b> transcripts ingested; Supadata cost fix (transcript-rag-agent #20); chart window; logo; EDGAR loader. Screenshots of Corpus and Video retaken; Market and the HP statements panel are unchanged from rev 1.</p>
   <p><b>Sources:</b> live API at :8791 (<span class="k">/api/funnel</span>, <span class="k">/api/videos</span>, <span class="k">/api/market/coverage</span>) at the time this page was generated; <span class="k">data/samples/classifier_seed_eval.json</span>; <span class="k">.vi/catalog.log</span>, <span class="k">.vi/classify.log</span>, <span class="k">.vi/refine.log</span>; <span class="k">tests/</span>. Screenshots are of the running app in its dark theme.</p>
 </footer>
 </div>

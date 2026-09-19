@@ -25,7 +25,7 @@ def _env() -> dict[str, str]:
     for path in (Path.home() / ".env", ROOT / ".env"):  # project file wins
         if path.exists():
             merged.update({k: v for k, v in dotenv_values(path).items() if v is not None})
-    merged.update({k: v for k, v in os.environ.items() if k.startswith(("VI_", "BILLING"))})
+    merged.update({k: v for k, v in os.environ.items() if k.startswith(("VI_", "BILLING", "SEC_"))})
     return merged
 
 
@@ -52,6 +52,8 @@ class Settings:
     # Annual-only as-of rule: a fiscal year's statements become visible this
     # many days after period end unless a real filing date is known.
     annual_lag_days: int = 90
+    # SEC fair-access policy: "Name email@domain". Required for the EDGAR loader.
+    sec_user_agent: str = ""
     extra: dict[str, str] = field(default_factory=dict)
 
 
@@ -86,4 +88,5 @@ def settings() -> Settings:
         ),
         transcript_lab_api=e.get("TRANSCRIPT_LAB_API", "http://127.0.0.1:8000"),
         default_benchmark=e.get("VI_DEFAULT_BENCHMARK", "SPY"),
+        sec_user_agent=e.get("SEC_USER_AGENT", ""),
     )

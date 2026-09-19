@@ -23,16 +23,18 @@ st AS (
          count(*) FILTER (WHERE NOT f.complete AND f.available_from <= v.t0) AS stub_fys_visible,
          max(f.period_end) FILTER (WHERE f.complete AND f.available_from <= v.t0) AS latest_fy_visible,
          count(*) FILTER (WHERE f.complete) AS fys_total,
-         min(f.period_end) FILTER (WHERE f.complete) AS earliest_fy
+         min(f.period_end) FILTER (WHERE f.complete) AS earliest_fy,
+         bool_or(f.from_edgar) AS from_edgar
   FROM v LEFT JOIN vi.fiscal_years f ON f.ticker = v.ticker
   GROUP BY v.video_id
 )
 SELECT v.video_id, v.title, v.t0, v.ticker, v.year_bucket, v.sample_rank,
        px.price_at_t0, px.price_date,
-       st.fys_visible, st.stub_fys_visible, st.latest_fy_visible, st.fys_total, st.earliest_fy,
+       st.fys_visible, st.stub_fys_visible, st.latest_fy_visible, st.fys_total, st.earliest_fy, st.from_edgar,
        t.yahoo_ok, t.currency, t.benchmark,
        CASE WHEN px.price_at_t0 IS NULL THEN 'no_prices'
             WHEN coalesce(st.fys_visible, 0) = 0 THEN 'prices_only'
+            WHEN st.fys_visible >= 5 THEN 'deep'
             WHEN st.fys_visible >= 3 THEN 'full' ELSE 'shallow' END AS coverage
 FROM v LEFT JOIN px USING (video_id) LEFT JOIN st USING (video_id)
 LEFT JOIN vi.tickers t ON t.ticker = v.ticker

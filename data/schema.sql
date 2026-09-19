@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS vi.tickers (
   currency TEXT,
   benchmark TEXT,
   yahoo_ok BOOLEAN,
+  fundamentals_source TEXT,        -- yfinance | edgar
   first_price DATE,
   last_price DATE,
   fetched_at TIMESTAMP
@@ -75,10 +76,15 @@ CREATE OR REPLACE MACRO vi.statements_as_of(tk, t0) AS TABLE
 -- One row per (ticker, fiscal year). yfinance's oldest column is usually a stub
 -- of ~20 line items with no revenue or net income; a year counts as complete
 -- only when the headline items are present.
+-- Grouped by fiscal-year label (year of period end) rather than the exact date:
+-- EDGAR and yfinance can disagree on the day (Apple: 2025-09-27 vs 2025-09-30)
+-- and they are the same fiscal year.
 CREATE OR REPLACE VIEW vi.fiscal_years AS
-  SELECT ticker, period_end, min(available_from) AS available_from, count(*) AS n_items,
+  SELECT ticker, year(period_end) AS fy, max(period_end) AS period_end,
+         min(available_from) AS available_from, count(*) AS n_items,
+         bool_or(source = 'edgar') AS from_edgar,
          bool_or(line_item = 'Total Revenue') AND bool_or(line_item = 'Total Assets') AS complete
-  FROM vi.statements WHERE freq = 'annual' GROUP BY ticker, period_end;
+  FROM vi.statements WHERE freq = 'annual' GROUP BY ticker, year(period_end);
 
 -- Milestone 2 tables, created now so the app's stub tabs have something to query.
 CREATE TABLE IF NOT EXISTS vi.calls (

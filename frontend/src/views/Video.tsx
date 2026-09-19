@@ -59,14 +59,14 @@ export default function VideoView({ videoId, onSelect }: { videoId?: string; onS
                   )}
                   <p className="note">Everything right of the red line is what the future validator will use. The agent (deferred) only ever sees the left side, and only the statements below.</p>
                 </div>
-                <div className="panel"><h3>Annual statements visible at T0 <span className="microlabel">vi.statements_as_of(ticker, T0) · yfinance annual · period_end + 90 d</span></h3>
+                <div className="panel"><h3>Annual statements visible at T0 <span className="microlabel">vi.statements_as_of(ticker, T0) · ·E = EDGAR (real filing date) · else yfinance, period_end + 90 d</span></h3>
                   {!d.statement_periods.length && <div className="empty">no fiscal year is visible at T0 for this ticker {d.statements_hidden_after_t0?.length ? `— the earliest yfinance still returns becomes visible on ${d.statements_hidden_after_t0[0].available_from}` : ''}</div>}
                   {!!d.statement_period_info?.some((p) => !p.complete) && <p className="note warn">yfinance's oldest column is a stub: FY {d.statement_period_info.filter((p) => !p.complete).map((p) => `${p.period_end.slice(0, 4)} (${p.n_items} items, no revenue / total assets)`).join(', ')}. Complete fiscal years visible at T0: {d.coverage?.fys_visible ?? 0}.</p>}
                   {(['income', 'balance', 'cashflow'] as const).map((k) => d.statements[k] && (
                     <div key={k} style={{ marginBottom: 12 }}>
                       <div className="microlabel" style={{ marginBottom: 4 }}>{k} · {showAll[k] ? Object.keys(d.statements[k].items).length : d.statements[k].headline.length} items <button className="pill" style={{ marginLeft: 8 }} onClick={() => setShowAll({ ...showAll, [k]: !showAll[k] })}>{showAll[k] ? 'headline only' : 'all line items'}</button></div>
                       <div className="tablewrap" style={{ maxHeight: showAll[k] ? 420 : 'none' }}>
-                        <table><thead><tr><th>line item</th>{d.statement_periods.map((p) => <th key={p} className="num">FY {p.slice(0, 4)}{d.statement_period_info?.find((i) => i.period_end === p)?.complete === false ? ' (stub)' : ''}</th>)}</tr></thead>
+                        <table><thead><tr><th>line item</th>{d.statement_periods.map((p) => <th key={p} className="num">FY {p.slice(0, 4)}{d.statement_period_info?.find((i) => i.period_end === p)?.complete === false ? ' (stub)' : ''}{d.statement_period_info?.find((i) => i.period_end === p)?.from_edgar ? ' ·E' : ''}</th>)}</tr></thead>
                           <tbody>{(showAll[k] ? Object.keys(d.statements[k].items) : d.statements[k].headline).map((li) => (
                             <tr key={li}><td>{li}</td>{d.statement_periods.map((p) => <td key={p} className="num">{fmt(d.statements[k].items[li]?.[p])}</td>)}</tr>
                           ))}</tbody></table>

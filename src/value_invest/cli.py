@@ -92,6 +92,15 @@ def market(only_missing: bool = True) -> None:
 
 
 @app.command()
+def edgar() -> None:
+    """S2b: 10+ years of annual statements with filing dates for US filers (SEC EDGAR) → vi.statements."""
+    from value_invest.market.load import load_edgar
+
+    con = db.connect()
+    rprint(load_edgar(con))
+
+
+@app.command()
 def coverage() -> None:
     """S2: per-video coverage — prices at T0, annual reports visible at T0."""
     from value_invest.market.coverage import coverage_table
