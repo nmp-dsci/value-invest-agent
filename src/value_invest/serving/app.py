@@ -48,6 +48,14 @@ HEADLINE_ITEMS = {
 }
 
 
+class ReviewRequest(BaseModel):
+    """A human label from the Golden Evals / Video tab — the one write the app makes."""
+
+    curation_status: str
+    note: str | None = None
+    stance_detail: str | None = None
+
+
 class SqlRequest(BaseModel):
     """Module-level on purpose: with ``from __future__ import annotations`` FastAPI
     cannot resolve a class defined inside ``create_app`` and treats it as a query param."""
@@ -436,13 +444,8 @@ def create_app() -> FastAPI:
         )
         return r
 
-    class ReviewRequest(BaseModel):
-        curation_status: str
-        note: str | None = None
-        stance_detail: str | None = None
-
     @app.post("/api/evals/{video_id}/review")
-    def review(video_id: str, req: "ReviewRequest") -> dict:
+    def review(video_id: str, req: ReviewRequest) -> dict:
         from datetime import datetime, timezone
 
         from value_invest.golden.models import THREE_WAY

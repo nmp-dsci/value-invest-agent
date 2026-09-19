@@ -1,7 +1,7 @@
 type Pt = { date: string; adj_close: number };
 /** Adjusted close around T0, benchmark rebased to the stock at T0, forward markers. Hand-rolled SVG on the tokens. */
-export default function PriceChart({ prices, benchmark, t0, forward, currency }: {
-  prices: Pt[]; benchmark: Pt[]; t0: string; forward?: Record<string, { date: string; close: number } | null>; currency?: string | null;
+export default function PriceChart({ prices, benchmark, t0, forward, currency, iv, validations }: {
+  prices: Pt[]; benchmark: Pt[]; t0: string; forward?: Record<string, { date: string; close: number } | null>; currency?: string | null; iv?: number | null; validations?: { horizon_m: number; excess: number; verdict: string }[];
 }) {
   const W = 720, H = 260, L = 46, R = 12, T = 12, B = 26;
   if (!prices.length) return <div className="empty">no prices loaded for this ticker</div>;
@@ -11,7 +11,7 @@ export default function PriceChart({ prices, benchmark, t0, forward, currency }:
   const at = prices.reduce((best, p) => (new Date(p.date).getTime() <= t0ms ? p : best), prices[0]);
   const bAt = benchmark.reduce<Pt | null>((best, p) => (new Date(p.date).getTime() <= t0ms ? p : best), null);
   const bench = bAt ? benchmark.map((p) => ({ date: p.date, adj_close: (p.adj_close / bAt.adj_close) * at.adj_close })) : [];
-  const ys = [...prices.map((p) => p.adj_close), ...bench.map((p) => p.adj_close)];
+  const ys = [...prices.map((p) => p.adj_close), ...bench.map((p) => p.adj_close), ...(iv ? [iv] : [])];
   const y0 = Math.min(...ys) * 0.97, y1 = Math.max(...ys) * 1.03;
   const X = (d: string) => L + ((new Date(d).getTime() - x0) / Math.max(1, x1 - x0)) * (W - L - R);
   const Y = (v: number) => T + (1 - (v - y0) / Math.max(1e-9, y1 - y0)) * (H - T - B);
@@ -35,9 +35,10 @@ export default function PriceChart({ prices, benchmark, t0, forward, currency }:
         <path d={path(prices)} fill="none" stroke="var(--accent)" strokeWidth="1.6" />
         <line x1={xt0} x2={xt0} y1={T} y2={H - B} stroke="var(--bad)" strokeWidth="1.5" />
         <text x={xt0 + 4} y={T + 10} fontSize="9.5" fontFamily="var(--mono)" fill="var(--bad)">T0 {t0} · {at.adj_close.toFixed(2)} {currency ?? ''}</text>
-        {forward && Object.entries(forward).map(([m, f]) => f ? (
-          <g key={m}><circle cx={X(f.date)} cy={Y(f.close)} r="3.5" fill="var(--good)" /><text x={X(f.date)} y={Y(f.close) - 7} textAnchor="middle" fontSize="9" fontFamily="var(--mono)" fill="var(--good)">+{m}m</text></g>
-        ) : null)}
+        {iv != null && iv > 0 && <g><line x1={L} x2={W - R} y1={Y(iv)} y2={Y(iv)} stroke="var(--warn)" strokeWidth="1" strokeDasharray="5 3" /><text x={W - R} y={Y(iv) - 4} textAnchor="end" fontSize="9" fontFamily="var(--mono)" fill="var(--warn)">his IV {iv.toFixed(0)}</text></g>}
+        {forward && Object.entries(forward).map(([m, f]) => { const v = validations?.find((x) => String(x.horizon_m) === m); return f ? (
+          <g key={m}><circle cx={X(f.date)} cy={Y(f.close)} r="3.5" fill={v ? (v.verdict === 'correct' ? 'var(--good)' : v.verdict === 'wrong' ? 'var(--bad)' : 'var(--muted)') : 'var(--good)'} /><text x={X(f.date)} y={Y(f.close) - 7} textAnchor="middle" fontSize="9" fontFamily="var(--mono)" fill={v ? (v.verdict === 'correct' ? 'var(--good)' : v.verdict === 'wrong' ? 'var(--bad)' : 'var(--muted)') : 'var(--good)'}>+{m}m{v ? ` ${v.excess > 0 ? '+' : ''}${(v.excess * 100).toFixed(0)}pp` : ''}</text></g>
+        ) : null; })}
         <text x={L} y={T + 10} fontSize="9" fontFamily="var(--mono)" fill="var(--accent2)">agent may see ←</text>
         <text x={W - R} y={T + 10} textAnchor="end" fontSize="9" fontFamily="var(--mono)" fill="var(--good)">→ validator only</text>
       </svg>

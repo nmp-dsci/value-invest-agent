@@ -91,3 +91,14 @@ select, input[type='search'] { background: var(--panel2); border: 1px solid var(
 .results td { white-space: nowrap; max-width: 420px; overflow: hidden; text-overflow: ellipsis; }
 .cols { margin-top: 4px; }
 .col { cursor: pointer; padding: 1px 6px; border-radius: 4px; } .col:hover { background: var(--hover); color: var(--text); }
+/* golden evals */
+.evalpanel .badge.big { font-size: var(--t0); padding: 3px 10px; font-weight: 600; }
+.reasons { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.reason { background: var(--panel2); border: 1px solid var(--border); border-radius: 7px; padding: 8px 10px; }
+.rhead { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
+.rclaim { font-size: var(--t0); color: var(--text); }
+.rquote { font-family: var(--serif); font-style: italic; color: var(--text2); font-size: var(--t0); margin-top: 3px; }
+.rcheck { font-size: var(--t-2); color: var(--muted); margin-top: 4px; } .rcheck .dim { color: var(--dim); }
+.review { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.seg.hl { background: var(--accent-dim); border-left: 2px solid var(--accent); }
+.stat .v.good { color: var(--good); }
