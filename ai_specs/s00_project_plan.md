@@ -219,6 +219,9 @@ expansion, demo deploy + CI eval gate.
 - D1 storage: **assumed B** (Chroma for text + DuckDB `vi`) — S1 builds on it unless overridden.
 - D2 fundamentals: **decided for M1** — yfinance annual-only (1b); EDGAR/quarterlies deferred.
 - D3 scope: **decided** — single-stock only, 10 per year × 4 = 40 base sample, expand later.
+- D5 transcripts: **decided** — Supadata topped up; ingest via transcript·lab at one credit per video (transcript-rag-agent #20).
+- D6 repeat tickers: **decided** — keep repeats across years; distinct within a year only.
+- D7 fundamentals depth: **decided** — SEC EDGAR now; sample restricted to US 10-K filers (`VI_SAMPLE_EDGAR_ONLY=1`).
 - D4 learning: **decided** — Claude Agent SDK on subscription; DABStep agent
   shape (Python sandbox + `system.md`/`helper.py` versions); optimiser edits
   only those two files; McNemar gate.

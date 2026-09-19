@@ -378,12 +378,7 @@ frontend/dist/               <span class="c"># npm run build</span></pre>
 
     <div class="note good"><b>D5 · Transcripts — resolved:</b> Supadata topped up, ingest complete.</div>
 
-  <form class="decision" data-lavish-question="repeats" onsubmit="event.preventDefault(); const c=new FormData(this).get('rp'); if(!c) return; this.classList.add('sent'); window.lavish && window.lavish.queuePrompt('Sample repeat-ticker decision: '+c, {tag:'choice', text:'Repeats: '+c, element:this, data:{question:'repeats', answer:c}});">
-    <fieldset><legend>D6 · Same ticker in more than one year</legend>
-      <label><input type="radio" name="rp" value="keep repeats across years (same name, different T0 is a good analyst test)" checked> <span>Keep repeats across years <span class="why">Recommended. BRK-B ×3, AAPL ×3, VZ ×2, INTC ×2 — the same name at different prices is a fair test.</span></span></label>
-      <label><input type="radio" name="rp" value="prefer distinct tickers across the whole sample, re-draw"> <span>Prefer 40 distinct tickers, re-draw <span class="why">Broader coverage; the draw changes.</span></span></label>
-    </fieldset><button type="submit">Queue answer</button><span class="queued">queued ✓</span>
-  </form>
+    <div class="note good"><b>D6 · Repeat tickers — decided:</b> keep repeats across years; the same name at a different T0 is a good analyst test. The draw keeps preferring distinct tickers <em>within</em> a year only.</div>
 
     <div class="note good"><b>D7 · First-year fundamentals — decided (rev 2):</b> EDGAR now, not after M2. Loader built; runs as soon as <span class="k">SEC_USER_AGENT</span> is set. Non-US names stay at Yahoo's four years unless a paid source is added later.</div>
 </section>
