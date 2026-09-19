@@ -187,8 +187,10 @@ async def run_structured(
                         final_text = msg.result
                     if msg.is_error:
                         last = StructuredCallError(f"{msg.subtype}: {str(msg.result)[:300]}")
-        wait = seconds_until_reset(str(last) if last else "")
-        if wait is not None and not final_text:
+        wait = seconds_until_reset(str(last) if last else "") or seconds_until_reset(
+            final_text[:300]
+        )
+        if wait is not None and (not final_text or "session limit" in final_text.lower()):
             # a subscription window that has run out is waited for, not failed
             print(f"[llm] session limit reached; waiting {wait // 60} min", flush=True)
             time.sleep(wait)
