@@ -1,0 +1,223 @@
+{
+ "key": "Dy-jxlDToS0:6c26caf43744:v2:a33445f38391",
+ "eval": {
+  "video_id": "Dy-jxlDToS0",
+  "ticker": "BABA",
+  "t0": "2021-07-17",
+  "title": "Alibaba Stock Analysis (40% a 10X, 50% a 5x, 10% a 1x)",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "holding",
+   "expected_return_pct": null,
+   "horizon_years": 10.0,
+   "conviction": "high",
+   "headline_quote": "i think it's an easy 2x to 10x investment over the next decade let's say i give it a 90 chance"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": {
+    "name": "other",
+    "value_stated": null,
+    "quote": ""
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 576000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 212.10000610351562,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Alibaba is still a cheap spawner given its $500 billion market capitalization relative to its growth potential.",
+    "quote": "alibaba is still a cheap spawner at 500 billion market capitalization",
+    "chunk_id": "chunk:Dy-jxlDToS0:2",
+    "start_s": 171.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "market capitalization",
+      "value": 500.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 500000000000.0,
+     "value_as_of": 4558452258799.127,
+     "agrees": false,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 5e+11, as-of 4.55845e+12 (FY2020); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "If Alibaba doubles its customer base toward 2 billion and quadruples spending per customer, sales alone could 10x.",
+    "quote": "if they double the customer reach even a little bit more from the current perspective so from 2024 if they double it and then quadruple or even more the spending on the platform that's what 10x even more in just sales",
+    "chunk_id": "chunk:Dy-jxlDToS0:2",
+    "start_s": 171.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "customer target",
+      "value": 2.0,
+      "unit": "usd_bn_customers",
+      "period": "2024"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: customer target"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "sentiment",
+    "claim": "The stock's decline is driven by short-term negative sentiment and forced selling (e.g. ARK exiting to avoid holding bad performers), not by deteriorating fundamentals, which creates opportunity for long-term investors.",
+    "quote": "if catherine wood wants to sell her etf she cannot be seen holding bad performing stocks like chinese stocks in this case and that's the only reason why she sold because valuations are down the sentiment is negative",
+    "chunk_id": "chunk:Dy-jxlDToS0:4",
+    "start_s": 343.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "Regulatory and geopolitical pressure from both the US and Chinese governments is a persistent risk for a business of Alibaba's scale.",
+    "quote": "there will be u.s government pressure european government pressure because alibaba is now building warehouses in europe",
+    "chunk_id": "chunk:Dy-jxlDToS0:3",
+    "start_s": 262.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "DGS10"
+     ],
+     "value_stated": null,
+     "value_as_of": 0.0131,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "ARK Invest selling Chinese tech stocks",
+   "Didi's IPO and subsequent ~16% stock decline on a $57 billion market cap",
+   "US Senate antitrust subcommittee report of 450 pages",
+   "Facebook's Cambridge Analytica scandal and subsequent stock recovery (66% up, 172% for those who bought the bottom)"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 4,
+   "quotes_verbatim": 4,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 212.10000610351562,
+   "latest_fy_visible": 2020,
+   "reproducible_share": 0.5,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 2,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "4762ae4d-df48-4725-833c-79385b5ed1a6",
+   "transcript_sha256": "6c26caf43744d68f65bdf76517e0e25f5fdf484dcd957f72c9c7cc982123a8b3",
+   "extracted_at": "2026-09-19T12:53:33+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "c88ce676-ceaa-41f9-8945-154615e3587f"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.05473879999999999,
+   "session_id": "4762ae4d-df48-4725-833c-79385b5ed1a6",
+   "input_tokens": 7125,
+   "output_tokens": 3641
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.05034000000000001,
+   "session_id": "c88ce676-ceaa-41f9-8945-154615e3587f",
+   "input_tokens": 5119,
+   "output_tokens": 77
+  }
+ }
+}

@@ -1,0 +1,287 @@
+{
+ "key": "yfRR_kk9Ask:d9fa40d09672:v2:a33445f38391",
+ "eval": {
+  "video_id": "yfRR_kk9Ask",
+  "ticker": "BRK-B",
+  "t0": "2020-09-30",
+  "title": "Berkshire Hathaway Stock UNDER valuation - A Stock To Buy",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "absolute_buy",
+   "personal_action": "holding",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "high",
+   "headline_quote": "the total market valuation perspective on berkshire hathaway would be 845 billion dollars compare that to the market valuation current of 514 billion and you see a huge discrepancy"
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": null,
+    "quote": "sum of parts valuation of berkshire"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 845.0,
+     "quote": "the total market valuation perspective on berkshire hathaway would be 845 billion dollars"
+    }
+   ],
+   "iv_weighted_stated": 845.0,
+   "price_mentioned": 514.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "buffett stock will not go crazy up like many others can go therefore there is not so much interest"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 212.94000244140625,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Summing the market value of each Berkshire segment gives a sum-of-parts value far above the current market cap.",
+    "quote": "the total market valuation perspective on berkshire hathaway would be 845 billion dollars compare that to the market valuation current of 514 billion and you see a huge discrepancy",
+    "chunk_id": "chunk:yfRR_kk9Ask:11",
+    "start_s": 926.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "sum of parts value",
+      "value": 845.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 514.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: sum of parts value, market cap"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "balance_sheet",
+    "claim": "Berkshire and its subsidiaries (like BNSF and BHE) carry much lower debt than peers, making them financial fortresses that survive downturns and can buy distressed assets.",
+    "quote": "buffett is pretty sure that his railroad which will survive whatever comes at it all the other railroads are forcing buybacks buybacks buybacks buybacks lowering their cash flows",
+    "chunk_id": "chunk:yfRR_kk9Ask:2",
+    "start_s": 165.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "BNSF debt to cash flow",
+      "value": 3.5,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "peer debt to cash flow average",
+      "value": 6.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Operating Cash Flow"
+     ],
+     "value_stated": 3.5,
+     "value_as_of": 38687000000.0,
+     "agrees": false,
+     "formula": "Operating Cash Flow FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 3.5, as-of 3.8687e+10 (FY2019); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Berkshire refuses to use leveraged buybacks to inflate the stock price, unlike most of corporate America, which the market undervalues but which makes it safer long-term.",
+    "quote": "buffett isn't crazy about getting leverage to do buybacks like most of corporate america that pushes stock prices higher higher and higher higher valuations",
+    "chunk_id": "chunk:yfRR_kk9Ask:12",
+    "start_s": 1010.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "The stock portfolio and equity subsidiaries are viewed as agglomerations of businesses earning roughly 20% return on equity, compounding for the long term.",
+    "quote": "they see the stock holdings as an agglomeration of businesses that have a 20 return on equity and that's what they are focused on",
+    "chunk_id": "chunk:yfRR_kk9Ask:10",
+    "start_s": 843.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "return on equity",
+      "value": 20.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income",
+      "Stockholders Equity"
+     ],
+     "value_stated": 0.2,
+     "value_as_of": 0.1916636651906467,
+     "agrees": true,
+     "formula": "Net Income / Equity",
+     "as_of_period": "FY2019",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Berkshire's large cash pile lets Buffett buy distressed assets when debt-fueled growth at other companies eventually fails.",
+    "quote": "this is perhaps the reason why buffett has such a huge cash pile that's also part of the valuation that we'll discuss later and he's just waiting for all of those houses of cards out there",
+    "chunk_id": "chunk:yfRR_kk9Ask:8",
+    "start_s": 679.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "cash and equivalents",
+      "value": 143.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Cash And Cash Equivalents"
+     ],
+     "value_stated": 143000000000.0,
+     "value_as_of": 64632000000.0,
+     "agrees": false,
+     "formula": "Cash And Cash Equivalents FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 1.43e+11, as-of 6.4632e+10 (FY2019); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Burlington Northern Santa Fe financials and railroad-sector comparables",
+   "Berkshire Hathaway Energy vs NextEra Energy financials",
+   "CNBC Berkshire stock market portfolio tracker value ($227B)",
+   "Berkshire balance sheet cash, liabilities and tax liabilities",
+   "Nassim Taleb's Bloomberg interview commentary"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "absolute_buy",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 212.94000244140625,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 3,
+    "prices": 0,
+    "derived": 1,
+    "external": 1,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "bb8bf7ec-0b8e-4565-9be5-946b0e70bb55",
+   "transcript_sha256": "d9fa40d09672d67952213cb0770df89fe0a00502df64fd531b7670ecc9c23eca",
+   "extracted_at": "2026-09-19T12:50:05+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "af599ac1-2b93-4cc5-a51f-99139a0e7ed0"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0483778,
+   "session_id": "bb8bf7ec-0b8e-4565-9be5-946b0e70bb55",
+   "input_tokens": 9800,
+   "output_tokens": 1744
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.083289,
+   "session_id": "af599ac1-2b93-4cc5-a51f-99139a0e7ed0",
+   "input_tokens": 8192,
+   "output_tokens": 78
+  }
+ }
+}

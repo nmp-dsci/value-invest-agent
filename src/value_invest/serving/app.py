@@ -48,6 +48,14 @@ HEADLINE_ITEMS = {
 }
 
 
+class ReviewRequest(BaseModel):
+    """A human label from the Golden Evals / Video tab — the one write the app makes."""
+
+    curation_status: str
+    note: str | None = None
+    stance_detail: str | None = None
+
+
 class SqlRequest(BaseModel):
     """Module-level on purpose: with ``from __future__ import annotations`` FastAPI
     cannot resolve a class defined inside ``create_app`` and treats it as a query param."""
@@ -76,7 +84,7 @@ def create_app() -> FastAPI:
             "ok": True,
             "mode": "demo" if s.demo_mode else "dev",
             "tables": db.table_counts(c),
-            "milestone": "M1",
+            "milestone": "M2",
         }
 
     @app.get("/api/funnel")
@@ -249,6 +257,27 @@ def create_app() -> FastAPI:
             out["statements_hidden_after_t0"] = hidden
             cov = [r for r in coverage_table(c) if r["video_id"] == video_id]
             out["coverage"] = cov[0] if cov else None
+        ev = _rows(c, "SELECT * FROM vi.evals WHERE video_id = ?", [video_id])
+        if ev:
+            e = ev[0]
+            for k in (
+                "valuation",
+                "iv_recomputed",
+                "reasons",
+                "external_facts",
+                "critic",
+                "checks",
+            ):
+                if isinstance(e.get(k), str):
+                    e[k] = json.loads(e[k])
+            e["validations"] = _rows(
+                c,
+                "SELECT horizon_m, t1, ret, bench_ret, excess, verdict, verdict_hold_alt, iv_hit FROM vi.validations WHERE video_id = ? ORDER BY horizon_m",
+                [video_id],
+            )
+            out["eval"] = e
+        else:
+            out["eval"] = None
         try:
             from value_invest.ingest.corpus import corpus
 
@@ -284,9 +313,195 @@ def create_app() -> FastAPI:
         except sqlviewer.SqlError as e:
             raise HTTPException(400, str(e)) from e
 
-    @app.get("/api/calls")
-    def calls() -> list[dict]:  # M2 stub
-        return _rows(con(), "SELECT * FROM vi.calls ORDER BY t0")
+    # ---------------------------------------------------------------- M2: golden evals
+
+    JSON_COLS = ("valuation", "iv_recomputed", "reasons", "external_facts", "critic", "checks")
+
+    def _decode(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        for r in rows:
+            for k in JSON_COLS:
+                if k in r and isinstance(r[k], str):
+                    r[k] = json.loads(r[k])
+        return rows
+
+    @app.get("/api/evals")
+    def evals(
+        year: str | None = None, position: str | None = None, split: str | None = None
+    ) -> list[dict]:
+        c = con()
+        where, params = [], []
+        if year:
+            where.append("v.year_bucket = ?")
+            params.append(year)
+        if position:
+            where.append("e.position = ?")
+            params.append(position)
+        if split:
+            where.append("e.split = ?")
+            params.append(split)
+        w = ("WHERE " + " AND ".join(where)) if where else ""
+        rows = _rows(
+            c,
+            f"""SELECT e.video_id, e.ticker, e.t0, v.title, v.year_bucket, e.position, e.binary_position, e.hurdle_position,
+                       e.stance_detail, e.personal_action, e.expected_return_pct, e.conviction, e.rule_sensitive, e.title_says_buy,
+                       e.iv_weighted_stated, e.price_at_t0, e.split, e.curation_status, e.extractor_version, e.checks, e.critic,
+                       e.reasons, e.headline_quote,
+                       (SELECT json_group_object(horizon_m, json_object('excess', excess, 'verdict', verdict, 'verdict_hold_alt', verdict_hold_alt, 'iv_hit', iv_hit, 't1', t1))
+                          FROM vi.validations val WHERE val.video_id = e.video_id) AS validations
+                FROM (SELECT *, CASE WHEN position = 'BUY' THEN 'BUY' ELSE 'SELL' END AS binary_position,
+                             CASE WHEN expected_return_pct IS NULL THEN NULL WHEN expected_return_pct >= 10 THEN 'BUY'
+                                  WHEN position = 'SELL' THEN 'SELL' ELSE 'HOLD' END AS hurdle_position FROM vi.evals) e
+                JOIN vi.videos v USING (video_id) {w}
+                ORDER BY e.rule_sensitive DESC, e.t0""",
+            params,
+        )
+        for r in rows:
+            r["validations"] = json.loads(r["validations"]) if r.get("validations") else {}
+            r["reasons"] = (
+                json.loads(r["reasons"]) if isinstance(r.get("reasons"), str) else r.get("reasons")
+            )
+            r["n_reasons"] = len(r["reasons"] or [])
+            r["reason_categories"] = [x["category"] for x in (r["reasons"] or [])]
+            del r["reasons"]
+        return _decode(rows)
+
+    @app.get("/api/evals/summary")
+    def evals_summary() -> dict:
+        from value_invest.golden.validate import validation_summary
+
+        c = con()
+        out: dict[str, Any] = {"validation": validation_summary(c)}
+        out["mix"] = _rows(
+            c,
+            """SELECT v.year_bucket, e.split, count(*) AS n,
+                      count(*) FILTER (WHERE e.position = 'BUY') AS buy,
+                      count(*) FILTER (WHERE e.position = 'HOLD') AS hold,
+                      count(*) FILTER (WHERE e.position = 'SELL') AS sell,
+                      count(*) FILTER (WHERE e.curation_status = 'reviewed') AS reviewed,
+                      count(*) FILTER (WHERE e.rule_sensitive) AS rule_sensitive
+               FROM vi.evals e JOIN vi.videos v USING (video_id) GROUP BY 1, 2 ORDER BY 1""",
+        )
+        out["cuts"] = _rows(
+            c,
+            """SELECT 'C · 3-way' AS rule, position AS label, count(*) AS n FROM vi.evals GROUP BY 2
+               UNION ALL SELECT 'A · binary', CASE WHEN position = 'BUY' THEN 'BUY' ELSE 'SELL' END, count(*) FROM vi.evals GROUP BY 2
+               UNION ALL SELECT 'B · hurdle', CASE WHEN expected_return_pct IS NULL THEN 'n/a' WHEN expected_return_pct >= 10 THEN 'BUY' WHEN position = 'SELL' THEN 'SELL' ELSE 'HOLD' END, count(*) FROM vi.evals GROUP BY 2
+               ORDER BY 1, 2""",
+        )
+        stats = _rows(
+            c,
+            """SELECT count(*) AS n, count(*) FILTER (WHERE curation_status = 'reviewed') AS reviewed,
+                      count(*) FILTER (WHERE rule_sensitive) AS rule_sensitive, count(*) FILTER (WHERE title_says_buy AND position <> 'BUY') AS title_mismatch,
+                      count(*) FILTER (WHERE iv_weighted_stated IS NOT NULL) AS with_iv,
+                      avg(CAST(json_extract(checks, '$.reproducible_share') AS DOUBLE)) AS reproducible_share,
+                      avg(CAST(json_extract(checks, '$.faithful_share') AS DOUBLE)) AS faithful_share,
+                      count(*) FILTER (WHERE CAST(json_extract(checks, '$.price_check') AS BOOLEAN)) AS price_ok,
+                      count(*) FILTER (WHERE json_extract(checks, '$.price_check') IS NOT NULL AND json_extract(checks, '$.price_check') <> 'null') AS price_n,
+                      sum(CAST(json_extract(checks, '$.iv_ok') AS INTEGER)) AS iv_ok, sum(CAST(json_extract(checks, '$.iv_compared') AS INTEGER)) AS iv_compared,
+                      count(*) FILTER (WHERE abs(coalesce(CAST(json_extract(checks, '$.base_metric_gap_pct') AS DOUBLE), 0)) > 15) AS base_gap_over_15,
+                      count(*) FILTER (WHERE CAST(json_extract(critic, '$.position_agrees') AS BOOLEAN)) AS critic_agrees,
+                      count(*) FILTER (WHERE critic IS NOT NULL) AS critic_n
+               FROM vi.evals""",
+        )
+        out["stats"] = stats[0] if stats else {}
+        repro = _rows(
+            c,
+            """SELECT r.reproducible, count(*) AS n FROM (
+                 SELECT json_extract_string(unnest(from_json(reasons, '["JSON"]')), '$.data_check.reproducible') AS reproducible FROM vi.evals) r
+               GROUP BY 1 ORDER BY 2 DESC""",
+        )
+        out["reproducible"] = repro
+        for name in ("seed_eval_v0", "kappa", "method_summary"):
+            p = ROOT / "data" / "golden" / f"{name}.json"
+            if p.exists():
+                d = json.loads(p.read_text())
+                d.pop("rows", None)
+                out[name] = d
+        return out
+
+    @app.get("/api/evals/{video_id}")
+    def eval_detail(video_id: str) -> dict:
+        c = con()
+        rows = _decode(
+            _rows(
+                c,
+                "SELECT e.*, v.title, v.year_bucket FROM vi.evals e JOIN vi.videos v USING (video_id) WHERE e.video_id = ?",
+                [video_id],
+            )
+        )
+        if not rows:
+            raise HTTPException(404, "no eval for this video")
+        r = rows[0]
+        r["validations"] = _rows(
+            c, "SELECT * FROM vi.validations WHERE video_id = ? ORDER BY horizon_m", [video_id]
+        )
+        r["binary_position"] = "BUY" if r["position"] == "BUY" else "SELL"
+        er = r.get("expected_return_pct")
+        r["hurdle_position"] = (
+            None
+            if er is None
+            else ("BUY" if er >= 10 else ("SELL" if r["position"] == "SELL" else "HOLD"))
+        )
+        return r
+
+    @app.post("/api/evals/{video_id}/review")
+    def review(video_id: str, req: ReviewRequest) -> dict:
+        from datetime import datetime, timezone
+
+        from value_invest.golden.models import THREE_WAY
+
+        if req.curation_status not in ("auto", "reviewed", "rejected"):
+            raise HTTPException(400, "curation_status must be auto | reviewed | rejected")
+        if req.stance_detail and req.stance_detail not in THREE_WAY:
+            raise HTTPException(400, "unknown stance_detail")
+        w = db.connect()  # the one write the app makes: a human label
+        try:
+            if req.stance_detail:
+                w.execute(
+                    "UPDATE vi.evals SET stance_detail = ?, position = ? WHERE video_id = ?",
+                    [req.stance_detail, THREE_WAY[req.stance_detail], video_id],
+                )
+            w.execute(
+                "UPDATE vi.evals SET curation_status = ?, review_note = ?, reviewed_at = ? WHERE video_id = ?",
+                [req.curation_status, req.note, datetime.now(timezone.utc), video_id],
+            )
+            row = w.execute(
+                "SELECT ticker, t0, stance_detail, position FROM vi.evals WHERE video_id = ?",
+                [video_id],
+            ).fetchone()
+        finally:
+            w.close()
+        if not row:
+            raise HTTPException(404, "no eval for this video")
+        # every review is a human label: append/replace in the seed file
+        seed_path = ROOT / "data" / "golden" / "seed_labels.json"
+        try:
+            seed = json.loads(seed_path.read_text())
+            labels = [x for x in seed["labels"] if x["video_id"] != video_id]
+            prior = next((x for x in seed["labels"] if x["video_id"] == video_id), {})
+            labels.append(
+                {
+                    **prior,
+                    "video_id": video_id,
+                    "ticker": row[0],
+                    "t0": str(row[1]),
+                    "read": prior.get("read", "app"),
+                    "stance_detail": row[2],
+                    "source": "human",
+                    "curation_status": req.curation_status,
+                    "note": req.note or prior.get("note"),
+                }
+            )
+            seed["labels"] = sorted(labels, key=lambda x: x["t0"])
+            seed_path.write_text(json.dumps(seed, indent=1, ensure_ascii=False))
+        except OSError:
+            pass
+        return {
+            "video_id": video_id,
+            "curation_status": req.curation_status,
+            "stance_detail": row[2],
+            "position": row[3],
+        }
 
     if DIST.exists():
         app.mount("/assets", StaticFiles(directory=DIST / "assets"), name="assets")

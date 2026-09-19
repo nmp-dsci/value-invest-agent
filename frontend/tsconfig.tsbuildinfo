@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/views/corpus.tsx","./src/views/market.tsx","./src/views/pricechart.tsx","./src/views/sql.tsx","./src/views/video.tsx"],"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/views/corpus.tsx","./src/views/evalpanel.tsx","./src/views/goldenevals.tsx","./src/views/market.tsx","./src/views/pricechart.tsx","./src/views/sql.tsx","./src/views/video.tsx"],"version":"5.9.3"}

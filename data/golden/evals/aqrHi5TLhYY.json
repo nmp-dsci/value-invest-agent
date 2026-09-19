@@ -1,0 +1,313 @@
+{
+ "key": "aqrHi5TLhYY:499ac87e68d5:v2:a33445f38391",
+ "eval": {
+  "video_id": "aqrHi5TLhYY",
+  "ticker": "PYPL",
+  "t0": "2022-02-06",
+  "title": "Paypal Stock Analysis - NOT A BARGAIN",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": 10.0,
+   "conviction": "high",
+   "headline_quote": "so i would not invest in paypal because i don't think the strength of the business is there to justify investing in that"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 4.7,
+    "quote": "non-gaap eps similarly to free cash flows 6 billion per share here 4.7 let's take for our valuation"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.1,
+     "g_y6_10": 0.07,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 70.0,
+     "quote": "my valuation for the stock then comes at 70."
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.12,
+     "g_y6_10": 0.12,
+     "terminal_multiple": 30.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "let's assume 12 growth 12 growth and the terminal multiple of 30 on the 2031 earnings here so really a lot of stable straightforward growth"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.04,
+     "g_y6_10": 0.02,
+     "terminal_multiple": 10.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "let's say growth of just four percent and then even two percent 10 terminal multiple for a declining business and you have still 80 90 down for the stock"
+    }
+   ],
+   "iv_weighted_stated": 70.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": 0.12,
+    "multiple": 30.0,
+    "quote": "let's assume 12 growth 12 growth and the terminal multiple of 30 on the 2031 earnings here so really a lot of stable straightforward growth and given the competition i find it extremely difficult that paypal will reach this but this is what is priced in"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 81.86,
+     "iv_stated": 70.0,
+     "error": 0.169,
+     "ok": false
+    },
+    {
+     "name": "best",
+     "iv_model": 168.84,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": 24.34,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    }
+   ],
+   "within_band": false,
+   "n_compared": 1,
+   "n_ok": 0,
+   "expected_return_at_price": 5.4
+  },
+  "price_at_t0": 126.08000183105469,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "His base-case fair value of 70 is well below the current price, and even in the best case the 12% growth priced in looks unreachable, so the stock is 40% overvalued.",
+    "quote": "the sum is half the current price the sum of my valuations is 40 down so i would not invest in paypal because i don't think the strength of the business is there to justify investing in that",
+    "chunk_id": "chunk:aqrHi5TLhYY:4",
+    "start_s": 318.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "downside",
+      "value": 40.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: downside"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "As a user he hates PayPal's high fees and sees cheaper fintech competitors like Wise taking share, undermining growth.",
+    "quote": "as a user of paypal i hate it and i can't wait to use something else because two percent of transaction volume is a lot especially in the current world where we live in a fintech world where there are so many competitors",
+    "chunk_id": "chunk:aqrHi5TLhYY:1",
+    "start_s": 76.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue share of total payment volume",
+      "value": 2.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: revenue share of total payment volume"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Growth is decelerating faster than the market expected, which is why the stock crashed, and this deceleration is the key risk to the valuation.",
+    "quote": "however they have been growing significantly over the last year but now the guidance is for lower growth and this slower growth is likely lower than the market expected which is the reason why the stock got crushed",
+    "chunk_id": "chunk:aqrHi5TLhYY:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "active account growth",
+      "value": 13.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.13,
+     "value_as_of": -0.005649717514124353,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 0.13, as-of -0.00564972 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Stronger ecosystem competitors like Apple Pay are better positioned and could grow faster than PayPal, weakening its competitive position.",
+    "quote": "and therefore also we analyzed apple and the services there growing extremely fast and apple pays one of the services there so given the investments given the power there i think apple might do better",
+    "chunk_id": "chunk:aqrHi5TLhYY:3",
+    "start_s": 239.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Analyst fair value estimates from Morningstar rely on overly rosy long-term growth and margin assumptions he considers unrealistic given the competitive pressure.",
+    "quote": "they see it as a great long-term business and that their business will grow 20 over the next five years and 17 over the next 10 years that's really really crazy exuberant growth like that there is nobody else in the sector",
+    "chunk_id": "chunk:aqrHi5TLhYY:5",
+    "start_s": 398.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "morningstar 5yr growth estimate",
+      "value": 20.0,
+      "unit": "pct",
+      "period": "5 years"
+     },
+     {
+      "name": "morningstar 10yr growth estimate",
+      "value": 17.0,
+      "unit": "pct",
+      "period": "10 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: morningstar 5yr growth estimate, morningstar 10yr growth estimate"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Morningstar fair value estimate and growth projections (48x 2022 earnings, 20% 5-year and 17% 10-year growth)",
+   "426 million active PayPal accounts",
+   "PayPal revenue of 25.4 billion vs total payment volume of 1.25 trillion",
+   "personal experience using Wise as a cheaper alternative to PayPal"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 126.08000183105469,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.2,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 1,
+    "external": 3,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 1,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": 5.4,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "857735a4-e1d5-434d-91bc-9f955a15643e",
+   "transcript_sha256": "499ac87e68d598daa574ad54445b8348b8fc62b856a31e6df6eab093dcfa2dec",
+   "extracted_at": "2026-09-19T12:53:40+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "80104f1d-3d05-44cc-98c4-3aa17a4cdb56"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0364938,
+   "session_id": "857735a4-e1d5-434d-91bc-9f955a15643e",
+   "input_tokens": 6702,
+   "output_tokens": 2014
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.053295999999999996,
+   "session_id": "80104f1d-3d05-44cc-98c4-3aa17a4cdb56",
+   "input_tokens": 5390,
+   "output_tokens": 75
+  }
+ }
+}

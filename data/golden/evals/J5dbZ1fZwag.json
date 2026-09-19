@@ -1,0 +1,297 @@
+{
+ "key": "J5dbZ1fZwag:498ae3663a95:v2:a33445f38391",
+ "eval": {
+  "video_id": "J5dbZ1fZwag",
+  "ticker": "INTC",
+  "t0": "2021-03-26",
+  "title": "Intel Stock Update - Businesses Are Dynamic And Constantly Change",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "holding",
+   "expected_return_pct": null,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "so that's why i invested in intel back in september and there is a lot to share and learn when it comes to this situation"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 15000000000.0,
+    "quote": "intel 15 billion of cash flows just four percent growth rates"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "best",
+     "g_y1_5": 0.04,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 235000000000.0,
+     "quote": "my evaluation for intel was 235 billion in the better case scenario"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.0,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 200000000000.0,
+     "quote": "worst case scenario intel can sell itself for 200 billion worst case scenario there would be buyers"
+    }
+   ],
+   "iv_weighted_stated": 235000000000.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "taiwan semiconductors stock exploded but the market cap is 500 billion intel's market cap is half of that inter is more profitable has higher cash flows but the market is exuberant"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 235000000000.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 200000000000.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 64.87000274658203,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Intel trades at half TSMC's market cap despite being more profitable with higher cash flows, showing the market is exuberant about TSMC while ignoring Intel's cash flows.",
+    "quote": "the market cap is 500 billion intel's market cap is half of that inter is more profitable has higher cash flows but the market is exuberant and it likes this exuberance",
+    "chunk_id": "chunk:J5dbZ1fZwag:3",
+    "start_s": 244.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "tsmc market cap",
+      "value": 500.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "intel market cap",
+      "value": 250.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 500000000000.0,
+     "value_as_of": 263501951156.6162,
+     "agrees": false,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 5e+11, as-of 2.63502e+11 (FY2020); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Intel generates huge free cash flow which funds dividends and buybacks at low prices, increasing value.",
+    "quote": "they have huge cash flows with 15 billion of free cash flows that they pay dividends and make buybacks at low prices to increase value",
+    "chunk_id": "chunk:J5dbZ1fZwag:2",
+    "start_s": 172.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "free cash flow",
+      "value": 15.0,
+      "unit": "usd_bn",
+      "period": "annual"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Free Cash Flow"
+     ],
+     "value_stated": 15000000000.0,
+     "value_as_of": 21125000000.0,
+     "agrees": false,
+     "formula": "Free Cash Flow FY2020",
+     "as_of_period": "FY2020",
+     "gap_note": "he says 1.5e+10, as-of 2.1125e+10 (FY2020); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Intel's scale, diversified manufacturing outside Taiwan/China, and huge investment position it to benefit from surging global chip demand and political pressure to keep production in the US.",
+    "quote": "it covers 15 of the market and has production which is not all in china or taiwan plus they are investing a lot they have huge cash flows",
+    "chunk_id": "chunk:J5dbZ1fZwag:1",
+    "start_s": 172.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "market share",
+      "value": 15.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: market share"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Engineers and investors he heard from believe Intel is being destroyed by AMD and data center competition, similar to the fate of General Electric, which is why the stock has been cheap.",
+    "quote": "intel is gone intel is destroyed and this is exactly why intel has been cheap because nobody looks at an investment from a perspective okay what's the worst case scenario",
+    "chunk_id": "chunk:J5dbZ1fZwag:4",
+    "start_s": 329.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "If growth accelerates toward TSMC's expected 15% growth rate, Intel's valuation would change dramatically upward.",
+    "quote": "the smc expects 15 growth over the next 15 years so if i change that that really changes intel's valuation and if the market gets exuberant so that is really really crazy upside for intel",
+    "chunk_id": "chunk:J5dbZ1fZwag:5",
+    "start_s": 409.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "tsmc expected growth",
+      "value": 15.0,
+      "unit": "pct",
+      "period": "15 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: tsmc expected growth"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "TSMC's expected 15% growth rate over the next 15 years",
+   "TSMC market cap of 500 billion vs Intel at half that",
+   "Intel's $20 billion investment in Arizona fabs with government incentives",
+   "emails from engineers in the industry claiming Intel is being destroyed by AMD/competition"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "absolute_buy",
+   "invented_reasons": [],
+   "notes": "Minor: he frames Intel as a margin-of-safety buy on its own merits (worst case ~200B floor, upside free), so absolute_buy fits better than relative_buy, but both map to BUY."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 64.87000274658203,
+   "latest_fy_visible": 2020,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 1,
+    "external": 3,
+    "judgement": 0
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "3d98c540-6fef-4012-9e75-613f385af3c8",
+   "transcript_sha256": "498ae3663a9559a039945a808b89ffdcb3a40d142a335565c464806069db9717",
+   "extracted_at": "2026-09-19T12:52:26+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "1f8caa78-c06c-4840-b12a-266c368db3ad"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0344578,
+   "session_id": "3d98c540-6fef-4012-9e75-613f385af3c8",
+   "input_tokens": 6775,
+   "output_tokens": 1790
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.059741,
+   "session_id": "1f8caa78-c06c-4840-b12a-266c368db3ad",
+   "input_tokens": 5230,
+   "output_tokens": 409
+  }
+ }
+}

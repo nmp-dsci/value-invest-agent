@@ -1,0 +1,301 @@
+{
+ "key": "TP-DfIHLb50:8c905b867861:v2:a33445f38391",
+ "eval": {
+  "video_id": "TP-DfIHLb50",
+  "ticker": "AMZN",
+  "t0": "2020-12-15",
+  "title": "How To Calculate Intrinsic Value (AMZN Stock Example + Excel Template)",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "HOLD",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "none",
+   "expected_return_pct": 8.0,
+   "horizon_years": 10.0,
+   "conviction": "low",
+   "headline_quote": "we could say that if the growth rates are reached that amazon stock is closed to being fairly valued for an eight percent return"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 34.15,
+    "quote": "the earnings were 34.15 and now we have to put in the growth rate for the next five years"
+   },
+   "discount_rate": 0.08,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.25,
+     "g_y6_10": 0.12,
+     "terminal_multiple": 30.0,
+     "probability": 0.6,
+     "iv_stated": 2776.0,
+     "quote": "and then i get to an intrinsic value of 2776 with these assumptions"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.15,
+     "g_y6_10": 0.08,
+     "terminal_multiple": 20.0,
+     "probability": 0.2,
+     "iv_stated": 1242.0,
+     "quote": "the intrinsic value falls down to 1242"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.3,
+     "g_y6_10": 0.2,
+     "terminal_multiple": 45.0,
+     "probability": 0.2,
+     "iv_stated": 5500.0,
+     "quote": "then the present value is 5 000 almost 6 000"
+    }
+   ],
+   "iv_weighted_stated": 2776.0,
+   "price_mentioned": 3156.97,
+   "what_is_priced_in": {
+    "growth": 0.25,
+    "multiple": 30.0,
+    "quote": "this could be what the market is expecting"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 2552.2,
+     "iv_stated": 2776.0,
+     "error": -0.081,
+     "ok": true
+    },
+    {
+     "name": "worst",
+     "iv_model": 934.96,
+     "iv_stated": 1242.0,
+     "error": -0.247,
+     "ok": false
+    },
+    {
+     "name": "best",
+     "iv_model": 6576.41,
+     "iv_stated": 5500.0,
+     "error": 0.196,
+     "ok": false
+    }
+   ],
+   "within_band": false,
+   "n_compared": 3,
+   "n_ok": 1,
+   "iv_weighted_model": 3033.59,
+   "iv_weighted_ok": true,
+   "expected_return_at_price": 42.6,
+   "base_metric": {
+    "name": "eps",
+    "stated": 34.15,
+    "as_of": 23.01,
+    "period": "FY2019",
+    "gap_pct": 48.4
+   }
+  },
+  "price_at_t0": 158.25599670410156,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Although the P/E of 92 looks exuberant, discounting the expected growth in earnings shows the stock is not as absurdly overvalued as the multiple alone suggests.",
+    "quote": "that's a price to earnings ratio of 92.45 which you would say sven this is too exuberant this is over value it can't be",
+    "chunk_id": "chunk:TP-DfIHLb50:3",
+    "start_s": 228.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 92.45,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "stock price",
+      "value": 3156.97,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 92.45,
+     "value_as_of": 6.8777052022643,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 92.45, as-of 6.87771 (FY2019); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Amazon's historical ~25% average annual growth is used as the base growth assumption for the normal-case valuation.",
+    "quote": "we can say that on average over the last seven eight years amazon has grown at what 25 per year",
+    "chunk_id": "chunk:TP-DfIHLb50:4",
+    "start_s": 315.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "historical growth rate",
+      "value": 25.0,
+      "unit": "pct",
+      "period": "7-8yr avg"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.25,
+     "value_as_of": 0.14250248262164855,
+     "agrees": false,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 0.25, as-of 0.142502 (FY2019); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "The normal-case intrinsic value of 2776 is close to but below the current stock price, implying the market is already pricing in the normal scenario with little margin of safety.",
+    "quote": "if we compare it to the stock price we are pretty pretty close so this could be what the market is expecting",
+    "chunk_id": "chunk:TP-DfIHLb50:8",
+    "start_s": 643.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "intrinsic value normal case",
+      "value": 2776.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS",
+      "close"
+     ],
+     "value_stated": 2776.0,
+     "value_as_of": 3033.59,
+     "agrees": true,
+     "formula": "valuation.two_stage_iv on his inputs",
+     "as_of_period": "T0",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "macro_rates",
+    "claim": "He uses his own required return of 8% as the discount rate, meaning buying at intrinsic value implies earning roughly that return over time.",
+    "quote": "let's say i expect 8 from my investment",
+    "chunk_id": "chunk:TP-DfIHLb50:8",
+    "start_s": 643.0,
+    "feeds": "discount",
+    "metrics": [
+     {
+      "name": "discount rate",
+      "value": 8.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: discount rate"
+    }
+   }
+  ],
+  "external_facts_used": [],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 4,
+   "quotes_verbatim": 4,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok \u2014 tutorial video using AMZN as example; he concludes it is close to fairly valued for 8% if growth is reached, no buy/sell call. Reason 3's 'little margin of safety' is a mild inference."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 158.25599670410156,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.75,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 3,
+    "external": 1,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 3,
+   "iv_ok": 1,
+   "iv_within_band": false,
+   "base_metric_gap_pct": 48.4,
+   "expected_return_at_price": 42.6,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "bd11a18f-624a-455d-93b0-bb24a11b47a1",
+   "transcript_sha256": "8c905b8678610d41e5a8e38fe90a53921490ed116bfc3dd29ab9c8a98ea36e92",
+   "extracted_at": "2026-09-19T12:51:03+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "57e4e9fd-c687-4a5f-acf2-00300a7a3021"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.052433799999999996,
+   "session_id": "bd11a18f-624a-455d-93b0-bb24a11b47a1",
+   "input_tokens": 8108,
+   "output_tokens": 2934
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.074612,
+   "session_id": "57e4e9fd-c687-4a5f-acf2-00300a7a3021",
+   "input_tokens": 6271,
+   "output_tokens": 547
+  }
+ }
+}

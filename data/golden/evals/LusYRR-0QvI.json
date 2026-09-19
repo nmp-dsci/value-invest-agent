@@ -1,0 +1,315 @@
+{
+ "key": "LusYRR-0QvI:5fd7ca1155d3:v2:a33445f38391",
+ "eval": {
+  "video_id": "LusYRR-0QvI",
+  "ticker": "META",
+  "t0": "2022-08-19",
+  "title": "Zuck Won't Tell Us That Time Spent Is Declining",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "that was the risk and reward still looks okay still a hold for me"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 12.2,
+    "quote": "earnings are 12.2"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.06,
+     "g_y6_10": 0.05,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 153.0,
+     "quote": "intrinsic value for 10 return 153 if the terminal multiple remains around 20 and they grow six to five percent"
+    },
+    {
+     "name": "best",
+     "g_y1_5": 0.07,
+     "g_y6_10": 0.1,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 241.0,
+     "quote": "if they grow faster seven and ten percent and higher terminal multiple then the present value is 241"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.03,
+     "g_y6_10": 0.03,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "if it becomes a stagnating business and grows just three percent ahead terminal multiple goes to let's say 15 12 is a little bit low then there is still plenty of room for going lower"
+    }
+   ],
+   "iv_weighted_stated": 153.0,
+   "price_mentioned": 180.0,
+   "what_is_priced_in": {
+    "growth": 8.0,
+    "multiple": null,
+    "quote": "if the market expects now and it gets some traction towards the end of the year and let's say there is eight percent growth and then the market expects 12 from the metaverse growth"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 160.67,
+     "iv_stated": 153.0,
+     "error": 0.05,
+     "ok": true
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 241.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": 94.82,
+     "iv_stated": null,
+     "error": null,
+     "ok": null
+    }
+   ],
+   "within_band": true,
+   "n_compared": 1,
+   "n_ok": 1,
+   "expected_return_at_price": 9.5,
+   "base_metric": {
+    "name": "eps",
+    "stated": 12.2,
+    "as_of": 13.77,
+    "period": "FY2021",
+    "gap_pct": -11.4
+   }
+  },
+  "price_at_t0": 167.9600067138672,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Earnings and cash flow are declining, so the P/E multiple looks less attractive if fundamentals keep deteriorating.",
+    "quote": "if the fundamentals continue to deteriorate",
+    "chunk_id": "chunk:LusYRR-0QvI:1",
+    "start_s": 85.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "eps",
+      "value": 12.0,
+      "unit": "usd",
+      "period": "current"
+     },
+     {
+      "name": "revenue",
+      "value": 28.0,
+      "unit": "usd_bn",
+      "period": "quarter"
+     },
+     {
+      "name": "net income decline",
+      "value": 35.0,
+      "unit": "pct",
+      "period": "yoy"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 12.0,
+     "value_as_of": 13.77,
+     "agrees": true,
+     "formula": "Diluted EPS FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Facebook is no longer a growth stock, with revenue and net income declining year over year.",
+    "quote": "facebook is not a growth stock anymore it makes a lot of money 28 billion in revenue but when we compare quarters there is a decline in revenue",
+    "chunk_id": "chunk:LusYRR-0QvI:1",
+    "start_s": 85.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "net income decline",
+      "value": 35.0,
+      "unit": "pct",
+      "period": "yoy"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 0.35,
+     "value_as_of": 0.21202747006062417,
+     "agrees": false,
+     "formula": "net_income 3-year CAGR",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 0.35, as-of 0.212027 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "TikTok's short-form video growth is taking users, especially under-30s, and Apple's privacy changes cut ad revenue flow.",
+    "quote": "tick tock is destroying facebook especially in under 30 year olds the apple changes that has eliminated a lot of flow for facebook",
+    "chunk_id": "chunk:LusYRR-0QvI:2",
+    "start_s": 178.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Meta issuing debt to fund buybacks instead of using cash flow increases risk and changes a formerly debt-free business model.",
+    "quote": "facebook has issued a bond now it's going into debt to keep doing the buybacks to keep doing the promises so taking that and not cash flows which means they are risking much more",
+    "chunk_id": "chunk:LusYRR-0QvI:4",
+    "start_s": 331.0,
+    "feeds": "discount",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Management avoids disclosing declining time-spent metrics and dodges tough questions from analysts, reducing guidance credibility.",
+    "quote": "first around engagement and overall time spent they don't want to disclose it",
+    "chunk_id": "chunk:LusYRR-0QvI:3",
+    "start_s": 257.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Q2 2022 earnings call commentary on Reels monetization and economic downturn headwinds",
+   "analyst questions on the earnings call (Brian, Justin) about time spent and TikTok competition",
+   "Meta's bond issuance to fund buybacks"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 167.9600067138672,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 1,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 1,
+   "iv_ok": 1,
+   "iv_within_band": true,
+   "base_metric_gap_pct": -11.4,
+   "expected_return_at_price": 9.5,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "bb2cf85c-f72b-4aee-8be3-8a3cbc55f819",
+   "transcript_sha256": "5fd7ca1155d3d8b8d7efdd94ed0d30b3ff38332caa1b338c246752135977b179",
+   "extracted_at": "2026-09-19T12:56:41+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "4ac433c9-0bab-4755-bd62-381140689b19"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0330208,
+   "session_id": "bb2cf85c-f72b-4aee-8be3-8a3cbc55f819",
+   "input_tokens": 6612,
+   "output_tokens": 1717
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.052877,
+   "session_id": "4ac433c9-0bab-4755-bd62-381140689b19",
+   "input_tokens": 5070,
+   "output_tokens": 200
+  }
+ }
+}

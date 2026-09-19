@@ -10,7 +10,7 @@ def test_settings_boot_keyless(monkeypatch):
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     s = settings()
     assert s.billing in {"subscription", "api"}
-    assert s.sample_per_year == 10
+    assert s.sample_per_year in (10, 20)  # 10 by default; 20 once .env carries the M2 window
     assert "ANTHROPIC_API_KEY" not in os.environ or os.environ["ANTHROPIC_API_KEY"] == ""
     settings.cache_clear()
 

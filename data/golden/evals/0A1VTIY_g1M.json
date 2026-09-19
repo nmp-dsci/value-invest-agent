@@ -1,0 +1,285 @@
+{
+ "key": "0A1VTIY_g1M:bb3d10f9d1f3:v2:a33445f38391",
+ "eval": {
+  "video_id": "0A1VTIY_g1M",
+  "ticker": "CSCO",
+  "t0": "2022-05-31",
+  "title": "CSCO Stock Analysis - Back To Value Again (Risk And Reward)",
+  "position": "HOLD",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "fair_hold",
+   "personal_action": "holding",
+   "expected_return_pct": 12.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "cisco is let's say fairly priced for a return but there are better and i own what i think from a conservative valuation is still better"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 14000000000.0,
+    "quote": "i have estimated 14 billion over the long term average free cash flows for dividends and buybacks"
+   },
+   "discount_rate": 0.125,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.05,
+     "g_y6_10": 0.05,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 198000000000.0,
+     "quote": "just five percent discount rate of 12.5 percent here terminal multiple conservative of 15 the intrinsic value is 198 billion"
+    }
+   ],
+   "iv_weighted_stated": 198000000000.0,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 105338483303.76,
+     "iv_stated": 198000000000.0,
+     "error": -0.468,
+     "ok": false
+    }
+   ],
+   "within_band": false,
+   "n_compared": 1,
+   "n_ok": 0
+  },
+  "price_at_t0": 45.04999923706055,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At a conservative growth and discount rate assumption, intrinsic value roughly matches the market cap, making Cisco fairly priced for a 12% return.",
+    "quote": "the intrinsic value is 198 billion with better news better intrinsic value slower slower intrinsic value so it is let's say fairly priced for a 12 return",
+    "chunk_id": "chunk:0A1VTIY_g1M:3",
+    "start_s": 230.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "intrinsic value",
+      "value": 198.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "expected return",
+      "value": 12.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS",
+      "close"
+     ],
+     "value_stated": 198.0,
+     "value_as_of": 105338483303.76,
+     "agrees": false,
+     "formula": "valuation.two_stage_iv on his inputs",
+     "as_of_period": "T0",
+     "gap_note": "he says 198, as-of 1.05338e+11 (T0); annual vs TTM or a different definition; not in our data: expected return"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Strong free cash flow yield combined with buybacks and dividends is what he looks for in a business.",
+    "quote": "the free cash flow yield is already at 7.5 plus the expected growth",
+    "chunk_id": "chunk:0A1VTIY_g1M:1",
+    "start_s": 78.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "free cash flow yield",
+      "value": 7.5,
+      "unit": "pct",
+      "period": "may 2022"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Free Cash Flow",
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 0.075,
+     "value_as_of": 0.0777046148234119,
+     "agrees": true,
+     "formula": "FCF / market cap",
+     "as_of_period": "FY2021",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Despite the stock decline, record backlog shows demand remains strong for Cisco's connectivity infrastructure.",
+    "quote": "they have achieved record backlog despite the decline in the stock price so really really good",
+    "chunk_id": "chunk:0A1VTIY_g1M:1",
+    "start_s": 78.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "backlog",
+      "value": 15.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "backlog growth",
+      "value": 130.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: backlog, backlog growth"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Supply chain shortages and the war create short-term cost and margin pressure risk.",
+    "quote": "the war and more severe shortage of certain critical components",
+    "chunk_id": "chunk:0A1VTIY_g1M:3",
+    "start_s": 230.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "Cisco is fairly priced but other opportunities in his portfolio offer better conservative valuations, so he prefers those.",
+    "quote": "cisco is let's say fairly priced for a return but there are better and i own what i think from a conservative valuation is still better",
+    "chunk_id": "chunk:0A1VTIY_g1M:4",
+    "start_s": 310.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS",
+      "close"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": false,
+     "formula": "valuation.two_stage_iv on his inputs",
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "record backlog of $15 billion, up 130%",
+   "management commentary on supply chain and component shortages from the conference call"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 45.04999923706055,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 3,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 1,
+   "iv_compared": 1,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "a7e717b5-07e0-4fd7-b581-b6d79f9c33a3",
+   "transcript_sha256": "bb3d10f9d1f3654764ee6a0a5212a368b9dc8b446658e5be5900049dd501a754",
+   "extracted_at": "2026-09-19T12:55:38+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "653f5e05-d6cc-44ce-8028-d0e0f877f43f"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0274868,
+   "session_id": "a7e717b5-07e0-4fd7-b581-b6d79f9c33a3",
+   "input_tokens": 6007,
+   "output_tokens": 1451
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.045149999999999996,
+   "session_id": "653f5e05-d6cc-44ce-8028-d0e0f877f43f",
+   "input_tokens": 4148,
+   "output_tokens": 287
+  }
+ }
+}

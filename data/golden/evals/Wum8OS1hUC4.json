@@ -1,0 +1,342 @@
+{
+ "key": "Wum8OS1hUC4:1701f4ac5741:v2:a33445f38391",
+ "eval": {
+  "video_id": "Wum8OS1hUC4",
+  "ticker": "IBM",
+  "t0": "2020-12-06",
+  "title": "IBM Stock Analysis - 5.2% Dividend - Hybrid Cloud Growth, but...",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "i personally will not invest in ibm and really not even follow it because because it's ugly and i think i can find better"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 11.0,
+    "quote": "i have looked at the cash flows and we have free cash flows of around 11 12 billion conservatively 11"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "best",
+     "g_y1_5": 0.05,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": 0.2,
+     "iv_stated": null,
+     "quote": "20 chance on it going higher doubling on five percent steady growth over the next few years on on hybrid cloud"
+    },
+    {
+     "name": "normal",
+     "g_y1_5": 0.0,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": 0.6,
+     "iv_stated": null,
+     "quote": "60 change of it's staying in this range saved by the dividend"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": -0.05,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": 0.2,
+     "iv_stated": null,
+     "quote": "a 20 chance of a dividend cut and down to 60 on even slower growth losing that market share to amazon to all the clouds operators"
+    }
+   ],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": "if there would be no issues then this would be a 30 price earnings ratio 40 dividend yield of 1 company but it isn't"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": null,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 121.60611724853516,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "IBM's revenue and net income have collapsed for nearly a decade, showing terrible underlying business performance.",
+    "quote": "ibm's revenue growth went from 106 billion in 2012 to the current 75 billion they lost more than 25 of their revenue over the last eight years that's terrible",
+    "chunk_id": "chunk:Wum8OS1hUC4:0",
+    "start_s": 0.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue 2012",
+      "value": 106.0,
+      "unit": "usd_bn",
+      "period": "2012"
+     },
+     {
+      "name": "revenue current",
+      "value": 75.0,
+      "unit": "usd_bn",
+      "period": "current"
+     },
+     {
+      "name": "net income 2013",
+      "value": 16.0,
+      "unit": "usd_bn",
+      "period": "2013"
+     },
+     {
+      "name": "net income current",
+      "value": 8.0,
+      "unit": "usd_bn",
+      "period": "current"
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 106000000000.0,
+     "value_as_of": 77147000000.0,
+     "agrees": false,
+     "formula": "Total Revenue FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "he says 1.06e+11, as-of 7.7147e+10 (FY2019); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "Long-term debt has ballooned versus free cash flow, leaving little room for buybacks, M&A, or flexibility, and it will take years to fix.",
+    "quote": "55 billion in debt which is huge compared to 12 billion in free cash flow that's four or five years of free cash flows",
+    "chunk_id": "chunk:Wum8OS1hUC4:5",
+    "start_s": 433.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "long-term debt",
+      "value": 55.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "free cash flow",
+      "value": 12.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Free Cash Flow"
+     ],
+     "value_stated": 12000000000.0,
+     "value_as_of": 12484000000.0,
+     "agrees": true,
+     "formula": "Free Cash Flow FY2019",
+     "as_of_period": "FY2019",
+     "gap_note": "not in our data: long-term debt"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "CEO compensation soared massively even as the company and market cap collapsed, signaling management is not aligned with shareholders.",
+    "quote": "the ceo romiti went from a compensation of 16 million in 2012 when she became ceo to 158 million in 2019 while the market capitalization simply disintegrated",
+    "chunk_id": "chunk:Wum8OS1hUC4:1",
+    "start_s": 88.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "ceo comp 2012",
+      "value": 16.0,
+      "unit": "usd_mn",
+      "period": "2012"
+     },
+     {
+      "name": "ceo comp 2019",
+      "value": 158.0,
+      "unit": "usd_mn",
+      "period": "2019"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: ceo comp 2012, ceo comp 2019"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "IBM prioritized protecting margins over growth-oriented acquisitions to please Wall Street, unlike Amazon, which cost them the last decade.",
+    "quote": "ibm says how they could not do the deals they wanted to do because it might have been diluting their margins so they would not make an acquisition",
+    "chunk_id": "chunk:Wum8OS1hUC4:3",
+    "start_s": 264.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Despite the ugliness, IBM's entrenched infrastructure and sticky clients (e.g. credit card processing) make the dividend relatively safe.",
+    "quote": "90 of your credit card transactions go through ibm infrastructures etc so ibm is still ibm",
+    "chunk_id": "chunk:Wum8OS1hUC4:2",
+    "start_s": 175.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "credit card transaction share",
+      "value": 90.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: credit card transaction share"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "30+ analyst reports reviewed for market sentiment",
+   "CEO's mid single digit growth guidance after separation",
+   "hybrid cloud $1 trillion market opportunity estimate",
+   "planned revenue split into $59 billion and $19 billion companies",
+   "4,600 clients and backlog figures",
+   "historical buyback total of $200 billion over 30 years",
+   "comparison to Buffett's IBM buy in 2011 and sale",
+   "Lisa Su (former IBM) now CEO of AMD with comparable market cap"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": false,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "He personally passes ('will not invest... not even follow'), but calls it an interesting opportunity for dividend investors, 9% FCF yield, dividend safe, 'most probably the stock will do well' \u2014 fits fair_hold (not a bad addition even if he passes) rather than avoid."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 121.60611724853516,
+   "latest_fy_visible": 2019,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 3,
+    "prices": 0,
+    "derived": 0,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "60ffca84-f8b6-4c21-a0bc-22e23c60d49a",
+   "transcript_sha256": "1701f4ac5741097f45a50d5a6d29f327f7dd3d9701c221b6c594c69654aefb10",
+   "extracted_at": "2026-09-19T12:50:50+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "d150bebe-043b-4ce8-8bd4-6e51c9ed6405"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0427458,
+   "session_id": "60ffca84-f8b6-4c21-a0bc-22e23c60d49a",
+   "input_tokens": 7968,
+   "output_tokens": 2045
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.077381,
+   "session_id": "d150bebe-043b-4ce8-8bd4-6e51c9ed6405",
+   "input_tokens": 6529,
+   "output_tokens": 553
+  }
+ }
+}

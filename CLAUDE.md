@@ -22,8 +22,17 @@
   `DEMO_MODE=1` baked in and cannot call a model.
 - **The optimiser may edit two files** (`agents/vN/system.md`, `helper.py`).
   "Improve the agent" means run the loop, not a hand edit; `agent.yaml` is frozen.
-- **The sample is 10 single-stock videos per year (40).** Expand with
-  `vi sample --per-year N`; never hand-pick videos into the sample.
+- **The sample is 20 single-stock videos per window year over 6 years (120; D12).**
+  Expand with `vi sample --per-year N`; the sampler is sticky; never hand-pick
+  videos into the sample. Eligibility is "has SEC financial reports with filing
+  dates" (D13), not nationality.
+- **Position is BUY / HOLD / SELL derived from the 6-way `stance_detail` (D8).**
+  The extractor never outputs a position and never sees the title as evidence;
+  the transcript is the source of truth. Binary (A) and hurdle (B) views are
+  derived at read time, never re-extracted.
+- **Grounding is Python, not the model.** `golden/ground.py` fills every
+  reason's `data_check` from `vi.statements_as_of` / prices / `vi.rates`; the
+  extractor never sees market data. Change grounding → `vi extract --reground`.
 - **Never write to transcript·lab's Chroma from this repo.** Ingest through its
   CLI or `/api/index/queue`; read back by `video_id` / chunk id.
 - **Derived state is rebuildable, not committed.** `.vi/` caches and

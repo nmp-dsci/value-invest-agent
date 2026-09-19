@@ -1,0 +1,319 @@
+{
+ "key": "liCXPLuRCVM:c96e061d44b1:v2:a33445f38391",
+ "eval": {
+  "video_id": "liCXPLuRCVM",
+  "ticker": "INTC",
+  "t0": "2024-05-03",
+  "title": "Intel Stock Is Back To Value, Again...",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": "BUY",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "to invest for my Diversified research platform portfolio I need an itsy bitsy bigger margin of safety I would need this to be 10% so I'm saying it here at 25"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 2.5,
+    "quote": "I think that we can go over to an average 2.5"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 12.0,
+     "probability": null,
+     "iv_stated": 30.0,
+     "quote": "that's is now an interesting buy at 30 because it is a p ratio of 12 so nothing crazy for a margin of safety"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 25.0,
+     "quote": "I need this to be 10% so I'm saying it here at 25"
+    }
+   ],
+   "iv_weighted_stated": 25.0,
+   "price_mentioned": 30.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 10.0,
+    "quote": "they see Intel going to earnings per share of 2.76 if that happens we are talking of a p ratio round 10 which is not bad"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": 30.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 25.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "eps",
+    "stated": 2.5,
+    "as_of": 0.4,
+    "period": "FY2023",
+    "gap_pct": 525.0
+   }
+  },
+  "price_at_t0": 30.899999618530273,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Management's non-GAAP earnings and revised depreciation rules disguise real losses, making guidance untrustworthy.",
+    "quote": "if you just adjust for shareholder compensation for other adjustments you see that actually they lost money with normal us accounting rules",
+    "chunk_id": "chunk:liCXPLuRCVM:5",
+    "start_s": 446.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "implied loss",
+      "value": 54.0,
+      "unit": "usd_bn",
+      "period": "annualized"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: implied loss"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Management's ambitious 2022 growth guidance badly missed reality, showing guidance is not credible.",
+    "quote": "since pet came along revenues were 80 billion on growth we should be now after two years around 90 95 billion on 20 billion on profits but what happened well that growth didn't materialize and we are now at 54 billion so 40% down on what was guided",
+    "chunk_id": "chunk:liCXPLuRCVM:2",
+    "start_s": 177.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "revenue miss",
+      "value": 40.0,
+      "unit": "pct",
+      "period": "vs 2022 guidance"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.4,
+     "value_as_of": -0.13997525930155108,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 0.4, as-of -0.139975 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Intel is a commodity, price-taking semiconductor business whose earnings swing widely with the cycle, from zero in downturns to about five in upturns.",
+    "quote": "if you look at downturns earnings per share will be zero in cyclical upturns earnings per share will likely be five",
+    "chunk_id": "chunk:liCXPLuRCVM:7",
+    "start_s": 622.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "eps downturn",
+      "value": 0.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "eps upturn",
+      "value": 5.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": 0.0,
+     "value_as_of": 0.4,
+     "agrees": true,
+     "formula": "Diluted EPS FY2023",
+     "as_of_period": "FY2023",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "balance_sheet",
+    "claim": "The large net property, plant and equipment base provides a margin-of-safety floor via book value, especially if bought around 80% of book value historically.",
+    "quote": "the best margin of safety for semiconductors would be buying at 80% of of Book value which has always in history across those Cycles worked",
+    "chunk_id": "chunk:liCXPLuRCVM:8",
+    "start_s": 706.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "net PP&E",
+      "value": 100.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "total equity",
+      "value": 109.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Stockholders Equity"
+     ],
+     "value_stated": 109000000000.0,
+     "value_as_of": 105590000000.0,
+     "agrees": true,
+     "formula": "Stockholders Equity FY2023",
+     "as_of_period": "FY2023",
+     "gap_note": "not in our data: net PP&E"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Intel remains dominant in client computing, an essential business even if margins are pressured by competition.",
+    "quote": "it's still 80% of client Computing market so without Intel the world wouldn't run",
+    "chunk_id": "chunk:liCXPLuRCVM:4",
+    "start_s": 363.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "client computing market share",
+      "value": 80.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: client computing market share"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "2022 investor meeting guidance of mid-to-high single digit then 10-12% growth",
+   "Wall Street consensus analyst EPS estimates (~1 next 12 months, 2.76 further out)",
+   "Intel's foundry customer announcements (18A node customers)",
+   "Intel skipped the modem/mobile IPO opportunity",
+   "gross property, plant and equipment of about $200 billion invested"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": false,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "He calls Intel a 'base value investment' and 'interesting buy at 30' (P/E 12), just wants a bigger margin at $25 for his portfolio; positive watch/wait = fair_hold, not avoid."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 30.899999618530273,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 1,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 2,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": 525.0,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "5bd8b4da-6bcd-4edb-a27b-cc3e296000e3",
+   "transcript_sha256": "c96e061d44b1d1d22d56922e04dd7b13f877f4dcbc5c0d1a4d6c61cae09f6bc3",
+   "extracted_at": "2026-09-19T11:51:59+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "a79695f3-cc1c-4f6a-8df1-b75671de8b25"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.04019980000000001,
+   "session_id": "5bd8b4da-6bcd-4edb-a27b-cc3e296000e3",
+   "input_tokens": 7961,
+   "output_tokens": 1794
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.07094600000000001,
+   "session_id": "a79695f3-cc1c-4f6a-8df1-b75671de8b25",
+   "input_tokens": 6400,
+   "output_tokens": 351
+  }
+ }
+}

@@ -1,0 +1,270 @@
+{
+ "key": "vrScW0GCm10:d02b215618ed:v2:a33445f38391",
+ "eval": {
+  "video_id": "vrScW0GCm10",
+  "ticker": "SPGI",
+  "t0": "2025-02-25",
+  "title": "SPGI Stock Represents A Wonderful Business...",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "we'll keep looking for the same businesses but as Buffett did at P ratios of 10"
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 15.0,
+    "quote": "earnings per share of 15 14 if you look at not Gap metric 17 earnings per share growing huge operating profits"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": null,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 43.0,
+    "quote": "except the tiny detail of the price earnings ratio 43"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 504.6168518066406,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "A P/E of 43 is too expensive relative to what Buffett paid for the same type of business.",
+    "quote": "p ratio of 10 and you are now paying 40 for something Warren Buffett paid 104 that's the key disc discrepancy there",
+    "chunk_id": "chunk:vrScW0GCm10:4",
+    "start_s": 359.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "current p/e",
+      "value": 43.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "buffett purchase p/e",
+      "value": 10.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 43.0,
+     "value_as_of": 61.31431978209485,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 43, as-of 61.3143 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Rating agencies have a durable moat because they let money managers shift blame for bad investment outcomes onto the rating.",
+    "quote": "it's not my fault is the key selling point of the business it will be there forever when it comes to the investment environment",
+    "chunk_id": "chunk:vrScW0GCm10:6",
+    "start_s": 532.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "cyclicality",
+    "claim": "Even in the 2022 downturn and the 2008-2011 crisis, revenue fell but the business stayed profitable, showing resilience.",
+    "quote": "in a declining Market revenues decreased 4% but the company given the quality given the great business still had profitability still made made money",
+    "chunk_id": "chunk:vrScW0GCm10:2",
+    "start_s": 180.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "revenue decline",
+      "value": 4.0,
+      "unit": "pct",
+      "period": "2022"
+     },
+     {
+      "name": "revenue decline",
+      "value": 40.0,
+      "unit": "pct",
+      "period": "2008-2011"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.04,
+     "value_as_of": 0.11769966908147755,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 0.04, as-of 0.1177 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Buybacks and 52 consecutive years of dividend increases signal a great business.",
+    "quote": "they raised the annual dividend for 52 consecutive years that's even one more than Archer Daniel Midlands",
+    "chunk_id": "chunk:vrScW0GCm10:1",
+    "start_s": 84.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "consecutive dividend increase years",
+      "value": 52.0,
+      "unit": "years",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Cash Dividends Paid",
+      "Shares Outstanding"
+     ],
+     "value_stated": 52.0,
+     "value_as_of": 3.6517032792104427,
+     "agrees": false,
+     "formula": "|Cash Dividends Paid| / shares",
+     "as_of_period": "FY2023",
+     "gap_note": "he says 52, as-of 3.6517 (FY2023); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "macro_rates",
+    "claim": "If the market crashes and revenues drop sharply, high current valuation would fall further even though the business stays profitable.",
+    "quote": "if revenues decline 40% on the market crash likely profitability will still decline however it would still remain I think profitable",
+    "chunk_id": "chunk:vrScW0GCm10:2",
+    "start_s": 180.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "DGS10"
+     ],
+     "value_stated": null,
+     "value_as_of": 0.043,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Warren Buffett's 2010 Berkshire annual conference comments on rating agencies",
+   "Buffett/Berkshire owning more than 50% of Moody's",
+   "Buffett's original 1999-era purchase price and stake (~$500 million for 15%)",
+   "AI conference call commentary on generative AI as benefit vs threat",
+   "ChatGPT-generated bullish/bearish analysis of the stock"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok. Reason 5 category 'macro_rates' is loose (it's a valuation/crash-risk point) but the claim is supported. Wonderful business, but he passes at P/E 43, closing that he'll keep looking for such businesses at Buffett's P/E 10."
+  },
+  "checks": {
+   "price_check": null,
+   "price_at_t0": 504.6168518066406,
+   "latest_fy_visible": 2023,
+   "reproducible_share": 0.8,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 4,
+    "external": 0,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "69be2b0b-3409-4caf-9cab-99d3252b86ff",
+   "transcript_sha256": "d02b215618edd146df114834576a64dc5dcbcc589ffb4004da13cc125d12efdb",
+   "extracted_at": "2026-09-19T13:01:44+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "95354ee3-9c84-4348-ae81-60ce1c5e5a4f"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0311028,
+   "session_id": "69be2b0b-3409-4caf-9cab-99d3252b86ff",
+   "input_tokens": 6721,
+   "output_tokens": 1473
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.06450700000000001,
+   "session_id": "95354ee3-9c84-4348-ae81-60ce1c5e5a4f",
+   "input_tokens": 4875,
+   "output_tokens": 749
+  }
+ }
+}

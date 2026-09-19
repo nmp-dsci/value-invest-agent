@@ -1,0 +1,5 @@
+{
+  "_note": "Tickers whose entry in SEC's company_tickers.json is missing or points at a registrant without the 10-K history. Verified by `vi edgar --check-candidates --recheck`.",
+  "XOM": 34088,
+  "FI": 798354
+}

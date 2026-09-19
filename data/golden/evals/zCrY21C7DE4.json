@@ -1,0 +1,329 @@
+{
+ "key": "zCrY21C7DE4:e8500956a5a8:v2:a33445f38391",
+ "eval": {
+  "video_id": "zCrY21C7DE4",
+  "ticker": "NKE",
+  "t0": "2025-11-10",
+  "title": "Nike Stock is A Strong Buy On Relative Risk Reward!",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": "BUY",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "horizon_years": null,
+   "conviction": "medium",
+   "headline_quote": "that's an 80 billion bottom apart from disastrous scenarios so the downside is 10 20% maybe while the upside is 2x which makes Nike a strong risk andreward buy."
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": 3.0,
+    "quote": "If they go back to five billion from the current three billion in net income times a P ratio of 30, that's already 60% up because the market has a P ratio 30."
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 80.0,
+     "quote": "if they just push 1 billion higher next year that's 4 billion times a P ratio of 20 that's an 80 billion bottom apart from disastrous scenarios"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 30.0,
+     "probability": null,
+     "iv_stated": 180.0,
+     "quote": "if Nike returns to growth, if they hit 6 billion times 30p ratio, which is just the market, nothing exuberant, that's a market cap of 180 billion"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 45.0,
+     "quote": "So on the margin of safety from a value investment perspective, 3 billion times 15 for such a brand, that's 45 billion"
+    }
+   ],
+   "iv_weighted_stated": 80.0,
+   "price_mentioned": 90.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 30.0,
+    "quote": "the market has a P ratio 30. So Nike also should deserve a P ratio of 30."
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": 80.0,
+     "ok": null
+    },
+    {
+     "name": "best",
+     "iv_model": null,
+     "iv_stated": 180.0,
+     "ok": null
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 45.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0,
+   "base_metric": {
+    "name": "net_income",
+    "stated": 3.0,
+    "as_of": 3.219,
+    "period": "FY2025",
+    "gap_pct": -6.8
+   }
+  },
+  "price_at_t0": 60.79999923706055,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The asymmetry between a limited ~10-20% downside and a potential 2x upside makes Nike an attractive relative risk-reward buy.",
+    "quote": "that's an 80 billion bottom apart from disastrous scenarios so the downside is 10 20% maybe while the upside is 2x which makes Nike a strong risk andreward buy",
+    "chunk_id": "chunk:zCrY21C7DE4:6",
+    "start_s": 476.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "upside multiple",
+      "value": 2.0,
+      "unit": "x",
+      "period": null
+     },
+     {
+      "name": "downside",
+      "value": 20.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 2.0,
+     "value_as_of": 28.148147794935436,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 2, as-of 28.1481 (FY2025); annual vs TTM or a different definition; not in our data: downside"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "Once the new CEO's inventory clean-up and distribution fixes take hold, margins and growth should return around 2026-27, lifting the stock.",
+    "quote": "then 2026 27 you likely see growth and also stock upside from a number perspective that the margins return to",
+    "chunk_id": "chunk:zCrY21C7DE4:1",
+    "start_s": 81.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Nike's earnings are highly sensitive to small margin swings, so a modest gross margin decline halved net income.",
+    "quote": "Just a 3% change in gross margins has a huge impact on net income that goes from six billion to three billion",
+    "chunk_id": "chunk:zCrY21C7DE4:3",
+    "start_s": 234.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "gross margin change",
+      "value": 3.0,
+      "unit": "pct",
+      "period": null
+     },
+     {
+      "name": "net income before",
+      "value": 6.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "net income after",
+      "value": 3.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Gross Profit",
+      "Total Revenue"
+     ],
+     "value_stated": 0.03,
+     "value_as_of": 0.42734673605562634,
+     "agrees": false,
+     "formula": "Gross Profit / Revenue",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 0.03, as-of 0.427347 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "China, a key growth market, may never regain traction as local brands rise, undermining the turnaround thesis.",
+    "quote": "China might never get the traction because Asia is changing",
+    "chunk_id": "chunk:zCrY21C7DE4:5",
+    "start_s": 403.0,
+    "feeds": "probability",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Nike's brand strength, ranked among the world's most valuable, provides a potential margin of safety if cash flows recover.",
+    "quote": "Nike has the strongest brand in the world after we",
+    "chunk_id": "chunk:zCrY21C7DE4:4",
+    "start_s": 318.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "brand rank",
+      "value": 2.0,
+      "unit": "rank",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: brand rank"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Bill Ackman's Pershing Square letter and bullish thesis on Nike",
+   "Starbucks reportedly exiting China this week",
+   "Global brand value ranking placing Nike second-strongest brand after Apple/Google",
+   "New Nike CEO's comments on inventory kitchen-sinking and 'journey back to greatness'",
+   "Analyst questions about Nike returning to double-digit net profit margins"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 60.79999923706055,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 0,
+    "derived": 2,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": -6.8,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "7f98ce87-d0d7-46d8-bb35-1382ed1cf099",
+   "transcript_sha256": "e8500956a5a84839a7ca1729c76ea25317d57b2bf17bf50a6440da5ac07ba37e",
+   "extracted_at": "2026-09-19T13:02:54+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "cc945baa-c930-4802-8bff-b827f48a119b"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0818068,
+   "session_id": "7f98ce87-d0d7-46d8-bb35-1382ed1cf099",
+   "input_tokens": 7249,
+   "output_tokens": 6290
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.064458,
+   "session_id": "cc945baa-c930-4802-8bff-b827f48a119b",
+   "input_tokens": 5795,
+   "output_tokens": 349
+  }
+ }
+}

@@ -1,0 +1,286 @@
+{
+ "key": "gPCKmXwfEdY:d2cdcb6b030c:v2:a33445f38391",
+ "eval": {
+  "video_id": "gPCKmXwfEdY",
+  "ticker": "VZ",
+  "t0": "2021-03-08",
+  "title": "Verizon Stock - A Dividend Stock To Buy (Cheaper Now Than What Buffett Paid)",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": "BUY",
+  "rule_sensitive": false,
+  "title_says_buy": true,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "watching",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "you can see how the intrinsic value is slightly above the current stock price of 56 for a 10 return"
+  },
+  "valuation": {
+   "method": "dividend",
+   "base_metric": {
+    "name": "dps",
+    "value_stated": null,
+    "quote": "i have taken the dividend because that's what warren buffett is likely looking at"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.07,
+     "g_y6_10": 0.1,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 58.0,
+     "quote": "i have put a 7 dividend growth rate in the first five years and then 10 as they reach profitability with the 5g a 5 dividend yield expected in 2030 and that leads to a stock price of almost 100 for an intrinsic value of 58 for a 10 discount rate"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": null,
+     "quote": "in the best case scenario let's say the dividend growth is even faster in the long term and the market is happy with the four percent dividend yield we have more than double stock price and higher and higher dividend for an even higher intrinsic current value"
+    }
+   ],
+   "iv_weighted_stated": 58.0,
+   "price_mentioned": 56.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 56.790000915527344,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "The intrinsic value from his dividend model is slightly above the current price, implying about a 10% return.",
+    "quote": "you can see how the intrinsic value is slightly above the current stock price of 56 for a 10 return",
+    "chunk_id": "chunk:gPCKmXwfEdY:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "intrinsic value",
+      "value": 58.0,
+      "unit": "usd",
+      "period": null
+     },
+     {
+      "name": "price",
+      "value": 56.0,
+      "unit": "usd",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 56.0,
+     "value_as_of": 56.790000915527344,
+     "agrees": true,
+     "formula": "close \u2264 T0",
+     "as_of_period": "2021-03-08",
+     "gap_note": "not in our data: intrinsic value"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "sentiment",
+    "claim": "Buffett bought this as his second-largest ever purchase at a price close to or below today's, which he treats as a signal of opportunity.",
+    "quote": "it is the second largest ever warren buffett purchase he spent 8.6 billion on his current position the stock price is a little bit lower than what he paid",
+    "chunk_id": "chunk:gPCKmXwfEdY:1",
+    "start_s": 72.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buffett purchase size",
+      "value": 8.6,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: buffett purchase size"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Verizon has the highest return on invested capital among the three-player oligopoly, indicating the strongest competitive position.",
+    "quote": "if we look at verizon you can see here in digits teen returns over invested capital that is also what warren buffett is looking at with high returns on invested capital comparing to the competition",
+    "chunk_id": "chunk:gPCKmXwfEdY:3",
+    "start_s": 230.0,
+    "feeds": "g_y6_10",
+    "metrics": [
+     {
+      "name": "ROIC",
+      "value": null,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Net Income",
+      "Stockholders Equity"
+     ],
+     "value_stated": null,
+     "value_as_of": 0.2569725141471301,
+     "agrees": null,
+     "formula": "Net Income / Equity",
+     "as_of_period": "FY2020",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "As 5G capex subsides in coming years, free cash flow and profitability should rise, supporting higher dividends.",
+    "quote": "in it one two three years 5g will be positioned will be done the capex will start going down and the profitability is likely to start going up",
+    "chunk_id": "chunk:gPCKmXwfEdY:5",
+    "start_s": 387.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "Cash Dividends Paid"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "balance_sheet",
+    "claim": "High debt load is a risk, though he considers it manageable relative to operating cash flow and partly mitigated by Buffett's stake.",
+    "quote": "on the other risks there is that 107 billion i think",
+    "chunk_id": "chunk:gPCKmXwfEdY:8",
+    "start_s": 628.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "debt",
+      "value": 107.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: debt"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Warren Buffett's $8.6 billion Verizon purchase, his second-largest ever",
+   "Comparison of ROIC across Verizon, T-Mobile, Sprint, and AT&T",
+   "C-band spectrum auction spending for 5G"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 4,
+   "position_agrees": false,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "He says IV 58 vs price 56 for ~10%, 'one option', will 'keep looking' whether to add \u2014 fairly valued/watch, not a buy call. Extractor's relative_buy overstates; fair_hold fits."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 56.790000915527344,
+   "latest_fy_visible": 2020,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 1,
+    "derived": 1,
+    "external": 2,
+    "judgement": 0
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    0.906,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "05111e76-eee9-4b52-9195-d08e34ea61b9",
+   "transcript_sha256": "d2cdcb6b030cbbd05d049e0b71d1f8cd737f1bf8b7fdf4ac6b37e4dcebaf2148",
+   "extracted_at": "2026-09-19T12:52:26+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "befb78b6-cb12-4bfd-890a-5c80875346ef"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0395278,
+   "session_id": "05111e76-eee9-4b52-9195-d08e34ea61b9",
+   "input_tokens": 8042,
+   "output_tokens": 1684
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.07801699999999999,
+   "session_id": "befb78b6-cb12-4bfd-890a-5c80875346ef",
+   "input_tokens": 6389,
+   "output_tokens": 635
+  }
+ }
+}

@@ -1,0 +1,311 @@
+{
+ "key": "OWC8w_VEIQ8:7ecb76388509:v2:a33445f38391",
+ "eval": {
+  "video_id": "OWC8w_VEIQ8",
+  "ticker": "GOOGL",
+  "t0": "2022-02-20",
+  "title": "Google Stock Valuation - Great Business At A Fair Price",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": "BUY",
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "none",
+   "expected_return_pct": 10.0,
+   "horizon_years": 10.0,
+   "conviction": "medium",
+   "headline_quote": "thus google is undervalued at current levels"
+  },
+  "valuation": {
+   "method": "eps_multiple",
+   "base_metric": {
+    "name": "eps",
+    "value_stated": 112.0,
+    "quote": "i have input 112 earnings per share"
+   },
+   "discount_rate": 0.1,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": 0.15,
+     "g_y6_10": 0.1,
+     "terminal_multiple": 25.0,
+     "probability": null,
+     "iv_stated": 3179.0,
+     "quote": "the intrinsic value is 3179 per share for a 10 return"
+    },
+    {
+     "name": "worst",
+     "g_y1_5": 0.1,
+     "g_y6_10": 0.07,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 4728.0,
+     "quote": "from the current 2700 you end up with 4728 but that's a slower than 10 return"
+    }
+   ],
+   "iv_weighted_stated": 3179.0,
+   "price_mentioned": 2700.0,
+   "what_is_priced_in": {
+    "growth": 16.0,
+    "multiple": 25.0,
+    "quote": "morningstar sees a growth rate of 16 over the next five years"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": 3496.9,
+     "iv_stated": 3179.0,
+     "error": 0.1,
+     "ok": false
+    },
+    {
+     "name": "worst",
+     "iv_model": null,
+     "iv_stated": 4728.0,
+     "ok": null
+    }
+   ],
+   "within_band": false,
+   "n_compared": 1,
+   "n_ok": 0,
+   "expected_return_at_price": 52.8,
+   "base_metric": {
+    "name": "eps",
+    "stated": 112.0,
+    "as_of": 112.2,
+    "period": "FY2021",
+    "gap_pct": -0.2
+   }
+  },
+  "price_at_t0": 130.4029998779297,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "At a 10% discount rate with reasonable growth assumptions, Google's intrinsic value exceeds the current price, making it undervalued.",
+    "quote": "the intrinsic value is 3179 per share for a 10 return thus google is undervalued at current levels",
+    "chunk_id": "chunk:OWC8w_VEIQ8:3",
+    "start_s": 219.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "intrinsic value",
+      "value": 3179.0,
+      "unit": "usd_per_share",
+      "period": null
+     },
+     {
+      "name": "price",
+      "value": 2700.0,
+      "unit": "usd_per_share",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS",
+      "close"
+     ],
+     "value_stated": 3179.0,
+     "value_as_of": 3496.9,
+     "agrees": false,
+     "formula": "valuation.two_stage_iv on his inputs",
+     "as_of_period": "T0",
+     "gap_note": "he says 3179, as-of 3496.9 (T0); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Google's dominant position in search and YouTube gives it pricing power that regulation cannot really threaten since customers have no alternative.",
+    "quote": "if you google search nobody can tell you use something else and that's the power that google has",
+    "chunk_id": "chunk:OWC8w_VEIQ8:2",
+    "start_s": 146.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "capital_allocation",
+    "claim": "Aggressive buybacks amounting to a meaningful yield on market cap support shareholder returns.",
+    "quote": "they have spent 50 billion over the last year on repurchases of common stocks that's about 2.5 percent buyback yield on the market capitalization",
+    "chunk_id": "chunk:OWC8w_VEIQ8:1",
+    "start_s": 65.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "buyback yield",
+      "value": 2.5,
+      "unit": "pct",
+      "period": "year"
+     },
+     {
+      "name": "buybacks",
+      "value": 50.0,
+      "unit": "usd_bn",
+      "period": "year"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Repurchase Of Capital Stock",
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 0.025,
+     "value_as_of": 0.5822620648929948,
+     "agrees": false,
+     "formula": "|Repurchase| / market cap",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 0.025, as-of 0.582262 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "The return depends heavily on hard-to-predict growth rates and what multiple the market will assign, making the outcome uncertain.",
+    "quote": "it all depends on those growth rates and especially depends on what kind of valuation the market will give it if it stays on 25 you will make money if it goes to 15 who knows what can happen",
+    "chunk_id": "chunk:OWC8w_VEIQ8:4",
+    "start_s": 295.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 25.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 25.0,
+     "value_as_of": 1.1622370755608706,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 25, as-of 1.16224 (FY2021); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "management",
+    "claim": "Regulation is a risk, though Google simply pays fines and continues business as usual.",
+    "quote": "the regulators might want to hit google but on the other hand google pays the few billions of fines it gets and then it's business as usual for google",
+    "chunk_id": "chunk:OWC8w_VEIQ8:2",
+    "start_s": 146.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Morningstar fair value estimate of $3600 (25% upside)",
+   "Morningstar's 16% five-year growth expectation",
+   "Seth Klarman's Baupost Group holding and buying activity in Google",
+   "Announced 20-for-1 stock split",
+   "Quarterly record sales for Pixel phones"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": false,
+   "own_stance_detail": "fair_hold",
+   "invented_reasons": [],
+   "notes": "He models ~10% return at current price, calls it 'medium risk medium reward' and 'about how you feel about owning a great company' \u2014 fairly valued for 10%, not a buy call. HOLD vs extractor's BUY."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 130.4029998779297,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 3,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 1,
+   "iv_ok": 0,
+   "iv_within_band": false,
+   "base_metric_gap_pct": -0.2,
+   "expected_return_at_price": 52.8,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "6f6b69e0-320a-45a5-8075-f83ddb3be8fc",
+   "transcript_sha256": "7ecb763885094a1156978e5ab4800e6150374a469acfa1dd8fbf829694c9c8f5",
+   "extracted_at": "2026-09-19T12:54:19+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "079a8c8b-4453-43e2-89f5-a5373b6de917"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.030079800000000004,
+   "session_id": "6f6b69e0-320a-45a5-8075-f83ddb3be8fc",
+   "input_tokens": 6204,
+   "output_tokens": 1614
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.052425000000000006,
+   "session_id": "079a8c8b-4453-43e2-89f5-a5373b6de917",
+   "input_tokens": 4529,
+   "output_tokens": 413
+  }
+ }
+}

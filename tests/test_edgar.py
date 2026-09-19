@@ -2,7 +2,7 @@
 
 from datetime import date
 
-from value_invest.market.edgar import annual_statements
+from value_invest.market.edgar import annual_statements, check_filer
 
 
 def _e(start, end, val, filed, fp="FY", form="10-K"):
@@ -79,6 +79,42 @@ def test_annual_statements_selection_and_derivation():
     working_capital23 = rows[(date(2023, 9, 30), "balance", "Working Capital")]
     assert working_capital23.filed_at == date(2023, 12, 1)
     assert working_capital23.available_from == date(2023, 12, 1)
+
+
+class _FakeClient:
+    def __init__(self, facts):
+        self._facts = facts
+
+    def cik_for(self, ticker):
+        return 1
+
+    def companyfacts(self, cik):
+        return self._facts
+
+
+def test_check_filer_rejects_a_stub_period_as_the_only_fy_entry():
+    # the only fp == "FY" Assets entry is a 3-month transition-period stub, not a real fiscal year
+    stub_facts = {
+        "facts": {
+            "us-gaap": {
+                "Assets": {"units": {"USD": [_e("2023-07-01", "2023-09-30", 500.0, "2023-11-01")]}}
+            }
+        }
+    }
+    cik, has_annual = check_filer("TEST", client=_FakeClient(stub_facts))
+    assert has_annual is False
+
+
+def test_check_filer_accepts_a_genuine_full_year_entry():
+    real_facts = {
+        "facts": {
+            "us-gaap": {
+                "Assets": {"units": {"USD": [_e("2022-10-01", "2023-09-30", 500.0, "2023-11-01")]}}
+            }
+        }
+    }
+    cik, has_annual = check_filer("TEST", client=_FakeClient(real_facts))
+    assert has_annual is True
 
 
 def test_fiscal_years_view_merges_sources_by_year(con):

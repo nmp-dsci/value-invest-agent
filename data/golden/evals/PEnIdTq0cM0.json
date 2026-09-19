@@ -1,0 +1,267 @@
+{
+ "key": "PEnIdTq0cM0:161228297837:v2:a33445f38391",
+ "eval": {
+  "video_id": "PEnIdTq0cM0",
+  "ticker": "CPNG",
+  "t0": "2023-11-30",
+  "title": "Coupang Stock Analysis - Korea e-commerce!",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": 4.0,
+   "conviction": "medium",
+   "headline_quote": "in this case cang is still risky there is still room for downside but there is still room for total disaster if they can't keep margins up"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": null,
+    "quote": "if we give it a normal valuation at free cash flows that they discuss then p ratio 15 they should be making 2 billion"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 15.0,
+     "probability": null,
+     "iv_stated": 30.0,
+     "quote": "if we give it a normal valuation at free cash flows that they discuss then p ratio 15 they should be making 2 billion"
+    }
+   ],
+   "iv_weighted_stated": 30.0,
+   "price_mentioned": 28.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 66.0,
+    "quote": "the p ratio is 66"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 15.279999732971191,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "To double the stock in 3-4 years profits need to quadruple, which requires tripling or doubling revenue on current margins, and he finds that unlikely.",
+    "quote": "they need to Triple their revenues on current margins or at least double and will that happen in four years I find that unlikely",
+    "chunk_id": "chunk:PEnIdTq0cM0:3",
+    "start_s": 248.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "target market cap",
+      "value": 60.0,
+      "unit": "usd_bn",
+      "period": "3-4 years"
+     },
+     {
+      "name": "target net income",
+      "value": 4.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: target market cap, target net income"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "Growth has slowed sharply from doubling every year to low-teens, a big consequence for a story priced on hypergrowth.",
+    "quote": "we see here extremely fast growth doubling every year especially with the pandemic but now we have the first big big slowdown with low teen growth rates",
+    "chunk_id": "chunk:PEnIdTq0cM0:1",
+    "start_s": 78.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "growth rate",
+      "value": null,
+      "unit": "pct",
+      "period": "recent"
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Diluted EPS"
+     ],
+     "value_stated": null,
+     "value_as_of": -0.9537037037037037,
+     "agrees": null,
+     "formula": "eps FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2022",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Competitive pressure from AliExpress and reliance on a vague 'wow element' rather than a real cost/scale advantage will compress margins.",
+    "quote": "if there is a competitor your margin will get thinner and if that competitor can work cheaper better faster on a bigger scale than you have then you know your margins might not go that far",
+    "chunk_id": "chunk:PEnIdTq0cM0:2",
+    "start_s": 169.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At the current 66 P/E, the market is pricing in growth and margin outcomes that require heroic assumptions to justify.",
+    "quote": "the p ratio is 66",
+    "chunk_id": "chunk:PEnIdTq0cM0:0",
+    "start_s": 0.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "pe ratio",
+      "value": 66.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 66.0,
+     "value_as_of": -305.5999946594238,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2022",
+     "gap_note": "he says 66, as-of -305.6 (FY2022); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "sentiment",
+    "claim": "Owning something just because a famous investor like Druckenmiller owns it is misleading since he bought pre-IPO at a much lower price than retail can access now.",
+    "quote": "you must not get confused when you look at these sites they say that he bought at IPO no if you look at data they bought in the first rounds",
+    "chunk_id": "chunk:PEnIdTq0cM0:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Druckenmiller's 13F stake in Coupang and his pre-IPO purchase history",
+   "Coupang conference call comments on Taiwan expansion, margin expansion, and cash flow vs EBITDA",
+   "Analyst (Barclays) question on AliExpress competition and CEO's 'wow element' response"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok. Reason 4's 'heroic assumptions' phrasing is an interpretive gloss on his P/E 66 vs P/E 15 argument, but the underlying claim is his."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 15.279999732971191,
+   "latest_fy_visible": 2022,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 2,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 1,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "afd8e10c-06ed-44a0-85cc-b426ccc130e9",
+   "transcript_sha256": "161228297837d7afeb2b23ec2d839ad0604baadefa786280a2fedc14410a7901",
+   "extracted_at": "2026-09-19T11:51:27+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "081e5e7f-e05b-414b-9b58-8f28dc82a881"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0286328,
+   "session_id": "afd8e10c-06ed-44a0-85cc-b426ccc130e9",
+   "input_tokens": 6054,
+   "output_tokens": 1539
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.049661000000000004,
+   "session_id": "081e5e7f-e05b-414b-9b58-8f28dc82a881",
+   "input_tokens": 4341,
+   "output_tokens": 382
+  }
+ }
+}

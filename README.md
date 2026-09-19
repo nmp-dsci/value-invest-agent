@@ -56,6 +56,26 @@ schema `vi`, and the walkthrough app.
 agent) makes for a video; a fiscal year becomes visible at `period_end + 90 d`.
 `tests/test_as_of.py` asserts nothing dated after `t0` can come back.
 
+## Pipeline (milestone 2, in progress — plan: `ai_specs/s02_m2_golden_extraction.md`)
+
+| Stage | Command | Writes | Notes |
+|---|---|---|---|
+| S4.0 template | `uv run vi valuation check` | — | `src/value_invest/valuation.py` is the author's intrinsic-value template (two-stage 10-year growth, terminal P/E, 10 % discount, scenario weights); `data/golden/stated_ivs.json` holds the values he states on camera and the check keeps the code within his rounding of them (10 / 10) |
+| S4 extract | `uv run vi extract` · `--only ID` · `--force` · `--reground` | `vi.evals`, `data/golden/evals/<video_id>.json` | transcript → `GoldenEvalDraft` (Agent SDK, Sonnet, `extractors/v0/system.md`) → grounding in `vi.statements_as_of` / prices / FRED (python) → critic (Opus: quotes verbatim, independent stance for κ) → checkpoint. Cache keyed on (video, transcript sha, prompt fingerprint); `--reground` rebuilds the data checks with no model call. Position is BUY / HOLD / SELL from the 6-way `stance_detail` (rule C); binary and hurdle views derived |
+| S4.3 checkpoint | `uv run vi golden eval-seed` · `kappa` · `summary` | `data/golden/seed_eval_v0.json`, `kappa.json`, `method_summary.json` | seed = `data/golden/seed_labels.json` (36 hand labels, 17 read in full); κ extractor vs critic on the 6-way and 3-way stance; the method summary is the distilled parameter table (discount rate, terminal multiples by growth bucket, probabilities, reason mix) |
+| S4.4 window | `VI_SINCE=2020-09-17 VI_SAMPLE_PER_YEAR=20 VI_PRICES_FROM=2015-01-01` then catalog → classify → refine-dates → `vi edgar --check-candidates --recheck` → sample → ingest → market → edgar → extract | +80 videos (20 / yr × 6 = 120) | sticky sampler keeps the first 40; eligibility = SEC filer with annual us-gaap statements (10-K or 20-F/40-F), CIK overrides in `data/edgar_cik_overrides.json` |
+| S5 validate | `uv run vi validate` · `uv run vi rates` | `vi.validations`, `vi.rates` | excess return vs the benchmark at T0 + 6 / 12 / 24 m; verdict bands: BUY right if > +5 pp, SELL right if < −5 pp, HOLD right within ±10 pp (D14; "did not lag > 5 pp" kept beside it); `iv_hit` = price touched his stated IV inside the horizon. FRED DGS10 / DGS3MO for the risk-free comparisons |
+| S5 app | `uv run vi serve` | — | **Golden Evals** tab: insights on top (per-class hit rates by horizon, per-year × split table, reproducibility, κ, seed eval, the distilled method), every eval in a table below, row → detail (valuation with recomputed check, reasons with data-check chips and ▶ timestamps, accept / edit / reject → `POST /api/evals/{id}/review`, which also writes the human label into `seed_labels.json`). The **Video** tab shows the same eval panel beside the transcript; ▶ jumps to the cited chunk; the chart carries his IV line and the +6/12/24 m verdict markers |
+
+### M2 results (extractor v2, 120 evals, 2026-09-19)
+
+- Position mix BUY / HOLD / SELL = 22 / 29 / 69; 58 videos state an intrinsic value.
+- Seed: position accuracy 88% on the 17 fully-read videos (balanced 0.90), 86% on all 36; reason recall 0.71; quotes verbatim 0.99. Iterations v0 → v1 → v2: 76 % → 82 % → 88 %.
+- κ extractor vs critic on the 6-way stance 0.74 (3-way 0.80); the critic agrees on the position in 106 / 120.
+- Validation at 12 months (n 100): BUY right 6 / 19, HOLD 8 / 26, SELL 28 / 55; verdicts 42 correct · 51 wrong · 7 indeterminate.
+- 597 reasons, 55 % reproducible from data at T0 (statements / prices / derived); the rest rest on consensus, guidance, segments, 13F or judgement.
+- Known limits: the quoted-price check passes 25 / 68 (he quotes pre-split prices; `vi.prices.close` is split-adjusted), intrinsic values recompute within ±10 % in 15 / 40 scenarios (he adjusts inputs while talking), 26 evals use a base metric > 15 % from the last annual figure (TTM vs annual, D9).
+
 ### Data-source notes learned building M1
 
 - **Supadata's plan limit** was exhausted after 144 metadata calls

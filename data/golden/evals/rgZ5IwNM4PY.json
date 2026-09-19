@@ -1,0 +1,286 @@
+{
+ "key": "rgZ5IwNM4PY:9f8723be6877:v2:a33445f38391",
+ "eval": {
+  "video_id": "rgZ5IwNM4PY",
+  "ticker": "NEM",
+  "t0": "2022-07-18",
+  "title": "Newmont Stock Analysis And Portfolio Addition (Watch The Strategy)",
+  "position": "BUY",
+  "binary_position": "BUY",
+  "hurdle_position": "HOLD",
+  "rule_sensitive": true,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "relative_buy",
+   "personal_action": "buying",
+   "expected_return_pct": 5.0,
+   "horizon_years": null,
+   "conviction": "low",
+   "headline_quote": "so 15 000 buy now transmit and we have to see whether the order is filled there we go order filled at 55.18"
+  },
+  "valuation": {
+   "method": "fcf",
+   "base_metric": {
+    "name": "fcf_per_share",
+    "value_stated": 2000000000.0,
+    "quote": "at current gold prices let's say 2 billion in free cash flows"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "normal",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": null,
+     "probability": null,
+     "iv_stated": 20000000000.0,
+     "quote": "cash flows 2 billion intrinsic value is 20 billion so we are still pretty expensive compared to the market cap of 43 billion"
+    }
+   ],
+   "iv_weighted_stated": 20000000000.0,
+   "price_mentioned": 55.18,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": 20.0,
+    "quote": "the price to free cash flow 43 billion 2 billion is 20"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [
+    {
+     "name": "normal",
+     "iv_model": null,
+     "iv_stated": 20000000000.0,
+     "ok": null
+    }
+   ],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 54.810001373291016,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "At current gold prices and a P/FCF of 20, the market cap of 43 billion is well above his 20 billion intrinsic value, so the stock is still expensive.",
+    "quote": "cash flows 2 billion intrinsic value is 20 billion so we are still pretty expensive compared to the market cap of 43 billion",
+    "chunk_id": "chunk:rgZ5IwNM4PY:6",
+    "start_s": 474.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "free cash flow",
+      "value": 2.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "intrinsic value",
+      "value": 20.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "market cap",
+      "value": 43.0,
+      "unit": "usd_bn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Free Cash Flow"
+     ],
+     "value_stated": 2000000000.0,
+     "value_as_of": 2626000000.0,
+     "agrees": false,
+     "formula": "Free Cash Flow FY2021",
+     "as_of_period": "FY2021",
+     "gap_note": "he says 2e+09, as-of 2.626e+09 (FY2021); annual vs TTM or a different definition; not in our data: intrinsic value"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "Gold miner cash flows and the stock price swing violently with the gold price, so the business and stock can fall 75% from peak or half if gold drops.",
+    "quote": "there is always the potential that this goes down 75 that's something you must always expect it's actually a given",
+    "chunk_id": "chunk:rgZ5IwNM4PY:0",
+    "start_s": 0.0,
+    "feeds": "probability",
+    "metrics": [
+     {
+      "name": "drawdown potential",
+      "value": 75.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "prices",
+     "line_items": [
+      "close"
+     ],
+     "value_stated": 0.75,
+     "value_as_of": -0.3583469615055863,
+     "agrees": false,
+     "formula": "close / 5-year high \u2212 1",
+     "as_of_period": "5y",
+     "gap_note": "he says 0.75, as-of -0.358347 (5y); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "The total expected return at current gold prices from free cash flow yield is around 5%, not great but not bad, with upside if gold rises.",
+    "quote": "which means that the total return from new month at current gold prices is around five percent not stellar not great not bad five percent",
+    "chunk_id": "chunk:rgZ5IwNM4PY:5",
+    "start_s": 397.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "expected return",
+      "value": 5.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: expected return"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Newmont is a world-class, well-diversified, large-scale producer with stable multi-year production, which supports the quality of the business.",
+    "quote": "world-class assets top-tier jurisdictions they merged to get this african and global expansion so nothing wrong",
+    "chunk_id": "chunk:rgZ5IwNM4PY:1",
+    "start_s": 78.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "gold equivalent ounces produced",
+      "value": 8.0,
+      "unit": "million ounces",
+      "period": "annual"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: gold equivalent ounces produced"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_sell",
+    "category": "competence",
+    "claim": "He is not investing his core wealth in gold since it is unpredictable, but is playing volatility as part of an all-weather strategy rather than a fundamental conviction buy.",
+    "quote": "from an investment perspective i wouldn't put my wealth into this because i don't want to gamble on gold",
+    "chunk_id": "chunk:rgZ5IwNM4PY:5",
+    "start_s": 397.0,
+    "feeds": "none",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Newmont was one of the 100 businesses from the Vanguard High Dividend Yield ETF",
+   "all-in sustaining costs of production around $1,000-$1,100 per ounce",
+   "production guidance of 8 million gold equivalent ounces for the next 8-9 years"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "relative_buy",
+   "invented_reasons": [],
+   "notes": "He calls it expensive (IV 20B vs 43B cap, ~5% return) and wouldn't risk his own wealth, but actually buys $15k as a volatility/all-weather play with plans to add lower; relative_buy on action."
+  },
+  "checks": {
+   "price_check": true,
+   "price_at_t0": 54.810001373291016,
+   "latest_fy_visible": 2021,
+   "reproducible_share": 0.4,
+   "reproducible_counts": {
+    "statements": 1,
+    "prices": 1,
+    "derived": 0,
+    "external": 2,
+    "judgement": 1
+   },
+   "metrics_compared": 2,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "train",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "09cea9e0-278b-48f7-88e6-2724f6b9bd82",
+   "transcript_sha256": "9f8723be6877a0d4e4e99990d24018d69bee898d413fd11a191dd4a6b97cdb8a",
+   "extracted_at": "2026-09-19T12:56:25+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "9d05fc59-258a-434c-9344-dd47a3e550e4"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0365218,
+   "session_id": "09cea9e0-278b-48f7-88e6-2724f6b9bd82",
+   "input_tokens": 7547,
+   "output_tokens": 1613
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.070047,
+   "session_id": "9d05fc59-258a-434c-9344-dd47a3e550e4",
+   "input_tokens": 5802,
+   "output_tokens": 567
+  }
+ }
+}

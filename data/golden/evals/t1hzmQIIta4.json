@@ -1,0 +1,306 @@
+{
+ "key": "t1hzmQIIta4:577316b3f8aa:v2:a33445f38391",
+ "eval": {
+  "video_id": "t1hzmQIIta4",
+  "ticker": "MSFT",
+  "t0": "2024-10-17",
+  "title": "Microsoft Too Risky From Value Investing Perspective",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "none",
+   "expected_return_pct": null,
+   "horizon_years": 5.0,
+   "conviction": "medium",
+   "headline_quote": "I think that here even a little bit changing from Buffett a bird in the hand is much more worth than two Microsoft birds in the bush five years down the road"
+  },
+  "valuation": {
+   "method": "net_income",
+   "base_metric": {
+    "name": "net_income",
+    "value_stated": null,
+    "quote": "net income just stagnates doesn't grow anymore the p ratio reverts to 20 where it was just a while ago"
+   },
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [
+    {
+     "name": "worst",
+     "g_y1_5": 0.0,
+     "g_y6_10": null,
+     "terminal_multiple": 20.0,
+     "probability": null,
+     "iv_stated": 2000000000000.0,
+     "quote": "let's say a recession and let's say net income just stagnates doesn't grow anymore the p ratio reverts to 20 where it was just a while ago that's a market cap of let's say 2 trillion which is more than 30% down from where we are now"
+    },
+    {
+     "name": "best",
+     "g_y1_5": null,
+     "g_y6_10": null,
+     "terminal_multiple": 40.0,
+     "probability": null,
+     "iv_stated": 6000000000000.0,
+     "quote": "I want this to become Six Trillion let's say in the next 5 years because if I'm risking 30% down I want at least 100% up the possibility of it but then for that to happen net income has to almost double to 150 billion the p ratio has to stay high at let's say 40"
+    }
+   ],
+   "iv_weighted_stated": 2000000000000.0,
+   "price_mentioned": 3100000000000.0,
+   "what_is_priced_in": {
+    "growth": 0.16,
+    "multiple": null,
+    "quote": "if we look at the financial summaries yes there was good growth and it is likely that the growth will continue but how much growth do we need to justify the current stock price"
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 416.7200012207031,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "The stock trades at 12x revenues, an extreme valuation reminiscent of the dot-com era peak before a long stagnation.",
+    "quote": "we are now trading at the 3.1 trillion market cap on 245 billion in revenues if I made my calculations right that's 12 times revenues not earnings",
+    "chunk_id": "chunk:t1hzmQIIta4:0",
+    "start_s": 0.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "market cap",
+      "value": 3.1,
+      "unit": "usd_tn",
+      "period": null
+     },
+     {
+      "name": "revenue",
+      "value": 245.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "revenue multiple",
+      "value": 12.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 3100000000000.0,
+     "value_as_of": 3097896489074.707,
+     "agrees": true,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2024",
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "In a recession scenario with flat net income and the P/E reverting to 20, the market cap would fall over 30%, a bigger downside than the plausible upside.",
+    "quote": "the p ratio reverts to 20 where it was just a while ago that's a market cap of let's say 2 trillion which is more than 30% down from where we are now",
+    "chunk_id": "chunk:t1hzmQIIta4:2",
+    "start_s": 163.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "terminal p/e",
+      "value": 20.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "implied market cap",
+      "value": 2.0,
+      "unit": "usd_tn",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 20.0,
+     "value_as_of": 35.31525434073755,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 20, as-of 35.3153 (FY2024); annual vs TTM or a different definition; not in our data: implied market cap"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "valuation",
+    "claim": "To justify buying today, net income would need to almost double and the P/E stay elevated at 40, an unlikely combination given the risk of downside is greater than the possible upside.",
+    "quote": "for that to happen net income has to almost double to 150 billion the p ratio has to stay high at let's say 40 and only then you double your money with Microsoft",
+    "chunk_id": "chunk:t1hzmQIIta4:3",
+    "start_s": 231.0,
+    "feeds": "terminal",
+    "metrics": [
+     {
+      "name": "required net income",
+      "value": 150.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "required p/e",
+      "value": 40.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Net Income"
+     ],
+     "value_stated": 150000000000.0,
+     "value_as_of": 88136000000.0,
+     "agrees": false,
+     "formula": "Net Income FY2024",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 1.5e+11, as-of 8.8136e+10 (FY2024); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "growth",
+    "claim": "It is uncertain whether AI will deliver enough growth to justify the current price, drawing a parallel to how the internet didn't make Microsoft money as fast as expected.",
+    "quote": "AI might work but also it might not be as profitable as people are expecting it the internet worked but that just means everything is cheaper Microsoft didn't actually make money on it that fast",
+    "chunk_id": "chunk:t1hzmQIIta4:3",
+    "start_s": 231.0,
+    "feeds": "g_y1_5",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "statements",
+     "line_items": [
+      "Total Revenue",
+      "Net Income"
+     ],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "trajectory visible at T0; no number stated"
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "moat",
+    "claim": "Microsoft is an amazing, great business with staggering gross margins above 30%, though that alone doesn't guarantee a good return at this price.",
+    "quote": "Microsoft is an amazing business there is no argument on that a great business everything great and that is expressed by the gross margins that are staggering and more than 30%",
+    "chunk_id": "chunk:t1hzmQIIta4:0",
+    "start_s": 0.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "gross margin",
+      "value": 30.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Gross Profit",
+      "Total Revenue"
+     ],
+     "value_stated": 0.3,
+     "value_as_of": 0.6976444382797138,
+     "agrees": false,
+     "formula": "Gross Profit / Revenue",
+     "as_of_period": "FY2024",
+     "gap_note": "he says 0.3, as-of 0.697644 (FY2024); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok"
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 416.7200012207031,
+   "latest_fy_visible": 2024,
+   "reproducible_share": 1.0,
+   "reproducible_counts": {
+    "statements": 2,
+    "prices": 0,
+    "derived": 3,
+    "external": 0,
+    "judgement": 0
+   },
+   "metrics_compared": 4,
+   "metrics_agree": 1,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "test",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "19e6ab44-4362-4739-ba31-e8d84e855c27",
+   "transcript_sha256": "577316b3f8aaf7fbfe5b39806941de460d6963652c5de356a982a0c5935e98bc",
+   "extracted_at": "2026-09-19T13:00:35+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "36e3b2a2-9f1c-48eb-95a7-b4003b481155"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.030258800000000002,
+   "session_id": "19e6ab44-4362-4739-ba31-e8d84e855c27",
+   "input_tokens": 5662,
+   "output_tokens": 1889
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.044626000000000006,
+   "session_id": "36e3b2a2-9f1c-48eb-95a7-b4003b481155",
+   "input_tokens": 4209,
+   "output_tokens": 237
+  }
+ }
+}

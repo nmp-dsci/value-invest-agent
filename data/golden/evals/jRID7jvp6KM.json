@@ -1,0 +1,287 @@
+{
+ "key": "jRID7jvp6KM:d0f05fc99657:v2:a33445f38391",
+ "eval": {
+  "video_id": "jRID7jvp6KM",
+  "ticker": "PDD",
+  "t0": "2026-06-04",
+  "title": "PDD Stock Analysis - $77 Billion in Cash, $12 Profit on $120 Market Cap...",
+  "position": "SELL",
+  "binary_position": "SELL",
+  "hurdle_position": null,
+  "rule_sensitive": false,
+  "title_says_buy": false,
+  "call": {
+   "stance_detail": "avoid",
+   "personal_action": "watching",
+   "expected_return_pct": null,
+   "horizon_years": null,
+   "conviction": "low",
+   "headline_quote": "It looks good longterm but it doesn't have that quality that I would want to see in a business mode to consider it for my portfolios."
+  },
+  "valuation": {
+   "method": "none",
+   "base_metric": null,
+   "discount_rate": null,
+   "payout_ratio": null,
+   "scenarios": [],
+   "iv_weighted_stated": null,
+   "price_mentioned": 120000000000.0,
+   "what_is_priced_in": {
+    "growth": null,
+    "multiple": null,
+    "quote": ""
+   }
+  },
+  "iv_recomputed": {
+   "scenarios": [],
+   "within_band": null,
+   "n_compared": 0,
+   "n_ok": 0
+  },
+  "price_at_t0": 85.87999725341797,
+  "reasons": [
+   {
+    "rank": 1,
+    "direction": "for_sell",
+    "category": "moat",
+    "claim": "Declining margins over time suggest the underlying businesses lack a strong durable moat as competitors chase the same profits.",
+    "quote": "Personally, I don't see a durable competitive advantage.",
+    "chunk_id": "chunk:jRID7jvp6KM:4",
+    "start_s": 319.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "revenue growth",
+      "value": 11.0,
+      "unit": "pct",
+      "period": "last quarter"
+     },
+     {
+      "name": "net income margin",
+      "value": 22.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "Total Revenue"
+     ],
+     "value_stated": 0.11,
+     "value_as_of": 0.14452312435377102,
+     "agrees": false,
+     "formula": "revenue FY/FY\u22121 \u2212 1",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 0.11, as-of 0.144523 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 2,
+    "direction": "for_buy",
+    "category": "valuation",
+    "claim": "Stripping out the 60 billion in net cash, the market is pricing the operating business at a very low P/E given its earnings.",
+    "quote": "market cap is just 120 billion compared to the cash 60 billion. They are earning 12 billion a year. So if you eliminate the cash eliminate the interest on that they are having a P ratio of six on the adjusted cash.",
+    "chunk_id": "chunk:jRID7jvp6KM:5",
+    "start_s": 385.0,
+    "feeds": "base",
+    "metrics": [
+     {
+      "name": "market cap",
+      "value": 120.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "cash",
+      "value": 60.0,
+      "unit": "usd_bn",
+      "period": null
+     },
+     {
+      "name": "net income",
+      "value": 12.0,
+      "unit": "usd_bn",
+      "period": "year"
+     },
+     {
+      "name": "adjusted P/E",
+      "value": 6.0,
+      "unit": "ratio",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Shares Outstanding"
+     ],
+     "value_stated": 120000000000.0,
+     "value_as_of": 488965136988.3394,
+     "agrees": false,
+     "formula": "close \u00d7 shares",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 1.2e+11, as-of 4.88965e+11 (FY2025); annual vs TTM or a different definition"
+    }
+   },
+   {
+    "rank": 3,
+    "direction": "for_sell",
+    "category": "capital_allocation",
+    "claim": "Management is plowing all cash into a new, unproven private-label investment rather than returning capital, which Wall Street dislikes and adds uncertainty.",
+    "quote": "so no dividends, no buybacks. A change there would also push the stock higher immediately 50%, but the management is focused on operations and building the business.",
+    "chunk_id": "chunk:jRID7jvp6KM:5",
+    "start_s": 385.0,
+    "feeds": "none",
+    "metrics": [
+     {
+      "name": "planned investment",
+      "value": 20.0,
+      "unit": "usd_bn",
+      "period": "3 years"
+     }
+    ],
+    "data_check": {
+     "reproducible": "external",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": "not in our data: planned investment"
+    }
+   },
+   {
+    "rank": 4,
+    "direction": "for_sell",
+    "category": "cyclicality",
+    "claim": "It is unclear whether the new investment will build a durable moat or simply be a necessary cost to defend the existing business, eating future profits.",
+    "quote": "now the key dilemma is whether the margin compression is increasing PDD's future mode or it is a necessary investment to just maintain the current business eating up current and future profits.",
+    "chunk_id": "chunk:jRID7jvp6KM:3",
+    "start_s": 240.0,
+    "feeds": "g_y6_10",
+    "metrics": [],
+    "data_check": {
+     "reproducible": "judgement",
+     "line_items": [],
+     "value_stated": null,
+     "value_as_of": null,
+     "agrees": null,
+     "formula": null,
+     "as_of_period": null,
+     "gap_note": null
+    }
+   },
+   {
+    "rank": 5,
+    "direction": "for_buy",
+    "category": "growth",
+    "claim": "If the new private-label pillar succeeds like the previous two growth pillars did, the stock is a total bargain at these growth rates.",
+    "quote": "if they keep on growing and building as they have done in the past, you're buying something at a P ratio of nine that's growing at 10, Peter Lynch would categorize that as a strong buy.",
+    "chunk_id": "chunk:jRID7jvp6KM:5",
+    "start_s": 385.0,
+    "feeds": "g_y1_5",
+    "metrics": [
+     {
+      "name": "P/E",
+      "value": 9.0,
+      "unit": "ratio",
+      "period": null
+     },
+     {
+      "name": "growth",
+      "value": 10.0,
+      "unit": "pct",
+      "period": null
+     }
+    ],
+    "data_check": {
+     "reproducible": "derived",
+     "line_items": [
+      "close",
+      "Diluted EPS"
+     ],
+     "value_stated": 9.0,
+     "value_as_of": 36.389829344668634,
+     "agrees": false,
+     "formula": "close / Diluted EPS",
+     "as_of_period": "FY2025",
+     "gap_note": "he says 9, as-of 36.3898 (FY2025); annual vs TTM or a different definition"
+    }
+   }
+  ],
+  "external_facts_used": [
+   "Management conference call statements on prioritizing supply chain investment over short-term financial performance",
+   "Charlie Munger's comment on Alibaba being 'just another goddamn retailer'",
+   "Teu (Temu) regulatory fines in China"
+  ],
+  "critic": {
+   "faithful": true,
+   "quotes_total": 5,
+   "quotes_verbatim": 5,
+   "position_agrees": true,
+   "own_stance_detail": "avoid",
+   "invented_reasons": [],
+   "notes": "ok \u2014 he places PDD in the 'bet box', sees no durable moat, won't consider it for his portfolios, and says wait for ~90-100B; category 'cyclicality' on reason 4 is a mislabel but claim is supported."
+  },
+  "checks": {
+   "price_check": false,
+   "price_at_t0": 85.87999725341797,
+   "latest_fy_visible": 2025,
+   "reproducible_share": 0.6,
+   "reproducible_counts": {
+    "statements": 0,
+    "prices": 0,
+    "derived": 3,
+    "external": 1,
+    "judgement": 1
+   },
+   "metrics_compared": 3,
+   "metrics_agree": 0,
+   "iv_compared": 0,
+   "iv_ok": 0,
+   "iv_within_band": null,
+   "base_metric_gap_pct": null,
+   "expected_return_at_price": null,
+   "quote_scores": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "faithful_share": 1.0
+  },
+  "split": "holdout",
+  "provenance": {
+   "extractor_version": "v2",
+   "model": "claude-sonnet-5",
+   "session_id": "89f5b90b-ddf2-4231-8a41-d812491abc6a",
+   "transcript_sha256": "d0f05fc99657777700f9f48b2f5b6d6de1f2b5d77ac1d54d9b8e0bb3612d8f9f",
+   "extracted_at": "2026-09-19T13:03:17+00:00",
+   "critic_model": "claude-opus-5",
+   "critic_session_id": "c8ab24eb-a86f-4e85-98ae-71cfb96d643f"
+  },
+  "curation_status": "auto"
+ },
+ "usage": {
+  "extract": {
+   "model": "claude-sonnet-5",
+   "turns": 1,
+   "cost_usd": 0.0354718,
+   "session_id": "89f5b90b-ddf2-4231-8a41-d812491abc6a",
+   "input_tokens": 7448,
+   "output_tokens": 1564
+  },
+  "critic": {
+   "model": "claude-opus-5",
+   "turns": 1,
+   "cost_usd": 0.065834,
+   "session_id": "c8ab24eb-a86f-4e85-98ae-71cfb96d643f",
+   "input_tokens": 5548,
+   "output_tokens": 512
+  }
+ }
+}
