@@ -60,7 +60,8 @@ a table below; the Video tab shows the eval beside the transcript.
 3. ground (python): per reason resolve line items via a category → formula table,
    pull `vi.statements_as_of` (EDGAR first, yfinance fallback), `vi.prices`,
    `vi.rates` (FRED); recompute scenarios with `valuation.py`; price_mentioned vs
-   closes within ±5 trading days; mark reproducible / agrees.
+   closes in the trailing 5 trading days up to T0 (never after, point-in-time);
+   mark reproducible / agrees.
 4. critic (Agent SDK, Opus 5): quotes verbatim (fuzzy ≥ 0.9), position follows rule
    C, no invented reason; independent stance_detail → κ.
 5. checkpoint: `data/golden/<video_id>.json` keyed by (video_id, transcript_sha256,

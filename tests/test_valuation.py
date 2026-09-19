@@ -56,6 +56,12 @@ def test_buyback_yield_and_dividend_spread():
     assert v.dividend_spread(2.6, 38.35, 0.04) == pytest.approx(0.028, abs=0.002)
 
 
+def test_implied_growth_rejects_an_unreachable_price():
+    # a price far beyond any achievable IV even at 100% growth must raise, not silently converge
+    with pytest.raises(ValueError):
+        v.implied_growth(1e15, 6.0, 40, 0.10, 0.15)
+
+
 def test_quadrant_labels():
     assert v.quadrant(7, "low") == "okay return · low risk"
     assert v.quadrant(12, "high") == "good return · high risk"

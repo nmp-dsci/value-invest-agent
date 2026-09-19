@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, timedelta
 
 from value_invest.golden import ground as G
 from value_invest.golden.kappa import kappa_report
@@ -233,6 +233,47 @@ def test_ground_uses_only_data_visible_at_t0(con):
     assert ivr["expected_return_at_price"] < 2
 
 
+def test_ground_price_window_excludes_prices_after_t0(con):
+    _seed_apple(con)
+    t0 = date(2025, 1, 21)
+    # a price two days after T0 must never reach closes_near_t0 or price_check
+    con.execute(
+        "INSERT INTO vi.prices VALUES ('AAPL', ?, 1, 1, 1, ?, ?, 1)",
+        [t0 + timedelta(days=2), 999.0, 999.0],
+    )
+    a = G.load_as_of(con, "AAPL", t0)
+    assert 999.0 not in a.closes_near_t0
+    assert all(c <= 250.0 for c in a.closes_near_t0)  # only trailing seeded closes
+
+
+def test_check_reason_uses_as_of_to_disambiguate_scale(con):
+    a = G.AsOf(
+        ticker="X",
+        t0=date(2025, 1, 21),
+        metrics={
+            "interest_expense": {
+                "value": 500_000_000.0,
+                "unit": "usd",
+                "origin": "statements",
+                "formula": "",
+                "line_items": ["Interest Expense"],
+                "period": "FY2024",
+            }
+        },
+    )
+    reason = Reason(
+        rank=1,
+        direction="for_sell",
+        category="balance_sheet",
+        claim="interest expense is a drag",
+        quote="interest expense of 500",
+        metrics=[MetricMention(name="interest expense", value=500, unit=None)],
+    )
+    dc = G.check_reason(reason, a, iv_ok=None)
+    # 500 million (close to the 500,000,000 as-of value), not the old 500 * 1e9 magnitude guess
+    assert dc.agrees is True
+
+
 def test_verdict_bands_follow_d14():
     assert (
         verdict_for("BUY", 0.06) == "correct"
@@ -276,6 +317,29 @@ def test_split_and_cache_key():
     v = load_version("v0")
     k = cache_key("abc", "0123456789abcdef", v)
     assert k.startswith("abc:0123456789ab:v0:") and v.fingerprint in k
+
+
+def test_build_prompt_never_carries_the_title():
+    from value_invest.golden.extract import build_prompt
+    from value_invest.golden.transcript import Transcript
+
+    t = Transcript(
+        video_id="v1",
+        title="Buy XYZ for a quick 2x!!!",
+        text="the transcript makes a bearish case throughout",
+        marked="[chunk:v1:0 @ 0:00] the transcript makes a bearish case throughout",
+        sha256="deadbeef",
+        n_segments=1,
+        n_chunks=1,
+        words=6,
+        chunk_starts={"chunk:v1:0": 0.0},
+    )
+    prompt = build_prompt(t, "XYZ", "2025-01-21", "a description")
+    assert "Buy XYZ for a quick 2x" not in prompt
+    assert "title" not in prompt.lower()
+    assert (
+        "the transcript makes a bearish case" in prompt
+    )  # the transcript itself still flows through
 
 
 def test_draft_tolerates_text_numbers_and_key_variants():
