@@ -74,7 +74,7 @@ agent) makes for a video; a fiscal year becomes visible at `period_end + 90 d`.
 - κ extractor vs critic on the 6-way stance 0.74 (3-way 0.80); the critic agrees on the position in 106 / 120.
 - Validation at 12 months (n 100): BUY right 6 / 19, HOLD 8 / 26, SELL 28 / 55; verdicts 42 correct · 51 wrong · 7 indeterminate.
 - 597 reasons, 55 % reproducible from data at T0 (statements / prices / derived); the rest rest on consensus, guidance, segments, 13F or judgement.
-- Known limits: the quoted-price check passes 26 / 68 (he quotes pre-split prices; `vi.prices.close` is split-adjusted), intrinsic values recompute within ±10 % in 15 / 40 scenarios (he adjusts inputs while talking), 26 evals use a base metric > 15 % from the last annual figure (TTM vs annual, D9).
+- Known limits: the quoted-price check passes 25 / 68 (he quotes pre-split prices; `vi.prices.close` is split-adjusted), intrinsic values recompute within ±10 % in 15 / 40 scenarios (he adjusts inputs while talking), 26 evals use a base metric > 15 % from the last annual figure (TTM vs annual, D9).
 
 ### Data-source notes learned building M1
 
