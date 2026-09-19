@@ -32,6 +32,41 @@ def _upsert_statements(con: duckdb.DuckDBPyConnection, df) -> int:
     return len(df)
 
 
+def load_edgar(con: duckdb.DuckDBPyConnection, tickers: list[str] | None = None) -> dict:
+    """10+ years of annual statements with filing dates for the US filers among
+    the sampled tickers (EDGAR companyfacts). Rows replace yfinance rows for the
+    same (ticker, period_end, kind, line_item); non-filers are reported, not failed."""
+    from value_invest.market.edgar import Edgar, fetch_edgar_statements
+
+    client = Edgar()
+    sampled = tickers or [
+        r[0]
+        for r in con.execute(
+            "SELECT DISTINCT primary_ticker FROM vi.videos WHERE in_sample AND primary_ticker IS NOT NULL ORDER BY 1"
+        ).fetchall()
+    ]
+    report: dict = {"filers": [], "not_on_edgar": [], "statement_rows": 0, "edgar_calls": 0}
+    for t in sampled:
+        try:
+            df = fetch_edgar_statements(t, client)
+        except Exception as e:  # one bad ticker must not stop the batch
+            report.setdefault("errors", []).append(f"{t}: {str(e)[:120]}")
+            continue
+        if df is None or df.empty:
+            report["not_on_edgar"].append(t)
+            continue
+        n = _upsert_statements(con, df)
+        years = sorted({int(str(p)[:4]) for p in df["period_end"]})
+        report["filers"].append(
+            {"ticker": t, "rows": n, "fiscal_years": f"{years[0]}–{years[-1]} ({len(years)})"}
+        )
+        report["statement_rows"] += n
+        con.execute("UPDATE vi.tickers SET fundamentals_source = 'edgar' WHERE ticker = ?", [t])
+        print(f"  {t:10s} edgar rows={n:4d} FY {years[0]}–{years[-1]}", flush=True)
+    report["edgar_calls"] = client.calls
+    return report
+
+
 def load_market(
     con: duckdb.DuckDBPyConnection, only_missing: bool = True, tickers: list[str] | None = None
 ) -> dict:

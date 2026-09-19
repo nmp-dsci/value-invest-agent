@@ -39,6 +39,9 @@ CONCEPTS: dict[tuple[str, str], list[str]] = {
         "Revenues",
         "RevenueFromContractWithCustomerExcludingAssessedTax",
         "SalesRevenueNet",
+        "SalesRevenueGoodsNet",
+        "RevenueFromContractWithCustomerIncludingAssessedTax",
+        "SalesRevenueServicesNet",
         "RevenuesNetOfInterestExpense",
     ],
     ("income", "Gross Profit"): ["GrossProfit"],
@@ -171,28 +174,33 @@ def annual_statements(ticker: str, facts: dict[str, Any], since_year: int = 2010
     by_fy: dict[date, dict[tuple[str, str], float]] = {}
     filed_by_fy: dict[date, date] = {}
     for (kind, item), concepts in CONCEPTS.items():
+        picked: dict[date, dict[str, Any]] = {}
+        # Concepts in priority order; a later concept only fills fiscal years the
+        # earlier ones lack (Apple moved from SalesRevenueNet to
+        # RevenueFromContractWithCustomer… in 2018 — both are needed for 16 years).
         for concept in concepts:
             units = (gaap.get(concept) or {}).get("units") or {}
             entries = units.get("USD") or units.get("USD/shares") or units.get("shares") or []
-            picked: dict[date, dict[str, Any]] = {}
             for e in entries:
                 if e.get("fp") != "FY" or e.get("form") not in ANNUAL_FORMS or not _full_year(e):
                     continue
                 end = date.fromisoformat(e["end"])
                 if end.year < since_year:
                     continue
-                # earliest filing wins: the original report, not a restatement
-                if end not in picked or e["filed"] < picked[end]["filed"]:
-                    picked[end] = e
-            if picked:
-                for end, e in picked.items():
-                    val = float(e["val"])
-                    if item in NEGATE:
-                        val = -abs(val)
-                    filed = date.fromisoformat(e["filed"])
-                    by_fy.setdefault(end, {})[(kind, item)] = val
-                    filed_by_fy[end] = min(filed, filed_by_fy.get(end, filed))
-                break  # first concept with data wins for this line item
+                prev = picked.get(end)
+                # earliest filing wins: the original report, not a restatement;
+                # a higher-priority concept's value is never replaced by a lower one
+                if prev is None:
+                    picked[end] = {**e, "_prio": concepts.index(concept)}
+                elif prev["_prio"] == concepts.index(concept) and e["filed"] < prev["filed"]:
+                    picked[end] = {**e, "_prio": prev["_prio"]}
+        for end, e in picked.items():
+            val = float(e["val"])
+            if item in NEGATE:
+                val = -abs(val)
+            filed = date.fromisoformat(e["filed"])
+            by_fy.setdefault(end, {})[(kind, item)] = val
+            filed_by_fy[end] = min(filed, filed_by_fy.get(end, filed))
     for end, items in by_fy.items():
         for key, fn in DERIVED.items():
             v = fn(items)

@@ -193,41 +193,47 @@ def create_app() -> FastAPI:
                 fwd[str(m)] = r[0] if r and r[0]["date"] <= date.today() else None
             out["forward"] = fwd
             # as-of statements: only fiscal years visible at t0
+            # Columns are fiscal-year labels (year of period end) so EDGAR and
+            # yfinance rows for the same year share one column; when both hold a
+            # value the EDGAR one (real filing date) wins.
             st = _rows(
                 c,
-                "SELECT period_end, kind, line_item, value, available_from FROM vi.statements_as_of(?, ?) ORDER BY period_end DESC",
+                "SELECT period_end, kind, line_item, value, available_from, source "
+                "FROM vi.statements_as_of(?, ?) ORDER BY period_end DESC, source",
                 [ticker, t0],
             )
-            periods = sorted({r["period_end"] for r in st}, reverse=True)
-            out["statement_periods"] = periods
-            fy = {
-                r["period_end"]: r
+            fy_rows = {
+                int(r["fy"]): r
                 for r in _rows(
                     c,
-                    "SELECT period_end, n_items, complete FROM vi.fiscal_years WHERE ticker = ?",
+                    "SELECT fy, period_end, n_items, complete, from_edgar FROM vi.fiscal_years WHERE ticker = ?",
                     [ticker],
                 )
             }
+            periods = sorted({str(r["period_end"])[:4] for r in st}, reverse=True)
+            out["statement_periods"] = periods
             out["statement_period_info"] = [
                 {
                     "period_end": p,
-                    "n_items": fy.get(p, {}).get("n_items"),
-                    "complete": bool(fy.get(p, {}).get("complete")),
+                    "n_items": fy_rows.get(int(p), {}).get("n_items"),
+                    "complete": bool(fy_rows.get(int(p), {}).get("complete")),
+                    "from_edgar": bool(fy_rows.get(int(p), {}).get("from_edgar")),
                 }
                 for p in periods
             ]
             by_kind: dict[str, dict[str, dict[str, float]]] = {}
             for r in st:
-                by_kind.setdefault(r["kind"], {}).setdefault(r["line_item"], {})[
-                    str(r["period_end"])
-                ] = r["value"]
+                cell = by_kind.setdefault(r["kind"], {}).setdefault(r["line_item"], {})
+                key = str(r["period_end"])[:4]
+                if key not in cell or r["source"] == "edgar":
+                    cell[key] = r["value"]
             out["statements"] = {
                 k: {"headline": [i for i in HEADLINE_ITEMS[k] if i in items], "items": items}
                 for k, items in by_kind.items()
             }
             hidden = _rows(
                 c,
-                "SELECT DISTINCT period_end, available_from FROM vi.statements WHERE ticker = ? AND available_from > ? ORDER BY 1",
+                "SELECT period_end, available_from FROM vi.fiscal_years WHERE ticker = ? AND available_from > ? ORDER BY 1",
                 [ticker, t0],
             )
             out["statements_hidden_after_t0"] = hidden
